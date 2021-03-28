@@ -1,0 +1,66 @@
+/*! 
+ ******************************************************************************
+ * \defgroup   Admin
+ * \brief      These are macros to administrate or report on SAS system status.
+ * \details    The ADMIN macros are used to administrate data interfaces in
+ *             a secure way, and to create reports for administrative users
+ *             on the status of the SAS Server environment. See the toolbox
+ *             macro documentation under /toolbox/docs for further detailed 
+ *             information and examples.
+  * 
+ * \defgroup   Documentation
+ * \brief      These are macros to create automated program documentation.
+ * \details    The DOCUMENTATION macros are used to create program or macro
+ *             documentation using the program or macro header information,
+ *             and saves the result in RTF or PDF format. See the toolbox
+ *             macro documentation under /toolbox/docs for further detailed 
+ *             information and examples.
+ * 
+ * \defgroup   Logging
+ * \brief      These are macros to analyse execution results on the system.
+ * \details    The LOGGING macros are used to analyse execution results on
+ *             SAS system. It reads the logs to obtain execution information
+ *             and generates log analysis result reports. See the toolbox
+ *             macro documentation under /toolbox/docs for further detailed 
+ *             information and examples.
+ * 
+ * \defgroup   Scripts
+ * \brief      These are programs configure and test the Toobox environment.
+ * \details    The SCRIPTS are used to configure, maintain, update and test
+ *             the functionality of the Toolbox environment. 
+ *             See the Toolbox macro documentation under /toolbox/docs 
+ *             for further detailed information and examples.
+ *
+ * \defgroup   System
+ * \brief      These are macros to control the user's SAS system environment.
+ * \details    The SYSTEM macros are used to control the client SAS system
+ *             setup at logon. It reads the metadata to obtain the user access
+ *             information for database connections, sets the user specific
+ *             parameters, and contains special programs to support and enhance
+ *             ETL-development. See the Toolbox macro documentation under 
+ *             /toolbox/docs for further detailed information and examples.
+ * 
+ * \defgroup   Testing
+ * \brief      These are macros to generate and run SAS program test scripts.
+ * \details    The TESTING macros are used to document, create or execute
+ *             test scripts. See the Toolbox macro documentation under 
+ *             /toolbox/docs for further detailed information and examples.
+ * 
+ * \defgroup   Utilities
+ * \brief      These are generic utility macros which can be used by everybody.
+ * \details    The UTILITY macros are generic and are used in many other macro
+ *             programs. The macros can be used as building blocks, and some
+ *             can be used _inline_ in a SAS data step or SAS proc sql. 
+ *             See the macro documentation under /toolbox/docs for further
+ *             detailed information and examples.
+ * 
+ * \defgroup   Validation
+ * \brief      These are macros that can be used for rule based data validation.
+ * \details    The VALIDATION macros are used for rule based data validation.
+ *             They contain calls to generic utility macros. These macros can 
+ *             be used as building blocks for other macros or master program.
+ *             See the macro documentation under /toolbox/docs for further
+ *             detailed information and examples.
+ *  
+ ******************************************************************************
+ */
