@@ -1,2 +1,191 @@
-# toolbox
-Paul's SAS Utility Macros Toolbox
+![misc/images/banner.png](misc/images/banner.png) 
+
+# 
+[![Release:none](https://img.shields.io/badge/release-v21.1.03-orange.svg)](/paul/toolbox/releases/tag/v21.1.03)
+[![SAS Version: 9.4](https://img.shields.io/badge/sas-9.4-blue.svg)](https://www.sas.com)
+[![License: GPL v3](https://img.shields.io/badge/license-GPLv3-green.svg)](https://www.gnu.org/licenses/gpl-3.0)
+
+# Toolbox - Paul's SAS&reg; Utility Macros Toolbox
+
+## Purpose
+
+The Toolbox is a library of SAS&reg; macros that can be used to cover specific or generic (repeating) tasks when developing SAS&reg; software. It lets SAS&reg; Programmers and Developers collaborate easily to build general-purpose applications with unprecedented speed and agility.
+
+These macros are the result of developing SAS&reg; software for more than fifteen years. It all started with collecting and saving code snippets in the early years. However soon after I got tired of searching for solutions of the same old problems over and over again, I started to build generic utility macros to cover basic functions that I could use every time and anywhere. So eventually at any project I started worked on, the first thing to do was to load my toolbox macros to the project site. Since then this soon became known as *Paul's SAS&reg; Utility Macros Toolbox*.
+
+All macros and programs are documented in detail, using the [Doxygen](http://www.doxygen.org) program header structure format as the de facto standard tool for generating documentation from annotated sources. To simplify the effort to keep the documentation up-to-date, the Toolbox also includes macros to perform the documentation generation to [Markdown](https://en.wikipedia.org/wiki/Markdown) formatted files. The documentation in this repository is using these Markdown formatted files which can be found in the `/toolbox/docs` directory.
+
+Contact me if you have any suggestions, questions or comments about the Toolbox, my email address is: [paul.canals@gmail.com](mailto:paul.canals@gmail.com), or connect with me on [LinkedIn](http://www.linkedin.com/in/paul-alexander-canals-y-trocha). 
+
+
+## Requirements
+
+the minimum system requirements to be able to use the SAS&reg; Toolbox macros are:
+
+##### Server Requirements:
+
+- Local SAS&reg; installation, or SAS&reg; BI Platform (v9.2 or later)
+
+##### Client Requirements:
+
+- SAS&reg; Enterprise Guide or any SAS&reg; code editor by choice.
+- Having Git installed would be useful as code versioning tool.
+
+
+## Getting Started
+
+The installation of the Paul's SAS&reg; Utility Macros Toolbox is very straightforward and requires minimal SAS&reg; knowledge to perform. Just follow the following installations steps to get the Toolbox started within your SAS&reg; system environment. 
+
+### Pre Installation Steps
+
+The first thing to do is either to copy the release package, or clone the toolbox repository to a local (temporary) destination:
+
+    git clone https://github.com/paul-canals/toolbox
+
+Now we can continue with the Installation Steps.
+
+
+### Installation Steps
+
+1. Copy the `config` directory to your SAS&reg; Application Server. For this example, we copied ours to: `/pub/toolbox/config`
+
+2. Copy the `docs` directory to your SAS&reg; Application Server. For this example, we copied ours to: `/pub/toolbox/docs`
+
+3. Copy the `misc` directory to your SAS&reg; Application Server. For this example, we copied ours to: `/pub/toolbox/misc`
+
+4. Copy the `sasautos` directory to your SAS&reg; Application Server. For this example, we copied ours to: `/pub/toolbox/sasautos`
+
+5. Copy the `templates` directory to your SAS&reg; Application Server. For this example, we copied ours to: `/pub/toolbox/templates`
+
+6. Open the `/pub/toolbox/misc/scripts/autoexec.sas` file into the SAS&reg; editor of your choice, and edit the following entries:
+
+      ```sas
+      %let APPL_HOST = DEV;           /* Set to [PRD|TST|DEV] */
+      %let APPL_META = GRP;           /* Acronym for SAS Metadata Server Usergroup */
+      %let APPL_BASE = /pub/toolbox;  /* Root path to Toolbox files */
+      ```
+
+7. Save the changes made to the `/pub/toolbox/misc/scripts/autoexec.sas` file, and close it.
+
+8. Register the `/pub/toolbox/misc/scripts/autoexec.sas` file into the `/SAS/Config/Levx/SASApp/sasapp_autoexec_usermods.sas` SAS&reg; autoexec file. Set this to be the body of the `/SAS/Config/Levx/SASApp/sasapp_autoexec_usermods.sas` SAS&reg; autoexec file:
+
+      ```sas
+      /* Toolbox, from wherever you placed it in step 1*/
+      %include '/pub/toolbox/misc/scripts/autoexec.sas';
+      ```
+
+9. Save the changes made to the `/SAS/Config/Levx/SASApp/sasapp_autoexec_usermods.sas` file, and close it.
+
+10. To check if the installation of the Toolbox library was successful, open SAS&reg; Enterprise Guide and log on to your SAS&reg; Application Server (using a server connection profile) and run the following code:
+
+      ```sas
+      %m_utl_chk_installation(
+         print = Y
+       , debug = N 
+         );
+      ```
+
+11. The program should produce something like this output in the SAS&reg; Enterprise Guide *Result* tab:
+
+    ![misc/images/install.png](misc/images/install.png)
+
+This is good enough for now. It is time now for some *Post Installation Steps*.
+
+
+### Post Installation Steps
+
+In order to compile all of the the toolbox macros into a SAS&reg; macro catalog, run the m_adm_compile_macros.sas (toolbox) program:
+
+```sas
+%m_adm_compile_macros(
+   indir    = %str(/pub/toolbox/sasautos)
+ , outdir   = %str(/pub/toolbox/misc/catalogs)
+ , print    = Y
+ , debug    = Y
+   );
+```
+
+After the program finishes, a new SAS&reg; macro catalog has been created (in our case) under `/pub/toolbox/misc/catalogs/sasmacr.sas7bcat`.
+
+To view the contents of the SAS&reg; macro catalog run the m_utl_mstore_view.sas (toolbox) program:
+
+```sas
+%m_utl_mstore_view(
+   indir    = %str(/pub/toolbox/misc/catalogs)
+ , outds    = TEMP
+ , print    = Y
+ , debug    = Y
+   );
+```
+
+Now that the compiled SAS&reg; macro catalog is created for the toolbox macros, we may include the catalog into the autoexec.sas program. Therefore, we have to change some entries to the following code block: 
+
+```sas
+ %*---------------------------------------------------------------------------;
+ %* Include utility macros to the SASAUTO macro library (default) or catalog: ;
+ %*---------------------------------------------------------------------------;
+ options sasautos=("&APPL_PRGM." %sysfunc(getoption(SASAUTOS)));
+ *libname MLIB "&APPL_MLIB.";
+ *options mstored sasmstore=MLIB.sasmacr;
+```
+
+Since we want to register the toolbox macros by using the SAS&reg; macro catalog we created before under `/pub/toolbox/misc/catalogs/sasmacr.sas7bcat`, we need to make the following changes to the autoexec.sas program:
+
+```sas
+ %*---------------------------------------------------------------------------;
+ %* Include utility macros to the SASAUTO macro library (default) or catalog: ;
+ %*---------------------------------------------------------------------------;
+ *options sasautos=("&APPL_PRGM." %sysfunc(getoption(SASAUTOS)));
+ libname MLIB "&APPL_MLIB.";
+ options mstored sasmstore=MLIB.sasmacr;
+```
+
+After making the changes to the autoexec.sas program, save the file and disconnect the connection from SAS&reg; Enterprise Guide to the SAS&reg; Application server. The new settings will take effect at the next logon.
+
+## Software Modules
+
+#### Admin
+The `Admin` macros are used to administrate data interfaces in a secure way, and to create reports for administrative users on the status of the SAS&reg; Server environment. See the Toolbox macro documentation under `/toolbox/docs` for further detailed information and examples.
+
+#### Documentation
+The `Documentation` macros are to verify and create automated program documentation using the Doxygen style formatted program header structure information. and saves the result in Markdown, RTF or PDF format. See the Toolbox macro documentation under `/toolbox/docs` for further detailed information and examples.
+
+#### Logging
+The `Logging` macros are used to analyse execution results on SAS&reg; system. It reads the logs to obtain execution information and generates log analysis result reports. See the Toolbox macro documentation under `/toolbox/docs` for further detailed information and examples.
+ 
+#### System
+The `System` macros are used to control the client SAS&reg; system setup at logon. It supports reading SAS&reg; metadata to obtain user access information for database connections, setting user specific parameters and logging in a batch processing environment, and contains special programs to support and ease ETL-development. See the Toolbox macro documentation under `/toolbox/docs` for further detailed information and examples.
+
+#### Testing
+The `Testing` macros are used to document, create or execute test scripts. See the Toolbox macro documentation under `/toolbox/docs` for further detailed information and examples.
+
+#### Utilities
+The `Utilities` macros are generic and are used in many other SAS&reg; macro programs. These macros can be used as building blocks, and some can be used _inline_ in a SAS&reg; data step or SAS&reg; proc sql statement. See the Toolbox macro documentation under `/toolbox/docs` for further detailed information and examples.
+
+#### Validation
+The `Validation` macros are used for rule based data validation. They contain calls to generic utility macros. These macros can be used as building blocks for other macros or master program. See the Toolbox macro documentation under `/toolbox/docs` for further detailed information and examples.
+
+## Author
+* [Paul Alexander Canals y Trocha](mailto:paul.canals@gmail.com)
+
+## Contributors
+* [Simone Koßmann](mailto:simone.kossmann@web.de)
+* [Desiree Möhner](mailto:desiree.moehner@web.de)
+* [Bruno Müller](mailto:bruno.mueller@sas.com)
+* [Dave Prinsloo](mailto:dave.prinsloo@yahoo.com)
+* [Harry Droogendyk](mailto:harry@stratia.ca)
+* [Michael Raithel](mailto:michaelraithel1@verizon.net)
+* [Rick Wicklin, PhD](mailto:rick.wicklin@sas.com)
+* [Tom Hoffman](mailto:trhoffman@sprynet.com)
+
+## License Agreement
+
+The software is provided under the *GNU General Public License (GPL), Version 3*. A copy of the license is provided as part of the Paul's SAS&reg; Utility Macros Toolbox.
+
+For those not familiar with the GNU GPL, the license basically allows you to:
+
+- Use any of the Toolbox software free at no charge.
+- Distribute verbatim copies of the software in source or binary form.
+- Sell verbatim copies of the software for a media fee, or sell support for the software.
+
+What this license does ***not*** allow you to do is make changes or add features to any of the programs and then sell a binary distribution without source code. You must always provide source for any changes or additions to the software, and all code must be provided under the GPL as appropriate.
