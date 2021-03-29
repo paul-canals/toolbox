@@ -1,9 +1,4 @@
-![misc/images/banner.png](misc/images/doc_banner.png) 
-
-# 
-[![Release:none](https://img.shields.io/badge/release-v21.1.03-orange.svg)](https://github.com/paul-canals/toolbox/releases/tag/v21.1.03)
-[![SAS Version: 9.4](https://img.shields.io/badge/sas-9.4-blue.svg)](https://www.sas.com)
-[![License: GPL v3](https://img.shields.io/badge/license-GPLv3-green.svg)](https://www.gnu.org/licenses/gpl-3.0)
+# Contributing Guidelines
 
 ## How to contribute to Toolbox
 
@@ -28,12 +23,12 @@
 
 #### **Did you fix whitespace, format code, or make a purely cosmetic patch?**
 
-Changes that are cosmetic in nature and do not add anything substantial to the stability, functionality, or testability of the Toolbox macros will generally not be accepted.
+* Changes that are cosmetic in nature and do not add anything substantial to the stability, functionality, or testability of the Toolbox macros will generally not be accepted.
 I know you might be thinking, *"sure, it might not be adding much value, but I already wrote the code, so the cost is already paid – by me – so why not just merge it"?*
 The reason is that there are a lot of hidden cost in addition to writing the code itself:
-* Someone need to spend the time to review the patch. However trivial the changes might seem, there might be some subtle reasons the original code are written this way and any tiny changes have the possibility of altering behaviour and introducing bugs. All of these work takes away time and energy that could be spent on actual features and bug fixes
-* It pollutes the git history. When someone need to investigate a bug and git blame these lines in the future, they'll hit this "refactor" commit which is not very useful.
-* It makes backporting bug fixes harder.
+   * Someone need to spend the time to review the patch. However trivial the changes might seem, there might be some subtle reasons the original code are written this way and any tiny changes have the possibility of altering behaviour and introducing bugs. All of these work takes away time and energy that could be spent on actual features and bug fixes
+   * It pollutes the git history. When someone need to investigate a bug and git blame these lines in the future, they'll hit this "refactor" commit which is not very useful.
+   * It makes backporting bug fixes harder.
 
 #### **Do you intend to add a new feature or change an existing one?**
 
