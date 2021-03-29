@@ -170,5 +170,3 @@ The SAS&reg; macros are obviously not listed here, but can be obtained by contac
    * [m_val_chk_missing.sas](../docs/m_val_chk_missing.md)
    * [m_val_run_validation.sas](../docs/m_val_run_validation.md)
   
-***
-*This document was generated on 29.03.2021 at 12:17:49  by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas (v21.1.03)*
