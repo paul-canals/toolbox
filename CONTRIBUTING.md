@@ -23,12 +23,11 @@
 
 #### **Did you fix whitespace, format code, or make a purely cosmetic patch?**
 
-* Changes that are cosmetic in nature and do not add anything substantial to the stability, functionality, or testability of the Toolbox macros will generally not be accepted.
-I know you might be thinking, *"sure, it might not be adding much value, but I already wrote the code, so the cost is already paid – so why not just merge it"?*
-The reason is that there are a lot of hidden cost in addition to writing the code itself:
-   * Someone need to spend the time to review the patch. However trivial the changes might seem, there might be some subtle reasons the original code are written this way and any tiny changes have the possibility of altering behaviour and introducing bugs. All of these work takes away time and energy that could be spent on actual features and bug fixes
-   * It pollutes the git history. When someone need to investigate a bug and git blame these lines in the future, they'll hit this "refactor" commit which is not very useful.
-   * It makes backporting bug fixes harder.
+Changes that are cosmetic in nature and do not add anything substantial to the stability, functionality, or testability of the Toolbox macros will generally not be accepted.
+I know you might be thinking, *"sure, it might not be adding much value, but I already wrote the code, so the cost is already paid – so why not just merge it"?* The reason is that there are a lot of hidden cost in addition to writing the code itself:
+* Someone need to spend the time to review the patch. However trivial the changes might seem, there might be some subtle reasons the original code are written this way and any tiny changes have the possibility of altering behaviour and introducing bugs. All of these work takes away time and energy that could be spent on actual features and bug fixes
+* It pollutes the git history. When someone need to investigate a bug and git blame these lines in the future, they'll hit this "refactor" commit which is not very useful.
+* It makes backporting bug fixes harder.
 
 #### **Do you intend to add a new feature or change an existing one?**
 
