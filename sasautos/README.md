@@ -6,24 +6,24 @@ The SAS&reg; macros are obviously not listed here, but can be obtained by contac
 # Modules
 
 * Admin
-   * m_adm_act_list_report.sas
-   * m_adm_compile_functs.sas
-   * m_adm_compile_macros.sas
-   * m_adm_create_backup.sas
-   * m_adm_ctrl_dbaccess.sas
-   * m_adm_ctrl_mdaccess.sas
-   * m_adm_ctrl_rcaccess.sas
-   * m_adm_dbaccess_report.sas
-   * m_adm_kill_user_session.sas
-   * m_adm_libraries_report.sas
-   * m_adm_meta_package.sas
-   * m_adm_migrate_data.sas
-   * m_adm_sasautos_report.sas
-   * m_adm_sessions_report.sas
-   * m_adm_statistics_report.sas
-   * m_adm_usage_report.sas
-   * m_adm_usrgroups_report.sas
-   * m_adm_usrlogins_report.sas
+   * [m_adm_act_list_report.sas](../docs/m_adm_act_list_report.md)
+   * [m_adm_compile_functs.sas](../docs/m_adm_compile_functs.md)
+   * [m_adm_compile_macros.sas](../docs/m_adm_compile_macros.md)
+   * [m_adm_create_backup.sas](../docs/m_adm_create_backup.md)
+   * [m_adm_ctrl_dbaccess.sas](../docs/m_adm_ctrl_dbaccess.md)
+   * [m_adm_ctrl_mdaccess.sas](../docs/m_adm_ctrl_mdaccess.md)
+   * [m_adm_ctrl_rcaccess.sas](../docs/m_adm_ctrl_rcaccess.md)
+   * [m_adm_dbaccess_report.sas](../docs/m_adm_dbaccess_report.md)
+   * [m_adm_kill_user_session.sas](../docs/m_adm_kill_user_session.md)
+   * [m_adm_libraries_report.sas](../docs/m_adm_libraries_report.md)
+   * [m_adm_meta_package.sas](../docs/m_adm_meta_package.md)
+   * [m_adm_migrate_data.sas](../docs/m_adm_migrate_data.md)
+   * [m_adm_sasautos_report.sas](../docs/m_adm_sasautos_report.md)
+   * [m_adm_sessions_report.sas](../docs/m_adm_sessions_report.md)
+   * [m_adm_statistics_report.sas](../docs/m_adm_statistics_report.md)
+   * [m_adm_usage_report.sas](../docs/m_adm_usage_report.md)
+   * [m_adm_usrgroups_report.sas](../docs/m_adm_usrgroups_report.md)
+   * [m_adm_usrlogins_report.sas](../docs/m_adm_usrlogins_report.md)
 
 * Documentation
    * m_hdr_chk_structure.sas
