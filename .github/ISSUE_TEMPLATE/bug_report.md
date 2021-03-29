@@ -23,16 +23,19 @@ A clear and concise description of what you expected to happen.
 **Screenshots**
 If applicable, add screenshots to help explain your problem.
 
-**Desktop (please complete the following information):**
- - OS: [e.g. iOS]
- - Browser [e.g. chrome, safari]
- - Version [e.g. 22]
+**Toolbox**
+ - Version: (e.g. v21.1.03)
+ - Macro: (e.g. m_utl_print_message.sas)
 
-**Smartphone (please complete the following information):**
- - Device: [e.g. iPhone6]
- - OS: [e.g. iOS8.1]
- - Browser [e.g. stock browser, safari]
- - Version [e.g. 22]
+**Desktop (please complete the following information):**
+ - OS: [e.g. Windows or Mac OS]
+ - Client: [e.g. SAS Enterprise Guide, SAS Editor, Browser]
+ - Version: [e.g. 7.1]
+
+**Server (Optional. please complete the following information):**
+ - OS: [e.g. Windows, Linux]
+ - SAS Server/Application: [e.g. SAS Workspace Server]
+ - Version: [e.g. 9.41]
 
 **Additional context**
 Add any other context about the problem here.
