@@ -147,6 +147,9 @@ After making the changes to the autoexec.sas program, save the file and disconne
 #### Admin
 The `Admin` macros are used to administrate data interfaces in a secure way, and to create reports for administrative users on the status of the SAS&reg; Server environment. See the Toolbox macro documentation under `/toolbox/docs` for further detailed information and examples.
 
+#### Custom
+The `Custom` macros are standalone macros capable of working in environments without the need of having the SAS&reg; Toolbox Utility Macros installed on the client SAS&reg; system. See the Toolbox macro documentation under `/toolbox/custom` for further detailed information and examples.
+
 #### Documentation
 The `Documentation` macros are to verify and create automated program documentation using the Doxygen style formatted program header structure information. and saves the result in Markdown, RTF or PDF format. See the Toolbox macro documentation under `/toolbox/docs` for further detailed information and examples.
 

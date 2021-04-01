@@ -7,7 +7,15 @@
  *             on the status of the SAS Server environment. See the toolbox
  *             macro documentation under /toolbox/docs for further detailed 
  *             information and examples.
-  * 
+ * 
+ * \defgroup   Custom
+ * \brief      These are custom made standalone macros utility functions.
+ * \details    The CUSTOM macros are standalone macros capable of working 
+ *             in environments without the need of having the SAS Toolbox
+ *             utility macros installed on the client SAS system. See the
+ *             toolbox macro documentation under /toolbox/custom for further
+ *             detailed information and examples.
+ *
  * \defgroup   Documentation
  * \brief      These are macros to create automated program documentation.
  * \details    The DOCUMENTATION macros are used to create program or macro
