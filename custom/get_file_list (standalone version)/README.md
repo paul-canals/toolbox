@@ -42,7 +42,7 @@ This is a standalone macro program to list all files in a given root directory, 
 * Returns tables containing the rootdir directory and file list.
 
 ### Calls
-* [None.(StandaloneVersion)](None.md)
+* None (StandaloneVersion)
 
 ### Usage
 
