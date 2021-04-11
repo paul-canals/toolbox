@@ -1,7 +1,7 @@
 /*!
  ******************************************************************************
  * \file       m_uc_compare_tables.sas
- * \ingroup    CUSTOM
+ * \ingroup    Custom
  * \brief      Custom macro to determine the differences between two datasets.
  * \details    The macro compares two tables or SAS datasets, the base dataset
  *             TABLE1 and the comparison dataset TABLE2. The macro procedure 
@@ -881,8 +881,6 @@
    %if %upcase(&debug.) eq Y %then %do;
       options fullstimer msglevel=i;
    %end;
-
-
 
    %*-------------------------------------------------------------------------;
    %* Check if any dataset like table options are set (rename, where etc.):   ;

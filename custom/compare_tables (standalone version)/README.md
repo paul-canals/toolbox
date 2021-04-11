@@ -2,7 +2,7 @@
 # 
 # File Reference: m_uc_compare_tables.sas
 
-### CUSTOM
+### Custom
 
 ##### Custom macro to determine the differences between two datasets.
 
@@ -220,4 +220,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 ***
-*This document was generated on 11.04.2021 at 12:35:05  by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas (v21.1.04)*
+*This document was generated on 11.04.2021 at 21:10:52  by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas (v21.1.04)*
