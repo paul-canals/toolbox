@@ -42,7 +42,7 @@ This is a standalone macro program to list all files in a given root directory, 
 * Returns tables containing the rootdir directory and file list.
 
 ### Calls
-* None (StandaloneVersion)
+* None
 
 ### Usage
 
@@ -82,4 +82,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 ***
-*This document was generated on 01.04.2021 at 09:41:05  by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas (v21.1.03)*
+*This document was generated on 11.04.2021 at 12:35:18  by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas (v21.1.04)*
