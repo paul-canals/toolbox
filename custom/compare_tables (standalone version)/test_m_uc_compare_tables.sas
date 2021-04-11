@@ -1,6 +1,6 @@
 /*!
  ******************************************************************************
- * \file       test_m_utl_compare_tables.sas
+ * \file       test_m_uc_compare_tables.sas
  * \ingroup    Testing
  * \brief      Testing script to execute the programs usage example code.
  * \details    This testing script was automatically generated 
@@ -77,7 +77,7 @@ run;
    );
  
 %* Example 4: Compare SASHELP.classfit against SASHELP.class: ;
-%m_utl_compare_tables(
+%m_uc_compare_tables(
    base   = SASHELP.classfit
  , comp   = SASHELP.class
  , diff   = WORK.diff
@@ -99,7 +99,7 @@ data WORK.class;
    end;
 run;
 
-%m_utl_compare_tables(
+%m_uc_compare_tables(
    base   = SASHELP.class
  , comp   = WORK.class
  , print  = Y
@@ -112,7 +112,7 @@ data WORK.class;
    if name eq 'John' then Age = 19;
 run;
 
-%m_utl_compare_tables(
+%m_uc_compare_tables(
    base   = SASHELP.class (drop=Height)
  , comp   = WORK.class (drop=Height)
  , idcols = Name Age
@@ -143,7 +143,7 @@ proc sql noprint;
    ;
 quit;
 
-%m_utl_compare_tables(
+%m_uc_compare_tables(
    base   = WORK.prdsal3
  , comp   = WORK.prdsal2
  , diff   = WORK.prdsal_grp_diff
@@ -153,7 +153,7 @@ quit;
    );
  
 %* Example 8: Compare SASHELP.prdsal3 against SASHELP.prdsal2 directly: ;
-%m_utl_compare_tables(
+%m_uc_compare_tables(
    base   = SASHELP.prdsal3 (drop=date)
  , comp   = SASHELP.prdsal2 (drop=monyr)
  , diff   = WORK.prdsal_diff
