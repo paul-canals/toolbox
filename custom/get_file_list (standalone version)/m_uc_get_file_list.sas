@@ -47,7 +47,7 @@
  * \return     Returns tables containing the rootdir directory and file list.
  * 
  * \calls 
- *             + None. (Standalone Version)
+ *             + None (Standalone Version)
  * 
  * \usage
  * 
