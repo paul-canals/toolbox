@@ -87,7 +87,23 @@ Now we can continue with the Installation Steps.
 
 11. The program should produce something like this output in the SAS&reg; Enterprise Guide *Result* tab:
 
-    ![misc/images/install.png](misc/images/install.png)
+    | Program | Check | Status |
+    | ------- | ----- | ------ |
+    | M_UTL_CHK_INSTALLATION | Check if global paramtere APPL_BASE is set | OK |
+    | M_UTL_CHK_INSTALLATION | Check if global paramtere APPL_CONF is set | OK |
+    | M_UTL_CHK_INSTALLATION | Check if global paramtere APPL_DOCS is set | OK |
+    | M_UTL_CHK_INSTALLATION | Check if global paramtere APPL_LOGS is set | OK |
+    | M_UTL_CHK_INSTALLATION | Check if global paramtere APPL_MCAT is set | OK |
+    | M_UTL_CHK_INSTALLATION | Check if global paramtere APPL_PRGM is set | OK |
+    | M_UTL_CHK_INSTALLATION | Check if directory 'pub/toolbox' exists | OK |
+    | M_UTL_CHK_INSTALLATION | Check if directory 'pub/toolbox/config' exists | OK |
+    | M_UTL_CHK_INSTALLATION | Check if directory 'pub/toolbox/custom' exists | OK |
+    | M_UTL_CHK_INSTALLATION | Check if directory 'pub/toolbox/docs' exists | OK |
+    | M_UTL_CHK_INSTALLATION | Check if directory 'pub/toolbox/misc' exists | OK |
+    | M_UTL_CHK_INSTALLATION | Check if directory 'pub/toolbox/sasautos' exists | OK |
+    | M_UTL_CHK_INSTALLATION | Check if directory 'pub/toolbox/templates' exists | OK |
+    | M_UTL_CHK_INSTALLATION | Check if '/pub/toolbox/config/run_parameter_ctrl.csv' file exists | OK |
+    | M_UTL_CHK_INSTALLATION | Check if '/pub/toolbox/misc/scripts/autoexec.sas' file exists | OK |
 
 This is good enough for now. It is time now for some *Post Installation Steps*.
 
