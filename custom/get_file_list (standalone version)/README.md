@@ -18,10 +18,10 @@ This is a standalone macro program to list all files in a given root directory, 
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 
 ### Date
-* 2021-04-01 00:00:00
+* 2021-05-09 00:00:00
 
 ### Version
-* 21.1.04
+* 21.1.05
 
 ### Link
 * https://github.com/paul-canals/toolbox
@@ -64,6 +64,30 @@ This is a standalone macro program to list all files in a given root directory, 
    );
 ```
 
+##### Example 3: List files and dirs in core/sashelp directory:
+```sas
+%m_uc_get_file_list(
+   rootdir = %sysget(SASROOT)/core/sashelp
+ , prefix  = src_
+ , subdirs = N
+ , finfo   = Y
+ , print   = Y
+ , debug   = Y
+   );
+```
+
+##### Example 4: List files and dirs in sasroot/core directory:
+```sas
+%m_uc_get_file_list(
+   rootdir = %sysget(SASROOT)/core
+ , prefix  = src_
+ , subdirs = Y
+ , finfo   = N
+ , print   = Y
+ , debug   = Y
+   );
+```
+
 ### Copyright
 Copyright 2008-2021 Paul Alexander Canals y Trocha. 
  
@@ -82,4 +106,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 ***
-*This document was generated on 11.04.2021 at 12:35:18  by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas (v21.1.04)*
+*This document was generated on 09.05.2021 at 07:08:38  by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas (v21.1.04)*
