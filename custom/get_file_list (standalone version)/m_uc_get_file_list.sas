@@ -16,8 +16,8 @@
  *             x-command or unix pipes are not allowed or cannot be used. 
  * 
  * \author     Paul Alexander Canals y Trocha (paul.canals@gmail.com)
- * \date       2021-04-01 00:00:00
- * \version    21.1.04
+ * \date       2021-05-09 00:00:00
+ * \version    21.1.05
  * \sa         https://github.com/paul-canals/toolbox
  * 
  * \param[in]  help        Parameter, if set (Help or ?) to print the Help 
@@ -69,6 +69,30 @@
  *                );
  * \endcode
  * 
+ * \example    Example 3: List files and dirs in core/sashelp directory:
+ * \code
+ *             %m_uc_get_file_list(
+ *                rootdir = %sysget(SASROOT)/core/sashelp
+ *              , prefix  = src_
+ *              , subdirs = N
+ *              , finfo   = Y
+ *              , print   = Y
+ *              , debug   = Y
+ *                );
+ * \endcode
+ * 
+ * \example    Example 4: List files and dirs in sasroot/core directory:
+ * \code
+ *             %m_uc_get_file_list(
+ *                rootdir = %sysget(SASROOT)/core
+ *              , prefix  = src_
+ *              , subdirs = Y
+ *              , finfo   = N
+ *              , print   = Y
+ *              , debug   = Y
+ *                );
+ * \endcode
+ * 
  * \copyright  Copyright 2008-2021 Paul Alexander Canals y Trocha.
  * 
  *     This program is free software: you can redistribute it and/or modify
@@ -88,7 +112,7 @@
  */
 %macro m_uc_get_file_list(
    help
- , vers    = 21.1.04
+ , vers    = 21.1.05
  , rootdir = _NONE_
  , level   = 0
  , prefix  = src_
@@ -905,7 +929,6 @@
    %*-------------------------------------------------------------------------;
 
    %if %sysfunc(getoption(syntaxcheck)) eq SYNTAXCHECK %then %do;
-
       options nosyntaxcheck obs=max;
 
    %end;
