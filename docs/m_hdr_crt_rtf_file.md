@@ -1,5 +1,3 @@
-![../misc/images/doc_banner.png](../misc/images/doc_banner.png)
-# 
 # File Reference: m_hdr_crt_rtf_file.sas
 
 ### Documentation
@@ -37,10 +35,10 @@ The macro generates a RTF formatted document containing program or macro informa
 * Dr. Simone Kossmann (simone.kossmann@web.de)
 
 ### Date
-* 2021-03-26 00:00:00
+* 2021-04-02 00:00:00
 
 ### Version
-* 21.1.03
+* 21.1.04
 
 ### Link
 * https://github.com/paul-canals/toolbox
@@ -146,4 +144,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 ***
-*This document was generated on 28.03.2021 at 09:53:46  by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas (v21.1.03)*
+*This document was generated on 27.09.2021 at 15:27:55  by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas (v21.1.04)*

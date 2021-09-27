@@ -1,5 +1,3 @@
-![../misc/images/doc_banner.png](../misc/images/doc_banner.png)
-# 
 # File Reference: m_utl_compare_tables.sas
 
 ### Utilities
@@ -15,10 +13,10 @@ The macro compares two tables or SAS datasets, the base dataset TABLE1 and the c
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 
 ### Date
-* 2020-02-18 00:00:00
+* 2021-04-11 00:00:00
 
 ### Version
-* 20.1.02
+* 21.1.04
 
 ### Link
 * https://github.com/paul-canals/toolbox
@@ -26,7 +24,7 @@ The macro compares two tables or SAS datasets, the base dataset TABLE1 and the c
 ### Parameters
 | Type | Name | Description |
 | ---- | ---- | ----------- |
-| Input | help | Parameter, if set ( or ?) to print the Help information in the log. In all other cases this parameter should be left out from the macro call. |
+| Input | help | Parameter, if set (Help or ?) to print the Help information in the log. In all other cases this parameter should be left out from the macro call. |
 | Input | table1 | Full LIBNAME.TABLENAME name of the input base table. The default value for TABLE1 is: \_NONE\_. |
 | Input | where1 | Optional. Specifies a valid WHERE clause that selects observations from the TABLE1 SAS dataset. Using this argument subsets your data based on the criteria that you supply for the expression. |
 | Input | base | Alias of the TABLE1= parameter. |
@@ -53,6 +51,7 @@ The macro compares two tables or SAS datasets, the base dataset TABLE1 and the c
 * [m_utl_list_operation.sas](m_utl_list_operation.md)
 * [m_utl_nlobs.sas](m_utl_nlobs.md)
 * [m_utl_print_message.sas](m_utl_print_message.md)
+* [m_utl_print_mtrace.sas](m_utl_print_mtrace.md)
 * [m_utl_varlist.sas](m_utl_varlist.md)
 
 ### Usage
@@ -102,8 +101,7 @@ run;
 %m_utl_compare_tables(
    base   = SASHELP.class
  , comp   = SASHELP.classfit
- , diff   = SASHELP.diff
- , idcols = Name
+ , diff   = WORK.diff
  , print  = Y
  , debug  = N
    );
@@ -114,7 +112,7 @@ run;
 %m_utl_compare_tables(
    base   = SASHELP.classfit
  , comp   = SASHELP.class
- , diff   = SASHELP.diff
+ , diff   = WORK.diff
  , idcols = Name
  , print  = Y
  , debug  = N
@@ -184,8 +182,8 @@ proc sql noprint;
 quit;
 
 %m_utl_compare_tables(
-   base   = SASHELP.prdsal3
- , comp   = SASHELP.prdsal2
+   base   = WORK.prdsal3
+ , comp   = WORK.prdsal2
  , diff   = WORK.prdsal_grp_diff
  , idcols = Country State County Prodtype Product Year Quarter
  , print  = Y
@@ -211,7 +209,7 @@ title;
 ```
 
 ### Copyright
-Copyright 2008-2020 Paul Alexander Canals y Trocha. 
+Copyright 2008-2021 Paul Alexander Canals y Trocha. 
  
 This program is free software: you can redistribute it and/or modify 
 it under the terms of the GNU General Public License as published by 
@@ -228,4 +226,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 ***
-*This document was generated on 28.03.2021 at 09:54:34  by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas (v21.1.03)*
+*This document was generated on 27.09.2021 at 15:28:19  by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas (v21.1.04)*

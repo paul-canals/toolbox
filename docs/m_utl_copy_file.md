@@ -1,5 +1,3 @@
-![../misc/images/doc_banner.png](../misc/images/doc_banner.png)
-# 
 # File Reference: m_utl_copy_file.sas
 
 ### Utilities
@@ -18,10 +16,10 @@ This program uses a byte-for-byte method or uses chunks to copy the input file o
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 
 ### Date
-* 2020-02-27 00:00:00
+* 2021-09-27 00:00:00
 
 ### Version
-* 20.1.02
+* 21.1.09
 
 ### Link
 * https://github.com/paul-canals/toolbox
@@ -29,10 +27,10 @@ This program uses a byte-for-byte method or uses chunks to copy the input file o
 ### Parameters
 | Type | Name | Description |
 | ---- | ---- | ----------- |
-| Input | help | Parameter, if set ( or ?) to print the Help information in the log. In all other cases this parameter should be left out from the macro call. |
+| Input | help | Parameter, if set (Help or ?) to print the Help information in the log. In all other cases this parameter should be left out from the macro call. |
 | Input | infile | Full qualified path and file name of the file to be copied from. The default value is: \_NONE\_. |
 | Input | outfile | Full qualified path and file name of the copy. If the output folder structure does not exist yet, it will be created during runtime. |
-| Input | chunksize | Optional. Parameter to specify the number of bytes to be processed in one operation. This will affect the time it takes to copy a file. Smaller values mean longer processing time to copy a file. Valid byte lengths for CHUNKSIZE are 1, 512, 1024, 4096, 8196, 16384 and 32767. The default value for CHUNKSIZE is: 1. |
+| Input | chunksize | Optional. Parameter to specify the number of bytes to be processed in one operation. This will affect the time it takes to copy a file. Smaller values mean longer processing time to copy a file. Valid byte lengths for CHUNKSIZE are 1, 512, 1024, 4096, 8192, 16384 and 32767. The default value for CHUNKSIZE is: 8192. |
 | Input | overwrite | Boolean [Y/N] parameter to decide if an existing copy file is to be overwritten. The default value is: Y. |
 | Input | show_err | Boolean [Y/N] parameter to show or hide warnings or errors in the log. The default value is: Y. |
 | Input | debug | Boolean [Y/N] parameter to provide verbose mode information. The default value is: N. |
@@ -43,6 +41,7 @@ This program uses a byte-for-byte method or uses chunks to copy the input file o
 ### Calls
 * [m_utl_create_dir.sas](m_utl_create_dir.md)
 * [m_utl_print_message.sas](m_utl_print_message.md)
+* [m_utl_print_mtrace.sas](m_utl_print_mtrace.md)
 
 ### Usage
 
@@ -128,7 +127,7 @@ libname OUT clear;
 ```
 
 ### Copyright
-Copyright 2008-2020 Paul Alexander Canals y Trocha. 
+Copyright 2008-2021 Paul Alexander Canals y Trocha. 
  
 This program is free software: you can redistribute it and/or modify 
 it under the terms of the GNU General Public License as published by 
@@ -145,4 +144,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 ***
-*This document was generated on 28.03.2021 at 09:54:36  by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas (v21.1.03)*
+*This document was generated on 27.09.2021 at 15:28:20  by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas (v21.1.04)*

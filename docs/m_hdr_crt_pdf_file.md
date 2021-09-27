@@ -1,5 +1,3 @@
-![../misc/images/doc_banner.png](../misc/images/doc_banner.png)
-# 
 # File Reference: m_hdr_crt_pdf_file.sas
 
 ### Documentation
@@ -37,10 +35,10 @@ The macro generates a PDF formatted document containing program or macro informa
 * Dr. Simone Kossmann (simone.kossmann@web.de)
 
 ### Date
-* 2021-03-26 00:00:00
+* 2021-04-02 00:00:00
 
 ### Version
-* 21.1.03
+* 21.1.04
 
 ### Link
 * https://github.com/paul-canals/toolbox
@@ -55,6 +53,7 @@ The macro generates a PDF formatted document containing program or macro informa
 | Input | doc_title | Optional. Specifies an alternative title name value for the OUT_FILE output PDF document file. If a value is ommitted, the default title will be derived from the IN_FILE file name value. |
 | Input | doc_author | Optional. Specifies an optional author name value for the OUT_FILE output PDF document file. |
 | Input | doc_subject | Optional. Specifies an optional operator value for the output OUT_FILE PDF document file. |
+| Input | compress | Optional. Specifies the level of compression for the output OUT_PDF PDF document. This can be set to an integer value between 0 and 9, which specifies the level of compression. A value of 0 means no compression, and 9 the highest compression. The default level is: 6. |
 | Input | append | Optional. Boolean [Y/N] parameter to specify whether to output to an existing PDF document. If set to (Y)es, an ODS PDF statement must have been set before calling this macro. Furthermore a bookmark will be created containing the name of the SAS program being processed. The default value for APPEND is: N. |
 | Input | keep_tbl | Optional. Boolean [Y/N] parameter to specify whether to keep the output document header and error SAS datasets to be used after this macro call. The default value for KEEP_TBL is: N. |
 | Input | debug | Boolean [Y/N] parameter to provide verbose mode information. The default value is: N. |
@@ -147,4 +146,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 ***
-*This document was generated on 28.03.2021 at 09:53:44  by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas (v21.1.03)*
+*This document was generated on 27.09.2021 at 15:27:54  by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas (v21.1.04)*
