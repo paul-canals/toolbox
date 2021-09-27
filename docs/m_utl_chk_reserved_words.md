@@ -1,5 +1,3 @@
-![../misc/images/doc_banner.png](../misc/images/doc_banner.png)
-# 
 # File Reference: m_utl_chk_reserved_words.sas
 
 ### Utilities
@@ -38,7 +36,7 @@ The macro creates a list of databaase reserved words, which can be used inline t
 * An alphabetically ordered list of reserved words
 
 ### Calls
-* [None](None.md)
+* None
 
 ### Usage
 
@@ -90,4 +88,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 ***
-*This document was generated on 28.03.2021 at 09:54:27  by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas (v21.1.03)*
+*This document was generated on 27.09.2021 at 15:28:16  by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas (v21.1.04)*
