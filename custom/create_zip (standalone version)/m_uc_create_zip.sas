@@ -19,11 +19,15 @@
  *             ZIP fileref problem. The zip file creation ignores locked files,
  *             which are excluded gracefully from the zip archiving routine.
  * 
+ *             The finfo option for Zip archive members is based on the blog
+ *             article "Using FILENAME ZIP and FINFO to list the details in 
+ *             your ZIP files" by Chris Hemedinger (chris.hemedinger@sas.com).
+ * 
  * \note       This program is able to work in system environments where 
  *             x-command or unix pipes are not allowed or cannot be used. 
  * 
  * \author     Paul Alexander Canals y Trocha (paul.canals@gmail.com)
- * \date       2021-09-01 00:00:00
+ * \date       2021-09-27 00:00:00
  * \version    21.1.09
  * \sa         https://github.com/paul-canals/toolbox
  * 
@@ -38,10 +42,10 @@
  *                         where the ZIP file is to be created.
  * \param[in]  zipname     Name of the archive file to be created including
  *                         the .ZIP extention.
- * \param[in]  runmode     Indicator [A|F|O] specify whether the macro uses 
- *                         the (O)DS package function, the (F)ileref or the
- *                         default (A)uto mode for which a combination of
- *                         ODS archiving and Fileref is selected to create
+ * \param[in]  runmode     Indicator [A|F|O] to specify whether the macro
+ *                         uses the (O)DS package function, the (F)ileref
+ *                         or the default (A)uto mode, which uses both the
+ *                         ODS archiving and Fileref mode to pack files to
  *                         the archive. The default value is: A.
  * \param[in]  overwrite   Boolean [Y|N] parameter to specify wether to
  *                         overwrite or appended to an existing archive. 
@@ -194,7 +198,11 @@
       %put %nrstr(and ZIP fileref to overcome both the ODS 4GB restriction and the );
       %put %nrstr(ZIP fileref problem. The program also checks checks for locked );
       %put %nrstr(files, which are excluded gracefully from the archiving routine. );
-      %put;
+      %put ;
+      %put %nrstr(The finfo option for Zip archive members is based on the blog );
+      %put %nrstr(article "Using FILENAME ZIP and FINFO to list the details in );
+      %put %nrstr(your ZIP files" by Chris Hemedinger (chris.hemedinger@sas.com). );
+      %put ;
       %put %nrstr(This program is able to work in system environments where );
       %put %nrstr(x-command or unix pipes are not allowed or cannot be used. );
       %put ;
@@ -248,6 +256,7 @@
       msg7
       msg8
       msg9
+      msg10
       prgm
       rc
       rpath
@@ -512,7 +521,7 @@
                      %end;  %* end loop ;
 
                      %* Check debug options: ;
-                     %if %upcase(&debug.) eq Y %then %do;
+                     %if %upcase(&debug.) eq V %then %do;
                         %put FILENAME=&=filename.;
                         %put RECFM=;
                         %put LRECL=;
@@ -849,7 +858,7 @@
                %end;  %* end loop ;
 
                %* Check debug options: ;
-               %if %upcase(&debug.) eq Y %then %do;
+               %if %upcase(&debug.) eq V %then %do;
                   %put FILENAME=&=zipfile.;
                   %put MEMBER NAME=&=member.;
                   %put SIZE=&=filesize.;
@@ -920,8 +929,8 @@
    %*-------------------------------------------------------------------------;
 
    %let delim = %sysfunc(ifc(%eval(&sysscp. eq WIN),\,/));
-   %let indir = %bquote(%sysfunc(tranwrd(&indir.,%sysfunc(ifc(%eval(&sysscp. ne WIN),\,/)),&delim.)));
-   %let infile = %bquote(%sysfunc(tranwrd(&infile.,%sysfunc(ifc(%eval(&sysscp. ne WIN),\,/)),&delim.)));
+   %let indir = %bquote(%sysfunc(tranwrd(%bquote(&indir.),%sysfunc(ifc(%eval(&sysscp. ne WIN),\,/)),&delim.)));
+   %let infile = %bquote(%sysfunc(tranwrd(%bquote(&infile.),%sysfunc(ifc(%eval(&sysscp. ne WIN),\,/)),&delim.)));
    %let outdir = %bquote(%sysfunc(tranwrd(%bquote(&outdir.),%sysfunc(ifc(%eval(&sysscp. ne WIN),\,/)),&delim.)));
 
    %*-------------------------------------------------------------------------;
@@ -1017,7 +1026,7 @@
       %if not &dexist. %then %do;
 
          %create_dir(
-            path  = &outdir.
+            path = &outdir.
             );
 
       %end;
@@ -1130,7 +1139,7 @@
    quit;
 
    %*-------------------------------------------------------------------------;
-   %* Check source file list, and abort gracefully if list is empty,:         ;
+   %* Check source file list, and abort gracefully if list is empty:          ;
    %*-------------------------------------------------------------------------;
 
    %if %eval(&dirfnum.) eq 0 %then %do;
@@ -1370,33 +1379,16 @@
                   %* Check member value before output to zip: ; 
                   %if %length(%nrbquote(&member.)) gt 0 %then %do;
 
-                     %* Output file to zip archive: ;
-                     %if %upcase(&ftype.) ne FOLDER %then %do;
+                     filename tmpfile "&fpath.&delim.&fname.";
+                     filename zipfile zip "&outdir.&delim.&zipname." member="&member.";
 
-                        filename tmpfile "&fpath.&delim.&fname.";
-                        filename zipfile zip "&outdir.&delim.&zipname." member="&member.";
-
-                        %* byte-by-byte copy ;
-                        data _null_;
-                           infile tmpfile recfm=n;
-                           file zipfile recfm=n;
-                           input byte $char1. @;
-                           put byte $char1. @;
-                        run;
-
-                     %end;
-                     %* Output folder to zip archive: ;
-                     %else %do;
-
-                        filename zipfile zip "&outdir.&delim.&zipname." member="&member.";
-
-                        %* byte-by-byte copy ;
-                        data _null_;
-                           file zipfile recfm=n;
-                           put byte $char1. @;
-                        run;
-
-                     %end;
+                     %* byte-by-byte copy ;
+                     data _null_;
+                        infile tmpfile recfm=n;
+                        file zipfile recfm=n;
+                        input byte $char1. @;
+                        put byte $char1. @;
+                     run;
 
                      %if %sysfunc(fileref(tmpfile)) eq 0 %then %do;
                         filename tmpfile clear;
@@ -1475,7 +1467,7 @@
 
    %if %upcase(&print.) eq Y %then %do;
 
-      title "%upcase(&syshostname.) - Zip File Generation Summary for %upcase(&zipname.)";
+      title "%upcase(&syshostname.) - Zip File Generation Report for: %upcase(&zipname.)";
 
       %* If zip from dir, print zip summary Info: ; 
       %if &dirfnum. gt 1 %then %do;
