@@ -1,6 +1,6 @@
 /*!
  ******************************************************************************
- * \file       test_m_uc_get_file_list.sas
+ * \file       test_m_uc_create_zip.sas
  * \ingroup    Testing
  * \brief      Testing script to execute the programs usage example code.
  * \details    This testing script was automatically generated 
@@ -8,7 +8,7 @@
  *             Run this program in a SAS editor or batch script.
  * 
  * \author     Paul Alexander Canals y Trocha (paul.canals@gmail.com)
- * \date       2021-09-01 00:00:00
+ * \date       2021-09-27 00:00:00
  * \version    21.1.09
  * \sa         https://github.com/paul-canals/toolbox
  * 
