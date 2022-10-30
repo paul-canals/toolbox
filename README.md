@@ -241,6 +241,7 @@ The `Validation` macros are used for rule based data validation. They contain ca
 ## Contributors
 * [Simone Koßmann](mailto:simone.kossmann@web.de)
 * [Bruno Müller](mailto:bruno.mueller@sas.com)
+* [Chris Hemedinger](mailto:chris.hemedinger@sas.com)
 * [Dave Prinsloo](mailto:dave.prinsloo@yahoo.com)
 * [Harry Droogendyk](mailto:harry@stratia.ca)
 * [Michael Raithel](mailto:michaelraithel1@verizon.net)
