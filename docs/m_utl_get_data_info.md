@@ -13,10 +13,10 @@ This program collects the user session data library information from the SAS dic
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 
 ### Date
-* 2020-12-12 00:00:00
+* 2021-10-21 00:00:00
 
 ### Version
-* 20.1.12
+* 21.1.10
 
 ### Link
 * https://github.com/paul-canals/toolbox
@@ -27,7 +27,7 @@ This program collects the user session data library information from the SAS dic
 | Input | help | Parameter, if set (Help or ?) to print the Help information in the log. In all other cases this parameter should be left out from the macro call. |
 | Input | prefix | Optional. Specifies a textual string to filter the output returned by the dictionary tables. |
 | Input | contains | Optional. Specifies a character search string to reduce the selected data libraries in the result to those having the contain parameter word value as part of the data library name. |
-| Input | position | Optional. indicator [START/END] or left blank to determine where the parameter CONTAINS word value is positioned in the data library name. |
+| Input | position | Optional. Indicator [START/END] or left blank to determine where the parameter CONTAINS word value is positioned in the data library name. |
 | Input | outlib | Specifies the LIBNAME name in which the output SAS datasets or database tables will be stored. The default value for OUTLIB is: \_NONE\_. |
 | Input | debug | Boolean [Y/N] parameter to provide verbose mode information. The default value is: N. |
 
@@ -84,7 +84,7 @@ This program collects the user session data library information from the SAS dic
 ```
 
 ### Copyright
-Copyright 2008-2020 Paul Alexander Canals y Trocha. 
+Copyright 2008-2021 Paul Alexander Canals y Trocha. 
  
 This program is free software: you can redistribute it and/or modify 
 it under the terms of the GNU General Public License as published by 
@@ -101,4 +101,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 ***
-*This document was generated on 27.09.2021 at 15:28:51  by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas (v21.1.04)*
+*This document was generated on 30.10.2022 at 09:12:56  by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas (v21.1.04)*

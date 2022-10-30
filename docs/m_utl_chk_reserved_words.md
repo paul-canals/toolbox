@@ -2,7 +2,7 @@
 
 ### Utilities
 
-##### Utility macro to build a list of database reserved words.
+##### Utility macro containing a list of database reserved words.
 
 ***
 
@@ -16,10 +16,10 @@ The macro creates a list of databaase reserved words, which can be used inline t
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 
 ### Date
-* 2020-02-02 00:00:00
+* 2022-10-18 00:00:00
 
 ### Version
-* 20.1.02
+* 22.1.10
 
 ### Link
 * https://github.com/paul-canals/toolbox
@@ -29,14 +29,15 @@ The macro creates a list of databaase reserved words, which can be used inline t
 | ---- | ---- | ----------- |
 | Input | help | Parameter, if set ( or ?) to print the Help information in the log. In all other cases this parameter should be left out from the macro call. |
 | Input | global | Boolean [Y/N] Parameter to specify wether the result value is to be declared as a global macro variable. If set to N, the result is returned inline. The default value for GLOBAL is: N. |
-| Output | varname | Name of the global variable containing the reserved words list. The default value is: _reserved_words. |
+| Output | varname | Name of the global macro variable containing the database reserved words list. The default value is: _reserved_words. |
 | Input | debug | Boolean [Y/N] parameter to provide verbose mode information. The default value is: N. |
 
 ### Returns
 * An alphabetically ordered list of reserved words
 
 ### Calls
-* None
+* [m_utl_print_message.sas](m_utl_print_message.md)
+* [m_utl_print_mtrace.sas](m_utl_print_mtrace.md)
 
 ### Usage
 
@@ -71,7 +72,7 @@ The macro creates a list of databaase reserved words, which can be used inline t
 ```
 
 ### Copyright
-Copyright 2008-2020 Paul Alexander Canals y Trocha. 
+Copyright 2008-2022 Paul Alexander Canals y Trocha. 
  
 This program is free software: you can redistribute it and/or modify 
 it under the terms of the GNU General Public License as published by 
@@ -88,4 +89,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 ***
-*This document was generated on 27.09.2021 at 15:28:16  by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas (v21.1.04)*
+*This document was generated on 30.10.2022 at 09:12:16  by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas (v21.1.04)*

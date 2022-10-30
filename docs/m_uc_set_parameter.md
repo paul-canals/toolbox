@@ -1,8 +1,8 @@
-# File Reference: m_sys_set_parameter.sas
+# File Reference: m_uc_set_parameter.sas
 
-### System
+### Custom
 
-##### System macro to register SAS system global macro variables.
+##### Custom macro to register global macro variables from a file.
 
 ***
 
@@ -26,10 +26,10 @@ This program reads a list of macro variables defined in an input CSV file or SAS
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 
 ### Date
-* 2020-03-25 00:00:00
+* 2021-10-31 00:00:00
 
 ### Version
-* 20.1.03
+* 21.1.10
 
 ### Link
 * https://github.com/paul-canals/toolbox
@@ -53,13 +53,13 @@ This program reads a list of macro variables defined in an input CSV file or SAS
 * List of globally declared SAS macro variables
 
 ### Calls
-* [m_utl_print_mtrace.sas](m_utl_print_mtrace.md)
+* None
 
 ### Usage
 
 ##### Example 1: Show help information:
 ```sas
-%m_sys_set_parameter(?)
+%m_uc_set_parameter(?)
 ```
 
 ##### Example 2 - Step 1: Create macro variable parameter table:
@@ -74,50 +74,50 @@ data WORK.params;
 
    * Date Function;
 
-   PARAM_ENV="ALL";
-   PARAM_NAME="X_TODAY_FUNC";
-   PARAM_VALUE="date()";
-   PARAM_TYPE="FUNC";
-   PARAM_TEXT="Represents today in numerical string";
-   MACRO_FLG=1;
+   PARAM_ENV   = "ALL";
+   PARAM_NAME  = "X_TODAY_FUNC";
+   PARAM_VALUE = "date()";
+   PARAM_TYPE  = "FUNC";
+   PARAM_TEXT  = "Represents today in numerical string";
+   MACRO_FLG   = 1;
    output;
 
    * Date Type with date() input;
 
-   PARAM_ENV="ALL";
-   PARAM_NAME="X_TODAY_DATE";
-   PARAM_VALUE="date()";
-   PARAM_TYPE="DATE";
-   PARAM_TEXT="Represents today in date format";
-   MACRO_FLG=1;
+   PARAM_ENV   = "ALL";
+   PARAM_NAME  = "X_TODAY_DATE";
+   PARAM_VALUE = "date()";
+   PARAM_TYPE  = "DATE";
+   PARAM_TEXT  = "Represents today in date format";
+   MACRO_FLG   = 1;
    output;
 
    * Date Type with 31dec2016 input;
 
-   PARAM_ENV="ALL";
-   PARAM_NAME="X_DAY_DATE";
-   PARAM_VALUE="31dec2016";
-   PARAM_TYPE="DATE";
-   PARAM_TEXT="Represents today in date format";
-   MACRO_FLG=1;
+   PARAM_ENV   = "ALL";
+   PARAM_NAME  = "X_DAY_DATE";
+   PARAM_VALUE = "31dec2016";
+   PARAM_TYPE  = "DATE";
+   PARAM_TEXT  = "Represents today in date format";
+   MACRO_FLG   = 1;
    output;
 
    * List Character Type;
 
-   PARAM_ENV="ALL";
-   PARAM_NAME="X_WEEKEND_LIST";
-   PARAM_VALUE="Saturday";
-   PARAM_TYPE="CHAR";
-   PARAM_TEXT="Represents the weekend day names";
-   MACRO_FLG=1;
+   PARAM_ENV   = "ALL";
+   PARAM_NAME  = "X_WEEKEND_LIST";
+   PARAM_VALUE = "Saturday";
+   PARAM_TYPE  = "CHAR";
+   PARAM_TEXT  = "Represents the weekend day names";
+   MACRO_FLG   = 1;
    output;
 
-   PARAM_ENV="ALL";
-   PARAM_NAME="X_WEEKEND_LIST";
-   PARAM_VALUE="Sunday";
-   PARAM_TYPE="CHAR";
-   PARAM_TEXT="Represents the weekend day names";
-   MACRO_FLG=1;
+   PARAM_ENV   = "ALL";
+   PARAM_NAME  = "X_WEEKEND_LIST";
+   PARAM_VALUE = "Sunday";
+   PARAM_TYPE  = "CHAR";
+   PARAM_TEXT  = "Represents the weekend day names";
+   MACRO_FLG   = 1;
    output;
 run;
 
@@ -125,7 +125,7 @@ run;
 
 ##### Example 2 - Step 2: Register macro variables from params table:
 ```sas
-%m_sys_set_parameter(
+%m_uc_set_parameter(
    infile = WORK.params
  , intype = TBL
  , inhost =
@@ -148,7 +148,7 @@ run;
 ```
 
 ### Copyright
-Copyright 2008-2020 Paul Alexander Canals y Trocha. 
+Copyright 2008-2021 Paul Alexander Canals y Trocha. 
  
 This program is free software: you can redistribute it and/or modify 
 it under the terms of the GNU General Public License as published by 
@@ -165,4 +165,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 ***
-*This document was generated on 27.09.2021 at 15:28:06  by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas (v21.1.04)*
+*This document was generated on 30.10.2022 at 09:12:09  by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas (v21.1.04)*

@@ -1,22 +1,25 @@
-# File Reference: m_sys_set_usermods.sas
+# File Reference: m_utl_get_curdir.sas
 
-### System
+### Utilities
 
-##### System macro to create a user specific autoexec.sas program.
+##### Utility macro to obtain the current SAS directory physical name.
 
 ***
 
 ### Description
-This program creates an initial user specific an autoexec.sas program in a given directory defined by the _FILE=_ parameter. The file can be included by the appserver_autoexec_usermods.sas at user logon to the SAS system.
+This program searches for the current working directory using a filename reference in combination with the pathname function. The result is returned inline, and a global SAS macro variable named _SASINITIALFOLDER is set initially with the current value. This macro is based on the curdir macro by Tom Hoffman and Fan Zhou to which I stumbled upon reading at communities.sas.com.
+
+##### *Note:*
+*This program is able to work in system environments where x-command or unix pipes are not allowed or cannot be used.*
 
 ### Authors
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 
 ### Date
-* 2020-09-07 00:00:00
+* 2021-11-05 00:00:00
 
 ### Version
-* 20.1.09
+* 21.1.11
 
 ### Link
 * https://github.com/paul-canals/toolbox
@@ -25,14 +28,13 @@ This program creates an initial user specific an autoexec.sas program in a given
 | Type | Name | Description |
 | ---- | ---- | ----------- |
 | Input | help | Parameter, if set (Help or ?) to print the Help information in the log. In all other cases this parameter should be left out from the macro call. |
-| Input | file | The name and full path of the user specific autoexec_usermods.sas file The default value is: USER_DBMS_LIST. |
+| Output | mvar_name | Name of the global macro variable containing the initial SAS current directory path name. The default value is: _SASINITIALFOLDER. |
 | Input | debug | Boolean [Y/N] parameter to provide verbose mode information. The default value is: N. |
 
 ### Returns
-* None
+* The current SAS directory physical name.
 
 ### Calls
-* [m_utl_get_userid.sas](m_utl_get_userid.md)
 * [m_utl_print_message.sas](m_utl_print_message.md)
 * [m_utl_print_mtrace.sas](m_utl_print_mtrace.md)
 
@@ -40,19 +42,19 @@ This program creates an initial user specific an autoexec.sas program in a given
 
 ##### Example 1: Show help information:
 ```sas
-%m_sys_set_usermods(?)
+%m_utl_get_curdir(?)
 ```
 
-##### Example 2: Include personal autoexec_usermods entries:
+##### Example 2: Get the current SAS directory physical path name:
 ```sas
-%m_sys_set_usermods(
-   file  = %str(%sysfunc(getoption(WORK))/autoexec_usermods.sas)
- , debug = N
-   );
+%let curdir = %m_utl_get_curdir(debug = Y);
+%put &=curdir.;
+
+%put &=_sasinitialfolder.;
 ```
 
 ### Copyright
-Copyright 2008-2020 Paul Alexander Canals y Trocha. 
+Copyright 2008-2021 Paul Alexander Canals y Trocha. 
  
 This program is free software: you can redistribute it and/or modify 
 it under the terms of the GNU General Public License as published by 
@@ -69,4 +71,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 ***
-*This document was generated on 27.09.2021 at 15:28:07  by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas (v21.1.04)*
+*This document was generated on 30.10.2022 at 09:12:55  by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas (v21.1.04)*

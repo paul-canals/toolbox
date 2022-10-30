@@ -49,10 +49,10 @@ The macro can be usefull to select and extract information from SAS dictionary t
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 
 ### Date
-* 2020-02-02 00:00:00
+* 2021-10-21 00:00:00
 
 ### Version
-* 20.1.02
+* 21.1.10
 
 ### Link
 * https://github.com/paul-canals/toolbox
@@ -60,7 +60,7 @@ The macro can be usefull to select and extract information from SAS dictionary t
 ### Parameters
 | Type | Name | Description |
 | ---- | ---- | ----------- |
-| Input | help | Parameter, if set ( or ?) to print the Help information in the log. In all other cases this parameter should be left out from the macro call. |
+| Input | help | Parameter, if set (Help or ?) to print the Help information in the log. In all other cases this parameter should be left out from the macro call. |
 | Input | ddlib | Specifies the name of the SAS library reference. The default value for DDLIB is: SASHELP. |
 | Input | lib | Optional. Alias of the DDLIB= parameter. |
 | Input | ddtbl | Specifies the name of the SAS dictionary table. Optionally this parameter value may include a combination of data step style statements between brackets like where=, keep=, drop= or rename=(). The default value for DDBTBL is: \_NONE\_. |
@@ -77,6 +77,7 @@ The macro can be usefull to select and extract information from SAS dictionary t
 
 ### Calls
 * [m_utl_print_message.sas](m_utl_print_message.md)
+* [m_utl_print_mtrace.sas](m_utl_print_mtrace.md)
 
 ### Usage
 
@@ -161,7 +162,7 @@ run;
 ```
 
 ### Copyright
-Copyright 2008-2020 Paul Alexander Canals y Trocha. 
+Copyright 2008-2021 Paul Alexander Canals y Trocha. 
  
 This program is free software: you can redistribute it and/or modify 
 it under the terms of the GNU General Public License as published by 
@@ -178,4 +179,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 ***
-*This document was generated on 27.09.2021 at 15:28:59  by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas (v21.1.04)*
+*This document was generated on 30.10.2022 at 09:13:06  by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas (v21.1.04)*

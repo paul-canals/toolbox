@@ -13,10 +13,10 @@ This program can be used to migrate SAS datasets and SAS views from one system a
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 
 ### Date
-* 2020-09-08 00:00:00
+* 2022-08-11 00:00:00
 
 ### Version
-* 20.1.09
+* 22.1.08
 
 ### Link
 * https://github.com/paul-canals/toolbox
@@ -145,7 +145,7 @@ This program can be used to migrate SAS datasets and SAS views from one system a
 ```
 
 ### Copyright
-Copyright 2008-2020 Paul Alexander Canals y Trocha. 
+Copyright 2008-2022 Paul Alexander Canals y Trocha. 
  
 This program is free software: you can redistribute it and/or modify 
 it under the terms of the GNU General Public License as published by 
@@ -162,4 +162,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 ***
-*This document was generated on 27.09.2021 at 15:27:48  by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas (v21.1.04)*
+*This document was generated on 30.10.2022 at 09:11:41  by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas (v21.1.04)*

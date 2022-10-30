@@ -13,10 +13,10 @@ This program collects the SAS system environment information from the SAS server
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 
 ### Date
-* 2021-01-05 00:00:00
+* 2021-11-05 00:00:00
 
 ### Version
-* 21.1.01
+* 21.1.11
 
 ### Link
 * https://github.com/paul-canals/toolbox
@@ -69,4 +69,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 ***
-*This document was generated on 27.09.2021 at 15:29:00  by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas (v21.1.04)*
+*This document was generated on 30.10.2022 at 09:13:07  by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas (v21.1.04)*

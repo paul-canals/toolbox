@@ -13,10 +13,10 @@ This program collects the Java environment information from the server machine o
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 
 ### Date
-* 2020-12-12 00:00:00
+* 2021-10-22 00:00:00
 
 ### Version
-* 20.1.12
+* 21.1.10
 
 ### Link
 * https://github.com/paul-canals/toolbox
@@ -56,7 +56,7 @@ This program collects the Java environment information from the server machine o
 ```
 
 ### Copyright
-Copyright 2008-2020 Paul Alexander Canals y Trocha. 
+Copyright 2008-2021 Paul Alexander Canals y Trocha. 
  
 This program is free software: you can redistribute it and/or modify 
 it under the terms of the GNU General Public License as published by 
@@ -73,4 +73,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 ***
-*This document was generated on 27.09.2021 at 15:28:54  by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas (v21.1.04)*
+*This document was generated on 30.10.2022 at 09:12:59  by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas (v21.1.04)*

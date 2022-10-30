@@ -1,7 +1,7 @@
 ![../misc/images/doc_banner.png](../misc/images/doc_banner.png)
 # 
 # File Reference list
-The SAS&reg; macros are obviously not listed here, but can be obtained by contacting me through sending an email to: [paul.canals@gmail.com](mailto:paul.canals@gmail.com). 
+The SAS&reg; macro documentation files are listed here. In case of questions, contact me through sending an email to: [paul.canals@gmail.com](mailto:paul.canals@gmail.com). 
 
 # Modules
 
@@ -25,6 +25,17 @@ The SAS&reg; macros are obviously not listed here, but can be obtained by contac
    * [m_adm_usrgroups_report.sas](../docs/m_adm_usrgroups_report.md)
    * [m_adm_usrlogins_report.sas](../docs/m_adm_usrlogins_report.md)
 
+***
+
+* Custom
+   * [m_uc_compare_tables.sas](../docs/m_uc_compare_tables.sas.md)
+   * [m_uc_create_ddl.sas](../docs/m_uc_create_ddl.md)
+   * [m_uc_create_zip.sas](../docs/m_uc_create_zip.md)
+   * [m_uc_describe_view.sas](../docs/m_uc_describe_view.md)
+   * [m_uc_get_file_list.sas](../docs/m_uc_get_file_list.md)
+   * [m_uc_set_parameter.sas](../docs/m_uc_set_parameter.md)
+   * [m_uc_unpack_zip.sas](../docs/m_uc_unpack_zip.md)
+   
 ***
 
 * Documentation
@@ -54,8 +65,6 @@ The SAS&reg; macros are obviously not listed here, but can be obtained by contac
    * [m_sys_job_status.sas](../docs/m_sys_job_status.md)
    * [m_sys_job_wrapper.sas](../docs/m_sys_job_wrapper.md)
    * [m_sys_set_dbaccess.sas](../docs/m_sys_set_dbaccess.md)
-   * [m_sys_set_parameter.sas](../docs/m_sys_set_parameter.md)
-   * [m_sys_set_usermods.sas](../docs/m_sys_set_usermods.md)
    * [m_sys_upd_dbaccess.sas](../docs/m_sys_upd_dbaccess.md)
 
 ***
@@ -117,6 +126,7 @@ The SAS&reg; macros are obviously not listed here, but can be obtained by contac
    * [m_utl_get_col_informat.sas](../docs/m_utl_get_col_informat.md)
    * [m_utl_get_col_length.sas](../docs/m_utl_get_col_length.md)
    * [m_utl_get_col_type.sas](../docs/m_utl_get_col_type.md)
+   * [m_utl_get_curdir.sas](../docs/m_utl_get_curdir.md)
    * [m_utl_get_data_info.sas](../docs/m_utl_get_data_info.md)
    * [m_utl_get_dspath.sas](../docs/m_utl_get_dspath.md)
    * [m_utl_get_fcat_info.sas](../docs/m_utl_get_fcat_info.md)
@@ -126,6 +136,7 @@ The SAS&reg; macros are obviously not listed here, but can be obtained by contac
    * [m_utl_get_mcat_info.sas](../docs/m_utl_get_mcat_info.md)
    * [m_utl_get_meta_info.sas](../docs/m_utl_get_meta_info.md)
    * [m_utl_get_min_value.sas](../docs/m_utl_get_min_value.md)
+   * [m_utl_get_mvar_info.sas](../docs/m_utl_get_mvar_info.md)
    * [m_utl_get_pathname.sas](../docs/m_utl_get_pathname.md)
    * [m_utl_get_prod_info.sas](../docs/m_utl_get_prod_info.md)
    * [m_utl_get_sashelp.sas](../docs/m_utl_get_sashelp.md)
@@ -157,11 +168,14 @@ The SAS&reg; macros are obviously not listed here, but can be obtained by contac
    * [m_utl_read_hist_data.sas](../docs/m_utl_read_hist_data.md)
    * [m_utl_reg_table_meta.sas](../docs/m_utl_reg_table_meta.md)
    * [m_utl_save_hist_data.sas](../docs/m_utl_save_hist_data.md)
+   * [m_utl_set_curdir.sas](../docs/m_utl_set_curdir.md)
    * [m_utl_set_date.sas](../docs/m_utl_set_date.md)
    * [m_utl_set_parameter.sas](../docs/m_utl_set_parameter.md)
    * [m_utl_set_sasautos.sas](../docs/m_utl_set_sasautos.md)
    * [m_utl_set_table_lock.sas](../docs/m_utl_set_table_lock.md)
+   * [m_utl_set_usermods.sas](../docs/m_utl_set_usermods.md)
    * [m_utl_single_quotes.sas](../docs/m_utl_single_quotes.md)
+   * [m_utl_sort_elems.sas](../docs/m_utl_sort_elems.md)
    * [m_utl_table_size.sas](../docs/m_utl_table_size.md)
    * [m_utl_txt2ds.sas](../docs/m_utl_txt2ds.md)
    * [m_utl_unique_number.sas](../docs/m_utl_unique_number.md)

@@ -35,10 +35,10 @@ The macro generates a PDF formatted document containing program or macro informa
 * Dr. Simone Kossmann (simone.kossmann@web.de)
 
 ### Date
-* 2021-04-02 00:00:00
+* 2021-11-09 00:00:00
 
 ### Version
-* 21.1.04
+* 21.1.11
 
 ### Link
 * https://github.com/paul-canals/toolbox
@@ -50,6 +50,7 @@ The macro generates a PDF formatted document containing program or macro informa
 | Input | in_file | FILEPATH/FILENAME[.sas]. Specifies the full path and file name of the source SAS program or macro for which the documentation is to be generated. The default value for IN_FILE is: \_NONE\_. |
 | Input | out_file | Specifies the full qualified path and file name of the target output PDF formatted document. The default value for OUT_FILE is: \_NONE\_. |
 | Input | opt_lst | Optional. List [CMD1[CMD2..CMDn]] parameter that contains Doxygen header command statements which are valid if these are placed directly after the details header command section. |
+| Input | doc_image | Optional. Specifies an image file name including a full or relative path. If an image file is set it will be located on top of the output PDF file. |
 | Input | doc_title | Optional. Specifies an alternative title name value for the OUT_FILE output PDF document file. If a value is ommitted, the default title will be derived from the IN_FILE file name value. |
 | Input | doc_author | Optional. Specifies an optional author name value for the OUT_FILE output PDF document file. |
 | Input | doc_subject | Optional. Specifies an optional operator value for the output OUT_FILE PDF document file. |
@@ -146,4 +147,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 ***
-*This document was generated on 27.09.2021 at 15:27:54  by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas (v21.1.04)*
+*This document was generated on 30.10.2022 at 09:11:48  by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas (v21.1.04)*

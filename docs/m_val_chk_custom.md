@@ -17,10 +17,10 @@ The macro can be used to validate data by using a SAS data step or SQL style whe
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 
 ### Date
-* 2021-03-27 00:00:00
+* 2022-10-18 00:00:00
 
 ### Version
-* 21.1.03
+* 22.1.10
 
 ### Link
 * https://github.com/paul-canals/toolbox
@@ -183,7 +183,7 @@ run;
 ```
 
 ### Copyright
-Copyright 2008-2021 Paul Alexander Canals y Trocha. 
+Copyright 2008-2022 Paul Alexander Canals y Trocha. 
  
 This program is free software: you can redistribute it and/or modify 
 it under the terms of the GNU General Public License as published by 
@@ -200,4 +200,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 ***
-*This document was generated on 27.09.2021 at 15:29:30  by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas (v21.1.04)*
+*This document was generated on 30.10.2022 at 09:13:50  by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas (v21.1.04)*
