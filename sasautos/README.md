@@ -1,7 +1,7 @@
 ![../misc/images/doc_banner.png](../misc/images/doc_banner.png)
 # 
 # File Reference list
-The SAS&reg; macro documentation files are listed here. In case of questions, contact me through sending an email to: [paul.canals@gmail.com](mailto:paul.canals@gmail.com). 
+The SAS&reg; macro documentation files are listed here. In case of interest of obtaining these macros or any questions, contact me through sending an email to: [paul.canals@gmail.com](mailto:paul.canals@gmail.com). 
 
 # Modules
 
