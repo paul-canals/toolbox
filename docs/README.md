@@ -28,7 +28,7 @@ The SAS&reg; macro documentation files are listed here. Click on any link below 
 ***
 
 * Custom
-   * [m_cst_compare_tables.sas](md/m_cst_compare_tables.sas.md)
+   * [m_cst_compare_tables.sas](md/m_cst_compare_tables.md)
    * [m_cst_create_ddl.sas](md/m_cst_create_ddl.md)
    * [m_cst_create_zip.sas](md/m_cst_create_zip.md)
    * [m_cst_describe_view.sas](md/m_cst_describe_view.md)
