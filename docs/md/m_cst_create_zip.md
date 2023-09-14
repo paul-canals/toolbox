@@ -1,6 +1,6 @@
-![../../misc/images/doc_banner.png](../../misc/images/doc_banner.png)
+![../../misc/images/doc_header.png](../../misc/images/doc_header.png)
 # 
-# File Reference: m_uc_create_zip.sas
+# File Reference: m_cst_create_zip.sas
 
 ### Custom
 
@@ -18,10 +18,10 @@ This program copies all files from a given directory including sub directories p
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 
 ### Date
-* 2021-09-27 00:00:00
+* 2023-09-11 00:00:00
 
 ### Version
-* 21.1.09
+* 23.1.09
 
 ### Link
 * https://github.com/paul-canals/toolbox
@@ -50,12 +50,12 @@ This program copies all files from a given directory including sub directories p
 
 ##### Example 1: Show help information:
 ```sas
-%m_uc_create_zip(?)
+%m_cst_create_zip(?)
 ```
 
 ##### Example 2: Copy SAS core samples into a ZIP file using Auto mode:
 ```sas
-%m_uc_create_zip(
+%m_cst_create_zip(
    indir   = %sysget(SASROOT)/core/sample
  , outdir  = %sysfunc(getoption(WORK))/backup
  , zipname = &sysuserid._samples.zip
@@ -67,7 +67,7 @@ This program copies all files from a given directory including sub directories p
 
 ##### Example 3: Copy SAS core samples into a ZIP file using ODS package (fast):
 ```sas
-%m_uc_create_zip(
+%m_cst_create_zip(
    indir     = %sysget(SASROOT)/core/sasmisc
  , outdir    = %sysfunc(getoption(WORK))/backup
  , zipname   = &sysuserid._sasmisc_ods.zip
@@ -81,7 +81,7 @@ This program copies all files from a given directory including sub directories p
 
 ##### Example 4: Copy SAS core samples into a ZIP file using ZIP fileref (slow):
 ```sas
-%m_uc_create_zip(
+%m_cst_create_zip(
    indir     = %sysget(SASROOT)/core/sasmisc
  , outdir    = %sysfunc(getoption(WORK))/backup
  , zipname   = &sysuserid._sasmisc_ref.zip
@@ -95,7 +95,7 @@ This program copies all files from a given directory including sub directories p
 
 ##### Example 5: Copy a single file into a ZIP archive using Auto mode:
 ```sas
-%m_uc_create_zip(
+%m_cst_create_zip(
    infile    = %sysget(SASROOT)/core/sashelp/class.sas7bdat
  , outdir    = %sysfunc(getoption(WORK))/backup
  , runmode   = AUTO
@@ -105,7 +105,7 @@ This program copies all files from a given directory including sub directories p
 ```
 
 ### Copyright
-Copyright 2008-2021 Paul Alexander Canals y Trocha. 
+Copyright 2008-2023 Paul Alexander Canals y Trocha. 
  
 This program is free software: you can redistribute it and/or modify 
 it under the terms of the GNU General Public License as published by 
@@ -122,4 +122,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 ***
-*This document was generated on 10.09.2023 at 08:50:26  by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas (v21.1.04)*
+*This document was generated on 13.09.2023 at 19:01:52  by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas (v21.1.04)*

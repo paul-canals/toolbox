@@ -1,6 +1,6 @@
-![../../misc/images/doc_banner.png](../../misc/images/doc_banner.png)
+![../../misc/images/doc_header.png](../../misc/images/doc_header.png)
 # 
-# File Reference: m_uc_create_ddl.sas
+# File Reference: m_cst_create_ddl.sas
 
 ### Custom
 
@@ -18,10 +18,10 @@ This macro obtains all column, index and constraint information from a given tab
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 
 ### Date
-* 2021-08-25 00:00:00
+* 2023-09-11 00:00:00
 
 ### Version
-* 21.1.08
+* 23.1.09
 
 ### Link
 * https://github.com/paul-canals/toolbox
@@ -51,7 +51,7 @@ This macro obtains all column, index and constraint information from a given tab
 
 ##### Example 1: Show help information:
 ```sas
-%m_uc_create_ddl(?)
+%m_cst_create_ddl(?)
 ```
 
 ##### For the next examples create a table with a couple of indexes:
@@ -74,7 +74,7 @@ quit;
 
 ##### Example 2: Create a Data Definition Language file for table bankkonto:
 ```sas
-%m_uc_create_ddl(
+%m_cst_create_ddl(
    libnm    = WORK
  , tblnm    = bankkonto
  , ddl_file = %sysfunc(getoption(WORK))/bankkonto_work.sas
@@ -85,7 +85,7 @@ quit;
 
 ##### Example 3: Create a DDL file for table bankkonto with libref parameter:
 ```sas
-%m_uc_create_ddl(
+%m_cst_create_ddl(
    libnm   = WORK
  , tblnm   = bankkonto
  , ddl_file = %sysfunc(getoption(WORK))/bankkonto_libref.sas
@@ -97,7 +97,7 @@ quit;
 ```
 
 ### Copyright
-Copyright 2008-2021 Paul Alexander Canals y Trocha. 
+Copyright 2008-2023 Paul Alexander Canals y Trocha. 
  
 This program is free software: you can redistribute it and/or modify 
 it under the terms of the GNU General Public License as published by 
@@ -114,4 +114,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 ***
-*This document was generated on 10.09.2023 at 08:50:25  by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas (v21.1.04)*
+*This document was generated on 13.09.2023 at 19:01:51  by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas (v21.1.04)*

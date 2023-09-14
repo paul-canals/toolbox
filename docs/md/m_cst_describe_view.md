@@ -1,6 +1,6 @@
-![../../misc/images/doc_banner.png](../../misc/images/doc_banner.png)
+![../../misc/images/doc_header.png](../../misc/images/doc_header.png)
 # 
-# File Reference: m_uc_describe_view.sas
+# File Reference: m_cst_describe_view.sas
 
 ### Custom
 
@@ -18,10 +18,10 @@ This macro can be used to transfer data step or SQL type views across different 
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 
 ### Date
-* 2021-04-11 00:00:00
+* 2023-09-11 00:00:00
 
 ### Version
-* 21.1.04
+* 23.1.09
 
 ### Link
 * https://github.com/paul-canals/toolbox
@@ -47,7 +47,7 @@ This macro can be used to transfer data step or SQL type views across different 
 
 ##### Example 1: Show help information:
 ```sas
-%m_uc_describe_view(?)
+%m_cst_describe_view(?)
 ```
 
 ##### For the next examples create a SAS data step and a proc sql type view:
@@ -72,7 +72,7 @@ run;
 
 ##### Example 2: Obtain SAS data step view type code description information:
 ```sas
-%m_uc_describe_view(
+%m_cst_describe_view(
    pathnm   = %sysfunc(getoption(WORK))/_dsvview.sas7bvew
  , libref   = TMP
  , outtbl   = WORK.dsv_p_result
@@ -83,7 +83,7 @@ run;
 
 ##### Example 3: Obtain SAS proc SQL view type code description information:
 ```sas
-%m_uc_describe_view(
+%m_cst_describe_view(
    pathnm   = %sysfunc(getoption(WORK))/_sqlview.sas7bvew
  , libref   = TMP
  , outtbl   = WORK.sql_p_result
@@ -94,7 +94,7 @@ run;
 
 ##### Example 4: Obtain SAS view description information from existing library:
 ```sas
-%m_uc_describe_view(
+%m_cst_describe_view(
    viewnm   = WORK._dsvview
  , libref   = TMP
  , outtbl   = WORK.dsv_l_result
@@ -105,7 +105,7 @@ run;
 
 ##### Example 5: Obtain SQL view description information from existing library:
 ```sas
-%m_uc_describe_view(
+%m_cst_describe_view(
    viewnm   = WORK._sqlview
  , libref   = TMP
  , outtbl   = WORK.sql_l_result
@@ -115,7 +115,7 @@ run;
 ```
 
 ### Copyright
-Copyright 2008-2021 Paul Alexander Canals y Trocha. 
+Copyright 2008-2023 Paul Alexander Canals y Trocha. 
  
 This program is free software: you can redistribute it and/or modify 
 it under the terms of the GNU General Public License as published by 
@@ -132,4 +132,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 ***
-*This document was generated on 10.09.2023 at 08:50:27  by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas (v21.1.04)*
+*This document was generated on 13.09.2023 at 19:01:53  by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas (v21.1.04)*

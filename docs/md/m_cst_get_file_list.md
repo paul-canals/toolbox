@@ -1,6 +1,6 @@
-![../../misc/images/doc_banner.png](../../misc/images/doc_banner.png)
+![../../misc/images/doc_header.png](../../misc/images/doc_header.png)
 # 
-# File Reference: m_uc_get_file_list.sas
+# File Reference: m_cst_get_file_list.sas
 
 ### Custom
 
@@ -18,10 +18,10 @@ This is a standalone macro program to list all files in a given root directory, 
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 
 ### Date
-* 2021-08-24 00:00:00
+* 2023-09-11 00:00:00
 
 ### Version
-* 21.1.08
+* 23.1.09
 
 ### Link
 * https://github.com/paul-canals/toolbox
@@ -48,12 +48,12 @@ This is a standalone macro program to list all files in a given root directory, 
 
 ##### Example 1: Show help information:
 ```sas
-%m_uc_get_file_list(?)
+%m_cst_get_file_list(?)
 ```
 
 ##### Example 2: List files and dirs in current WORK directory:
 ```sas
-%m_uc_get_file_list(
+%m_cst_get_file_list(
    rootdir = %sysfunc(getoption(WORK))
  , level   = 0
  , prefix  = src_
@@ -66,7 +66,7 @@ This is a standalone macro program to list all files in a given root directory, 
 
 ##### Example 3: List files and dirs in core/sashelp directory:
 ```sas
-%m_uc_get_file_list(
+%m_cst_get_file_list(
    rootdir = %sysget(SASROOT)/core/sashelp
  , prefix  = src_
  , subdirs = N
@@ -78,7 +78,7 @@ This is a standalone macro program to list all files in a given root directory, 
 
 ##### Example 4: List files and dirs in sasroot/core directory:
 ```sas
-%m_uc_get_file_list(
+%m_cst_get_file_list(
    rootdir = %sysget(SASROOT)/core
  , prefix  = src_
  , subdirs = Y
@@ -89,7 +89,7 @@ This is a standalone macro program to list all files in a given root directory, 
 ```
 
 ### Copyright
-Copyright 2008-2021 Paul Alexander Canals y Trocha. 
+Copyright 2008-2023 Paul Alexander Canals y Trocha. 
  
 This program is free software: you can redistribute it and/or modify 
 it under the terms of the GNU General Public License as published by 
@@ -106,4 +106,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 ***
-*This document was generated on 10.09.2023 at 08:50:27  by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas (v21.1.04)*
+*This document was generated on 13.09.2023 at 19:01:55  by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas (v21.1.04)*

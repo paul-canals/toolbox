@@ -1,6 +1,6 @@
-![../../misc/images/doc_banner.png](../../misc/images/doc_banner.png)
+![../../misc/images/doc_header.png](../../misc/images/doc_header.png)
 # 
-# File Reference: m_uc_unpack_zip.sas
+# File Reference: m_cst_unpack_zip.sas
 
 ### Custom
 
@@ -18,10 +18,10 @@ This program extracts all files from a given ZIP archive to a given target direc
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 
 ### Date
-* 2021-09-27 00:00:00
+* 2023-09-11 00:00:00
 
 ### Version
-* 21.1.09
+* 23.1.09
 
 ### Link
 * https://github.com/paul-canals/toolbox
@@ -46,7 +46,7 @@ This program extracts all files from a given ZIP archive to a given target direc
 
 ##### Example 1: Show help information:
 ```sas
-%m_uc_unpack_zip(?)
+%m_cst_unpack_zip(?)
 ```
 
 ##### Example 2: View all files listed in a ZIP archive (mode: View):
@@ -78,7 +78,7 @@ filename tmpfile clear;
 filename zipfile clear;
 
 %* view ZIP contents ;
-%m_uc_unpack_zip(
+%m_cst_unpack_zip(
    infile  = %sysfunc(getoption(WORK))/sashelp.zip
  , runmode = VIEW
  , print   = Y
@@ -115,7 +115,7 @@ filename tmpfile clear;
 filename zipfile clear;
 
 %* extract ZIP contents ;
-%m_uc_unpack_zip(
+%m_cst_unpack_zip(
    infile  = %sysfunc(getoption(WORK))/sashelp.zip
  , outdir  = %sysfunc(getoption(WORK))/sashelp
  , runmode = EXTRACT
@@ -125,7 +125,7 @@ filename zipfile clear;
 ```
 
 ### Copyright
-Copyright 2008-2021 Paul Alexander Canals y Trocha. 
+Copyright 2008-2023 Paul Alexander Canals y Trocha. 
  
 This program is free software: you can redistribute it and/or modify 
 it under the terms of the GNU General Public License as published by 
@@ -142,4 +142,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 ***
-*This document was generated on 10.09.2023 at 08:50:29  by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas (v21.1.04)*
+*This document was generated on 13.09.2023 at 19:01:57  by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas (v21.1.04)*

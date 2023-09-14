@@ -1,6 +1,6 @@
-![../../misc/images/doc_banner.png](../../misc/images/doc_banner.png)
+![../../misc/images/doc_header.png](../../misc/images/doc_header.png)
 # 
-# File Reference: m_uc_compare_tables.sas
+# File Reference: m_cst_compare_tables.sas
 
 ### Custom
 
@@ -15,10 +15,10 @@ The macro compares two tables or SAS datasets, the base dataset TABLE1 and the c
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 
 ### Date
-* 2021-04-11 00:00:00
+* 2023-09-11 00:00:00
 
 ### Version
-* 21.1.04
+* 23.1.09
 
 ### Link
 * https://github.com/paul-canals/toolbox
@@ -52,7 +52,7 @@ The macro compares two tables or SAS datasets, the base dataset TABLE1 and the c
 
 ##### Example 1: Show help information:
 ```sas
-%m_uc_compare_tables(?)
+%m_cst_compare_tables(?)
 ```
 
 ##### Example 2: Step 1 - Create a new comparison table WORK.class:
@@ -80,7 +80,7 @@ run;
 
 ##### Example 2: Step 2 - Compare SASHELP.class against WORK.class:
 ```sas
-%m_uc_compare_tables(
+%m_cst_compare_tables(
    base   = SASHELP.class (drop=Height)
  , comp   = WORK.class (drop=Height)
  , idcols = Name Age
@@ -92,7 +92,7 @@ run;
 
 ##### Example 3: Compare SASHELP.class against SASHELP.classfit:
 ```sas
-%m_uc_compare_tables(
+%m_cst_compare_tables(
    base   = SASHELP.class
  , comp   = SASHELP.classfit
  , diff   = WORK.diff
@@ -103,7 +103,7 @@ run;
 
 ##### Example 4: Compare SASHELP.classfit against SASHELP.class:
 ```sas
-%m_uc_compare_tables(
+%m_cst_compare_tables(
    base   = SASHELP.classfit
  , comp   = SASHELP.class
  , diff   = WORK.diff
@@ -127,7 +127,7 @@ data WORK.class;
    end;
 run;
 
-%m_uc_compare_tables(
+%m_cst_compare_tables(
    base   = SASHELP.class
  , comp   = WORK.class
  , print  = Y
@@ -142,7 +142,7 @@ data WORK.class;
    if name eq 'John' then Age = 19;
 run;
 
-%m_uc_compare_tables(
+%m_cst_compare_tables(
    base   = SASHELP.class (drop=Height)
  , comp   = WORK.class (drop=Height)
  , idcols = Name Age
@@ -175,7 +175,7 @@ proc sql noprint;
    ;
 quit;
 
-%m_uc_compare_tables(
+%m_cst_compare_tables(
    base   = WORK.prdsal3
  , comp   = WORK.prdsal2
  , diff   = WORK.prdsal_grp_diff
@@ -187,7 +187,7 @@ quit;
 
 ##### Example 8: Compare SASHELP.prdsal3 against SASHELP.prdsal2 directly:
 ```sas
-%m_uc_compare_tables(
+%m_cst_compare_tables(
    base   = SASHELP.prdsal3 (drop=date)
  , comp   = SASHELP.prdsal2 (drop=monyr)
  , diff   = WORK.prdsal_diff
@@ -203,7 +203,7 @@ title;
 ```
 
 ### Copyright
-Copyright 2008-2021 Paul Alexander Canals y Trocha. 
+Copyright 2008-2023 Paul Alexander Canals y Trocha. 
  
 This program is free software: you can redistribute it and/or modify 
 it under the terms of the GNU General Public License as published by 
@@ -220,4 +220,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 ***
-*This document was generated on 10.09.2023 at 08:50:24  by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas (v21.1.04)*
+*This document was generated on 13.09.2023 at 19:01:50  by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas (v21.1.04)*
