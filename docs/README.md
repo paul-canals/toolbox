@@ -1,7 +1,7 @@
 ![../misc/images/doc_banner.png](../misc/images/doc_banner.png)
 # 
 # File Reference list
-The SAS&reg; macro documentation files are listed here. In case of questions, contact me through sending an email to: [paul.canals@gmail.com](mailto:paul.canals@gmail.com). 
+The SAS&reg; macro documentation files are listed here. Click on any link below to open a corresponding macro document in Markdown (MD) format.
 
 # Modules
 
@@ -28,14 +28,14 @@ The SAS&reg; macro documentation files are listed here. In case of questions, co
 ***
 
 * Custom
-   * [m_uc_compare_tables.sas](md/m_uc_compare_tables.sas.md)
-   * [m_uc_create_ddl.sas](md/m_uc_create_ddl.md)
-   * [m_uc_create_zip.sas](md/m_uc_create_zip.md)
-   * [m_uc_describe_view.sas](md/m_uc_describe_view.md)
-   * [m_uc_get_file_list.sas](md/m_uc_get_file_list.md)
-   * [m_uc_set_parameter.sas](md/m_uc_set_parameter.md)
-   * [m_uc_unpack_zip.sas](md/m_uc_unpack_zip.md)
-   
+   * [m_cst_compare_tables.sas](md/m_cst_compare_tables.sas.md)
+   * [m_cst_create_ddl.sas](md/m_cst_create_ddl.md)
+   * [m_cst_create_zip.sas](md/m_cst_create_zip.md)
+   * [m_cst_describe_view.sas](md/m_cst_describe_view.md)
+   * [m_cst_get_file_list.sas](md/m_cst_get_file_list.md)
+   * [m_cst_set_parameter.sas](md/m_cst_set_parameter.md)
+   * [m_cst_unpack_zip.sas](md/m_cst_unpack_zip.md)
+
 ***
 
 * Documentation
