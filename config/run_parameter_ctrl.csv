@@ -9,13 +9,14 @@ TST;M_ERROR_LIMIT;0;NUM;The maximal allowed value for the SYSCC system parameter
 PRD;M_ERROR_LIMIT;0;NUM;The maximal allowed value for the SYSCC system parameter;1
 ALL;M_FLG_NO;N;CHAR;The local value equivalent to N;1
 ALL;M_FLG_YES;Y;CHAR;The local value equivalent to Y;1
+ALL;M_HASH;md5#06020202337333735363336333631363;CHAR;MD5 hash string;1
 ALL;M_JOB_LOG;LOG;CHAR;Contains the full job log name and path, used by the m_prj_job_wrapper.sas macro;1
-ALL;M_JOB_MSG;;CHAR;Job return message equivalent to the SYSERRORTEXT and SYSWARNINGTEXT SAS system variables;1 
-ALL;M_JOB_RC;0;NUM;Job return code equivalent to the SYSCC SAS system variable;1 
+ALL;M_JOB_MSG;;CHAR;Job return message equivalent to the SYSERRORTEXT and SYSWARNINGTEXT SAS system variables;1
+ALL;M_JOB_RC;0;NUM;Job return code equivalent to the SYSCC SAS system variable;1
 ALL;M_LOADING_DTTM;datetime();FUNC;Represents the timestamp during loading time;1
 ALL;M_LOADING_DT;date();FUNC;Represents the loading date;1
 ALL;M_MYFOLDER;Eigener Ordner;CHAR;Represents the SAS metadata name of the My Folder directory in german;0
-ALL;M_MYFOLDER;My Folder;CHAR;Represents the SAS metadata name of the My Folder directory in english;0
+ALL;M_MYFOLDER;My Folder;CHAR;Represents the SAS metadata name of the My Folder directory in english;1
 ALL;M_RUN_RC;1;NUM;Run status return code (part of JOB_GROUP ETL steering). Default value for M_RUN_RC is 1;1
 ALL;M_VALID_MAX_DTTM;31DEC4747:23:59:59;DTTM;Represents the maximal validity date time for data selection;1
 ALL;M_VALID_MIN_DTTM;01JAN1980:00:00:00;DTTM;Represents the minimal validity date time for data selection;1
