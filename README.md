@@ -85,76 +85,76 @@ Now we can continue with the Installation Steps.
 
 11. The program should produce something like this output in the SAS&reg; Enterprise Guide *Result* tab:
 
-    | Program | Check | Status |
-    | ------- | ----- | ------ |
-    | M_UTL_CHK_INSTALLATION | Check if global parameter 'APPL_BASE' exists | OK |
-    | M_UTL_CHK_INSTALLATION | Check if global parameter 'APPL_BSCR' exists | OK |
-    | M_UTL_CHK_INSTALLATION | Check if global parameter 'APPL_CONF' exists | OK |
-    | M_UTL_CHK_INSTALLATION | Check if global parameter 'APPL_DOCS' exists | OK |
-    | M_UTL_CHK_INSTALLATION | Check if global parameter 'APPL_FUNC' exists | OK |
-    | M_UTL_CHK_INSTALLATION | Check if global parameter 'APPL_HOST' exists | OK |
-    | M_UTL_CHK_INSTALLATION | Check if global parameter 'APPL_LOGS' exists | OK |
-    | M_UTL_CHK_INSTALLATION | Check if global parameter 'APPL_MCAT' exists | OK |
-    | M_UTL_CHK_INSTALLATION | Check if global parameter 'APPL_META' exists | OK |
-    | M_UTL_CHK_INSTALLATION | Check if global parameter 'APPL_MISC' exists | OK |
-    | M_UTL_CHK_INSTALLATION | Check if global parameter 'APPL_NAME' exists | OK |
-    | M_UTL_CHK_INSTALLATION | Check if global parameter 'APPL_PRGM' exists | OK |
-    | M_UTL_CHK_INSTALLATION | Check if global parameter 'APPL_TEST' exists | OK |
-    | M_UTL_CHK_INSTALLATION | Check if global parameter 'APPL_TMPL' exists | OK |
-    | M_UTL_CHK_INSTALLATION | Check if global parameter 'APPL_UCMR' exists | OK |
-    | M_UTL_CHK_INSTALLATION | Check if global parameter 'APPL_VERS' exists | OK |
-    | M_UTL_CHK_INSTALLATION | Check if value for APPL_BASE is set: '/pub/toolbox' | OK |
-    | M_UTL_CHK_INSTALLATION | Check if value for APPL_BSCR is set: '/pub/toolbox/source/sas/misc/scripts' | OK |
-    | M_UTL_CHK_INSTALLATION | Check if value for APPL_CONF is set: '/pub/toolbox/config' | OK |
-    | M_UTL_CHK_INSTALLATION | Check if value for APPL_DOCS is set: '/pub/toolbox/docs' | OK |
-    | M_UTL_CHK_INSTALLATION | Check if value for APPL_FUNC is set: '/pub/toolbox/source/sas/functions' | OK |
-    | M_UTL_CHK_INSTALLATION | Check if value for APPL_HOST is set: 'DEV' | OK |
-    | M_UTL_CHK_INSTALLATION | Check if value for APPL_LOGS is set: '/pub/toolbox/misc/logs' | OK |
-    | M_UTL_CHK_INSTALLATION | Check if value for APPL_MCAT is set: '/pub/toolbox/source/sas/catalogs' | OK |
-    | M_UTL_CHK_INSTALLATION | Check if value for APPL_META is set: 'GRP' | OK |
-    | M_UTL_CHK_INSTALLATION | Check if value for APPL_MISC is set: '/pub/toolbox/source/sas/misc' | OK |
-    | M_UTL_CHK_INSTALLATION | Check if value for APPL_NAME is set: 'Toolbox' | OK |
-    | M_UTL_CHK_INSTALLATION | Check if value for APPL_PRGM is set: '/pub/toolbox/source/sas/sasautos' | OK |
-    | M_UTL_CHK_INSTALLATION | Check if value for APPL_TEST is set: '/pub/toolbox/source/sas/misc/tests' | OK |
-    | M_UTL_CHK_INSTALLATION | Check if value for APPL_TMPL is set: '/pub/toolbox/source/sas/misc/templates' | OK |
-    | M_UTL_CHK_INSTALLATION | Check if value for APPL_UCMR is set: '/pub/toolbox/source/sas/ucmacros' | OK |
-    | M_UTL_CHK_INSTALLATION | Check if value for APPL_VERS is set: '23.01.09' | OK |
-    | M_UTL_CHK_INSTALLATION | Check if directory '/pub/toolbox' exists | OK |
-    | M_UTL_CHK_INSTALLATION | Check if directory '/pub/toolbox/config' exists | OK |
-    | M_UTL_CHK_INSTALLATION | Check if directory '/pub/toolbox/docs' exists | OK |    
-    | M_UTL_CHK_INSTALLATION | Check if directory '/pub/toolbox/misc/logs' exists | OK |
-    | M_UTL_CHK_INSTALLATION | Check if directory '/pub/toolbox/source/sas/catalogs' exists | OK |
-    | M_UTL_CHK_INSTALLATION | Check if directory '/pub/toolbox/source/sas/functions' exists | OK |
-    | M_UTL_CHK_INSTALLATION | Check if directory '/pub/toolbox/source/sas/misc' exists | OK |
-    | M_UTL_CHK_INSTALLATION | Check if directory '/pub/toolbox/source/sas/misc/scripts' exists | OK |
-    | M_UTL_CHK_INSTALLATION | Check if directory '/pub/toolbox/source/sas/misc/templates' exists | OK |
-    | M_UTL_CHK_INSTALLATION | Check if directory '/pub/toolbox/source/sas/misc/tests' exists | OK |
-    | M_UTL_CHK_INSTALLATION | Check if directory '/pub/toolbox/source/sas/sasautos' exists | OK |
-    | M_UTL_CHK_INSTALLATION | Check if directory '/pub/toolbox/source/sas/ucmacros' exists | OK |
-    | M_UTL_CHK_INSTALLATION | Check if file '/pub/toolbox/config/run_parameter_ctrl.csv' exists | OK |
-    | M_UTL_CHK_INSTALLATION | Check if configuration parameter 'M_DEBUG_MODE' exists | OK |
-    | M_UTL_CHK_INSTALLATION | Check if configuration parameter 'M_DEFAULT_LOCALE' exists | OK |
-    | M_UTL_CHK_INSTALLATION | Check if configuration parameter 'M_EMAIL_ADMIN' exists | OK |
-    | M_UTL_CHK_INSTALLATION | Check if configuration parameter 'M_ERROR_LIMIT' exists | OK |
-    | M_UTL_CHK_INSTALLATION | Check if configuration parameter 'M_FLG_NO' exists | OK |
-    | M_UTL_CHK_INSTALLATION | Check if configuration parameter 'M_FLG_YES' exists | OK |
-    | M_UTL_CHK_INSTALLATION | Check if configuration parameter 'M_HASH' exists | OK |
-    | M_UTL_CHK_INSTALLATION | Check if configuration parameter 'M_JOB_LOG' exists | OK |
-    | M_UTL_CHK_INSTALLATION | Check if configuration parameter 'M_JOB_MSG' exists | OK |
-    | M_UTL_CHK_INSTALLATION | Check if configuration parameter 'M_JOB_RC' exists | OK |
-    | M_UTL_CHK_INSTALLATION | Check if configuration parameter 'M_LOADING_DT' exists | OK |
-    | M_UTL_CHK_INSTALLATION | Check if configuration parameter 'M_LOADING_DTTM' exists | OK |
-    | M_UTL_CHK_INSTALLATION | Check if configuration parameter 'M_MYFOLDER' exists | OK |
-    | M_UTL_CHK_INSTALLATION | Check if configuration parameter 'M_RUN_RC' exists | OK |
-    | M_UTL_CHK_INSTALLATION | Check if configuration parameter 'M_VALID_MAX_DTTM' exists | OK |
-    | M_UTL_CHK_INSTALLATION | Check if user specific parameter 'USER_DATA' exists | OK |
-    | M_UTL_CHK_INSTALLATION | Check if user specific parameter 'USER_HOME' exists | OK |
-    | M_UTL_CHK_INSTALLATION | Check if user specific parameter 'USER_INFO' exists | OK |
-    | M_UTL_CHK_INSTALLATION | Check if user specific parameter 'USER_WORK' exists | OK |
-    | M_UTL_CHK_INSTALLATION | Check if user specific library 'USR_DATA' exists | OK |
-    | M_UTL_CHK_INSTALLATION | Check if user specific library 'USR_HOME' exists | OK |
-    | M_UTL_CHK_INSTALLATION | Check if user specific library 'USR_INFO' exists | OK |
-    | M_UTL_CHK_INSTALLATION | Check if user specific library 'USR_WORK' exists | OK |
+    | Check | Status |
+    | ----- | ------ |
+    | Check if global parameter 'APPL_BASE' exists | OK |
+    | Check if global parameter 'APPL_BSCR' exists | OK |
+    | Check if global parameter 'APPL_CONF' exists | OK |
+    | Check if global parameter 'APPL_DOCS' exists | OK |
+    | Check if global parameter 'APPL_FUNC' exists | OK |
+    | Check if global parameter 'APPL_HOST' exists | OK |
+    | Check if global parameter 'APPL_LOGS' exists | OK |
+    | Check if global parameter 'APPL_MCAT' exists | OK |
+    | Check if global parameter 'APPL_META' exists | OK |
+    | Check if global parameter 'APPL_MISC' exists | OK |
+    | Check if global parameter 'APPL_NAME' exists | OK |
+    | Check if global parameter 'APPL_PRGM' exists | OK |
+    | Check if global parameter 'APPL_TEST' exists | OK |
+    | Check if global parameter 'APPL_TMPL' exists | OK |
+    | Check if global parameter 'APPL_UCMR' exists | OK |
+    | Check if global parameter 'APPL_VERS' exists | OK |
+    | Check if value for APPL_BASE is set: '/pub/toolbox' | OK |
+    | Check if value for APPL_BSCR is set: '/pub/toolbox/source/sas/misc/scripts' | OK |
+    | Check if value for APPL_CONF is set: '/pub/toolbox/config' | OK |
+    | Check if value for APPL_DOCS is set: '/pub/toolbox/docs' | OK |
+    | Check if value for APPL_FUNC is set: '/pub/toolbox/source/sas/functions' | OK |
+    | Check if value for APPL_HOST is set: 'DEV' | OK |
+    | Check if value for APPL_LOGS is set: '/pub/toolbox/misc/logs' | OK |
+    | Check if value for APPL_MCAT is set: '/pub/toolbox/source/sas/catalogs' | OK |
+    | Check if value for APPL_META is set: 'GRP' | OK |
+    | Check if value for APPL_MISC is set: '/pub/toolbox/source/sas/misc' | OK |
+    | Check if value for APPL_NAME is set: 'Toolbox' | OK |
+    | Check if value for APPL_PRGM is set: '/pub/toolbox/source/sas/sasautos' | OK |
+    | Check if value for APPL_TEST is set: '/pub/toolbox/source/sas/misc/tests' | OK |
+    | Check if value for APPL_TMPL is set: '/pub/toolbox/source/sas/misc/templates' | OK |
+    | Check if value for APPL_UCMR is set: '/pub/toolbox/source/sas/ucmacros' | OK |
+    | Check if value for APPL_VERS is set: '23.01.09' | OK |
+    | Check if directory '/pub/toolbox' exists | OK |
+    | Check if directory '/pub/toolbox/config' exists | OK |
+    | Check if directory '/pub/toolbox/docs' exists | OK |    
+    | Check if directory '/pub/toolbox/misc/logs' exists | OK |
+    | Check if directory '/pub/toolbox/source/sas/catalogs' exists | OK |
+    | Check if directory '/pub/toolbox/source/sas/functions' exists | OK |
+    | Check if directory '/pub/toolbox/source/sas/misc' exists | OK |
+    | Check if directory '/pub/toolbox/source/sas/misc/scripts' exists | OK |
+    | Check if directory '/pub/toolbox/source/sas/misc/templates' exists | OK |
+    | Check if directory '/pub/toolbox/source/sas/misc/tests' exists | OK |
+    | Check if directory '/pub/toolbox/source/sas/sasautos' exists | OK |
+    | Check if directory '/pub/toolbox/source/sas/ucmacros' exists | OK |
+    | Check if file '/pub/toolbox/config/run_parameter_ctrl.csv' exists | OK |
+    | Check if configuration parameter 'M_DEBUG_MODE' exists | OK |
+    | Check if configuration parameter 'M_DEFAULT_LOCALE' exists | OK |
+    | Check if configuration parameter 'M_EMAIL_ADMIN' exists | OK |
+    | Check if configuration parameter 'M_ERROR_LIMIT' exists | OK |
+    | Check if configuration parameter 'M_FLG_NO' exists | OK |
+    | Check if configuration parameter 'M_FLG_YES' exists | OK |
+    | Check if configuration parameter 'M_HASH' exists | OK |
+    | Check if configuration parameter 'M_JOB_LOG' exists | OK |
+    | Check if configuration parameter 'M_JOB_MSG' exists | OK |
+    | Check if configuration parameter 'M_JOB_RC' exists | OK |
+    | Check if configuration parameter 'M_LOADING_DT' exists | OK |
+    | Check if configuration parameter 'M_LOADING_DTTM' exists | OK |
+    | Check if configuration parameter 'M_MYFOLDER' exists | OK |
+    | Check if configuration parameter 'M_RUN_RC' exists | OK |
+    | Check if configuration parameter 'M_VALID_MAX_DTTM' exists | OK |
+    | Check if user specific parameter 'USER_DATA' exists | OK |
+    | Check if user specific parameter 'USER_HOME' exists | OK |
+    | Check if user specific parameter 'USER_INFO' exists | OK |
+    | Check if user specific parameter 'USER_WORK' exists | OK |
+    | Check if user specific library 'USR_DATA' exists | OK |
+    | Check if user specific library 'USR_HOME' exists | OK |
+    | Check if user specific library 'USR_INFO' exists | OK |
+    | Check if user specific library 'USR_WORK' exists | OK |
 
 This is good enough for now. It is time now for some *Post Installation Steps*.
 
