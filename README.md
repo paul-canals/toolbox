@@ -86,7 +86,7 @@ Now we can continue with the Installation Steps.
 11. The program should produce something like this output in the SAS&reg; Enterprise Guide *Result* tab:
 
     | Check | Status |
-    | ----- | ------ |
+    | ----- | :----: |
     | Check if global parameter 'APPL_BASE' exists | OK |
     | Check if global parameter 'APPL_BSCR' exists | OK |
     | Check if global parameter 'APPL_CONF' exists | OK |
@@ -247,6 +247,20 @@ The `Validation` macros are used for rule based data validation. They contain ca
 * [Michael Raithel](mailto:michaelraithel1@verizon.net)
 * [Rick Wicklin, PhD](mailto:rick.wicklin@sas.com)
 * [Tom Hoffman](mailto:trhoffman@sprynet.com)
+
+## Other SAS Repositories
+
+The following repositories are also worth checking out (alphabetically ordered):
+
+* [chris-swenson/sasmacros](https://github.com/chris-swenson/sasmacros)
+* [greg-wotton/sas-programs](https://github.com/greg-wootton/sas-programs)
+* [KatjaGlassConsulting/SMILE-SmartSASMacros](https://github.com/KatjaGlassConsulting/SMILE-SmartSASMacros)
+* [rogerjdeangelis](https://github.com/rogerjdeangelis)
+* [SASJedi/sas-macros](https://github.com/SASJedi/sas-macros)
+* [sasjs/core](https://github.com/sasjs/core)
+* [scottbass/sas](https://github.com/scottbass/SAS)
+* [xieliaing/SAS](https://github.com/xieliaing/SAS)
+* [yabwon/sas_packages](https://github.com/yabwon/SAS_PACKAGES)
 
 ## License Agreement
 
