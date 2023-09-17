@@ -1,7 +1,7 @@
 ![misc/images/banner.png](misc/images/banner.png) 
 
 # 
-[![Release:none](https://img.shields.io/badge/release-v21.1.09-orange.svg)](https://github.com/paul-canals/toolbox/releases/tag/v21.1.09)
+[![Release: v23.1.09](https://img.shields.io/badge/release-v23.1.09-orange.svg)](https://github.com/paul-canals/toolbox/releases/tag/v23.1.09)
 [![SAS Version: 9.4](https://img.shields.io/badge/sas-9.4-blue.svg)](https://www.sas.com)
 [![License: GPL v3](https://img.shields.io/badge/license-GPLv3-green.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
@@ -53,11 +53,9 @@ Now we can continue with the Installation Steps.
 
 3. Copy the `misc` directory to your SAS&reg; Application Server. For this example, we copied ours to: `/pub/toolbox/misc`
 
-4. Copy the `sasautos` directory to your SAS&reg; Application Server. For this example, we copied ours to: `/pub/toolbox/sasautos`
+4. Copy the `source` directory to your SAS&reg; Application Server. For this example, we copied ours to: `/pub/toolbox/source`
 
-5. Copy the `templates` directory to your SAS&reg; Application Server. For this example, we copied ours to: `/pub/toolbox/templates`
-
-6. Open the `/pub/toolbox/misc/scripts/autoexec.sas` file into the SAS&reg; editor of your choice, and edit the following entries:
+5. Open the `/pub/toolbox/misc/scripts/autoexec.sas` file into the SAS&reg; editor of your choice, and edit the following entries:
 
       ```sas
       %let APPL_HOST = DEV;           /* Set to [PRD|TST|DEV] */
@@ -87,23 +85,76 @@ Now we can continue with the Installation Steps.
 
 11. The program should produce something like this output in the SAS&reg; Enterprise Guide *Result* tab:
 
-    | Program | Check | Status |
-    | ------- | ----- | ------ |
-    | M_UTL_CHK_INSTALLATION | Check if global paramtere APPL_BASE is set | OK |
-    | M_UTL_CHK_INSTALLATION | Check if global paramtere APPL_CONF is set | OK |
-    | M_UTL_CHK_INSTALLATION | Check if global paramtere APPL_DOCS is set | OK |
-    | M_UTL_CHK_INSTALLATION | Check if global paramtere APPL_LOGS is set | OK |
-    | M_UTL_CHK_INSTALLATION | Check if global paramtere APPL_MCAT is set | OK |
-    | M_UTL_CHK_INSTALLATION | Check if global paramtere APPL_PRGM is set | OK |
-    | M_UTL_CHK_INSTALLATION | Check if directory 'pub/toolbox' exists | OK |
-    | M_UTL_CHK_INSTALLATION | Check if directory 'pub/toolbox/config' exists | OK |
-    | M_UTL_CHK_INSTALLATION | Check if directory 'pub/toolbox/custom' exists | OK |
-    | M_UTL_CHK_INSTALLATION | Check if directory 'pub/toolbox/docs' exists | OK |
-    | M_UTL_CHK_INSTALLATION | Check if directory 'pub/toolbox/misc' exists | OK |
-    | M_UTL_CHK_INSTALLATION | Check if directory 'pub/toolbox/sasautos' exists | OK |
-    | M_UTL_CHK_INSTALLATION | Check if directory 'pub/toolbox/templates' exists | OK |
-    | M_UTL_CHK_INSTALLATION | Check if '/pub/toolbox/config/run_parameter_ctrl.csv' file exists | OK |
-    | M_UTL_CHK_INSTALLATION | Check if '/pub/toolbox/misc/scripts/autoexec.sas' file exists | OK |
+    | Check | Status |
+    | ----- | ------ |
+    | Check if global parameter 'APPL_BASE' exists | OK |
+    | Check if global parameter 'APPL_BSCR' exists | OK |
+    | Check if global parameter 'APPL_CONF' exists | OK |
+    | Check if global parameter 'APPL_DOCS' exists | OK |
+    | Check if global parameter 'APPL_FUNC' exists | OK |
+    | Check if global parameter 'APPL_HOST' exists | OK |
+    | Check if global parameter 'APPL_LOGS' exists | OK |
+    | Check if global parameter 'APPL_MCAT' exists | OK |
+    | Check if global parameter 'APPL_META' exists | OK |
+    | Check if global parameter 'APPL_MISC' exists | OK |
+    | Check if global parameter 'APPL_NAME' exists | OK |
+    | Check if global parameter 'APPL_PRGM' exists | OK |
+    | Check if global parameter 'APPL_TEST' exists | OK |
+    | Check if global parameter 'APPL_TMPL' exists | OK |
+    | Check if global parameter 'APPL_UCMR' exists | OK |
+    | Check if global parameter 'APPL_VERS' exists | OK |
+    | Check if value for APPL_BASE is set: '/pub/toolbox' | OK |
+    | Check if value for APPL_BSCR is set: '/pub/toolbox/source/sas/misc/scripts' | OK |
+    | Check if value for APPL_CONF is set: '/pub/toolbox/config' | OK |
+    | Check if value for APPL_DOCS is set: '/pub/toolbox/docs' | OK |
+    | Check if value for APPL_FUNC is set: '/pub/toolbox/source/sas/functions' | OK |
+    | Check if value for APPL_HOST is set: 'DEV' | OK |
+    | Check if value for APPL_LOGS is set: '/pub/toolbox/misc/logs' | OK |
+    | Check if value for APPL_MCAT is set: '/pub/toolbox/source/sas/catalogs' | OK |
+    | Check if value for APPL_META is set: 'GRP' | OK |
+    | Check if value for APPL_MISC is set: '/pub/toolbox/source/sas/misc' | OK |
+    | Check if value for APPL_NAME is set: 'Toolbox' | OK |
+    | Check if value for APPL_PRGM is set: '/pub/toolbox/source/sas/sasautos' | OK |
+    | Check if value for APPL_TEST is set: '/pub/toolbox/source/sas/misc/tests' | OK |
+    | Check if value for APPL_TMPL is set: '/pub/toolbox/source/sas/misc/templates' | OK |
+    | Check if value for APPL_UCMR is set: '/pub/toolbox/source/sas/ucmacros' | OK |
+    | Check if value for APPL_VERS is set: '23.01.09' | OK |
+    | Check if directory '/pub/toolbox' exists | OK |
+    | Check if directory '/pub/toolbox/config' exists | OK |
+    | Check if directory '/pub/toolbox/docs' exists | OK |    
+    | Check if directory '/pub/toolbox/misc/logs' exists | OK |
+    | Check if directory '/pub/toolbox/source/sas/catalogs' exists | OK |
+    | Check if directory '/pub/toolbox/source/sas/functions' exists | OK |
+    | Check if directory '/pub/toolbox/source/sas/misc' exists | OK |
+    | Check if directory '/pub/toolbox/source/sas/misc/scripts' exists | OK |
+    | Check if directory '/pub/toolbox/source/sas/misc/templates' exists | OK |
+    | Check if directory '/pub/toolbox/source/sas/misc/tests' exists | OK |
+    | Check if directory '/pub/toolbox/source/sas/sasautos' exists | OK |
+    | Check if directory '/pub/toolbox/source/sas/ucmacros' exists | OK |
+    | Check if file '/pub/toolbox/config/run_parameter_ctrl.csv' exists | OK |
+    | Check if configuration parameter 'M_DEBUG_MODE' exists | OK |
+    | Check if configuration parameter 'M_DEFAULT_LOCALE' exists | OK |
+    | Check if configuration parameter 'M_EMAIL_ADMIN' exists | OK |
+    | Check if configuration parameter 'M_ERROR_LIMIT' exists | OK |
+    | Check if configuration parameter 'M_FLG_NO' exists | OK |
+    | Check if configuration parameter 'M_FLG_YES' exists | OK |
+    | Check if configuration parameter 'M_HASH' exists | OK |
+    | Check if configuration parameter 'M_JOB_LOG' exists | OK |
+    | Check if configuration parameter 'M_JOB_MSG' exists | OK |
+    | Check if configuration parameter 'M_JOB_RC' exists | OK |
+    | Check if configuration parameter 'M_LOADING_DT' exists | OK |
+    | Check if configuration parameter 'M_LOADING_DTTM' exists | OK |
+    | Check if configuration parameter 'M_MYFOLDER' exists | OK |
+    | Check if configuration parameter 'M_RUN_RC' exists | OK |
+    | Check if configuration parameter 'M_VALID_MAX_DTTM' exists | OK |
+    | Check if user specific parameter 'USER_DATA' exists | OK |
+    | Check if user specific parameter 'USER_HOME' exists | OK |
+    | Check if user specific parameter 'USER_INFO' exists | OK |
+    | Check if user specific parameter 'USER_WORK' exists | OK |
+    | Check if user specific library 'USR_DATA' exists | OK |
+    | Check if user specific library 'USR_HOME' exists | OK |
+    | Check if user specific library 'USR_INFO' exists | OK |
+    | Check if user specific library 'USR_WORK' exists | OK |
 
 This is good enough for now. It is time now for some *Post Installation Steps*.
 
@@ -114,8 +165,8 @@ In order to compile all of the the toolbox macros into a SAS&reg; macro catalog,
 
 ```sas
 %m_adm_compile_macros(
-   indir    = %str(/pub/toolbox/sasautos)
- , outdir   = %str(/pub/toolbox/misc/catalogs)
+   indir    = %str(/pub/toolbox/source/sas/sasautos)
+ , outdir   = %str(/pub/toolbox/source/sas/catalogs)
  , print    = Y
  , debug    = Y
    );
@@ -127,7 +178,7 @@ To view the contents of the SAS&reg; macro catalog run the m_utl_mstore_view.sas
 
 ```sas
 %m_utl_mstore_view(
-   indir    = %str(/pub/toolbox/misc/catalogs)
+   indir    = %str(/pub/toolbox/source/sas/catalogs)
  , outds    = TEMP
  , print    = Y
  , debug    = Y
@@ -145,7 +196,7 @@ Now that the compiled SAS&reg; macro catalog is created for the toolbox macros, 
  *options mstored sasmstore=MLIB.sasmacr;
 ```
 
-Since we want to register the toolbox macros by using the SAS&reg; macro catalog we created before under `/pub/toolbox/misc/catalogs/sasmacr.sas7bcat`, we need to make the following changes to the autoexec.sas program:
+Since we want to register the toolbox macros by using the SAS&reg; macro catalog we created before under `/pub/toolbox/source/sas/catalogs/sasmacr.sas7bcat`, we need to make the following changes to the autoexec.sas program:
 
 ```sas
  %*---------------------------------------------------------------------------;
@@ -164,10 +215,10 @@ After making the changes to the autoexec.sas program, save the file and disconne
 The `Admin` macros are used to administrate data interfaces in a secure way, and to create reports for administrative users on the status of the SAS&reg; Server environment. See the Toolbox macro documentation under `/toolbox/docs` for further detailed information and examples.
 
 #### Custom
-The `Custom` macros are standalone macros capable of working in environments without the need of having the SAS&reg; Toolbox Utility Macros installed on the client SAS&reg; system. See the Toolbox macro documentation under `/toolbox/custom` for further detailed information and examples.
+The `Custom` macros are standalone macros capable of working in environments without the need of having the SAS&reg; Toolbox Utility Macros installed on the client SAS&reg; system. See the Toolbox macro documentation under `/toolbox/docs` for further detailed information and examples.
 
 #### Documentation
-The `Documentation` macros are to verify and create automated program documentation using the Doxygen style formatted program header structure information. and saves the result in Markdown, RTF or PDF format. See the Toolbox macro documentation under `/toolbox/docs` for further detailed information and examples.
+The `Documentation` macros are to verify and create automated program documentation using the Doxygen style formatted program header structure information. and saves the result in Markdown, PDF or RTF format. See the Toolbox macro documentation under `/toolbox/docs` for further detailed information and examples.
 
 #### Logging
 The `Logging` macros are used to analyse execution results on SAS&reg; system. It reads the logs to obtain execution information and generates log analysis result reports. See the Toolbox macro documentation under `/toolbox/docs` for further detailed information and examples.
