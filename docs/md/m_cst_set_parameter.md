@@ -1,6 +1,10 @@
+<<<<<<<< HEAD:docs/md/m_cst_set_parameter.md
 ![../../misc/images/doc_header.png](../../misc/images/doc_header.png)
 # 
 # File Reference: m_cst_set_parameter.sas
+========
+# File Reference: m_uc_set_parameter.sas
+>>>>>>>> master:docs/m_uc_set_parameter.md
 
 ### Custom
 
@@ -28,10 +32,17 @@ This program reads a list of macro variables defined in an input CSV file or SAS
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 
 ### Date
+<<<<<<<< HEAD:docs/md/m_cst_set_parameter.md
 * 2023-09-11 00:00:00
 
 ### Version
 * 23.1.09
+========
+* 2021-10-31 00:00:00
+
+### Version
+* 21.1.10
+>>>>>>>> master:docs/m_uc_set_parameter.md
 
 ### Link
 * https://github.com/paul-canals/toolbox
@@ -61,7 +72,11 @@ This program reads a list of macro variables defined in an input CSV file or SAS
 
 ##### Example 1: Show help information:
 ```sas
+<<<<<<<< HEAD:docs/md/m_cst_set_parameter.md
 %m_cst_set_parameter(?)
+========
+%m_uc_set_parameter(?)
+>>>>>>>> master:docs/m_uc_set_parameter.md
 ```
 
 ##### Example 2 - Step 1: Create macro variable parameter table:
@@ -127,7 +142,11 @@ run;
 
 ##### Example 2 - Step 2: Register macro variables from params table:
 ```sas
+<<<<<<<< HEAD:docs/md/m_cst_set_parameter.md
 %m_cst_set_parameter(
+========
+%m_uc_set_parameter(
+>>>>>>>> master:docs/m_uc_set_parameter.md
    infile = WORK.params
  , intype = TBL
  , inhost =
@@ -150,7 +169,11 @@ run;
 ```
 
 ### Copyright
+<<<<<<<< HEAD:docs/md/m_cst_set_parameter.md
 Copyright 2008-2023 Paul Alexander Canals y Trocha. 
+========
+Copyright 2008-2021 Paul Alexander Canals y Trocha. 
+>>>>>>>> master:docs/m_uc_set_parameter.md
  
 This program is free software: you can redistribute it and/or modify 
 it under the terms of the GNU General Public License as published by 
@@ -167,4 +190,8 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 ***
+<<<<<<<< HEAD:docs/md/m_cst_set_parameter.md
 *This document was generated on 13.09.2023 at 19:01:56  by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas (v21.1.04)*
+========
+*This document was generated on 30.10.2022 at 09:12:09  by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas (v21.1.04)*
+>>>>>>>> master:docs/m_uc_set_parameter.md
