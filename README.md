@@ -255,7 +255,6 @@ The following repositories are also worth checking out (alphabetically ordered):
 * [chris-swenson/sasmacros](https://github.com/chris-swenson/sasmacros)
 * [greg-wotton/sas-programs](https://github.com/greg-wootton/sas-programs)
 * [KatjaGlassConsulting/SMILE-SmartSASMacros](https://github.com/KatjaGlassConsulting/SMILE-SmartSASMacros)
-* [paul-canals/toolbox](https://github.com/paul-canals/toolbox)
 * [rogerjdeangelis](https://github.com/rogerjdeangelis)
 * [SASJedi/sas-macros](https://github.com/SASJedi/sas-macros)
 * [sasjs/core](https://github.com/sasjs/core)
