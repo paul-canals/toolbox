@@ -6,7 +6,7 @@
  * \details    This script can be run in a SAS editor or batch script.
  * 
  * \author     Paul Alexander Canals y Trocha (paul.canals@gmail.com)
- * \date       2023-09-11 00:00:00
+ * \date       2023-09-26 00:00:00
  * \version    23.1.09
  * \sa         https://github.com/paul-canals/toolbox
  * 
@@ -45,9 +45,9 @@
    options fullstimer;
 
    %* Include macro compilation macros: ;
-   %include "&sas_path.\m_adm_compile_macros.sas";
-   %include "&sas_path.\m_utl_mstore_add.sas";
-   %include "&sas_path.\m_utl_mstore_view.sas";
+   %include "&sas_path./m_adm_compile_macros.sas";
+   %include "&sas_path./m_utl_mstore_add.sas";
+   %include "&sas_path./m_utl_mstore_view.sas";
 
    %m_adm_compile_macros(
       indir    = &sas_path.
@@ -73,7 +73,7 @@
 %run_macro_compilation(
    sas_path = &APPL_PRGM.
  , cat_path = &APPL_MCAT. 
- , exclude  = %str(dbaccess)
+ , exclude  = %str(access)
  , sendmail = N
  , mailaddr = %str(pact@hermes.local)
  , debug    = N
