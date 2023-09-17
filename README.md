@@ -86,7 +86,7 @@ Now we can continue with the Installation Steps.
 11. The program should produce something like this output in the SAS&reg; Enterprise Guide *Result* tab:
 
     | Check | Status |
-    | ----- | ------ |
+    | ----- | :----: |
     | Check if global parameter 'APPL_BASE' exists | OK |
     | Check if global parameter 'APPL_BSCR' exists | OK |
     | Check if global parameter 'APPL_CONF' exists | OK |
