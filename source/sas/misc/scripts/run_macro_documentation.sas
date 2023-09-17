@@ -6,7 +6,7 @@
  * \details    This script can be run in a SAS editor or batch script.
  * 
  * \author     Paul Alexander Canals y Trocha (paul.canals@gmail.com)
- * \date       2023-09-11 00:00:00
+ * \date       2023-09-17 00:00:00
  * \version    23.1.09
  * \sa         https://github.com/paul-canals/toolbox
  * 
@@ -101,7 +101,7 @@
    sas_path    = &APPL_PRGM.
  , doc_path    = &APPL_DOCS.
  , doc_type    = MD
- , doc_image   = ../../misc/images/doc_header.png
+ , doc_image   = ../../misc/images/doc_banner.png
  , doc_name    = reference
  , doc_title   = SAS PDF Documentation Reference
  , doc_author  = Paul Alexander Canals y Trocha
