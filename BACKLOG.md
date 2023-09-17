@@ -4,13 +4,13 @@
 
 | Item | Assigned | State | Description |
 | :--: | :------: | :---: | ----------- |
-| 1 | 21.1.03 | Done | Create Toolbox program documentation in Markdown format functionality |
-| 2 | 21.1.03 | Done | Create Toolbox program documentation in PDF format functionality |
-| 3 | 21.1.03 | Done | Consolidated Toolbox program documenation for PDF format |
-| 4 | 21.1.03 | Done | Create Toolbox program documentation in RTF format functionality |
-| 5 | 21.1.03 | Done | Convert Toolbox program documentation in RTF format similar work done to PDF documentation |
-| 6 |  | Open | Consolidated Toolbox program documenation for RTF format |
-| 7 |  | Open | Code in Documentation | Add an option to include program code as content of paragraph "Coding" to the output documentation file |
+| 1 | 21.1.03 | Done | Create a macro [docs/md/m_hdr_crt_md_file.md](docs/md/m_hdr_crt_md_file.md) for documentation in MD format functionality |
+| 2 | 21.1.03 | Done | Create a macro [docs/md/m_hdr_crt_pdf_file.md](docs/md/m_hdr_crt_pdf_file.md) for documentation in PDF format functionality |
+| 3 | 21.1.03 | Done | Create a macro [docs/md/m_hdr_crt_rtf_file.md](docs/md/m_hdr_crt_rtf_file.md) for documentation in RTF format functionality |
+| 4 | 21.1.03 | Done | Change macro [docs/md/m_hdr_crt_rtf_file.md](docs/md/m_hdr_crt_rtf_file.md) for documentation in RTF format to PDF layout |
+| 5 | 21.1.03 | Done | Consolidated Toolbox macro [docs/md/m_hdr_crt_pdf_file.md](docs/md/m_hdr_crt_pdf_file.md) documenation for PDF format |
+| 6 |  | Open | Consolidated Toolbox macro [docs/md/m_hdr_crt_rtf_file.md](docs/md/m_hdr_crt_rtf_file.md) documenation for RTF format |
+| 7 |  | Open | Add an option to include macro code as content of paragraph "Coding" to the output documentation file |
     
 ## Installation
 
@@ -34,12 +34,12 @@
 
 | Item | Assigned | State | Description |
 | :--: | :------: | :---: | ----------- |
-| 1 | 21.1.10 | Done | Create a macro (m_utl_get_mvar_info.sas) that contains a list of all registered global macro variables and their values |
-| 2 | 21.1.10 | Done | Create a macro (m_utl_get_java_info.sas) that collects the Java environment information from the server machine or client system |
-| 3 | 21.1.11 | Done | Create a macro (m_utl_get_currdir.sas) to obtain the current macro working directory using a filename reference and pathname function |
-| 4 | 21.1.11 | Done | Create a macro (m_utl_set_currdir.sas) to change the current macro working directory using a filename reference, pathname and dlgcdir functions |
-| 5 | 23.1.03 | Done | Create a macro (m_utl_sort_elems.sas) to sort all words in a text string using the SAS SORTC function and by input and output delimiter  |
-| 6 | 23.1.07 | Done | Create a macro ( m_utl_get_auto_info.sas) that contains a list of all SAS autocall libraries with their corresponding paths |
+| 1 | 21.1.10 | Done | Create a macro [docs/md/m_utl_get_mvar_info.md](docs/md/m_utl_get_mvar_info.md) that contains a list of all registered global macro variables and their values |
+| 2 | 21.1.10 | Done | Create a macro [docs/md/m_utl_get_java_info.md](docs/md/m_utl_get_java_info.md) that collects the Java environment information from the server machine or client system |
+| 3 | 21.1.11 | Done | Create a macro [docs/md/m_utl_get_currdir.md](docs/md/m_utl_get_currdir.md) to obtain the current macro working directory using a filename reference and pathname function |
+| 4 | 21.1.11 | Done | Create a macro [docs/md/m_utl_set_currdir.md](docs/md/m_utl_set_currdir.md) to change the current macro working directory using a filename reference, pathname and dlgcdir functions |
+| 5 | 23.1.03 | Done | Create a macro [docs/md/m_utl_sort_elems.md](docs/md/m_utl_sort_elems.md) to sort all words in a text string using the SAS SORTC function and by input and output delimiter  |
+| 6 | 23.1.07 | Done | Create a macro [docs/md/m_utl_get_auto_info.md](docs/md/m_utl_get_auto_info.md) that contains a list of all SAS autocall libraries with their corresponding paths |
 
 ## Validation
 
