@@ -248,6 +248,21 @@ The `Validation` macros are used for rule based data validation. They contain ca
 * [Rick Wicklin, PhD](mailto:rick.wicklin@sas.com)
 * [Tom Hoffman](mailto:trhoffman@sprynet.com)
 
+## Other SAS Repositories
+
+The following repositories are also worth checking out (alphabetically ordered):
+
+* [chris-swenson/sasmacros](https://github.com/chris-swenson/sasmacros)
+* [greg-wotton/sas-programs](https://github.com/greg-wootton/sas-programs)
+* [KatjaGlassConsulting/SMILE-SmartSASMacros](https://github.com/KatjaGlassConsulting/SMILE-SmartSASMacros)
+* [paul-canals/toolbox](https://github.com/paul-canals/toolbox)
+* [rogerjdeangelis](https://github.com/rogerjdeangelis)
+* [SASJedi/sas-macros](https://github.com/SASJedi/sas-macros)
+* [sasjs/core](https://github.com/sasjs/core)
+* [scottbass/sas](https://github.com/scottbass/SAS)
+* [xieliaing/SAS](https://github.com/xieliaing/SAS)
+* [yabwon/sas_packages](https://github.com/yabwon/SAS_PACKAGES)
+
 ## License Agreement
 
 The software is provided under the *GNU General Public License (GPL), Version 3*. A copy of the license is provided as part of the Paul's SAS&reg; Utility Macros Toolbox.
