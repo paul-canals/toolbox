@@ -8,14 +8,14 @@
  *             Run this program in a SAS editor or batch script.
  * 
  * \author     Paul Alexander Canals y Trocha (paul.canals@gmail.com)
- * \date       2021-09-27 00:00:00
- * \version    21.1.09
+ * \date       2023-09-26 00:00:00
+ * \version    23.1.09
  * \sa         https://github.com/paul-canals/toolbox
  * 
  * \calls
  *             + m_uc_create_zip.sas (standalone version)
  * 
- * \copyright  Copyright 2008-2021 Paul Alexander Canals y Trocha
+ * \copyright  Copyright 2008-2023 Paul Alexander Canals y Trocha
  * 
  *     This program is free software: you can redistribute it and/or modify
  *     it under the terms of the GNU General Public License as published by
