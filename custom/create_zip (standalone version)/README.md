@@ -18,10 +18,10 @@ This program copies all files from a given directory including sub directories p
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 
 ### Date
-* 2021-09-27 00:00:00
+* 2023-09-26 00:00:00
 
 ### Version
-* 21.1.09
+* 23.1.09
 
 ### Link
 * https://github.com/paul-canals/toolbox
@@ -105,7 +105,7 @@ This program copies all files from a given directory including sub directories p
 ```
 
 ### Copyright
-Copyright 2008-2021 Paul Alexander Canals y Trocha. 
+Copyright 2008-2023 Paul Alexander Canals y Trocha. 
  
 This program is free software: you can redistribute it and/or modify 
 it under the terms of the GNU General Public License as published by 
@@ -122,4 +122,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 ***
-*This document was generated on 27.09.2021 at 13:30:26  by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas (v21.1.04)*
+*This document was generated on 26.09.2023 at 15:45:18  by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas (v21.1.04)*
