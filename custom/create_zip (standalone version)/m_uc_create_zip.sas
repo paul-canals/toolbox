@@ -27,8 +27,8 @@
  *             x-command or unix pipes are not allowed or cannot be used. 
  * 
  * \author     Paul Alexander Canals y Trocha (paul.canals@gmail.com)
- * \date       2021-09-27 00:00:00
- * \version    21.1.09
+ * \date       2023-09-26 00:00:00
+ * \version    23.1.09
  * \sa         https://github.com/paul-canals/toolbox
  * 
  * \param[in]  help        Parameter, if set (Help or ?) to print the Help 
@@ -121,7 +121,7 @@
  *                );
  * \endcode
  * 
- * \copyright  Copyright 2008-2021 Paul Alexander Canals y Trocha.
+ * \copyright  Copyright 2008-2023 Paul Alexander Canals y Trocha.
  * 
  *     This program is free software: you can redistribute it and/or modify
  *     it under the terms of the GNU General Public License as published by
@@ -140,7 +140,7 @@
  */
 %macro m_uc_create_zip(
    help
- , vers      = 21.1.09
+ , vers      = 23.1.09
  , indir     = _NONE_
  , infile    = 
  , outdir    = _NONE_
@@ -951,7 +951,8 @@
    %end;
 
    %* If exist, remove trailing (back)slash delimiter: ;
-   %let indir = %sysfunc(ifc(%substr(&indir.,%length(&indir.),1) eq &delim.,%substr(&indir.,1,%length(&indir.)-1),&indir.));
+   %if %nrbquote(%substr(&indir.,%length(&indir.),1)) eq %nrbquote(&delim.) 
+      %then %let indir = %substr(&indir.,1,%length(&indir.)-1);
 
    %*-------------------------------------------------------------------------;
    %* Verify that INDIR input path exists:                                    ;
@@ -1261,7 +1262,7 @@
                   %let member = %nrbquote(&rpath.&delim.&fname.);
 
                   %* Check member value before output to zip: ; 
-                  %if %nrbquote(&member.) ne &delim. %then %do;
+                  %if %nrbquote(&member.) ne %nrbquote(&delim.) %then %do;
 
                      ods package add file="&fpath.&delim.&fname." path="&rpath." mimetype="application/x-compress";
 

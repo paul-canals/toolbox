@@ -8,8 +8,8 @@
  *             Run this program in a SAS editor or batch script.
  * 
  * \author     Paul Alexander Canals y Trocha (paul.canals@gmail.com)
- * \date       2023-09-14 07:48:57
- * \version    20.1.09
+ * \date       2023-09-26 15:36:48
+ * \version    23.1.09
  * \sa         https://github.com/paul-canals/toolbox
  * 
  * \calls
@@ -34,7 +34,9 @@
  */
  
 %* Example 1 - Step 1: Create an example job: ;
-filename tmp 'C:\SAS\Config\Lev1\SASMeta\SASEnvironment\SASCode\Jobs\Hello_World.sas';
+%let sascfg = %sysfunc(getoption(SASINITIALFOLDER));
+
+filename tmp "&sascfg./../SASMeta/SASEnvironment/SASCode/Jobs/Hello_World.sas";
 data _null_;
    file tmp;
    put '*Show in log:;';
@@ -44,7 +46,7 @@ data _null_;
    put 'run;';
 run;
 
-filename tmp 'C:\SAS\Config\Lev1\SASMeta\SASEnvironment\SASCode\Jobs\Goodbye_Job.sas';
+filename tmp "&sascfg./../SASMeta/SASEnvironment/SASCode/Jobs/Goodbye_Job.sas";
 data _null_;
    file tmp;
    put '*Show in log:;';
@@ -55,13 +57,17 @@ data _null_;
 run;
 
 filename tmp clear;
+
  
 %* Example 1 - Step 2: Run the example job group: ;
+%let sascfg = %sysfunc(getoption(SASINITIALFOLDER));
+
 %m_sys_job_group(
-   job_path = C:\SAS\Config\Lev1\SASMeta\SASEnvironment\SASCode\Jobs
- , log_path = C:\SAS\Config\Lev1\SASMeta\SASEnvironment\SASCode\Logs
+   job_path = &sascfg./../SASMeta/SASEnvironment/SASCode/Jobs
+ , log_path = &sascfg./../SASMeta/SASEnvironment/SASCode/Logs
  , job_1    = Hello_World
  , job_2    = Goodbye_Job
  , debug    = N
    );
+
  

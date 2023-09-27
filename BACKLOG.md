@@ -7,7 +7,7 @@
 | 1 | 21.1.03 | Done | Create a macro [m_hdr_crt_md_file.sas](docs/md/m_hdr_crt_md_file.md) for documentation in MD format functionality |
 | 2 | 21.1.03 | Done | Create a macro [m_hdr_crt_pdf_file.sas](docs/md/m_hdr_crt_pdf_file.md) for documentation in PDF format functionality |
 | 3 | 21.1.03 | Done | Create a macro [m_hdr_crt_rtf_file.sas](docs/md/m_hdr_crt_rtf_file.md) for documentation in RTF format functionality |
-| 4 | 21.1.03 | Done | Change macro [m_hdr_crt_rtf_file.sas](docs/md/m_hdr_crt_rtf_file.md) for documentation in RTF format to PDF layout |
+| 4 | 21.1.03 | Done | Change macro [m_hdr_crt_rtf_file.sas](docs/md/m_hdr_crt_rtf_file.md) for documentation in RTF format like PDF layout |
 | 5 | 21.1.03 | Done | Consolidated Toolbox macro [m_hdr_crt_pdf_file.sas](docs/md/m_hdr_crt_pdf_file.md) documenation for PDF format |
 | 6 |  | Open | Consolidated macro [m_hdr_crt_rtf_file.sas](docs/md/m_hdr_crt_rtf_file.md) documenation for RTF format |
 | 7 |  | Open | Add an option to include macro code as content of paragraph "Coding" to the output documentation file |

@@ -1,4 +1,4 @@
-![../../misc/images/doc_header.png](../../misc/images/doc_header.png)
+![../../misc/images/doc_banner.png](../../misc/images/doc_banner.png)
 # 
 # File Reference: m_utl_get_auto_info.sas
 
@@ -15,10 +15,10 @@ This program collects the SAS autocall library information from the server machi
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 
 ### Date
-* 2023-07-26 00:00:00
+* 2023-09-26 00:00:00
 
 ### Version
-* 23.1.07
+* 23.1.09
 
 ### Link
 * https://github.com/paul-canals/toolbox
@@ -71,4 +71,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 ***
-*This document was generated on 13.09.2023 at 19:03:08  by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas (v21.1.04)*
+*This document was generated on 26.09.2023 at 15:40:52  by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas (v21.1.04)*

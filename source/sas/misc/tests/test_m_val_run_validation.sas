@@ -9,7 +9,7 @@
  * 
  * \author     Paul Alexander Canals y Trocha (paul.canals@gmail.com)
  * \author     Dr. Simone Kossmann (simone.kossmann@web.de)
- * \date       2023-09-14 07:50:48
+ * \date       2023-09-26 15:38:07
  * \version    21.1.03
  * \sa         https://github.com/paul-canals/toolbox
  * 

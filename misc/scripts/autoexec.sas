@@ -7,7 +7,7 @@
  *             library using the m_utl_set_sasauto.sas utility macro program.
  * 
  * \author     Paul Alexander Canals y Trocha (paul.canals@gmail.com)
- * \date       2023-09-11 00:00:00
+ * \date       2023-09-26 00:00:00
  * \version    23.1.09
  * \sa         https://github.com/paul-canals/toolbox
  * 
@@ -32,7 +32,7 @@
  * 
  * \example    Example 1: Executing the autoexec script:
  * \code
- *             %include 'C:/SAS/Toolbox/misc/scripts/autoexec.sas';
+ *             %include '/pub/toolbox/misc/scripts/autoexec.sas';
  * \endcode
  * 
  * \copyright  Copyright 2008-2023 Paul Alexander Canals y Trocha.
@@ -79,17 +79,26 @@
     APPL_TMPL
     APPL_UCMR
     APPL_VERS
+    USER_BASE
     USER_DATA
     USER_HOME
     USER_INFO
     USER_WORK
     ;
 
+ %*---------------------------------------------------------------------------;
+ %* !!!!!!!!!!!!!! NOTE: ENTER SITE CUSTOM SETTINGS HERE BELOW !!!!!!!!!!!!!! ;
+ %*---------------------------------------------------------------------------;
+ %let APPL_HOST = DEV /* [DEV|TST|PRD] or %sysget(SYS_ENV) */                 ;
+ %let APPL_META = GRP                                                         ;
+ %let APPL_BASE = /pub/toolbox                                                ;
+ %let USER_BASE = /pub/toolbox/userdata                                       ;
+ %*---------------------------------------------------------------------------;
+ %* !!!!!!!!!!!!!! NOTE: ENTER SITE CUSTOM SETTINGS HERE ABOVE !!!!!!!!!!!!!! ;
+ %*---------------------------------------------------------------------------;
+    
  %let APPL_NAME = Toolbox;
  %let APPL_VERS = 23.1.09;
- %let APPL_HOST = DEV /* [DEV|TST|PRD] or %sysget(SYS_ENV) */;
- %let APPL_META = GRP;
- %let APPL_BASE = C:/SAS/Toolbox;
  %let APPL_CONF = &APPL_BASE./config;
  %let APPL_DOCS = &APPL_BASE./docs;
  %let APPL_LOGS = &APPL_BASE./misc/logs;
@@ -112,13 +121,13 @@
  %* Include utility macros to the SASAUTO macro catalog:                      ;
  %*---------------------------------------------------------------------------;
 
- %* NOTE: NO MACRO FUNCTION CALLS ARE ALLOWED ABOVE THIS LINE! ;
+ %* !!!!!! NOTE: NO MACRO FUNCTION CALLS ARE ALLOWED ABOVE THIS LINE !!!!!!!! ;
 
  %macro setCatalog;
     %if %sysfunc(fileexist(&APPL_MCAT./sasmacr.sas7bcat)) %then %do;
        libname TMP_MCAT "&APPL_MCAT." access=readonly;
        libname USR_WORK "%sysfunc(pathname(work))"; 
-       proc catalog cat = TMP_MCAT.sasmacr;
+       proc catalog cat = TMP_MCAT.sasmacr force;
           copy out = USR_WORK.sasmacr;
        quit;
        libname TMP_MCAT clear;
@@ -153,9 +162,9 @@
  %* Set consistent user directories and user session libraries:               ;
  %*---------------------------------------------------------------------------;
 
- %let USER_HOME = &APPL_BASE./userdata/%lowcase(&USER_NAME.);
- %m_utl_create_dir(path=&USER_ROOT.,debug=N);
- libname USR_HOME "&USER_ROOT.";
+ %let USER_HOME = &USER_BASE./%lowcase(&USER_NAME.);
+ %m_utl_create_dir(path=&USER_HOME.,debug=N);
+ libname USR_HOME "&USER_HOME.";
 
  %let USER_WORK = %sysfunc(pathname(work));
  %macro setWork;
@@ -164,7 +173,7 @@
     %end;
  %mend; %setWork;
 
- %let USER_DATA = &USER_ROOT./data;
+ %let USER_DATA = &USER_HOME./data;
  %m_utl_create_dir(path=&USER_DATA.,debug=N);
  libname USR_DATA "&USER_DATA.";
 
@@ -176,7 +185,7 @@
  %* Create and set user specific autoexec entries:                            ;
  %*---------------------------------------------------------------------------;
 
- %m_utl_set_usermods(file=&USER_ROOT./autoexec_usermods.sas,debug=N);
+ %m_utl_set_usermods(file=&USER_HOME./autoexec_usermods.sas,debug=N);
 
  %*---------------------------------------------------------------------------;
  %* Get current SAS autocall library macro information:                       ;

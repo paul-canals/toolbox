@@ -189,22 +189,18 @@ Now that the compiled SAS&reg; macro catalog is created for the toolbox macros, 
 
 ```sas
  %*---------------------------------------------------------------------------;
- %* Include utility macros to the SASAUTO macro library (default) or catalog: ;
+ %* Include utility and custom macros to the SASAUTO macro library:           ;
  %*---------------------------------------------------------------------------;
  options sasautos=("&APPL_PRGM." %sysfunc(getoption(SASAUTOS)));
- *libname MLIB "&APPL_MLIB.";
- *options mstored sasmstore=MLIB.sasmacr;
 ```
 
 Since we want to register the toolbox macros by using the SAS&reg; macro catalog we created before under `/pub/toolbox/source/sas/catalogs/sasmacr.sas7bcat`, we need to make the following changes to the autoexec.sas program:
 
 ```sas
  %*---------------------------------------------------------------------------;
- %* Include utility macros to the SASAUTO macro library (default) or catalog: ;
+ %* Include utility and custom macros to the SASAUTO macro library:           ;
  %*---------------------------------------------------------------------------;
  *options sasautos=("&APPL_PRGM." %sysfunc(getoption(SASAUTOS)));
- libname MLIB "&APPL_MLIB.";
- options mstored sasmstore=MLIB.sasmacr;
 ```
 
 After making the changes to the autoexec.sas program, save the file and disconnect the connection from SAS&reg; Enterprise Guide to the SAS&reg; Application server. The new settings will take effect at the next logon.

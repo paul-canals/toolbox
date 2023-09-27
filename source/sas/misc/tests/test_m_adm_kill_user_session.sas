@@ -8,7 +8,7 @@
  *             Run this program in a SAS editor or batch script.
  * 
  * \author     Paul Alexander Canals y Trocha (paul.canals@gmail.com)
- * \date       2023-09-14 07:48:29
+ * \date       2023-09-26 15:36:19
  * \version    23.1.07
  * \sa         https://github.com/paul-canals/toolbox
  * 
@@ -56,7 +56,7 @@ data WORK.processes;
    call symputx('sessionid',UniqueIdentifier);
 run;
 
- /*
+ 
 %* Example 2 - Step 3: Stop the user session process: ;
 *%m_adm_kill_user_session(
 *   host = hermes.pact.SAS.com
@@ -65,4 +65,4 @@ run;
 * , pass = {SAS002}DA9A0A5C1A1935335ABF908E1DAAB71E
 * , uuid = &sessionid.
 *   );
- */
+ 

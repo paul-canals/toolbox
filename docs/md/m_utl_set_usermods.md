@@ -1,8 +1,5 @@
-<<<<<<<< HEAD:docs/md/m_utl_set_usermods.md
-![../../misc/images/doc_header.png](../../misc/images/doc_header.png)
+![../../misc/images/doc_banner.png](../../misc/images/doc_banner.png)
 # 
-========
->>>>>>>> master:docs/m_utl_set_usermods.md
 # File Reference: m_utl_set_usermods.sas
 
 ### Utilities
@@ -18,10 +15,10 @@ This program creates an initial user specific an autoexec.sas program in a given
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 
 ### Date
-* 2021-10-31 00:00:00
+* 2023-09-26 00:00:00
 
 ### Version
-* 21.1.10
+* 23.1.09
 
 ### Link
 * https://github.com/paul-canals/toolbox
@@ -57,7 +54,7 @@ This program creates an initial user specific an autoexec.sas program in a given
 ```
 
 ### Copyright
-Copyright 2008-2021 Paul Alexander Canals y Trocha. 
+Copyright 2008-2023 Paul Alexander Canals y Trocha. 
  
 This program is free software: you can redistribute it and/or modify 
 it under the terms of the GNU General Public License as published by 
@@ -74,8 +71,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 ***
-<<<<<<<< HEAD:docs/md/m_utl_set_usermods.md
-*This document was generated on 13.09.2023 at 19:04:18  by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas (v21.1.04)*
-========
-*This document was generated on 30.10.2022 at 09:13:38  by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas (v21.1.04)*
->>>>>>>> master:docs/m_utl_set_usermods.md
+*This document was generated on 26.09.2023 at 15:41:56  by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas (v21.1.04)*

@@ -1,4 +1,4 @@
-![../../misc/images/doc_header.png](../../misc/images/doc_header.png)
+![../../misc/images/doc_banner.png](../../misc/images/doc_banner.png)
 # 
 # File Reference: m_adm_create_backup.sas
 
@@ -15,10 +15,10 @@ The macro creates a compressed backup file of filesystem data directory and file
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 
 ### Date
-* 2020-09-07 00:00:00
+* 2023-09-26 00:00:00
 
 ### Version
-* 20.1.09
+* 23.1.09
 
 ### Link
 * https://github.com/paul-canals/toolbox
@@ -72,9 +72,9 @@ The macro creates a compressed backup file of filesystem data directory and file
 ##### Example 2 - Step 1: Create a backup in sources.zip archive:
 ```sas
 %m_adm_create_backup(
-   src_path = C:/SAS/Data/toolbox/sasautos
- , tgt_path = C:/SAS/Data/toolbox/backup
- , tgt_file = sources
+   src_path = &APPL_PRGM.
+ , tgt_path = &APPL_BASE./backup
+ , tgt_file = toolbox
  , debug    = N
    );
 ```
@@ -82,9 +82,9 @@ The macro creates a compressed backup file of filesystem data directory and file
 ##### Example 2 - Step 2: Add to an existing backup archive:
 ```sas
 %m_adm_create_backup(
-   src_path  = C:/SAS/Data/toolbox/misc/scripts
- , tgt_path  = C:/SAS/Data/toolbox/backup
- , tgt_file  = sources
+   src_path  = &APPL_BASE./misc/scripts
+ , tgt_path  = &APPL_BASE./backup
+ , tgt_file  = toolbox
  , new_file  = N
  , debug     = N
    );
@@ -93,18 +93,18 @@ The macro creates a compressed backup file of filesystem data directory and file
 ##### Example 3: Create a new backup and send it by email:
 ```sas
 %m_adm_create_backup(
-   src_path = C:/SAS/Data/toolbox/sasautos
- , tgt_path = C:/SAS/Data/toolbox/backup
+   src_path = &APPL_PRGM.
+ , tgt_path = &APPL_BASE./backup
  , tgt_file = sasautos
  , add_dttm = Y
- , sendmail = Y
+ , sendmail = N
  , mailaddr = %str(pact@hermes.local)
  , debug    = N
    );
 ```
 
 ### Copyright
-Copyright 2008-2020 Paul Alexander Canals y Trocha. 
+Copyright 2008-2023 Paul Alexander Canals y Trocha. 
  
 This program is free software: you can redistribute it and/or modify 
 it under the terms of the GNU General Public License as published by 
@@ -121,4 +121,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 ***
-*This document was generated on 13.09.2023 at 19:01:35  by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas (v21.1.04)*
+*This document was generated on 26.09.2023 at 15:39:26  by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas (v21.1.04)*

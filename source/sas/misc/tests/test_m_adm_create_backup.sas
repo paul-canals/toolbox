@@ -8,8 +8,8 @@
  *             Run this program in a SAS editor or batch script.
  * 
  * \author     Paul Alexander Canals y Trocha (paul.canals@gmail.com)
- * \date       2023-09-14 07:48:24
- * \version    20.1.09
+ * \date       2023-09-26 15:36:15
+ * \version    23.1.09
  * \sa         https://github.com/paul-canals/toolbox
  * 
  * \calls
@@ -38,28 +38,28 @@
  
 %* Example 2 - Step 1: Create a backup in sources.zip archive: ;
 %m_adm_create_backup(
-   src_path = C:/SAS/Data/toolbox/sasautos
- , tgt_path = C:/SAS/Data/toolbox/backup
- , tgt_file = sources
+   src_path = &APPL_PRGM.
+ , tgt_path = &APPL_BASE./backup
+ , tgt_file = toolbox
  , debug    = N
    );
  
 %* Example 2 - Step 2: Add to an existing backup archive: ;
 %m_adm_create_backup(
-   src_path  = C:/SAS/Data/toolbox/misc/scripts
- , tgt_path  = C:/SAS/Data/toolbox/backup
- , tgt_file  = sources
+   src_path  = &APPL_BASE./misc/scripts
+ , tgt_path  = &APPL_BASE./backup
+ , tgt_file  = toolbox
  , new_file  = N
  , debug     = N
    );
  
 %* Example 3: Create a new backup and send it by email: ;
 %m_adm_create_backup(
-   src_path = C:/SAS/Data/toolbox/sasautos
- , tgt_path = C:/SAS/Data/toolbox/backup
+   src_path = &APPL_PRGM.
+ , tgt_path = &APPL_BASE./backup
  , tgt_file = sasautos
  , add_dttm = Y
- , sendmail = Y
+ , sendmail = N
  , mailaddr = %str(pact@hermes.local)
  , debug    = N
    );

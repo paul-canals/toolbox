@@ -1,4 +1,4 @@
-![../../misc/images/doc_header.png](../../misc/images/doc_header.png)
+![../../misc/images/doc_banner.png](../../misc/images/doc_banner.png)
 # 
 # File Reference: m_sys_job_flow.sas
 
@@ -15,10 +15,10 @@ The macro runs a chain of SAS DI-Jobgroups sequentially for batch processing.
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 
 ### Date
-* 2020-09-07 00:00:00
+* 2023-09-26 00:00:00
 
 ### Version
-* 20.1.09
+* 23.1.09
 
 ### Link
 * https://github.com/paul-canals/toolbox
@@ -44,7 +44,9 @@ The macro runs a chain of SAS DI-Jobgroups sequentially for batch processing.
 
 ##### Example 1 - Step 1: Create example jobs:
 ```sas
-filename tmp 'C:\SAS\Config\Lev1\SASMeta\SASEnvironment\SASCode\Jobs\Hello_World.sas';
+%let sascfg = %sysfunc(getoption(SASINITIALFOLDER));
+
+filename tmp "&sascfg./../SASMeta/SASEnvironment/SASCode/Jobs/Hello_World.sas";
 data _null_;
    file tmp;
    put '*Show in log:;';
@@ -54,7 +56,7 @@ data _null_;
    put 'run;';
 run;
 
-filename tmp 'C:\SAS\Config\Lev1\SASMeta\SASEnvironment\SASCode\Jobs\Goodbye_Job.sas';
+filename tmp "&sascfg./../SASMeta/SASEnvironment/SASCode/Jobs/Goodbye_Job.sas";
 data _null_;
    file tmp;
    put '*Show in log:;';
@@ -65,20 +67,24 @@ data _null_;
 run;
 
 filename tmp clear;
+
 ```
 
 ##### Example 1 - Step 2: Run the example job flow:
 ```sas
+%let sascfg = %sysfunc(getoption(SASINITIALFOLDER));
+
 %m_sys_job_flow(
-   job_path = C:\SAS\Config\Lev1\SASMeta\SASEnvironment\SASCode\Jobs
+   job_path = &sascfg./../SASMeta/SASEnvironment/SASCode/Jobs
  , grp_1    = Hello_World
  , grp_2    = Goodbye_Job
  , debug    = N
    );
+
 ```
 
 ### Copyright
-Copyright 2008-2020 Paul Alexander Canals y Trocha. 
+Copyright 2008-2023 Paul Alexander Canals y Trocha. 
  
 This program is free software: you can redistribute it and/or modify 
 it under the terms of the GNU General Public License as published by 
@@ -95,4 +101,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 ***
-*This document was generated on 13.09.2023 at 19:02:13  by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas (v21.1.04)*
+*This document was generated on 26.09.2023 at 15:39:54  by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas (v21.1.04)*

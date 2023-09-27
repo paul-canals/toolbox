@@ -1,4 +1,4 @@
-![../../misc/images/doc_header.png](../../misc/images/doc_header.png)
+![../../misc/images/doc_banner.png](../../misc/images/doc_banner.png)
 # 
 # File Reference: m_adm_compile_macros.sas
 
@@ -18,10 +18,10 @@ The macro lists all SAS macros from a selected directory and adds them into a SA
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 
 ### Date
-* 2021-01-23 00:00:00
+* 2023-09-26 00:00:00
 
 ### Version
-* 21.1.01
+* 23.1.09
 
 ### Link
 * https://github.com/paul-canals/toolbox
@@ -82,7 +82,7 @@ The macro lists all SAS macros from a selected directory and adds them into a SA
 ```
 
 ### Copyright
-Copyright 2008-2021 Paul Alexander Canals y Trocha. 
+Copyright 2008-2023 Paul Alexander Canals y Trocha. 
  
 This program is free software: you can redistribute it and/or modify 
 it under the terms of the GNU General Public License as published by 
@@ -99,4 +99,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 ***
-*This document was generated on 13.09.2023 at 19:01:34  by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas (v21.1.04)*
+*This document was generated on 26.09.2023 at 15:39:25  by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas (v21.1.04)*

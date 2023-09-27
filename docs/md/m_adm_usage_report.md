@@ -1,4 +1,4 @@
-![../../misc/images/doc_header.png](../../misc/images/doc_header.png)
+![../../misc/images/doc_banner.png](../../misc/images/doc_banner.png)
 # 
 # File Reference: m_adm_usage_report.sas
 
@@ -15,10 +15,10 @@ The macro creates a report of the SAS server usage (amount of connections per mo
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 
 ### Date
-* 2021-01-25 00:00:00
+* 2023-09-26 00:00:00
 
 ### Version
-* 21.1.01
+* 23.1.09
 
 ### Link
 * https://github.com/paul-canals/toolbox
@@ -51,27 +51,33 @@ The macro creates a report of the SAS server usage (amount of connections per mo
 
 ##### Example 2: Output to result destination:
 ```sas
+%let sascfg = %sysfunc(getoption(SASINITIALFOLDER));
+
 %m_adm_usage_report(
-   mslogs   = C:\SAS\Config\Lev1\Logs\MetadataServer
- , wslogs   = C:\SAS\Config\Lev1\Logs\ObjectSpawner
+   mslogs   = &sascfg./../SASMeta/MetadataServer/Logs
+ , wslogs   = &sascfg./../ObjectSpawner/Logs
  , print    = Y
  , debug    = N
    );
+
 ```
 
 ##### Example 3: Output report by email:
 ```sas
+%let sascfg = %sysfunc(getoption(SASINITIALFOLDER));
+
 %m_adm_usage_report(
-   mslogs   = C:\SAS\Config\Lev1\Logs\MetadataServer
- , wslogs   = C:\SAS\Config\Lev1\Logs\ObjectSpawner
+   mslogs   = &sascfg./../SASMeta/MetadataServer/Logs
+ , wslogs   = &sascfg./../ObjectSpawner/Logs
  , sendmail = Y
  , mailaddr = %str(pact@hermes.local)
  , debug    = N
    );
+
 ```
 
 ### Copyright
-Copyright 2008-2021 Paul Alexander Canals y Trocha. 
+Copyright 2008-2023 Paul Alexander Canals y Trocha. 
  
 This program is free software: you can redistribute it and/or modify 
 it under the terms of the GNU General Public License as published by 
@@ -88,4 +94,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 ***
-*This document was generated on 13.09.2023 at 19:01:47  by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas (v21.1.04)*
+*This document was generated on 26.09.2023 at 15:39:36  by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas (v21.1.04)*
