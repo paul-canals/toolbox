@@ -1,4 +1,4 @@
-![../../misc/images/doc_header.png](../../misc/images/doc_header.png)
+![../../misc/images/doc_banner.png](../../misc/images/doc_banner.png)
 # 
 # File Reference: m_sys_job_wrapper.sas
 
@@ -15,10 +15,10 @@ The macro incapsulates a SAS DI-Job for execution and processing in batch. It co
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 
 ### Date
-* 2020-09-07 00:00:00
+* 2023-09-26 00:00:00
 
 ### Version
-* 20.1.09
+* 23.1.09
 
 ### Link
 * https://github.com/paul-canals/toolbox
@@ -49,19 +49,22 @@ The macro incapsulates a SAS DI-Job for execution and processing in batch. It co
 
 ##### Example 1 - Step 1: Create an example job:
 ```sas
-filename tmp "C:\SAS\Config\Lev1\SASMeta\SASEnvironment\SASCode\Jobs\Hello_World.sas";
+%let sascfg = %sysfunc(getoption(SASINITIALFOLDER));
+
+filename tmp "&sascfg./../SASMeta/SASEnvironment/SASCode/Jobs/Hello_World.sas";
 data _null_;
    file tmp mod;
    put '*Show in log:;';
    put '%put HELLO WORLD!;';
 run;
+
 ```
 
 ##### Example 1 - Step 2: Run the example job:
 ```sas
 %m_sys_job_wrapper(
-   job_path   = C:\SAS\Config\Lev1\SASMeta\SASEnvironment\SASCode\Jobs
- , log_path   = C:\SAS\Config\Lev1\SASMeta\SASEnvironment\SASCode\Logs
+   job_path   = &sascfg./../SASMeta/SASEnvironment/SASCode/Jobs
+ , log_path   = &sascfg./../SASMeta/SASEnvironment/SASCode/Logs
  , job_name   = Hello_World
  , global_flg = Y
  , mvar_name  = M_JOB_LOG
@@ -69,10 +72,11 @@ run;
    );
 
 %put LOG=&M_JOB_LOG.;
+
 ```
 
 ### Copyright
-Copyright 2008-2020 Paul Alexander Canals y Trocha. 
+Copyright 2008-2023 Paul Alexander Canals y Trocha. 
  
 This program is free software: you can redistribute it and/or modify 
 it under the terms of the GNU General Public License as published by 
@@ -89,4 +93,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 ***
-*This document was generated on 13.09.2023 at 19:02:16  by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas (v21.1.04)*
+*This document was generated on 26.09.2023 at 15:39:57  by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas (v21.1.04)*

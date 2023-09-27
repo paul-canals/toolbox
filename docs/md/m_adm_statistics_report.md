@@ -1,4 +1,4 @@
-![../../misc/images/doc_header.png](../../misc/images/doc_header.png)
+![../../misc/images/doc_banner.png](../../misc/images/doc_banner.png)
 # 
 # File Reference: m_adm_statistics_report.sas
 
@@ -31,10 +31,10 @@ The macro creates a report containing the server load and usage statistics. The 
 * Dr. Simone Kossmann (simone.kossmann@web.de)
 
 ### Date
-* 2023-07-29 00:00:00
+* 2023-09-26 00:00:00
 
 ### Version
-* 23.1.07
+* 23.1.09
 
 ### Link
 * https://github.com/paul-canals/toolbox
@@ -83,10 +83,12 @@ The macro creates a report containing the server load and usage statistics. The 
 ##### Example 2: Perform year-to-date monthly user connection analysis. Exclude type: \@saspw and user: system from statistics.
 
 ```sas
+%let sascfg = %sysfunc(getoption(SASINITIALFOLDER));
+
 %m_adm_statistics_report(
    rootdir  = %str(&APPL_BASE.)
- , mslogs   = %str(C:\SAS\Config\Lev1\Logs\MetadataServer)
- , wslogs   = %str(C:\SAS\Config\Lev1\Logs\ObjectSpawner)
+ , mslogs   = %str(&sascfg./../SASMeta/MetadataServer/Logs)
+ , wslogs   = %str(&sascfg./../ObjectSpawner/Logs)
  , mode     = Y2D
  , type     = MTH
  , excltype = @saspw
@@ -99,10 +101,12 @@ The macro creates a report containing the server load and usage statistics. The 
 ##### Example 3: Perform all time hourly user connection analysis. Exclude type: \@saspw and user: system from statistics.
 
 ```sas
+%let sascfg = %sysfunc(getoption(SASINITIALFOLDER));
+
 %m_adm_statistics_report(
    rootdir  = %str(&APPL_BASE.)
- , mslogs   = %str(C:\SAS\Config\Lev1\Logs\MetadataServer)
- , wslogs   = %str(C:\SAS\Config\Lev1\Logs\ObjectSpawner)
+ , mslogs   = %str(&sascfg./../SASMeta/MetadataServer/Logs)
+ , wslogs   = %str(&sascfg./../ObjectSpawner/Logs)
  , mode     = HIS
  , type     = HRS
  , topusers = 5
@@ -116,10 +120,12 @@ The macro creates a report containing the server load and usage statistics. The 
 ##### Example 4: Perform year-to-date analysis per user with top 5 users. Exclude type: \@saspw and user: system from statistics.
 
 ```sas
+%let sascfg = %sysfunc(getoption(SASINITIALFOLDER));
+
 %m_adm_statistics_report(
    rootdir  = %str(&APPL_BASE.)
- , mslogs   = %str(C:\SAS\Config\Lev1\Logs\MetadataServer)
- , wslogs   = %str(C:\SAS\Config\Lev1\Logs\ObjectSpawner)
+ , mslogs   = %str(&sascfg./../SASMeta/MetadataServer/Logs)
+ , wslogs   = %str(&sascfg./../ObjectSpawner/Logs)
  , mode     = Y2D
  , type     = USR
  , topusers = 5
@@ -133,10 +139,12 @@ The macro creates a report containing the server load and usage statistics. The 
 ##### Example 5: Perform all time complete server connection analysis. Exclude type: \@saspw and user: system from statistics.
 
 ```sas
+%let sascfg = %sysfunc(getoption(SASINITIALFOLDER));
+
 %m_adm_statistics_report(
    rootdir  = %str(&APPL_BASE.)
- , mslogs   = %str(C:\SAS\Config\Lev1\Logs\MetadataServer)
- , wslogs   = %str(C:\SAS\Config\Lev1\Logs\ObjectSpawner)
+ , mslogs   = %str(&sascfg./../SASMeta/MetadataServer/Logs)
+ , wslogs   = %str(&sascfg./../ObjectSpawner/Logs)
  , mode     = HIS
  , type     = ALL
  , topusers = 5
@@ -150,10 +158,12 @@ The macro creates a report containing the server load and usage statistics. The 
 ##### Example 6: Perform a complete server connection analysis for a given month. Exclude type: \@saspw and user: system from statistics.
 
 ```sas
+%let sascfg = %sysfunc(getoption(SASINITIALFOLDER));
+
 %m_adm_statistics_report(
    rootdir  = %str(&APPL_BASE.)
- , mslogs   = %str(C:\SAS\Config\Lev1\Logs\MetadataServer)
- , wslogs   = %str(C:\SAS\Config\Lev1\Logs\ObjectSpawner)
+ , mslogs   = %str(&sascfg./../SASMeta/MetadataServer/Logs)
+ , wslogs   = %str(&sascfg./../ObjectSpawner/Logs)
  , mode     = 1M
  , type     = ALL
  , lastdate = 31012021
@@ -179,10 +189,12 @@ The macro creates a report containing the server load and usage statistics. The 
 
 ##### Example 8: Send the year-to-date statistics report as PDF to a given email address.
 ```sas
+%let sascfg = %sysfunc(getoption(SASINITIALFOLDER));
+
 %m_adm_statistics_report(
    rootdir  = %str(&APPL_BASE.)
- , mslogs   = %str(C:\SAS\Config\Lev1\Logs\MetadataServer)
- , wslogs   = %str(C:\SAS\Config\Lev1\Logs\ObjectSpawner)
+ , mslogs   = %str(&sascfg./../SASMeta/MetadataServer/Logs)
+ , wslogs   = %str(&sascfg./../ObjectSpawner/Logs)
  , sendmail = Y
  , mailaddr = %str(pact@hermes.local)
  , debug    = N
@@ -208,4 +220,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 ***
-*This document was generated on 13.09.2023 at 19:01:46  by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas (v21.1.04)*
+*This document was generated on 26.09.2023 at 15:39:35  by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas (v21.1.04)*
