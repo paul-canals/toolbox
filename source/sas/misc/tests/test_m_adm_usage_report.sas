@@ -8,8 +8,8 @@
  *             Run this program in a SAS editor or batch script.
  * 
  * \author     Paul Alexander Canals y Trocha (paul.canals@gmail.com)
- * \date       2023-09-14 07:48:35
- * \version    21.1.01
+ * \date       2023-09-26 15:36:26
+ * \version    23.1.09
  * \sa         https://github.com/paul-canals/toolbox
  * 
  * \calls
@@ -37,19 +37,25 @@
 %m_adm_usage_report(?)
  
 %* Example 2: Output to result destination: ;
+%let sascfg = %sysfunc(getoption(SASINITIALFOLDER));
+
 %m_adm_usage_report(
-   mslogs   = C:\SAS\Config\Lev1\Logs\MetadataServer
- , wslogs   = C:\SAS\Config\Lev1\Logs\ObjectSpawner
+   mslogs   = &sascfg./../SASMeta/MetadataServer/Logs
+ , wslogs   = &sascfg./../ObjectSpawner/Logs
  , print    = Y
  , debug    = N
    );
+
  
 %* Example 3: Output report by email: ;
+%let sascfg = %sysfunc(getoption(SASINITIALFOLDER));
+
 %m_adm_usage_report(
-   mslogs   = C:\SAS\Config\Lev1\Logs\MetadataServer
- , wslogs   = C:\SAS\Config\Lev1\Logs\ObjectSpawner
+   mslogs   = &sascfg./../SASMeta/MetadataServer/Logs
+ , wslogs   = &sascfg./../ObjectSpawner/Logs
  , sendmail = Y
  , mailaddr = %str(pact@hermes.local)
  , debug    = N
    );
+
  
