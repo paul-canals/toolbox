@@ -47,6 +47,13 @@ The SAS&reg; macro documentation files are listed here. Click on any link below 
 
 ***
 
+* Functions
+   * [f_demo_hello_world.sas](md/f_demo_hello_world.md)
+   * [f_demo_sum_array.sas](md/f_demo_sum_array.md)
+   * [f_demo_translation.sas](md/f_demo_translation.md)
+
+***
+
 * Logging
    * [m_log_run_analysis.sas](md/m_log_run_analysis.md)
    * [m_log_set_options.sas](md/m_log_set_options.md)
@@ -132,6 +139,7 @@ The SAS&reg; macro documentation files are listed here. Click on any link below 
    * [m_utl_get_dspath.sas](md/m_utl_get_dspath.md)
    * [m_utl_get_fcat_info.sas](md/m_utl_get_fcat_info.md)
    * [m_utl_get_file_list.sas](md/m_utl_get_file_list.md)
+   * [m_utl_get_func_info.sas](md/m_utl_get_func_info.md)
    * [m_utl_get_java_info.sas](md/m_utl_get_java_info.md)
    * [m_utl_get_max_value.sas](md/m_utl_get_max_value.md)
    * [m_utl_get_mcat_info.sas](md/m_utl_get_mcat_info.md)
