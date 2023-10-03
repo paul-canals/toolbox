@@ -8,8 +8,8 @@
  *             Run this program in a SAS editor or batch script.
  * 
  * \author     Paul Alexander Canals y Trocha (paul.canals@gmail.com)
- * \date       2023-09-26 15:36:21
- * \version    23.1.07
+ * \date       2023-10-03 07:45:35
+ * \version    23.1.10
  * \sa         https://github.com/paul-canals/toolbox
  * 
  * \calls
@@ -52,7 +52,7 @@ run;
  , profile   = %str(pact@hermes.pact.sas.com)
  , packname  = shared_data.spk
  , packpath  = %str(&APPL_PRGM./source/sas/misc/meta)
- , outscript = %str(&USER_ROOT./makepkg.bat)
+ , outscript = %str(&USER_HOME./makepkg.bat)
  , debug     = N
    );
  
