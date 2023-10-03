@@ -7,8 +7,8 @@
  *             library using the m_utl_set_sasauto.sas utility macro program.
  * 
  * \author     Paul Alexander Canals y Trocha (paul.canals@gmail.com)
- * \date       2023-09-26 00:00:00
- * \version    23.1.09
+ * \date       2023-10-01 00:00:00
+ * \version    23.1.10
  * \sa         https://github.com/paul-canals/toolbox
  * 
  * \return     Registered toolbox macros and library references.
@@ -98,7 +98,7 @@
  %*---------------------------------------------------------------------------;
     
  %let APPL_NAME = Toolbox;
- %let APPL_VERS = 23.1.09;
+ %let APPL_VERS = 23.1.10;
  %let APPL_CONF = &APPL_BASE./config;
  %let APPL_DOCS = &APPL_BASE./docs;
  %let APPL_LOGS = &APPL_BASE./misc/logs;
@@ -115,10 +115,11 @@
  %* Include utility and custom macros to the SASAUTO macro library:           ;
  %*---------------------------------------------------------------------------;
 
+ options sasautos=("&APPL_UCMR." %sysfunc(getoption(SASAUTOS)));
  options sasautos=("&APPL_PRGM." %sysfunc(getoption(SASAUTOS)));
 
  %*---------------------------------------------------------------------------;
- %* Include utility macros to the SASAUTO macro catalog:                      ;
+ %* Include toolbox macro catalog to the user own macro catalog in WORK:      ;
  %*---------------------------------------------------------------------------;
 
  %* !!!!!! NOTE: NO MACRO FUNCTION CALLS ARE ALLOWED ABOVE THIS LINE !!!!!!!! ;
@@ -131,9 +132,26 @@
           copy out = USR_WORK.sasmacr;
        quit;
        libname TMP_MCAT clear;
-       options mstored sasmstore = USR_WORK nomreplace;
+       options mstored sasmstore = USR_WORK /*nomreplace*/;
     %end;
  %mend; %setCatalog;
+
+ %*---------------------------------------------------------------------------;
+ %* Include toolbox functions to the user own functions catalog in WORK:      ;
+ %*---------------------------------------------------------------------------;
+
+ %macro setFunctions;
+    %if %sysfunc(fileexist(&APPL_MCAT./functs.sas7bdat)) %then %do;
+       libname TMP_MCAT "&APPL_MCAT." access=readonly;
+       libname USR_WORK "%sysfunc(pathname(work))"; 
+       proc datasets lib=TMP_MCAT nolist nodetails;
+          copy out=USR_WORK memtype=(data); 
+          select functs; 
+       quit;
+       libname TMP_MCAT clear;
+       options cmplib = USR_WORK.functs;
+    %end;
+ %mend; %setFunctions;
 
  %*---------------------------------------------------------------------------;
  %* Load main SAS global macro parameters from delimited file:                ;
@@ -206,10 +224,22 @@
  %m_utl_get_fcat_info(outlib=USR_INFO,debug=N);
 
  %*---------------------------------------------------------------------------;
+ %* Get current user session SAS user compiled function information:          ;
+ %*---------------------------------------------------------------------------;
+
+ %m_utl_get_func_info(outlib=USR_INFO,prefix=F_,debug=N);
+
+ %*---------------------------------------------------------------------------;
  %* Get current Java system environment information:                          ;
  %*---------------------------------------------------------------------------;
 
  %m_utl_get_java_info(outlib=USR_INFO,debug=N);
+
+ %*---------------------------------------------------------------------------;
+ %* Get current user session SAS macro catalog information:                   ;
+ %*---------------------------------------------------------------------------;
+
+ %m_utl_get_mcat_info(outlib=USR_INFO,prefix=M_,debug=N);
 
  %*---------------------------------------------------------------------------;
  %* Get current user information from SAS Metadata Server:                    ;
@@ -234,9 +264,3 @@
  %*---------------------------------------------------------------------------;
 
  %m_utl_get_sys_info(outlib=USR_INFO,debug=N);
-
- %*---------------------------------------------------------------------------;
- %* Get current user session SAS macro catalog information:                   ;
- %*---------------------------------------------------------------------------;
-
- %m_utl_get_mcat_info(outlib=USR_INFO,prefix=M_,debug=N);

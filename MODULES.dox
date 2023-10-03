@@ -23,6 +23,13 @@
  *             and saves the result in RTF or PDF format. See the toolbox
  *             macro documentation under /toolbox/docs for further detailed 
  *             information and examples.
+ *
+ * \defgroup   Functions
+ * \brief      These are user defined functions examples for demo purposes.
+ * \details    The FUNCTIONS examples are used to demonstrate the PROC FCMP
+ *             procedure to create user defined functions. See the toolbox 
+ *             function documentation under /toolbox/docs for further 
+ *             detailed information and examples.
  * 
  * \defgroup   Logging
  * \brief      These are macros to analyse execution results on the system.

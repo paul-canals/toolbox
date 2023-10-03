@@ -216,6 +216,9 @@ The `Custom` macros are standalone macros capable of working in environments wit
 #### Documentation
 The `Documentation` macros are to verify and create automated program documentation using the Doxygen style formatted program header structure information. and saves the result in Markdown, PDF or RTF format. See the Toolbox macro documentation under `/toolbox/docs` for further detailed information and examples.
 
+#### Functions
+The `Functions` examples are used to demonstrate the PROC FCMP procedure to create user defined functions. See the toolbox function documentation under `/toolbox/docs` for further detailed information and examples.
+
 #### Logging
 The `Logging` macros are used to analyse execution results on SAS&reg; system. It reads the logs to obtain execution information and generates log analysis result reports. See the Toolbox macro documentation under `/toolbox/docs` for further detailed information and examples.
  
@@ -254,6 +257,7 @@ The following repositories are also worth checking out (alphabetically ordered):
 * [rogerjdeangelis](https://github.com/rogerjdeangelis)
 * [SASJedi/sas-macros](https://github.com/SASJedi/sas-macros)
 * [sasjs/core](https://github.com/sasjs/core)
+* [sasjs/lint](https://github.com/sasjs/lint)
 * [scottbass/sas](https://github.com/scottbass/SAS)
 * [xieliaing/SAS](https://github.com/xieliaing/SAS)
 * [yabwon/sas_packages](https://github.com/yabwon/SAS_PACKAGES)
