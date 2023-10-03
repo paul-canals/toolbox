@@ -82,6 +82,16 @@
 
 %mend run_test_script_generation;
 
+%* Create function test scripts: ;
+%run_test_script_generation(
+   src_path = &APPL_FUNC.
+ , tgt_path = &APPL_TEST.
+ , sendmail = N
+ , mailaddr = %str(pact@hermes.local)
+ , debug    = N
+   );
+
+%* Create macro test scripts: ;
 %run_test_script_generation(
    src_path = &APPL_PRGM.
  , tgt_path = &APPL_TEST.

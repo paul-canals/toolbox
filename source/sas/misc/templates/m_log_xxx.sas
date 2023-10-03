@@ -48,6 +48,7 @@
  */
 %macro m_log_xxx(
    help
+ , vers  = YY.x
  , ...
  , debug = N
    );

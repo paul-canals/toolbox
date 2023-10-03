@@ -48,6 +48,7 @@
  */
 %macro m_cst_xxx(
    help
+ , vers  = YY.x
  , ...
  , debug = N
    );

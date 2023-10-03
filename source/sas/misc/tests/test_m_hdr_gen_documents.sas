@@ -8,8 +8,8 @@
  *             Run this program in a SAS editor or batch script.
  * 
  * \author     Paul Alexander Canals y Trocha (paul.canals@gmail.com)
- * \date       2023-09-26 15:36:39
- * \version    23.1.07
+ * \date       2023-10-03 07:45:49
+ * \version    23.1.09
  * \sa         https://github.com/paul-canals/toolbox
  * 
  * \calls
@@ -39,7 +39,7 @@
 %* Example 2: Generate MD documentation into temporary folder in WORK: ;
 %m_hdr_gen_documents(
    in_dir      = %str(&APPL_PRGM.)
- , out_dir     = %str(%sysfunc(getoption(WORK))\misc\docs)
+ , out_dir     = %str(%sysfunc(getoption(WORK))/misc/docs)
  , doc_type    = MD
  , doc_image   = %str(../misc/images/doc_banner.png)
  , print       = Y
@@ -49,7 +49,7 @@
 %* Example 3: Generate PDF documentation into temporary folder in WORK: ;
 %m_hdr_gen_documents(
    in_dir      = %str(&APPL_PRGM.)
- , out_dir     = %str(%sysfunc(getoption(WORK))\misc\docs)
+ , out_dir     = %str(%sysfunc(getoption(WORK))/misc/docs)
  , doc_type    = PDF
  , doc_name    = reference
  , doc_title   = SAS PDF Documentation Reference
@@ -62,7 +62,7 @@
 %* Example 4: Generate RTF documentation into temporary folder in WORK: ;
 %m_hdr_gen_documents(
    in_dir      = %str(&APPL_PRGM.)
- , out_dir     = %str(%sysfunc(getoption(WORK))\misc\docs)
+ , out_dir     = %str(%sysfunc(getoption(WORK))/misc/docs)
  , doc_type    = RTF
  , doc_title   = SAS RTF Documentation Reference
  , doc_author  = Paul Alexander Canals y Trocha
@@ -74,7 +74,7 @@
 %* Example 5: Generate RTF documentation and output report by email: ;
 *%m_hdr_gen_documents(
 *   in_dir      = %str(&APPL_PRGM.)
-* , out_dir     = %str(%sysfunc(getoption(WORK))\misc\docs)
+* , out_dir     = %str(%sysfunc(getoption(WORK))/misc/docs)
 * , doc_type    = RTF
 * , doc_title   = SAS RTF Documentation Reference
 * , doc_author  = Paul Alexander Canals y Trocha
