@@ -8,8 +8,8 @@
  *             Run this program in a SAS editor or batch script.
  * 
  * \author     Paul Alexander Canals y Trocha (paul.canals@gmail.com)
- * \date       2023-09-26 15:36:45
- * \version    23.1.07
+ * \date       2023-10-03 07:45:53
+ * \version    23.1.10
  * \sa         https://github.com/paul-canals/toolbox
  * 
  * \calls
@@ -38,7 +38,8 @@
  
 %* Example 2: Retrieve metadata information for current user: ;
 %m_sys_get_meta_info(
-   userid = &sysuserid.
+   audit  = %sysfunc(getoption(WORK))/audit
+ , userid = &sysuserid.
  , prefix = GRP
  , prjlst = %quote('CRM','MRM','SYS')
  , dbsval = DBS
