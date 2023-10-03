@@ -48,6 +48,7 @@
  */
 %macro m_val_xxx(
    help
+ , vers  = YY.x
  , ...
  , debug = N
    );

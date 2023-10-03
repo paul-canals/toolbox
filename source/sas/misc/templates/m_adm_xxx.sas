@@ -48,6 +48,7 @@
  */
 %macro m_adm_xxx(
    help
+ , vers  = YY.x
  , ...
  , debug = N
    );
