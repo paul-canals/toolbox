@@ -132,6 +132,7 @@ The SAS&reg; macros are obviously not listed here, but can be obtained by contac
    * [m_utl_get_dspath.sas](../../../docs/md/m_utl_get_dspath.md)
    * [m_utl_get_fcat_info.sas](../../../docs/md/m_utl_get_fcat_info.md)
    * [m_utl_get_file_list.sas](../../../docs/md/m_utl_get_file_list.md)
+   * [m_utl_get_func_info.sas](../../../docs/md/m_utl_get_func_info.md)
    * [m_utl_get_java_info.sas](../../../docs/md/m_utl_get_java_info.md)
    * [m_utl_get_max_value.sas](../../../docs/md/m_utl_get_max_value.md)
    * [m_utl_get_mcat_info.sas](../../../docs/md/m_utl_get_mcat_info.md)
