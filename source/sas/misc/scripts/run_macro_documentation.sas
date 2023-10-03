@@ -6,7 +6,7 @@
  * \details    This script can be run in a SAS editor or batch script.
  * 
  * \author     Paul Alexander Canals y Trocha (paul.canals@gmail.com)
- * \date       2023-09-17 00:00:00
+ * \date       2023-09-26 00:00:00
  * \version    23.1.09
  * \sa         https://github.com/paul-canals/toolbox
  * 
@@ -30,6 +30,7 @@
 %macro run_macro_documentation(
    sas_path    = _NONE_
  , doc_path    = _NONE_
+ , excl_lst    = %str(\note \todo \warning)
  , doc_type    = RTF
  , doc_image   = 
  , doc_name    = reference
@@ -65,6 +66,7 @@
    %m_hdr_gen_documents(
       in_dir      = %str(&sas_path.)
     , out_dir     = %str(&doc_path./%lowcase(&doc_type.))
+    , excl_lst    = &excl_lst.
     , doc_type    = &doc_type.
     , doc_image   = &doc_image.
     , doc_name    = &doc_name.
