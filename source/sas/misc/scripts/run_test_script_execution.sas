@@ -6,8 +6,8 @@
  * \details    This script can be run in a SAS editor or batch script.
  * 
  * \author     Paul Alexander Canals y Trocha (paul.canals@gmail.com)
- * \date       2023-09-11 00:00:00
- * \version    23.1.09
+ * \date       2023-10-01 00:00:00
+ * \version    23.1.10
  * \sa         https://github.com/paul-canals/toolbox
  * 
  * \copyright  Copyright 2008-2023 Paul Alexander Canals y Trocha.
@@ -84,10 +84,11 @@
 
 %mend run_test_script_execution;
 
+%* Run toolbox test scripts: ;
 %run_test_script_execution(
    src_path = &APPL_TEST.
  , log_path = &APPL_LOGS.
- , prefix   = test_m_
+ , prefix   = test_
  , sendmail = N
  , mailaddr = %str(pact@hermes.local)
  , debug    = N
