@@ -12,17 +12,16 @@
 This program converts a SAS dataset into a comma separated values (CSV) file. This is a method to transport datasets or tables independently from one host or system to another.
 
 ##### *Note:*
-*The follwing word(s) are not allowed as part of the input SAS dataset or table name: JOIN.
-*
+*The following word(s) are not allowed as part of the input SAS dataset or table name: JOIN.*
 
 ### Authors
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 
 ### Date
-* 2022-11-08 00:00:00
+* 2023-10-21 00:00:00
 
 ### Version
-* 22.1.11
+* 23.1.10
 
 ### Link
 * https://github.com/paul-canals/toolbox
@@ -79,7 +78,7 @@ run;
 ```
 
 ### Copyright
-Copyright 2008-2022 Paul Alexander Canals y Trocha. 
+Copyright 2008-2023 Paul Alexander Canals y Trocha. 
  
 This program is free software: you can redistribute it and/or modify 
 it under the terms of the GNU General Public License as published by 
@@ -96,4 +95,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 ***
-*This document was generated on 26.09.2023 at 15:40:37  by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas (v21.1.04)*
+*This document was generated on 21.10.2023 at 12:27:39  by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas (v23.1.10)*
