@@ -8,8 +8,8 @@
  *             Run this program in a SAS editor or batch script.
  * 
  * \author     Paul Alexander Canals y Trocha (paul.canals@gmail.com)
- * \date       2023-09-26 15:37:05
- * \version    20.1.09
+ * \date       2023-10-21 09:13:08
+ * \version    23.1.10
  * \sa         https://github.com/paul-canals/toolbox
  * 
  * \calls
@@ -62,7 +62,7 @@ quit;
    );
  
 %* Example 3: Create a DDL file for table bankkonto with libref parameter: ;
-%m_utl_ds2ddl(
+%m_utl_create_ddl(
    libnm    = WORK
  , tblnm    = bankkonto
  , ddl_file = %sysfunc(getoption(WORK))/bankkonto_libref.sas
@@ -73,7 +73,7 @@ quit;
    );
  
 %* Example 4: Create a DDL file for table bankkonto with creds parameter: ;
-%m_utl_ds2ddl(
+%m_utl_create_ddl(
    libnm     = WORK
  , tblnm     = bankkonto
  , ddl_file  = %sysfunc(getoption(WORK))/bankkonto_creds.sas
