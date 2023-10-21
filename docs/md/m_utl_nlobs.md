@@ -12,8 +12,7 @@
 The macro can be used anywhere in a SAS program including within a SAS procedure or SAS data step. If the table does not exist, it returns \-1. If the table exists, but cannot opened it returns 0. Different parameter names are allowed. This macro is originally based on the ut_nlobs.sas macro by Dave Prinsloo (dave.prinsloo@yahoo.com) and also the where statement inclusion by Roland Rashleigh-Berry.
 
 ##### *Note:*
-*The SHOW_ERR parameter shows or suppresses possible warnings or errors in the log. The default value for SHOW_ERR is: N.
-*
+*The SHOW_ERR parameter shows or suppresses possible warnings or errors in the log. The default value for SHOW_ERR is: N.*
 *In case of encrypted SAS datasets, the ENCRYPTKEY= parameter must be provided as part of the CREDS credentials string.*
 
 ### Authors
@@ -126,4 +125,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 ***
-*This document was generated on 26.09.2023 at 15:41:38  by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas (v21.1.04)*
+*This document was generated on 21.10.2023 at 12:28:11  by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas (v23.1.10)*
