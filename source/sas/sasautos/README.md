@@ -165,6 +165,7 @@ The SAS&reg; macros are obviously not listed here, but can be obtained by contac
    * [m_utl_print_message.sas](../../../docs/md/m_utl_print_message.md)
    * [m_utl_print_mtrace.sas](../../../docs/md/m_utl_print_mtrace.md)
    * [m_utl_printto.sas](../../../docs/md/m_utl_printto.md)
+   * [m_utl_prio_lookup.sas](../../../docs/md/m_utl_prio_lookup.md)
    * [m_utl_quote_elems.sas](../../../docs/md/m_utl_quote_elems.md)
    * [m_utl_random_number.sas](../../../docs/md/m_utl_random_number.md)
    * [m_utl_read_hist_data.sas](../../../docs/md/m_utl_read_hist_data.md)
