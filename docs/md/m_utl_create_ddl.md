@@ -18,10 +18,10 @@ This macro obtains all column, index and constraint information from a given tab
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 
 ### Date
-* 2020-09-23 00:00:00
+* 2023-10-18 00:00:00
 
 ### Version
-* 20.1.09
+* 23.1.10
 
 ### Link
 * https://github.com/paul-canals/toolbox
@@ -95,7 +95,7 @@ quit;
 
 ##### Example 3: Create a DDL file for table bankkonto with libref parameter:
 ```sas
-%m_utl_ds2ddl(
+%m_utl_create_ddl(
    libnm    = WORK
  , tblnm    = bankkonto
  , ddl_file = %sysfunc(getoption(WORK))/bankkonto_libref.sas
@@ -108,7 +108,7 @@ quit;
 
 ##### Example 4: Create a DDL file for table bankkonto with creds parameter:
 ```sas
-%m_utl_ds2ddl(
+%m_utl_create_ddl(
    libnm     = WORK
  , tblnm     = bankkonto
  , ddl_file  = %sysfunc(getoption(WORK))/bankkonto_creds.sas
@@ -121,7 +121,7 @@ quit;
 ```
 
 ### Copyright
-Copyright 2008-2020 Paul Alexander Canals y Trocha. 
+Copyright 2008-2023 Paul Alexander Canals y Trocha. 
  
 This program is free software: you can redistribute it and/or modify 
 it under the terms of the GNU General Public License as published by 
@@ -138,4 +138,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 ***
-*This document was generated on 26.09.2023 at 15:40:18  by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas (v21.1.04)*
+*This document was generated on 21.10.2023 at 09:18:09  by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas (v21.1.04)*

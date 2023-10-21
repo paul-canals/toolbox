@@ -7,7 +7,7 @@
  *             library using the m_utl_set_sasauto.sas utility macro program.
  * 
  * \author     Paul Alexander Canals y Trocha (paul.canals@gmail.com)
- * \date       2023-10-01 00:00:00
+ * \date       2023-10-08 00:00:00
  * \version    23.1.10
  * \sa         https://github.com/paul-canals/toolbox
  * 
@@ -18,6 +18,7 @@
  *             + m_utl_get_auto_info.sas
  *             + m_utl_get_data_info.sas
  *             + m_utl_get_fcat_info.sas
+ *             + m_utl_get_func_info.sas
  *             + m_utl_get_java_info.sas
  *             + m_utl_get_mcat_info.sas
  *             + m_utl_get_meta_info.sas
