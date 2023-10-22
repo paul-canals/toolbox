@@ -1,5 +1,3 @@
-![../../misc/images/doc_banner.png](../../misc/images/doc_banner.png)
-# 
 # File Reference: m_utl_prio_lookup.sas
 
 ### Utilities
@@ -67,7 +65,7 @@ data WORK.counterparty_data;
       cpy_id      : $char5.
       cpy_type    : $char30.
       method_cd   : $char15.
-      support_cd  : $char4.
+      version_cd  : $char4.
       ;
 datalines;
 10001   Sovereign    100       301
@@ -96,7 +94,7 @@ data WORK.map_asset_class;
       priority     : $char2.
       cpy_type     : $char30.
       method_cd    : $char15.
-      support_cd   : $char4.
+      version_cd   : $char4.
       asset_class  : $char30.
       ;
    datalines;
@@ -128,12 +126,12 @@ run;
    src_tbl = WORK.counterparty_data
  , map_tbl = WORK.map_asset_class
  , trg_tbl = WORK.counterparty_mapped
- , keys    = %str(cpy_type method_cd support_cd)
+ , keys    = %str(cpy_type method_cd version_cd)
  , cols    = %str(asset_class)
  , prio    = %str(priority)
  , null    = %str(#)
  , print   = Y
- , debug   = N
+ , debug   = Y
    );
 
 ```
@@ -144,7 +142,7 @@ run;
    src_tbl = WORK.counterparty_data
  , map_tbl = WORK.map_asset_class
  , trg_tbl = WORK.counterparty_mapped
- , keys    = %str(method_cd support_cd cpy_type)
+ , keys    = %str(method_cd version_cd cpy_type)
  , cols    = %str(asset_class)
  , prio    = %str(priority)
  , debug   = N
@@ -161,7 +159,7 @@ run;
    src_tbl = WORK.counterparty_data
  , map_tbl = WORK.map_asset_class
  , trg_tbl = WORK.counterparty_mapped
- , keys    = %str(method_cd cpy_type support_cd)
+ , keys    = %str(method_cd cpy_type version_cd)
  , cols    = %str(asset_class)
  , prio    = %str(priority)
  , debug   = N
@@ -190,4 +188,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 ***
-*This document was generated on 21.10.2023 at 12:28:16  by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas (v23.1.10)*
+*This document was generated on 22.10.2023 at 07:58:40  by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas (v23.1.10)*
