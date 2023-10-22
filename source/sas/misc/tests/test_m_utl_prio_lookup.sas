@@ -8,7 +8,7 @@
  *             Run this program in a SAS editor or batch script.
  * 
  * \author     Paul Alexander Canals y Trocha (paul.canals@gmail.com)
- * \date       2023-10-21 09:14:17
+ * \date       2023-10-22 09:14:17
  * \version    23.1.10
  * \sa         https://github.com/paul-canals/toolbox
  * 
@@ -42,7 +42,7 @@ data WORK.counterparty_data;
       cpy_id      : $char5.
       cpy_type    : $char30.
       method_cd   : $char15.
-      support_cd  : $char4.
+      version_cd  : $char4.
       ;
 datalines;
 10001   Sovereign    100       301
@@ -69,7 +69,7 @@ data WORK.map_asset_class;
       priority     : $char2.
       cpy_type     : $char30.
       method_cd    : $char15.
-      support_cd   : $char4.
+      version_cd   : $char4.
       asset_class  : $char30.
       ;
    datalines;
@@ -99,12 +99,12 @@ run;
    src_tbl = WORK.counterparty_data
  , map_tbl = WORK.map_asset_class
  , trg_tbl = WORK.counterparty_mapped
- , keys    = %str(cpy_type method_cd support_cd)
+ , keys    = %str(cpy_type method_cd version_cd)
  , cols    = %str(asset_class)
  , prio    = %str(priority)
  , null    = %str(#)
  , print   = Y
- , debug   = N
+ , debug   = Y
    );
 
  
@@ -113,7 +113,7 @@ run;
    src_tbl = WORK.counterparty_data
  , map_tbl = WORK.map_asset_class
  , trg_tbl = WORK.counterparty_mapped
- , keys    = %str(method_cd support_cd cpy_type)
+ , keys    = %str(method_cd version_cd cpy_type)
  , cols    = %str(asset_class)
  , prio    = %str(priority)
  , debug   = N
@@ -128,7 +128,7 @@ run;
    src_tbl = WORK.counterparty_data
  , map_tbl = WORK.map_asset_class
  , trg_tbl = WORK.counterparty_mapped
- , keys    = %str(method_cd cpy_type support_cd)
+ , keys    = %str(method_cd cpy_type version_cd)
  , cols    = %str(asset_class)
  , prio    = %str(priority)
  , debug   = N
