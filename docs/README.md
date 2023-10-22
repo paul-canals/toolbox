@@ -172,6 +172,7 @@ The SAS&reg; macro documentation files are listed here. Click on any link below 
    * [m_utl_print_message.sas](md/m_utl_print_message.md)
    * [m_utl_print_mtrace.sas](md/m_utl_print_mtrace.md)
    * [m_utl_printto.sas](md/m_utl_printto.md)
+   * [m_utl_prio_lookup.sas](md/m_utl_prio_lookup.md)
    * [m_utl_quote_elems.sas](md/m_utl_quote_elems.md)
    * [m_utl_random_number.sas](md/m_utl_random_number.md)
    * [m_utl_read_hist_data.sas](md/m_utl_read_hist_data.md)
