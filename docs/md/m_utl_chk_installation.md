@@ -4,21 +4,30 @@
 
 ### Utilities
 
-##### Utility macro to check if the installation was successful.
+##### Utility macro to check if Toolbox installation was successful.
 
 ***
 
 ### Description
-The macro checks if the installation of the Utility Macros Toolbox was successful.
+The macro checks if the installation of the Utility Macros Toolbox was successful. The following checks are performed:
+ (1-PRM) Check if Toolbox global parameters exists
+ (2-VAL) Check if global parameter values are set
+ (3-DIR) Check if Toolbox directories exists
+ (4-CSV) Check if run_parameter_ctrl.csv file exists
+ (5-PRM) Check if configuration parameters exists
+ (6-PRM) Check if user specific parameters exists
+ (7-VAL) Check if user parameter values are set
+ (8-LIB) Check if user specific libraries exists
+
 
 ### Authors
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 
 ### Date
-* 2023-09-11 00:00:00
+* 2023-10-22 00:00:00
 
 ### Version
-* 23.1.09
+* 23.1.10
 
 ### Link
 * https://github.com/paul-canals/toolbox
@@ -71,4 +80,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 ***
-*This document was generated on 26.09.2023 at 15:40:06  by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas (v21.1.04)*
+*This document was generated on 22.10.2023 at 09:16:03  by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas (v23.1.10)*
