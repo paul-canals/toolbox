@@ -1,4 +1,4 @@
-![../misc/images/banner.png](../misc/images/banner.png)
+![../misc/images/banner.png](../misc/images/doc_banner.png)
 # 
 # File Reference list
 The SAS&reg; macro documentation files are listed here. Click on any link below to open a corresponding macro document in Markdown (MD) format.
