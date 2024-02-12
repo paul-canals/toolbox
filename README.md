@@ -1,7 +1,7 @@
-![misc/images/banner.png](misc/images/banner.png) 
+[![misc/images/banner.png](misc/images/banner.png)](https://github.com/paul-canals/toolbox-dev)
 
 # 
-[![Release: v23.1.09](https://img.shields.io/badge/release-v23.1.09-orange.svg)](https://github.com/paul-canals/toolbox/releases/tag/v23.1.09)
+[![Release: v24.1.02](https://img.shields.io/badge/release-v24.1.02-orange.svg)](https://github.com/paul-canals/toolbox/releases/tag/v24.1.02)
 [![SAS Version: 9.4](https://img.shields.io/badge/sas-9.4-blue.svg)](https://www.sas.com)
 [![License: GPL v3](https://img.shields.io/badge/license-GPLv3-green.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
@@ -84,6 +84,10 @@ Now we can continue with the Installation Steps.
       ```
 
 11. The program should produce something like this output in the SAS&reg; Enterprise Guide *Result* tab:
+    <details>
+    <summary>
+        <i>Expected result of the m_utl_chk_installation.sas macro execution</i>
+    </summary>
 
     | Check | Status |
     | ----- | :----: |
@@ -155,6 +159,8 @@ Now we can continue with the Installation Steps.
     | Check if user specific library 'USR_HOME' exists | OK |
     | Check if user specific library 'USR_INFO' exists | OK |
     | Check if user specific library 'USR_WORK' exists | OK |
+
+    </details>
 
 This is good enough for now. It is time now for some *Post Installation Steps*.
 
@@ -233,6 +239,11 @@ The `Utilities` macros are generic and are used in many other SAS&reg; macro pro
 
 #### Validation
 The `Validation` macros are used for rule based data validation. They contain calls to generic utility macros. These macros can be used as building blocks for other macros or master program. See the Toolbox macro documentation under `/toolbox/docs` for further detailed information and examples.
+
+## References
+|Allianz|Deutsche Bank|ERGO|KfW DEG|Pfandbriefbank|Postbank|
+|:-:|:-:|:-:|:-:|:-:|:-:|
+|[![Allianz](misc/images/logo-allianz.svg.png?h=25)](https://allianz.de)|[![Deutsche Bank](misc/images/logo-deutsche_bank.svg.png?h=25)](https://deutsche-bank.de)|[![ERGO](misc/images/logo-ergo.svg.png?h=25)](https://ergo.de)|[![KfW DEG](misc/images/logo-kfw_deg.svg.png?h=25)](https://deginvest.de)|[![Pfandbriefbank](misc/images/logo-pbb.svg.png?h=25)](https://pfandbriefbank.com)|[![Postbank](misc/images/logo-postbank.svg.png?h=25)](https://postbank.de)|
 
 ## Author
 * [Paul Alexander Canals y Trocha](mailto:paul.canals@gmail.com)
