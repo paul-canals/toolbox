@@ -8,14 +8,14 @@
  *             Run this program in a SAS editor or batch script.
  * 
  * \author     Paul Alexander Canals y Trocha (paul.canals@gmail.com)
- * \date       2023-09-26 15:37:45
- * \version    20.1.10
+ * \date       2023-10-07 00:00:00
+ * \version    23.1.10
  * \sa         https://github.com/paul-canals/toolbox
  * 
  * \calls
  *             + m_utl_mstore_drop.sas
  * 
- * \copyright  Copyright 2008-2023 Paul Alexander Canals y Trocha
+ * \copyright  Copyright 2008-2024 Paul Alexander Canals y Trocha
  * 
  *     This program is free software: you can redistribute it and/or modify
  *     it under the terms of the GNU General Public License as published by
@@ -37,7 +37,7 @@
 %m_utl_mstore_drop(?)
  
 %* Example 2: Step 1 - Copy the contents of SASHELP core macro catalog: ;
-libname TMP "%sysget(SASROOT)/core/sashelp";
+libname TMP "%sysfunc(pathname(SASROOT))/core/sashelp";
 
 proc catalog cat=TMP.sasmacr force;
    copy out=WORK.sasmacr;

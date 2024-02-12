@@ -8,14 +8,14 @@
  *             Run this program in a SAS editor or batch script.
  * 
  * \author     Paul Alexander Canals y Trocha (paul.canals@gmail.com)
- * \date       2023-09-26 15:36:53
- * \version    21.1.01
+ * \date       2023-11-19 00:00:00
+ * \version    23.1.11
  * \sa         https://github.com/paul-canals/toolbox
  * 
  * \calls
  *             + m_test_generate_scripts.sas
  * 
- * \copyright  Copyright 2008-2023 Paul Alexander Canals y Trocha
+ * \copyright  Copyright 2008-2024 Paul Alexander Canals y Trocha
  * 
  *     This program is free software: you can redistribute it and/or modify
  *     it under the terms of the GNU General Public License as published by

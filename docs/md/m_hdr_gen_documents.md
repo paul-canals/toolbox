@@ -39,10 +39,10 @@ This program is used to read all programs in a given directory to create Markdow
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 
 ### Date
-* 2023-07-27 00:00:00
+* 2023-09-26 00:00:00
 
 ### Version
-* 23.1.07
+* 23.1.09
 
 ### Link
 * https://github.com/paul-canals/toolbox
@@ -91,7 +91,7 @@ This program is used to read all programs in a given directory to create Markdow
 ```sas
 %m_hdr_gen_documents(
    in_dir      = %str(&APPL_PRGM.)
- , out_dir     = %str(%sysfunc(getoption(WORK))\misc\docs)
+ , out_dir     = %str(%sysfunc(getoption(WORK))/misc/docs)
  , doc_type    = MD
  , doc_image   = %str(../misc/images/doc_banner.png)
  , print       = Y
@@ -103,7 +103,7 @@ This program is used to read all programs in a given directory to create Markdow
 ```sas
 %m_hdr_gen_documents(
    in_dir      = %str(&APPL_PRGM.)
- , out_dir     = %str(%sysfunc(getoption(WORK))\misc\docs)
+ , out_dir     = %str(%sysfunc(getoption(WORK))/misc/docs)
  , doc_type    = PDF
  , doc_name    = reference
  , doc_title   = SAS PDF Documentation Reference
@@ -118,7 +118,7 @@ This program is used to read all programs in a given directory to create Markdow
 ```sas
 %m_hdr_gen_documents(
    in_dir      = %str(&APPL_PRGM.)
- , out_dir     = %str(%sysfunc(getoption(WORK))\misc\docs)
+ , out_dir     = %str(%sysfunc(getoption(WORK))/misc/docs)
  , doc_type    = RTF
  , doc_title   = SAS RTF Documentation Reference
  , doc_author  = Paul Alexander Canals y Trocha
@@ -132,7 +132,7 @@ This program is used to read all programs in a given directory to create Markdow
 ```sas
 *%m_hdr_gen_documents(
 *   in_dir      = %str(&APPL_PRGM.)
-* , out_dir     = %str(%sysfunc(getoption(WORK))\misc\docs)
+* , out_dir     = %str(%sysfunc(getoption(WORK))/misc/docs)
 * , doc_type    = RTF
 * , doc_title   = SAS RTF Documentation Reference
 * , doc_author  = Paul Alexander Canals y Trocha
@@ -161,4 +161,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 ***
-*This document was generated on 26.09.2023 at 15:39:47  by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas (v21.1.04)*
+*This document was generated on 12.02.2024 at 06:35:46  by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas (v23.1.10)*

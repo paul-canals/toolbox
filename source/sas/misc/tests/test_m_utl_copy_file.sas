@@ -8,14 +8,14 @@
  *             Run this program in a SAS editor or batch script.
  * 
  * \author     Paul Alexander Canals y Trocha (paul.canals@gmail.com)
- * \date       2023-09-26 15:37:03
- * \version    21.1.09
+ * \date       2023-10-07 00:00:00
+ * \version    23.1.10
  * \sa         https://github.com/paul-canals/toolbox
  * 
  * \calls
  *             + m_utl_copy_file.sas
  * 
- * \copyright  Copyright 2008-2023 Paul Alexander Canals y Trocha
+ * \copyright  Copyright 2008-2024 Paul Alexander Canals y Trocha
  * 
  *     This program is free software: you can redistribute it and/or modify
  *     it under the terms of the GNU General Public License as published by
@@ -38,7 +38,7 @@
  
 %* Example 2: Copy an external file to another directory (byte-for-byte): ;
 %m_utl_copy_file(
-   infile    = %sysget(SASROOT)/core/sashelp/class.sas7bdat
+   infile    = %sysfunc(pathname(SASROOT))/core/sashelp/class.sas7bdat
  , outfile   = %sysfunc(getoption(WORK))/backup/class.sas7bdat
  , overwrite = Y
  , debug     = Y
@@ -54,7 +54,7 @@ libname OUT clear;
  
 %* Example 3: Copy an external file to another directory (using chunks): ;
 %m_utl_copy_file(
-   infile    = %sysget(SASROOT)/core/sashelp/class.sas7bdat
+   infile    = %sysfunc(pathname(SASROOT))/core/sashelp/class.sas7bdat
  , outfile   = %sysfunc(getoption(WORK))/backup/class.sas7bdat
  , chunksize = 8192
  , overwrite = Y
@@ -71,7 +71,7 @@ libname OUT clear;
  
 %* Example 4: Avoid copying to an existing external file (throwing an error): ;
 %m_utl_copy_file(
-   infile    = %sysget(SASROOT)/core/sashelp/class.sas7bdat
+   infile    = %sysfunc(pathname(SASROOT))/core/sashelp/class.sas7bdat
  , outfile   = %sysfunc(getoption(WORK))/backup/class.sas7bdat
  , chunksize = 8192
  , overwrite = N
@@ -89,7 +89,7 @@ libname OUT clear;
  
 %* Example 5: Avoid copying to an existing external file (no error thrown): ;
 %m_utl_copy_file(
-   infile    = %sysget(SASROOT)/core/sashelp/class.sas7bdat
+   infile    = %sysfunc(pathname(SASROOT))/core/sashelp/class.sas7bdat
  , outfile   = %sysfunc(getoption(WORK))/backup/class.sas7bdat
  , chunksize = 8192
  , overwrite = N

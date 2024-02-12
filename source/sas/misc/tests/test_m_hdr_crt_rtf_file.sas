@@ -9,14 +9,14 @@
  * 
  * \author     Paul Alexander Canals y Trocha (paul.canals@gmail.com)
  * \author     Dr. Simone Kossmann (simone.kossmann@web.de)
- * \date       2023-09-26 15:36:38
+ * \date       2021-04-02 00:00:00
  * \version    21.1.04
  * \sa         https://github.com/paul-canals/toolbox
  * 
  * \calls
  *             + m_hdr_crt_rtf_file.sas
  * 
- * \copyright  Copyright 2008-2023 Paul Alexander Canals y Trocha
+ * \copyright  Copyright 2008-2024 Paul Alexander Canals y Trocha
  * 
  *     This program is free software: you can redistribute it and/or modify
  *     it under the terms of the GNU General Public License as published by

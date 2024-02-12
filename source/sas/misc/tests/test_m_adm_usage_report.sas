@@ -8,14 +8,14 @@
  *             Run this program in a SAS editor or batch script.
  * 
  * \author     Paul Alexander Canals y Trocha (paul.canals@gmail.com)
- * \date       2023-09-26 15:36:26
- * \version    23.1.09
+ * \date       2023-10-06 00:00:00
+ * \version    23.1.10
  * \sa         https://github.com/paul-canals/toolbox
  * 
  * \calls
  *             + m_adm_usage_report.sas
  * 
- * \copyright  Copyright 2008-2023 Paul Alexander Canals y Trocha
+ * \copyright  Copyright 2008-2024 Paul Alexander Canals y Trocha
  * 
  *     This program is free software: you can redistribute it and/or modify
  *     it under the terms of the GNU General Public License as published by
@@ -37,22 +37,26 @@
 %m_adm_usage_report(?)
  
 %* Example 2: Output to result destination: ;
-%let sascfg = %sysfunc(getoption(SASINITIALFOLDER));
+%let rc = %sysfunc(filename(fref,.));
+%let cd = %sysfunc(pathname(&fref.));
+%let rc = %sysfunc(filename(fref));
 
 %m_adm_usage_report(
-   mslogs   = &sascfg./../SASMeta/MetadataServer/Logs
- , wslogs   = &sascfg./../ObjectSpawner/Logs
+   mslogs   = &cd./../SASMeta/MetadataServer/Logs
+ , wslogs   = &cd./../ObjectSpawner/Logs
  , print    = Y
  , debug    = N
    );
 
  
 %* Example 3: Output report by email: ;
-%let sascfg = %sysfunc(getoption(SASINITIALFOLDER));
+%let rc = %sysfunc(filename(fref,.));
+%let cd = %sysfunc(pathname(&fref.));
+%let rc = %sysfunc(filename(fref));
 
 %m_adm_usage_report(
-   mslogs   = &sascfg./../SASMeta/MetadataServer/Logs
- , wslogs   = &sascfg./../ObjectSpawner/Logs
+   mslogs   = &cd./../SASMeta/MetadataServer/Logs
+ , wslogs   = &cd./../ObjectSpawner/Logs
  , sendmail = Y
  , mailaddr = %str(pact@hermes.local)
  , debug    = N

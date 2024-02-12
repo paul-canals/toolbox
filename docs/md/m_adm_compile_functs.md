@@ -12,17 +12,16 @@
 The macro lists all SAS functions from a given directory and adds these into a function library container using compilation. The result information is presented by a SAS Proc Report step step and can be send by email as an PDF format attachment.
 
 ##### *Note:*
-*To guarantee a successful creation of the function library container included with the function source files, each of the PROC FCMP OUTLIB calls in the function source files should always refer to the macro variable name: "&OUTLIB"!
- (e.g. PROC FCMP OUTLIB=&OUTLIB.;)*
+*To guarantee a successful creation of the function library container included with the function source files, each of the PROC FCMP OUTLIB calls in the function source files should always refer to the macro variable name: "&OUTLIB"! (e.g. PROC FCMP OUTLIB=&OUTLIB.;)*
 
 ### Authors
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 
 ### Date
-* 2023-09-26 00:00:00
+* 2023-10-06 00:00:00
 
 ### Version
-* 23.1.09
+* 23.1.10
 
 ### Link
 * https://github.com/paul-canals/toolbox
@@ -128,4 +127,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 ***
-*This document was generated on 26.09.2023 at 15:39:24  by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas (v21.1.04)*
+*This document was generated on 12.02.2024 at 06:35:26  by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas (v23.1.10)*

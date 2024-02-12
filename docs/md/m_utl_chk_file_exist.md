@@ -22,10 +22,10 @@ The program checks if an external file exists and can be opened for reading and/
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 
 ### Date
-* 2021-09-07 00:00:00
+* 2023-10-07 00:00:00
 
 ### Version
-* 21.1.09
+* 23.1.10
 
 ### Link
 * https://github.com/paul-canals/toolbox
@@ -56,7 +56,7 @@ The program checks if an external file exists and can be opened for reading and/
 ```sas
 %let fileExist =
    %m_utl_chk_file_exist(
-      infile   = %sysget(sasroot)/sasv9.cfg
+      infile   = %sysfunc(pathname(sasroot))/sasv9.cfg
     , show_err = Y
     , debug    = Y
       );
@@ -69,8 +69,8 @@ The program checks if an external file exists and can be opened for reading and/
 ```sas
 %let fileExist =
    %m_utl_chk_file_exist(
-      infile   = %sysget(sasroot)/sasv8.cfg
-    , show_err = Y
+      infile   = %sysfunc(pathname(sasroot))/sasv8.cfg
+    , show_err = N
     , debug    = Y
       );
 
@@ -83,7 +83,7 @@ The program checks if an external file exists and can be opened for reading and/
 %let fileExist =
    %m_utl_chk_file_exist(
       infile   = %sysfunc(getoption(WORK))/sasgopt.sas7bcat
-    , show_err = Y
+    , show_err = N
     , debug    = Y
       );
 
@@ -92,7 +92,7 @@ The program checks if an external file exists and can be opened for reading and/
 ```
 
 ### Copyright
-Copyright 2008-2021 Paul Alexander Canals y Trocha. 
+Copyright 2008-2023 Paul Alexander Canals y Trocha. 
  
 This program is free software: you can redistribute it and/or modify 
 it under the terms of the GNU General Public License as published by 
@@ -109,4 +109,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 ***
-*This document was generated on 26.09.2023 at 15:40:04  by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas (v21.1.04)*
+*This document was generated on 12.02.2024 at 06:36:06  by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas (v23.1.10)*

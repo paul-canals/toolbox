@@ -8,14 +8,14 @@
  *             Run this program in a SAS editor or batch script.
  * 
  * \author     Paul Alexander Canals y Trocha (paul.canals@gmail.com)
- * \date       2023-09-26 15:37:52
- * \version    21.1.01
+ * \date       2023-11-21 00:00:00
+ * \version    23.1.11
  * \sa         https://github.com/paul-canals/toolbox
  * 
  * \calls
  *             + m_utl_reg_table_meta.sas
  * 
- * \copyright  Copyright 2008-2023 Paul Alexander Canals y Trocha
+ * \copyright  Copyright 2008-2024 Paul Alexander Canals y Trocha
  * 
  *     This program is free software: you can redistribute it and/or modify
  *     it under the terms of the GNU General Public License as published by
@@ -54,7 +54,7 @@ run;
 %m_utl_reg_table_meta(
    libnm  = SASApp - SASDATA
  , tblnm  = class
- , folder = /User Folders/&sysuserid./My Folder
+ , folder = /User Folders/&sysuserid./&M_MYFOLDER.
  , print  = Y
  , debug  = Y
    )

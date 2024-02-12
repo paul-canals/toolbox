@@ -12,9 +12,7 @@
 This macro can be used to load new data into a historised table or dataset using a combination of valid date and version number as historisation attributes. With every load a new combination of valid date and version number is created, additionally also user and load timestamp values are written to the output table.
 
 ##### *Note:*
-*SAS Problem Note 2859: LOCK statement or function with LIST or QUERY options might report locks incorrectly:
- http://support.sas.com/kb/2/859.html
-*
+*SAS Problem Note 2859: LOCK statement or function with LIST or QUERY options might report locks incorrectly: http://support.sas.com/kb/2/859.html*
 
 ### Authors
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
@@ -150,4 +148,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 ***
-*This document was generated on 26.09.2023 at 15:41:50  by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas (v21.1.04)*
+*This document was generated on 12.02.2024 at 06:37:15  by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas (v23.1.10)*

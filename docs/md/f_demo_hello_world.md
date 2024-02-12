@@ -18,7 +18,7 @@ The function can be called in a datastep, and has one argument called TEXT. When
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 
 ### Date
-* 2023-10-01 hh:mm:ss
+* 2023-10-01 00:00:00
 
 ### Version
 * 23.1.10
@@ -79,4 +79,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 ***
-*This document was generated on 03.10.2023 at 07:37:43  by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas (v21.1.04)*
+*This document was generated on 12.02.2024 at 05:21:35  by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas (v23.1.10)*

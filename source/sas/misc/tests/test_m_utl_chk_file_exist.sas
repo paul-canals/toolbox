@@ -8,14 +8,14 @@
  *             Run this program in a SAS editor or batch script.
  * 
  * \author     Paul Alexander Canals y Trocha (paul.canals@gmail.com)
- * \date       2023-09-26 15:36:57
- * \version    21.1.09
+ * \date       2023-10-07 00:00:00
+ * \version    23.1.10
  * \sa         https://github.com/paul-canals/toolbox
  * 
  * \calls
  *             + m_utl_chk_file_exist.sas
  * 
- * \copyright  Copyright 2008-2023 Paul Alexander Canals y Trocha
+ * \copyright  Copyright 2008-2024 Paul Alexander Canals y Trocha
  * 
  *     This program is free software: you can redistribute it and/or modify
  *     it under the terms of the GNU General Public License as published by
@@ -39,7 +39,7 @@
 %* Example 2: File exists and can be opened (RESULT=1): ;
 %let fileExist =
    %m_utl_chk_file_exist(
-      infile   = %sysget(sasroot)/sasv9.cfg
+      infile   = %sysfunc(pathname(sasroot))/sasv9.cfg
     , show_err = Y
     , debug    = Y
       );
@@ -50,8 +50,8 @@
 %* Example 3: File does not exist (RESULT=0): ;
 %let fileExist =
    %m_utl_chk_file_exist(
-      infile   = %sysget(sasroot)/sasv8.cfg
-    , show_err = Y
+      infile   = %sysfunc(pathname(sasroot))/sasv8.cfg
+    , show_err = N
     , debug    = Y
       );
 
@@ -62,7 +62,7 @@
 %let fileExist =
    %m_utl_chk_file_exist(
       infile   = %sysfunc(getoption(WORK))/sasgopt.sas7bcat
-    , show_err = Y
+    , show_err = N
     , debug    = Y
       );
 

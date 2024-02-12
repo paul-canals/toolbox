@@ -7,8 +7,8 @@ ALL;M_EMAIL_ADMIN;pact@hermes.local;CHAR;Email address administrator group;1
 DEV;M_ERROR_LIMIT;4;NUM;The maximal allowed value for the SYSCC system parameter;1
 TST;M_ERROR_LIMIT;0;NUM;The maximal allowed value for the SYSCC system parameter;1
 PRD;M_ERROR_LIMIT;0;NUM;The maximal allowed value for the SYSCC system parameter;1
-ALL;M_FLG_NO;N;CHAR;The local value equivalent to N;1
-ALL;M_FLG_YES;Y;CHAR;The local value equivalent to Y;1
+ALL;M_FLG_NO;N;CHAR;The EN local value equivalent to N;1
+ALL;M_FLG_YES;Y;CHAR;The EN local value equivalent to Y;1
 ALL;M_HASH;md5#06020202337333735363336333631363;CHAR;MD5 hash string;1
 ALL;M_JOB_LOG;LOG;CHAR;Contains the full job log name and path, used by the m_prj_job_wrapper.sas macro;1
 ALL;M_JOB_MSG;;CHAR;Job return message equivalent to the SYSERRORTEXT and SYSWARNINGTEXT SAS system variables;1

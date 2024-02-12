@@ -8,14 +8,14 @@
  *             Run this program in a SAS editor or batch script.
  * 
  * \author     Paul Alexander Canals y Trocha (paul.canals@gmail.com)
- * \date       2023-09-26 15:36:50
- * \version    23.1.09
+ * \date       2023-10-07 00:00:00
+ * \version    23.1.10
  * \sa         https://github.com/paul-canals/toolbox
  * 
  * \calls
  *             + m_sys_job_wrapper.sas
  * 
- * \copyright  Copyright 2008-2023 Paul Alexander Canals y Trocha
+ * \copyright  Copyright 2008-2024 Paul Alexander Canals y Trocha
  * 
  *     This program is free software: you can redistribute it and/or modify
  *     it under the terms of the GNU General Public License as published by
@@ -34,9 +34,11 @@
  */
  
 %* Example 1 - Step 1: Create an example job: ;
-%let sascfg = %sysfunc(getoption(SASINITIALFOLDER));
+%let rc = %sysfunc(filename(fref,.));
+%let cd = %sysfunc(pathname(&fref.));
+%let rc = %sysfunc(filename(fref));
 
-filename tmp "&sascfg./../SASMeta/SASEnvironment/SASCode/Jobs/Hello_World.sas";
+filename tmp "&cd./../SASMeta/SASEnvironment/SASCode/Jobs/Hello_World.sas";
 data _null_;
    file tmp mod;
    put '*Show in log:;';
@@ -46,8 +48,8 @@ run;
  
 %* Example 1 - Step 2: Run the example job: ;
 %m_sys_job_wrapper(
-   job_path   = &sascfg./../SASMeta/SASEnvironment/SASCode/Jobs
- , log_path   = &sascfg./../SASMeta/SASEnvironment/SASCode/Logs
+   job_path   = &cd./../SASMeta/SASEnvironment/SASCode/Jobs
+ , log_path   = &cd./../SASMeta/SASEnvironment/SASCode/Logs
  , job_name   = Hello_World
  , global_flg = Y
  , mvar_name  = M_JOB_LOG

@@ -18,7 +18,7 @@ The function can be called in a datastep, and has one argument called TEXT. When
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 
 ### Date
-* 2023-10-01 hh:mm:ss
+* 2023-10-06 00:00:00
 
 ### Version
 * 23.1.10
@@ -41,7 +41,7 @@ The function can be called in a datastep, and has one argument called TEXT. When
 
 ##### Example 1: Translate yes into spanish
 ```sas
-proc fcmp outlib=WORK.funcs.demo; ;
+proc fcmp outlib=WORK.functs.demo; ;
    function f_demo_translation(word $) $ 12;
       if lowcase(x) eq "yes" then return('Si');
       else return('No!');
@@ -75,4 +75,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 ***
-*This document was generated on 03.10.2023 at 07:37:45  by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas (v21.1.04)*
+*This document was generated on 12.02.2024 at 05:21:37  by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas (v23.1.10)*

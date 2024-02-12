@@ -11,14 +11,17 @@
 ### Description
 This macro can be used to register a table or view in SAS metadata, using the PROC METALIB procedure. This creates and updates SAS metadata in the SAS Metadata Repository to match the given data source.
 
+##### *Note:*
+*The M_MYFOLDER macro variable used in the USAGE examples is set by the m_utl_set_parameter.sas macro using the /pub/toolbox/config/run_parameter_ctrl.csv file.*
+
 ### Authors
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 
 ### Date
-* 2021-01-25 00:00:00
+* 2023-11-21 00:00:00
 
 ### Version
-* 21.1.01
+* 23.1.11
 
 ### Link
 * https://github.com/paul-canals/toolbox
@@ -72,7 +75,7 @@ run;
 %m_utl_reg_table_meta(
    libnm  = SASApp - SASDATA
  , tblnm  = class
- , folder = /User Folders/&sysuserid./My Folder
+ , folder = /User Folders/&sysuserid./&M_MYFOLDER.
  , print  = Y
  , debug  = Y
    )
@@ -86,7 +89,7 @@ libname TMP clear;
 ```
 
 ### Copyright
-Copyright 2008-2021 Paul Alexander Canals y Trocha. 
+Copyright 2008-2023 Paul Alexander Canals y Trocha. 
  
 This program is free software: you can redistribute it and/or modify 
 it under the terms of the GNU General Public License as published by 
@@ -103,4 +106,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 ***
-*This document was generated on 26.09.2023 at 15:41:49  by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas (v21.1.04)*
+*This document was generated on 12.02.2024 at 06:37:14  by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas (v23.1.10)*

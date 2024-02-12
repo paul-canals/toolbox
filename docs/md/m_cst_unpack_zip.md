@@ -18,10 +18,10 @@ This program extracts all files from a given ZIP archive to a given target direc
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 
 ### Date
-* 2023-09-11 00:00:00
+* 2023-10-08 00:00:00
 
 ### Version
-* 23.1.09
+* 23.1.10
 
 ### Link
 * https://github.com/paul-canals/toolbox
@@ -52,7 +52,7 @@ This program extracts all files from a given ZIP archive to a given target direc
 ##### Example 2: View all files listed in a ZIP archive (mode: View):
 ```sas
 %* Create ZIP archive: ;
-filename tmpfile "%sysget(SASROOT)/core/sashelp/cars.sas7bdat";
+filename tmpfile "%sysfunc(pathname(SASROOT))/core/sashelp/cars.sas7bdat";
 filename zipfile zip "%sysfunc(getoption(WORK))/sashelp.zip" member="cars.sas7bdat";
 
 %* byte-by-byte copy ;
@@ -63,7 +63,7 @@ data _null_;
    put byte $char1. @;
 run;
 
-filename tmpfile "%sysget(SASROOT)/core/sashelp/class.sas7bdat";
+filename tmpfile "%sysfunc(pathname(SASROOT))/core/sashelp/class.sas7bdat";
 filename zipfile zip "%sysfunc(getoption(WORK))/sashelp.zip" member="class.sas7bdat";
 
 %* byte-by-byte copy ;
@@ -89,7 +89,7 @@ filename zipfile clear;
 ##### Example 3: Extract all files listed in a ZIP archive (mode: Extract):
 ```sas
 %* Create ZIP archive: ;
-filename tmpfile "%sysget(SASROOT)/core/sashelp/cars.sas7bdat";
+filename tmpfile "%sysfunc(pathname(SASROOT))/core/sashelp/cars.sas7bdat";
 filename zipfile zip "%sysfunc(getoption(WORK))/sashelp.zip" member="cars.sas7bdat";
 
 %* byte-by-byte copy ;
@@ -142,4 +142,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 ***
-*This document was generated on 26.09.2023 at 15:39:43  by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas (v21.1.04)*
+*This document was generated on 12.02.2024 at 06:35:42  by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas (v23.1.10)*
