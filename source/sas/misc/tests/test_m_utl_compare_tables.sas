@@ -8,14 +8,14 @@
  *             Run this program in a SAS editor or batch script.
  * 
  * \author     Paul Alexander Canals y Trocha (paul.canals@gmail.com)
- * \date       2023-09-26 15:37:03
- * \version    21.1.04
+ * \date       2024-02-11 00:00:00
+ * \version    24.1.02
  * \sa         https://github.com/paul-canals/toolbox
  * 
  * \calls
  *             + m_utl_compare_tables.sas
  * 
- * \copyright  Copyright 2008-2023 Paul Alexander Canals y Trocha
+ * \copyright  Copyright 2008-2024 Paul Alexander Canals y Trocha
  * 
  *     This program is free software: you can redistribute it and/or modify
  *     it under the terms of the GNU General Public License as published by
@@ -81,7 +81,6 @@ run;
    base   = SASHELP.classfit
  , comp   = SASHELP.class
  , diff   = WORK.diff
- , idcols = Name
  , print  = Y
  , debug  = N
    );
@@ -102,44 +101,62 @@ run;
 %m_utl_compare_tables(
    base   = SASHELP.class
  , comp   = WORK.class
+ , diff   = WORK.diff
  , print  = Y
  , debug  = N
    );
  
-%* Example 6: Compare SASHELP.class against WORK.class with IDCOLS value change: ;
+%* Example 6: Compare SASHELP.class against WORK.class with IDCOLS=Name value: ;
 data WORK.class;
    set SASHELP.class;
    if name eq 'John' then Age = 19;
 run;
 
 %m_utl_compare_tables(
-   base   = SASHELP.class (drop=Height)
- , comp   = SASHELP.class (drop=Height)
+   base   = SASHELP.class
+ , comp   = WORK.class
+ , idcols = Name
+ , print  = Y
+ , debug  = N
+   );
+
+%put &=_comp_rc.;
+%put &=_comp_msg.;
+ 
+%* Example 7: Compare SASHELP.class against WORK.class with IDCOLS value change: ;
+data WORK.class;
+   set SASHELP.class;
+   if name eq 'John' then Age = 19;
+run;
+
+%m_utl_compare_tables(
+   base   = SASHELP.class
+ , comp   = WORK.class
  , idcols = Name Age
  , print  = Y
  , debug  = N
    );
  
-%* Example 7: Summarize and compare SASHELP.prdsal3 against SASHELP.prdsal2: ;
+%* Example 8: Summarize and compare SASHELP.prdsal3 against SASHELP.prdsal2: ;
 proc sql noprint;
    create table WORK.prdsal2 as
-   select country, state, county, prodtype, product, year, quarter
+   select country, state, prodtype, product, year, quarter, month
         , sum(actual) as actual, sum(predict) as predict
-     from SASHELP.prdsal2 (drop=month monyr)
-    group by country, state, county, prodtype
-        , product, year, quarter
-    order by year, quarter
+     from SASHELP.prdsal2 (drop=county monyr)
+    group by country, state, prodtype, product
+        , year, quarter, month
+    order by year, quarter, month
    ;
 quit;
 
 proc sql noprint;
    create table WORK.prdsal3 as
-   select country, state, county, prodtype, product, year, quarter
+   select country, state, prodtype, product, year, quarter, month
         , sum(actual) as actual, sum(predict) as predict
-     from SASHELP.prdsal3 (drop=month date)
-    group by country, state, county, prodtype
-        , product, year, quarter
-    order by year, quarter
+     from SASHELP.prdsal3 (drop=county date)
+    group by country, state, prodtype, product
+        , year, quarter, month
+    order by year, quarter, month
    ;
 quit;
 
@@ -147,23 +164,20 @@ quit;
    base   = WORK.prdsal3
  , comp   = WORK.prdsal2
  , diff   = WORK.prdsal_grp_diff
- , idcols = Country State County Prodtype Product Year Quarter
+ , idcols = Country State Prodtype Product Year Quarter Month
+ , nodups = N
  , print  = Y
  , debug  = N
    );
  
-%* Example 8: Compare SASHELP.prdsal3 against SASHELP.prdsal2 directly: ;
+%* Example 9: Compare SASHELP.prdsal3 against SASHELP.prdsal2 directly: ;
 %m_utl_compare_tables(
    base   = SASHELP.prdsal3 (drop=date)
  , comp   = SASHELP.prdsal2 (drop=monyr)
  , diff   = WORK.prdsal_diff
- , idcols = Country State County Prodtype Product Year Quarter
- , print  = N
+ , idcols = Country State County Prodtype Product Year Quarter Month
+ , nodups = Y
+ , print  = Y
  , debug  = N
    );
-
-title "Attribute Summary (Differences) between SASHELP.prdsal3 and SASHELP.prdsal2";
-proc print data=WORK.prdsal_diff (drop=_key_) label;
-run;
-title;
  

@@ -8,14 +8,14 @@
  *             Run this program in a SAS editor or batch script.
  * 
  * \author     Paul Alexander Canals y Trocha (paul.canals@gmail.com)
- * \date       2023-09-26 15:37:04
- * \version    20.1.03
+ * \date       2023-10-07 00:00:00
+ * \version    23.1.10
  * \sa         https://github.com/paul-canals/toolbox
  * 
  * \calls
  *             + m_utl_copy_sas_file.sas
  * 
- * \copyright  Copyright 2008-2023 Paul Alexander Canals y Trocha
+ * \copyright  Copyright 2008-2024 Paul Alexander Canals y Trocha
  * 
  *     This program is free software: you can redistribute it and/or modify
  *     it under the terms of the GNU General Public License as published by
@@ -50,7 +50,7 @@ libname TEMP "%sysfunc(getoption(WORK))/backup";
 options nodlcreatedir;
 
 %m_utl_copy_sas_file(
-   indir  = %sysfunc(pathname(SASHOME))/SASFoundation/9.4//core/cmacros
+   indir  = %sysfunc(pathname(SASROOT))/core/cmacros
  , outlib = TEMP
  , select = sasmacr.sas7bcat
  , debug  = Y

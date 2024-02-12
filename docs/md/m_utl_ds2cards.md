@@ -15,10 +15,10 @@ This program converts a SAS dataset into a cards program file. The datalines car
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 
 ### Date
-* 2022-11-08 00:00:00
+* 2023-10-07 00:00:00
 
 ### Version
-* 22.1.11
+* 23.1.10
 
 ### Link
 * https://github.com/paul-canals/toolbox
@@ -71,7 +71,7 @@ This program converts a SAS dataset into a cards program file. The datalines car
 ```
 
 ### Copyright
-Copyright 2008-2022 Paul Alexander Canals y Trocha. 
+Copyright 2008-2023 Paul Alexander Canals y Trocha. 
  
 This program is free software: you can redistribute it and/or modify 
 it under the terms of the GNU General Public License as published by 
@@ -88,4 +88,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 ***
-*This document was generated on 26.09.2023 at 15:40:36  by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas (v21.1.04)*
+*This document was generated on 12.02.2024 at 06:36:25  by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas (v23.1.10)*

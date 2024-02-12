@@ -15,10 +15,10 @@ The batch export tool enable you to perform metadata promotions from an operatin
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 
 ### Date
-* 2023-07-26 00:00:00
+* 2023-10-01 00:00:00
 
 ### Version
-* 23.1.07
+* 23.1.10
 
 ### Link
 * https://github.com/paul-canals/toolbox
@@ -65,7 +65,7 @@ run;
  , profile   = %str(pact@hermes.pact.sas.com)
  , packname  = shared_data.spk
  , packpath  = %str(&APPL_PRGM./source/sas/misc/meta)
- , outscript = %str(&USER_ROOT./makepkg.bat)
+ , outscript = %str(&USER_HOME./makepkg.bat)
  , debug     = N
    );
 ```
@@ -88,4 +88,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 ***
-*This document was generated on 26.09.2023 at 15:39:32  by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas (v21.1.04)*
+*This document was generated on 12.02.2024 at 06:35:33  by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas (v23.1.10)*

@@ -18,10 +18,10 @@ This program uses a byte-for-byte method or uses chunks to copy the input file o
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 
 ### Date
-* 2021-09-27 00:00:00
+* 2023-10-07 00:00:00
 
 ### Version
-* 21.1.09
+* 23.1.10
 
 ### Link
 * https://github.com/paul-canals/toolbox
@@ -55,7 +55,7 @@ This program uses a byte-for-byte method or uses chunks to copy the input file o
 ##### Example 2: Copy an external file to another directory (byte-for-byte):
 ```sas
 %m_utl_copy_file(
-   infile    = %sysget(SASROOT)/core/sashelp/class.sas7bdat
+   infile    = %sysfunc(pathname(SASROOT))/core/sashelp/class.sas7bdat
  , outfile   = %sysfunc(getoption(WORK))/backup/class.sas7bdat
  , overwrite = Y
  , debug     = Y
@@ -73,7 +73,7 @@ libname OUT clear;
 ##### Example 3: Copy an external file to another directory (using chunks):
 ```sas
 %m_utl_copy_file(
-   infile    = %sysget(SASROOT)/core/sashelp/class.sas7bdat
+   infile    = %sysfunc(pathname(SASROOT))/core/sashelp/class.sas7bdat
  , outfile   = %sysfunc(getoption(WORK))/backup/class.sas7bdat
  , chunksize = 8192
  , overwrite = Y
@@ -92,7 +92,7 @@ libname OUT clear;
 ##### Example 4: Avoid copying to an existing external file (throwing an error):
 ```sas
 %m_utl_copy_file(
-   infile    = %sysget(SASROOT)/core/sashelp/class.sas7bdat
+   infile    = %sysfunc(pathname(SASROOT))/core/sashelp/class.sas7bdat
  , outfile   = %sysfunc(getoption(WORK))/backup/class.sas7bdat
  , chunksize = 8192
  , overwrite = N
@@ -112,7 +112,7 @@ libname OUT clear;
 ##### Example 5: Avoid copying to an existing external file (no error thrown):
 ```sas
 %m_utl_copy_file(
-   infile    = %sysget(SASROOT)/core/sashelp/class.sas7bdat
+   infile    = %sysfunc(pathname(SASROOT))/core/sashelp/class.sas7bdat
  , outfile   = %sysfunc(getoption(WORK))/backup/class.sas7bdat
  , chunksize = 8192
  , overwrite = N
@@ -129,7 +129,7 @@ libname OUT clear;
 ```
 
 ### Copyright
-Copyright 2008-2021 Paul Alexander Canals y Trocha. 
+Copyright 2008-2023 Paul Alexander Canals y Trocha. 
  
 This program is free software: you can redistribute it and/or modify 
 it under the terms of the GNU General Public License as published by 
@@ -146,4 +146,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 ***
-*This document was generated on 26.09.2023 at 15:40:15  by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas (v21.1.04)*
+*This document was generated on 12.02.2024 at 06:36:12  by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas (v23.1.10)*

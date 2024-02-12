@@ -102,6 +102,7 @@
 %run_macro_documentation(
    sas_path    = &APPL_PRGM.
  , doc_path    = &APPL_DOCS.
+ , excl_lst    = %str(\note \todo \warning)
  , doc_type    = MD
  , doc_image   = ../../misc/images/doc_banner.png
  , doc_name    = reference
@@ -118,6 +119,7 @@
 %run_macro_documentation(
    sas_path    = &APPL_PRGM.
  , doc_path    = &APPL_DOCS.
+ , excl_lst    = %str(\note \todo \warning)
  , doc_type    = PDF
  , doc_name    = reference
  , doc_title   = SAS PDF Documentation Reference
@@ -138,6 +140,36 @@
  , doc_author  = Paul Alexander Canals y Trocha
  , doc_subject = Generated SAS RTF Documentation
  , append      = N
+ , sendmail    = N
+ , mailaddr    = %str(pact@hermes.local)
+ , debug       = N
+   );
+
+%run_macro_documentation(
+   sas_path    = &APPL_PRGM.
+ , doc_path    = &APPL_DOCS.
+ , excl_lst    = %str(\note \todo \warning \copyright)
+ , doc_type    = PDF
+ , doc_name    = reference
+ , doc_title   = SAS PDF Documentation Reference
+ , doc_author  = Paul Alexander Canals y Trocha
+ , doc_subject = Generated SAS PDF Documentation
+ , append      = Y
+ , sendmail    = N
+ , mailaddr    = %str(pact@hermes.local)
+ , debug       = N
+   );
+
+%run_macro_documentation(
+   sas_path    = &APPL_PRGM.
+ , doc_path    = &APPL_DOCS.
+ , excl_lst    = %str(\note \todo \warning \copyright)
+ , doc_type    = RTF
+ , doc_name    = reference
+ , doc_title   = SAS PDF Documentation Reference
+ , doc_author  = Paul Alexander Canals y Trocha
+ , doc_subject = Generated SAS PDF Documentation
+ , append      = Y
  , sendmail    = N
  , mailaddr    = %str(pact@hermes.local)
  , debug       = N

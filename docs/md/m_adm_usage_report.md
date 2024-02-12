@@ -15,10 +15,10 @@ The macro creates a report of the SAS server usage (amount of connections per mo
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 
 ### Date
-* 2023-09-26 00:00:00
+* 2023-10-06 00:00:00
 
 ### Version
-* 23.1.09
+* 23.1.10
 
 ### Link
 * https://github.com/paul-canals/toolbox
@@ -51,11 +51,13 @@ The macro creates a report of the SAS server usage (amount of connections per mo
 
 ##### Example 2: Output to result destination:
 ```sas
-%let sascfg = %sysfunc(getoption(SASINITIALFOLDER));
+%let rc = %sysfunc(filename(fref,.));
+%let cd = %sysfunc(pathname(&fref.));
+%let rc = %sysfunc(filename(fref));
 
 %m_adm_usage_report(
-   mslogs   = &sascfg./../SASMeta/MetadataServer/Logs
- , wslogs   = &sascfg./../ObjectSpawner/Logs
+   mslogs   = &cd./../SASMeta/MetadataServer/Logs
+ , wslogs   = &cd./../ObjectSpawner/Logs
  , print    = Y
  , debug    = N
    );
@@ -64,11 +66,13 @@ The macro creates a report of the SAS server usage (amount of connections per mo
 
 ##### Example 3: Output report by email:
 ```sas
-%let sascfg = %sysfunc(getoption(SASINITIALFOLDER));
+%let rc = %sysfunc(filename(fref,.));
+%let cd = %sysfunc(pathname(&fref.));
+%let rc = %sysfunc(filename(fref));
 
 %m_adm_usage_report(
-   mslogs   = &sascfg./../SASMeta/MetadataServer/Logs
- , wslogs   = &sascfg./../ObjectSpawner/Logs
+   mslogs   = &cd./../SASMeta/MetadataServer/Logs
+ , wslogs   = &cd./../ObjectSpawner/Logs
  , sendmail = Y
  , mailaddr = %str(pact@hermes.local)
  , debug    = N
@@ -94,4 +98,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 ***
-*This document was generated on 26.09.2023 at 15:39:36  by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas (v21.1.04)*
+*This document was generated on 12.02.2024 at 06:35:36  by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas (v23.1.10)*

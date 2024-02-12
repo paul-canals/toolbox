@@ -7,8 +7,8 @@
  *             library using the m_utl_set_sasauto.sas utility macro program.
  * 
  * \author     Paul Alexander Canals y Trocha (paul.canals@gmail.com)
- * \date       2023-10-08 00:00:00
- * \version    23.1.10
+ * \date       2024-02-11 00:00:00
+ * \version    24.1.02
  * \sa         https://github.com/paul-canals/toolbox
  * 
  * \return     Registered toolbox macros and library references.
@@ -36,7 +36,7 @@
  *             %include '/pub/toolbox/misc/scripts/autoexec.sas';
  * \endcode
  * 
- * \copyright  Copyright 2008-2023 Paul Alexander Canals y Trocha.
+ * \copyright  Copyright 2008-2024 Paul Alexander Canals y Trocha.
  * 
  *     This program is free software: you can redistribute it and/or modify
  *     it under the terms of the GNU General Public License as published by
@@ -99,7 +99,7 @@
  %*---------------------------------------------------------------------------;
     
  %let APPL_NAME = Toolbox;
- %let APPL_VERS = 23.1.10;
+ %let APPL_VERS = 24.1.02;
  %let APPL_CONF = &APPL_BASE./config;
  %let APPL_DOCS = &APPL_BASE./docs;
  %let APPL_LOGS = &APPL_BASE./misc/logs;

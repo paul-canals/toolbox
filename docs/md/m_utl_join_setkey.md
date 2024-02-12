@@ -18,10 +18,10 @@ The macro can be used to join two or more tables by using index to perform table
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 
 ### Date
-* 2020-03-23 00:00:00
+* 2023-11-23 00:00:00
 
 ### Version
-* 20.1.03
+* 23.1.11
 
 ### Link
 * https://github.com/paul-canals/toolbox
@@ -52,6 +52,7 @@ The macro can be used to join two or more tables by using index to perform table
 * [m_utl_chg_delimiter.sas](m_utl_chg_delimiter.md)
 * [m_utl_chk_table_index.sas](m_utl_chk_table_index.md)
 * [m_utl_print_message.sas](m_utl_print_message.md)
+* [m_utl_print_mtrace.sas](m_utl_print_mtrace.md)
 * [m_utl_varlist.sas](m_utl_varlist.md)
 
 ### Usage
@@ -237,7 +238,7 @@ run;
 ```
 
 ### Copyright
-Copyright 2008-2020 Paul Alexander Canals y Trocha. 
+Copyright 2008-2023 Paul Alexander Canals y Trocha. 
  
 This program is free software: you can redistribute it and/or modify 
 it under the terms of the GNU General Public License as published by 
@@ -254,4 +255,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 ***
-*This document was generated on 26.09.2023 at 15:41:29  by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas (v21.1.04)*
+*This document was generated on 12.02.2024 at 06:36:57  by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas (v23.1.10)*

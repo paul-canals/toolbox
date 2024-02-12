@@ -8,14 +8,14 @@
  *             Run this program in a SAS editor or batch script.
  * 
  * \author     Paul Alexander Canals y Trocha (paul.canals@gmail.com)
- * \date       2023-09-26 15:38:06
+ * \date       2021-03-27 00:00:00
  * \version    21.1.03
  * \sa         https://github.com/paul-canals/toolbox
  * 
  * \calls
  *             + m_val_chk_invalid.sas
  * 
- * \copyright  Copyright 2008-2023 Paul Alexander Canals y Trocha
+ * \copyright  Copyright 2008-2024 Paul Alexander Canals y Trocha
  * 
  *     This program is free software: you can redistribute it and/or modify
  *     it under the terms of the GNU General Public License as published by

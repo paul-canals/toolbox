@@ -7,7 +7,7 @@
  *             by the m_test_generate_scripts.sas macro program.
  *             Run this program in a SAS editor or batch script.
  * 
- * \date       2023-09-26 15:36:36
+ * \date        
  * \version     
  * \author      
  * \sa         https://github.com/paul-canals/toolbox
@@ -15,7 +15,7 @@
  * \calls
  *             + m_hdr_chk_structure.sas
  * 
- * \copyright  Copyright 2008-2023 Paul Alexander Canals y Trocha
+ * \copyright  Copyright 2008-2024 Paul Alexander Canals y Trocha
  * 
  *     This program is free software: you can redistribute it and/or modify
  *     it under the terms of the GNU General Public License as published by

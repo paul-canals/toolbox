@@ -15,10 +15,10 @@ The macro reads a text string with a list of words as input, to be sorted alphab
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 
 ### Date
-* 2023-03-16 00:00:00
+* 2023-10-28 00:00:00
 
 ### Version
-* 23.1.03
+* 23.1.10
 
 ### Link
 * https://github.com/paul-canals/toolbox
@@ -203,4 +203,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 ***
-*This document was generated on 26.09.2023 at 15:41:58  by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas (v21.1.04)*
+*This document was generated on 12.02.2024 at 06:37:24  by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas (v23.1.10)*

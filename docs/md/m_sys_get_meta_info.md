@@ -12,10 +12,7 @@
 This program controls the SAS user environment by reading the group memberships from metadata, the database library information from the DBACCESS table and sets global macro variables based on the users function and role. The macro is called by the appserver_autoexec_usermods.sas at logon and creates result control datasets in the USR_INFO library containing information on the users metadata and his personal database access list.
 
 ##### *Note:*
-*The user groups within the SAS Metadata Server needs to be named according to the following naming convention:
- User group within RACE : GRP_SYS_*
- (e.g.\ GRP_SYS_IT_DEVELOPER) Database access control : GRP_DBS_*
- (e.g.\ GRP_DBS_ACCESS_SAP_BW)*
+*The user groups within the SAS Metadata Server needs to be named according to the following naming convention: User group within RACE : GRP_SYS_* (e.g.\ GRP_SYS_IT_DEVELOPER) Database access control : GRP_DBS_* (e.g.\ GRP_DBS_ACCESS_SAP_BW)*
 
 ##### *Warning:*
 *Do remember that a user can only be a member of just one main user group in SAS Metadata representing his role!*
@@ -24,10 +21,10 @@ This program controls the SAS user environment by reading the group memberships 
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 
 ### Date
-* 2023-07-27 00:00:00
+* 2023-10-06 00:00:00
 
 ### Version
-* 23.1.07
+* 23.1.10
 
 ### Link
 * https://github.com/paul-canals/toolbox
@@ -36,6 +33,7 @@ This program controls the SAS user environment by reading the group memberships 
 | Type | Name | Description |
 | ---- | ---- | ----------- |
 | Input | help | Parameter, if set (Help or ?) to print the Help information in the log. In all other cases this parameter should be left out from the macro call. |
+| Input | audit | Mandatory. The full path to the sessions folder. The default value is: &APPL_BASE./audit. |
 | Input | userid | Mandatory. The user's Identifier. (eg SYSUSERID). |
 | Input | prefix | Mandatory. Textual string to filter on the IDENTITY GROUP within the SAS metadata. The default value is: GRP. |
 | Input | prjlist | Optional. If omitted, all group memberships will be selected and returned as result. If set, only valid project ID's should be entered to filter the result. The default value is: SYS. |
@@ -60,6 +58,8 @@ This program controls the SAS user environment by reading the group memberships 
 
 ### Calls
 * [m_utl_clr_table_lock.sas](m_utl_clr_table_lock.md)
+* [m_utl_create_dir.sas](m_utl_create_dir.md)
+* [m_utl_get_curdir.sas](m_utl_get_curdir.md)
 * [m_utl_print_message.sas](m_utl_print_message.md)
 * [m_utl_print_mtrace.sas](m_utl_print_mtrace.md)
 * [m_utl_set_table_lock.sas](m_utl_set_table_lock.md)
@@ -74,7 +74,8 @@ This program controls the SAS user environment by reading the group memberships 
 ##### Example 2: Retrieve metadata information for current user:
 ```sas
 %m_sys_get_meta_info(
-   userid = &sysuserid.
+   audit  = %sysfunc(getoption(WORK))/audit
+ , userid = &sysuserid.
  , prefix = GRP
  , prjlst = %quote('CRM','MRM','SYS')
  , dbsval = DBS
@@ -101,4 +102,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 ***
-*This document was generated on 26.09.2023 at 15:39:52  by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas (v21.1.04)*
+*This document was generated on 12.02.2024 at 06:35:51  by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas (v23.1.10)*

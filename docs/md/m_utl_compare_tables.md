@@ -11,14 +11,17 @@
 ### Description
 The macro compares two tables or SAS datasets, the base dataset TABLE1 and the comparison dataset TABLE2. The macro procedure determines both matching variables and records or observations. Matching variables are those having the same name and type. Matching observations are those having identical values for all specified IDCOLS variables or if IDCOLS parameter is not set, those columns that occur in the same position in the datasets. If matched observations by IDCOLS variables is set, then both SAS datasets or tables must be sorted by all IDCOLS variables.
 
+##### *Note:*
+*The use of PROC COMPARE in combination with SYSINFO return code is based on SAS Global Forum Paper (063-2012) by Joseph Hinson and Margaret Coughlin in which they presented a novel approach of interpreting SYSINFO codes using the SAS bitwise function called "bAND" or "bitwise AND" since SYSINFO codes are binary. The SAS SYSINFO return codes represent binary numbers. These 16 differences can be viewed as 16 bit positions in a binary number of 16 digits: 16 15 14 13 12 11 10 9 8 7 6 5 4 3 2 1 0 1 1 0 0 0 1 0 1 0 0 1 1 1 0 1 where "0" at a particular position means the difference is absent and "1" means the difference has been detected.*
+
 ### Authors
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 
 ### Date
-* 2021-04-11 00:00:00
+* 2024-02-11 00:00:00
 
 ### Version
-* 21.1.04
+* 24.1.02
 
 ### Link
 * https://github.com/paul-canals/toolbox
@@ -39,6 +42,8 @@ The macro compares two tables or SAS datasets, the base dataset TABLE1 and the c
 | Input | exclude | Optional. A blank separated list of columns to be excluded from the table comparison routine. |
 | Input | stats | Boolean [Y/N] parameter to specify if an output table containing the comparison statistics is to be created. The default value is: N. |
 | Input | nodups | Boolean [Y/N] parameter to specify if duplicate observations are ignored from the comparison. The default value for NODUPS is: Y. |
+| Output | mvar_rc | Name of the global macro variable containing the comaprison result return code (SYSINFO). The default value for MVAR_RC is: _comp_rc. |
+| Output | mvar_msg | Name of the global macro variable containing the comparison detailed result message text. The default value for MVAR_TXT is: _comp_msg. |
 | Input | print | Boolean [Y/N] parameter to generate the output by using proc report steps with style HtmlBlue. The default value for PRINT is: N. |
 | Input | debug | Boolean [Y/N] parameter to provide verbose mode information. The default value is: N. |
 
@@ -50,6 +55,7 @@ The macro compares two tables or SAS datasets, the base dataset TABLE1 and the c
 * [m_utl_get_col_code.sas](m_utl_get_col_code.md)
 * [m_utl_get_col_format.sas](m_utl_get_col_format.md)
 * [m_utl_get_col_type.sas](m_utl_get_col_type.md)
+* [m_utl_hash_define.sas](m_utl_hash_define.md)
 * [m_utl_list_operation.sas](m_utl_list_operation.md)
 * [m_utl_nlobs.sas](m_utl_nlobs.md)
 * [m_utl_print_message.sas](m_utl_print_message.md)
@@ -115,7 +121,6 @@ run;
    base   = SASHELP.classfit
  , comp   = SASHELP.class
  , diff   = WORK.diff
- , idcols = Name
  , print  = Y
  , debug  = N
    );
@@ -138,12 +143,13 @@ run;
 %m_utl_compare_tables(
    base   = SASHELP.class
  , comp   = WORK.class
+ , diff   = WORK.diff
  , print  = Y
  , debug  = N
    );
 ```
 
-##### Example 6: Compare SASHELP.class against WORK.class with IDCOLS value change:
+##### Example 6: Compare SASHELP.class against WORK.class with IDCOLS=Name value:
 ```sas
 data WORK.class;
    set SASHELP.class;
@@ -151,35 +157,54 @@ data WORK.class;
 run;
 
 %m_utl_compare_tables(
-   base   = SASHELP.class (drop=Height)
- , comp   = SASHELP.class (drop=Height)
+   base   = SASHELP.class
+ , comp   = WORK.class
+ , idcols = Name
+ , print  = Y
+ , debug  = N
+   );
+
+%put &=_comp_rc.;
+%put &=_comp_msg.;
+```
+
+##### Example 7: Compare SASHELP.class against WORK.class with IDCOLS value change:
+```sas
+data WORK.class;
+   set SASHELP.class;
+   if name eq 'John' then Age = 19;
+run;
+
+%m_utl_compare_tables(
+   base   = SASHELP.class
+ , comp   = WORK.class
  , idcols = Name Age
  , print  = Y
  , debug  = N
    );
 ```
 
-##### Example 7: Summarize and compare SASHELP.prdsal3 against SASHELP.prdsal2:
+##### Example 8: Summarize and compare SASHELP.prdsal3 against SASHELP.prdsal2:
 ```sas
 proc sql noprint;
    create table WORK.prdsal2 as
-   select country, state, county, prodtype, product, year, quarter
+   select country, state, prodtype, product, year, quarter, month
         , sum(actual) as actual, sum(predict) as predict
-     from SASHELP.prdsal2 (drop=month monyr)
-    group by country, state, county, prodtype
-        , product, year, quarter
-    order by year, quarter
+     from SASHELP.prdsal2 (drop=county monyr)
+    group by country, state, prodtype, product
+        , year, quarter, month
+    order by year, quarter, month
    ;
 quit;
 
 proc sql noprint;
    create table WORK.prdsal3 as
-   select country, state, county, prodtype, product, year, quarter
+   select country, state, prodtype, product, year, quarter, month
         , sum(actual) as actual, sum(predict) as predict
-     from SASHELP.prdsal3 (drop=month date)
-    group by country, state, county, prodtype
-        , product, year, quarter
-    order by year, quarter
+     from SASHELP.prdsal3 (drop=county date)
+    group by country, state, prodtype, product
+        , year, quarter, month
+    order by year, quarter, month
    ;
 quit;
 
@@ -187,31 +212,28 @@ quit;
    base   = WORK.prdsal3
  , comp   = WORK.prdsal2
  , diff   = WORK.prdsal_grp_diff
- , idcols = Country State County Prodtype Product Year Quarter
+ , idcols = Country State Prodtype Product Year Quarter Month
+ , nodups = N
  , print  = Y
  , debug  = N
    );
 ```
 
-##### Example 8: Compare SASHELP.prdsal3 against SASHELP.prdsal2 directly:
+##### Example 9: Compare SASHELP.prdsal3 against SASHELP.prdsal2 directly:
 ```sas
 %m_utl_compare_tables(
    base   = SASHELP.prdsal3 (drop=date)
  , comp   = SASHELP.prdsal2 (drop=monyr)
  , diff   = WORK.prdsal_diff
- , idcols = Country State County Prodtype Product Year Quarter
- , print  = N
+ , idcols = Country State County Prodtype Product Year Quarter Month
+ , nodups = Y
+ , print  = Y
  , debug  = N
    );
-
-title "Attribute Summary (Differences) between SASHELP.prdsal3 and SASHELP.prdsal2";
-proc print data=WORK.prdsal_diff (drop=_key_) label;
-run;
-title;
 ```
 
 ### Copyright
-Copyright 2008-2021 Paul Alexander Canals y Trocha. 
+Copyright 2008-2024 Paul Alexander Canals y Trocha. 
  
 This program is free software: you can redistribute it and/or modify 
 it under the terms of the GNU General Public License as published by 
@@ -228,4 +250,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 ***
-*This document was generated on 26.09.2023 at 15:40:14  by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas (v21.1.04)*
+*This document was generated on 12.02.2024 at 06:36:12  by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas (v23.1.10)*

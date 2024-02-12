@@ -15,10 +15,10 @@ The macro runs a chain of SAS DI-Jobs sequentially for batch processing using a 
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 
 ### Date
-* 2023-09-26 00:00:00
+* 2023-10-06 00:00:00
 
 ### Version
-* 23.1.09
+* 23.1.10
 
 ### Link
 * https://github.com/paul-canals/toolbox
@@ -47,9 +47,11 @@ The macro runs a chain of SAS DI-Jobs sequentially for batch processing using a 
 
 ##### Example 1 - Step 1: Create an example job:
 ```sas
-%let sascfg = %sysfunc(getoption(SASINITIALFOLDER));
+%let rc = %sysfunc(filename(fref,.));
+%let cd = %sysfunc(pathname(&fref.));
+%let rc = %sysfunc(filename(fref));
 
-filename tmp "&sascfg./../SASMeta/SASEnvironment/SASCode/Jobs/Hello_World.sas";
+filename tmp "&cd./../SASMeta/SASEnvironment/SASCode/Jobs/Hello_World.sas";
 data _null_;
    file tmp;
    put '*Show in log:;';
@@ -59,7 +61,7 @@ data _null_;
    put 'run;';
 run;
 
-filename tmp "&sascfg./../SASMeta/SASEnvironment/SASCode/Jobs/Goodbye_Job.sas";
+filename tmp "&cd./../SASMeta/SASEnvironment/SASCode/Jobs/Goodbye_Job.sas";
 data _null_;
    file tmp;
    put '*Show in log:;';
@@ -75,11 +77,13 @@ filename tmp clear;
 
 ##### Example 1 - Step 2: Run the example job group:
 ```sas
-%let sascfg = %sysfunc(getoption(SASINITIALFOLDER));
+%let rc = %sysfunc(filename(fref,.));
+%let cd = %sysfunc(pathname(&fref.));
+%let rc = %sysfunc(filename(fref));
 
 %m_sys_job_group(
-   job_path = &sascfg./../SASMeta/SASEnvironment/SASCode/Jobs
- , log_path = &sascfg./../SASMeta/SASEnvironment/SASCode/Logs
+   job_path = &cd./../SASMeta/SASEnvironment/SASCode/Jobs
+ , log_path = &cd./../SASMeta/SASEnvironment/SASCode/Logs
  , job_1    = Hello_World
  , job_2    = Goodbye_Job
  , debug    = N
@@ -105,4 +109,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 ***
-*This document was generated on 26.09.2023 at 15:39:55  by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas (v21.1.04)*
+*This document was generated on 12.02.2024 at 06:35:55  by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas (v23.1.10)*
