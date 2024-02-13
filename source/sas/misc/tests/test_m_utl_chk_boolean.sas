@@ -1,6 +1,6 @@
 /*!
  ******************************************************************************
- * \file       test_m_utl_chk_bool.sas
+ * \file       test_m_utl_chk_boolean.sas
  * \ingroup    Testing
  * \brief      Testing script to execute the programs usage example code.
  * \details    This testing script was automatically generated 
@@ -8,12 +8,12 @@
  *             Run this program in a SAS editor or batch script.
  * 
  * \author     Paul Alexander Canals y Trocha (paul.canals@gmail.com)
- * \date       2024-01-17 00:00:00
- * \version    24.1.01
+ * \date       2024-02-11 00:00:00
+ * \version    24.1.02
  * \sa         https://github.com/paul-canals/toolbox
  * 
  * \calls
- *             + m_utl_chk_bool.sas
+ *             + m_utl_chk_boolean.sas
  * 
  * \copyright  Copyright 2008-2024 Paul Alexander Canals y Trocha
  * 
@@ -34,12 +34,13 @@
  */
  
 %* Example 1: Show help information: ;
-%m_utl_chk_bool(?)
+%m_utl_chk_boolean(?)
  
 %* Example 2: Check boolean value for DEBUG=Y (German "J"): ;
 %let debug =
-   %m_utl_chk_bool(
+   %m_utl_chk_boolean(
       bool  = %str(Ja)
+    , debug = Y
       );
 
 %put &=debug.;
@@ -47,7 +48,7 @@
  
 %* Example 3: Check boolean value for DEBUG=N (Turkish "Hadir"): ;
 %let debug =
-   %m_utl_chk_bool(
+   %m_utl_chk_boolean(
       bool  = %str(H)
     , debug = Y
       );
@@ -57,7 +58,7 @@
  
 %* Example 4: Convert true/false boolean value 1 to BOOL=Y: ;
 %let bool =
-   %m_utl_chk_bool(
+   %m_utl_chk_boolean(
       bool  = 1
     , debug = Y
       );
@@ -67,7 +68,7 @@
  
 %* Example 5: Convert true/false boolean value 1 to BOOL=true: ;
 %let bool =
-   %m_utl_chk_bool(
+   %m_utl_chk_boolean(
       bool    = 1
     , b_true  = true
     , b_false = false
@@ -81,7 +82,7 @@
 %let debug = J;
 
 %let bool =
-   %m_utl_chk_bool(
+   %m_utl_chk_boolean(
       bool    = true
     , b_true  = 1
     , b_false = 0
