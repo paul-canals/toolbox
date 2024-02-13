@@ -8,8 +8,8 @@
  *             Run this program in a SAS editor or batch script.
  * 
  * \author     Paul Alexander Canals y Trocha (paul.canals@gmail.com)
- * \date       2023-11-23 00:00:00
- * \version    23.1.11
+ * \date       2024-02-12 00:00:00
+ * \version    24.1.02
  * \sa         https://github.com/paul-canals/toolbox
  * 
  * \calls
@@ -43,7 +43,11 @@ run;
  
 %* Example 2: Step 2 - Decode the given md5hash password for table access inline: ;
 proc print data=WORK.class(encryptkey=
-   "%m_utl_dec_passwd(passwd=MD5#0883331333033323335363336303432353,debug=Y)");
+   "%cmpres(
+       %m_utl_dec_passwd(
+          passwd = MD5#0883331333033323335363336303432353
+        , debug  = Y
+          ))");
 run;
  
 %* Example 2: Step 3 - Decode the given md5hash password for table access: ;
