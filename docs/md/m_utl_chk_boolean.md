@@ -1,6 +1,6 @@
 ![../../misc/images/doc_banner.png](../../misc/images/doc_banner.png)
 # 
-# File Reference: m_utl_chk_bool.sas
+# File Reference: m_utl_chk_boolean.sas
 
 ### Utilities
 
@@ -21,10 +21,10 @@ The program checks if the given BOOL boolean attribute value is in a list of com
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 
 ### Date
-* 2024-01-17 00:00:00
+* 2024-02-11 00:00:00
 
 ### Version
-* 24.1.01
+* 24.1.02
 
 ### Link
 * https://github.com/paul-canals/toolbox
@@ -49,14 +49,15 @@ The program checks if the given BOOL boolean attribute value is in a list of com
 
 ##### Example 1: Show help information:
 ```sas
-%m_utl_chk_bool(?)
+%m_utl_chk_boolean(?)
 ```
 
 ##### Example 2: Check boolean value for DEBUG=Y (German "J"):
 ```sas
 %let debug =
-   %m_utl_chk_bool(
+   %m_utl_chk_boolean(
       bool  = %str(Ja)
+    , debug = Y
       );
 
 %put &=debug.;
@@ -66,7 +67,7 @@ The program checks if the given BOOL boolean attribute value is in a list of com
 ##### Example 3: Check boolean value for DEBUG=N (Turkish "Hadir"):
 ```sas
 %let debug =
-   %m_utl_chk_bool(
+   %m_utl_chk_boolean(
       bool  = %str(H)
     , debug = Y
       );
@@ -78,7 +79,7 @@ The program checks if the given BOOL boolean attribute value is in a list of com
 ##### Example 4: Convert true/false boolean value 1 to BOOL=Y:
 ```sas
 %let bool =
-   %m_utl_chk_bool(
+   %m_utl_chk_boolean(
       bool  = 1
     , debug = Y
       );
@@ -90,7 +91,7 @@ The program checks if the given BOOL boolean attribute value is in a list of com
 ##### Example 5: Convert true/false boolean value 1 to BOOL=true:
 ```sas
 %let bool =
-   %m_utl_chk_bool(
+   %m_utl_chk_boolean(
       bool    = 1
     , b_true  = true
     , b_false = false
@@ -106,7 +107,7 @@ The program checks if the given BOOL boolean attribute value is in a list of com
 %let debug = J;
 
 %let bool =
-   %m_utl_chk_bool(
+   %m_utl_chk_boolean(
       bool    = true
     , b_true  = 1
     , b_false = 0
@@ -135,4 +136,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 ***
-*This document was generated on 12.02.2024 at 06:36:05  by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas (v23.1.10)*
+*This document was generated on 2024.02.11 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*
