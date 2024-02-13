@@ -86,7 +86,7 @@ The SAS&reg; macros (sasautos) may not be listed here, but can be obtained by co
    * [m_utl_add_column.sas](../../docs/md/m_utl_add_column.md)
    * [m_utl_chg_delimiter.sas](../../docs/md/m_utl_chg_delimiter.md)
    * [m_utl_chg_special_chars.sas](../../docs/md/m_utl_chg_special_chars.md)
-   * [m_utl_chk_bool.sas](../../docs/md/m_utl_chk_bool.md)
+   * [m_utl_chk_boolean.sas](../../docs/md/m_utl_chk_boolean.md)
    * [m_utl_chk_file_exist.sas](../../docs/md/m_utl_chk_file_exist.md)
    * [m_utl_chk_func_exist.sas](../../docs/md/m_utl_chk_func_exist.md)
    * [m_utl_chk_installation.sas](../../docs/md/m_utl_chk_installation.md)
