@@ -86,7 +86,7 @@ The SAS&reg; macro documentation files are listed here. Click on any link below 
    * [m_utl_add_column.sas](md/m_utl_add_column.md)
    * [m_utl_chg_delimiter.sas](md/m_utl_chg_delimiter.md)
    * [m_utl_chg_special_chars.sas](md/m_utl_chg_special_chars.md)
-   * [m_utl_chk_bool.sas](md/m_utl_chk_bool.md)
+   * [m_utl_chk_boolean.sas](md/m_utl_chk_boolean.md)
    * [m_utl_chk_file_exist.sas](md/m_utl_chk_file_exist.md)
    * [m_utl_chk_func_exist.sas](md/m_utl_chk_func_exist.md)
    * [m_utl_chk_installation.sas](md/m_utl_chk_installation.md)
