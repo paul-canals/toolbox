@@ -6,6 +6,7 @@ The SAS&reg; custom macros listed here, are free to be distributed and used as i
 # Modules
 
 * Custom
+   * [binary_heart (standalone version)](<binary_heart (standalone version)/README.md>)
    * [compare_tables (standalone version)](<compare_tables (standalone version)/README.md>)
    * [create_ddl (standalone version)](<create_ddl (standalone version)/README.md>)
    * [create_zip (standalone version)](<create_zip (standalone version)/README.md>)
