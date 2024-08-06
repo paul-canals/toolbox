@@ -11,6 +11,8 @@
 ### Description
 The macro tries to drop a column from an existing database table or SAS dataset. The column name is checked against the table or dasaset on its existance.
 
+
+
 ##### *Note:*
 *In case of encrypted SAS datasets, the ENCRYPTKEY= parameter must be specified as part of the CREDS credentials string.*
 

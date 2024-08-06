@@ -9,7 +9,11 @@
 ***
 
 ### Description
-This program sets the SAS proc printto log output destination to either an external log file or to the default log window. If the log output destination was already set to an external file, a printto list will be created so that the log output destination can be set back to its former state. This also works for nested printto log file statements. A notification with the full printto list of will be printed in the log file.
+This program sets the SAS proc printto log output destination to either an external log file or to the default log window.
+
+ If the log output destination was already set to an external file, a printto list will be created so that the log output destination can be set back to its former state. This also works for nested printto log file statements. A notification with the full printto list of will be printed in the log file.
+
+
 
 ##### *Warning:*
 *This macro is OBSOLETE: please use m_utl_printto.sas!*

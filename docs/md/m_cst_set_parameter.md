@@ -9,16 +9,18 @@
 ***
 
 ### Description
-This program reads a list of macro variables defined in an input CSV file or SAS dataset. Records in the file can either be environment dependent (INHOST) or not, or set inactive in case of PRMFLG set to 0. The following macro variable types are valid:
+This program reads a list of macro variables defined in an input CSV file or SAS dataset. Records in the file can either be environment dependent (INHOST) or not, or set inactive in case of PRMFLG set to 0.
+
+ The following macro variable types are valid:
+
  CHAR : Character value(s list)
- DATE : Uses DATE format on date() input, returns numerical
- value on DDMONYYYY input (e.g.\ 31dec2016) DTTM : Uses DATETIME format on datetime() input, returns
- numerical value on DDMONYYYY HH:MM:SS input
- (e.g.\ 31dec2016 23:59:59)
+ DATE : Uses DATE format on date() input, returns numerical value on DDMONYYYY input (e.g.\ 31dec2016)
+ DTTM : Uses DATETIME format on datetime() input, returns numerical value on DDMONYYYY HH:MM:SS input (e.g.\ 31dec2016 23:59:59)
  FUNC : Uses %sysfunc() function
  MVAR : Uses %str(&)PRMVAL%str(.)
- NUM : Numerical value(s list)
+ NUM  : Numerical value(s list)
  SGET : Uses %sysget() function
+
 
 
 ##### *Note:*

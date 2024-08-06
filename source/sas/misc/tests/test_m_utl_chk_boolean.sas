@@ -8,8 +8,8 @@
  *             Run this program in a SAS editor or batch script.
  * 
  * \author     Paul Alexander Canals y Trocha (paul.canals@gmail.com)
- * \date       2024-02-11 00:00:00
- * \version    24.1.02
+ * \date       2024-08-03 00:00:00
+ * \version    24.1.08
  * \sa         https://github.com/paul-canals/toolbox
  * 
  * \calls
@@ -86,7 +86,7 @@
       bool    = true
     , b_true  = 1
     , b_false = 0
-    , debug   = %m_utl_chk_bool(bool=&debug.)
+    , debug   = %m_utl_chk_boolean(bool=&debug.)
       );
 
 %put &=bool.;

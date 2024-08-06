@@ -11,6 +11,33 @@
 ### Description
 The macro can be used to validate data by using a SAS data step or SQL style where statement which represents the condition to specify the validity state of a record in a given SAS dataset or database table. The validation expression may contain one or more columns from the given source table, use functions and all kinds of operators including the _IN_ operator. The columns used in the expression are detected automatically by the macro routine and stored together with their value in the exception table. If the target, error or exception tables are not set by their parameter values accordingly, output tables are defined by the macro routine and created in the WORK library. If an output exception table is given, the exceptions found by the validation will be appended to the given exception table. The same procedure is used for the error table, just as long as the ACTION parameter value is not equal to: "Check".
 
+ The following operators are allowed when using the custom data validation rule:
+
+- \**  : exponentiation
+- \*   : multiplication
+- \/   : division
+- \+   : addition
+- \-   : substraction
+- \=   : equal to
+- \^=  : not equal to
+- \<   : lesser than
+- \>   : greater than
+- \<=  : lesser than or equal to
+- \>=  : greater than or equal to
+- \<>  : max operator
+- \><  : min operator
+- and : and operator
+- eq  : equal to ( \= )
+- ge  : greater than or equal to ( \>= )
+- gt  : greater than ( \> )
+- in  : equal to one of a list
+- le  : lesser than or equal to ( \<= )
+- lt  : lesser than ( \< )
+- ne  : not equal to ( \^= )
+- not : not operator
+- or  : or operator
+
+
 
 ##### *Note:*
 *If the PRINT parameter value is set to Y, a SAS proc report step is used to print the validation summary status on the result tab of SAS Enterprise Guide or Stored Process Server.*
@@ -19,10 +46,10 @@ The macro can be used to validate data by using a SAS data step or SQL style whe
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 
 ### Date
-* 2022-10-18 00:00:00
+* 2024-08-03 00:00:00
 
 ### Version
-* 22.1.10
+* 24.1.08
 
 ### Link
 * https://github.com/paul-canals/toolbox
@@ -36,7 +63,6 @@ The macro can be used to validate data by using a SAS data step or SQL style whe
 | Input | err_tbl | Specifies the LIBNAME.TABLENAME of the target SAS dataset or database table in which the error data is stored. If this target table is not provided, this target table is created automatically in the WORK library. The default value is: \_NONE\_. |
 | Input | exc_tbl | Specifies the LIBNAME.TABLENAME of the target SAS dataset or database table in which the exceptions are stored. If this target table is not provided, this target table is created automatically in the WORK library. The default value is: \_NONE\_. |
 | Input | val_rule | Specifies the SAS data step style rule condition. The rule may contain one or more conditions and use multiple columns from the source table. Also functions and all kinds of operators are allowed including the data step _IN_ operator. |
-| Input | sql_type | Optional. Boolean [Y/N] parameter value to specify the type of the rule expression. If the VAL_RULE parameter value contains a SQL type rule expression, the SQL_TYPE parameter value needs to be set to Y. The default value for SQL_TYPE is: N. |
 | Input | chk_rule | Boolean [Y/N] parameter value to specify if the VAL_RULE expression is to be checked for syntax errors. The default value for CHK_RULE is: Y. |
 | Input | show_err | Boolean [Y/N] parameter to show or hide warnings or errors in the log. The default value is: Y. |
 | Input | action | Indicator [CHECK/MOVE/ABORT] to specify the to be taken by the validation routine. When the ACTION value is set to "Check", the source table records are validated and found exceptions written to the exception table, but also all records will be written to the output target table. When set to "Move", the error records are written to the error table and only valid records to the target table. When set to "Abort" only the found exceptions are written to the exception table, but not into any other target tables. The default value is: Check. |
@@ -52,6 +78,7 @@ The macro can be used to validate data by using a SAS data step or SQL style whe
 * [m_utl_chk_table_exist.sas](m_utl_chk_table_exist.md)
 * [m_utl_delete_file.sas](m_utl_delete_file.md)
 * [m_utl_get_col_code.sas](m_utl_get_col_code.md)
+* [m_utl_hash_lookup.sas](m_utl_hash_lookup.md)
 * [m_utl_list_operation.sas](m_utl_list_operation.md)
 * [m_utl_nlobs.sas](m_utl_nlobs.md)
 * [m_utl_print_file.sas](m_utl_print_file.md)
@@ -71,7 +98,7 @@ The macro can be used to validate data by using a SAS data step or SQL style whe
 ```sas
 %m_val_chk_custom(
    src_tbl  = SASHELP.class
- , val_rule = %str(Sex='M' and Age<18)
+ , val_rule = %str(Sex='M' and Age<=17)
  , action   = Check
  , print    = Y
  , debug    = Y
@@ -167,13 +194,28 @@ run;
 
 ```
 
-##### Example 9: Validate SASHELP.class to check Name against SASHELP.classfit:
+##### Example 9: Validate SASHELP.class to check Name against SASHELP.classfit (SQL):
 ```sas
 %m_val_chk_custom(
    src_tbl  = SASHELP.class
  , exc_tbl  = WORK.class_custom
  , val_rule = %str(Name in (select Name from SASHELP.classfit where Name ne 'John'))
- , sql_type = Y
+ , action   = Check
+ , print    = Y
+ , debug    = N
+   );
+
+proc print data=WORK.class_custom label;
+run;
+
+```
+
+##### Example 10: Validate SASHELP.class to check Name against SASHELP.classfit (HASH):
+```sas
+%m_val_chk_custom(
+   src_tbl  = SASHELP.class
+ , exc_tbl  = WORK.class_custom
+ , val_rule = %str(Name in (lookup Name from SASHELP.classfit where Name ne 'John'))
  , action   = Check
  , print    = Y
  , debug    = N
@@ -185,7 +227,7 @@ run;
 ```
 
 ### Copyright
-Copyright 2008-2022 Paul Alexander Canals y Trocha. 
+Copyright 2008-2024 Paul Alexander Canals y Trocha. 
  
 This program is free software: you can redistribute it and/or modify 
 it under the terms of the GNU General Public License as published by 
@@ -202,4 +244,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 ***
-*This document was generated on 2022.10.18 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*
+*This document was generated on 2024.08.03 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*

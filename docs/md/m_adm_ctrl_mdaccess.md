@@ -11,6 +11,8 @@
 ### Description
 Macro to administrate the SAS metadata server connection entries in the mdaccess table. An admin can use this macro to initially create the mdaccess table, insert, update, delete entries or view all entries into a report which can be send to a given email address. The program contains a SAS print routine to display the pre- and post states of the mdaccess record entry change action.
 
+
+
 ##### *Note:*
 *The SAS dataset containing the database connection profiles has to be named MDACCESS since all the routines expects this.*
 *If you lose or forget the ENCRYPTKEY, there will be absolutely no way to open the MDACCESS table and recover the data!*

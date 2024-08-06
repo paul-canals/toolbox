@@ -126,6 +126,7 @@ The SAS&reg; macro documentation files are listed here. Click on any link below 
    * [m_utl_finfo_created.sas](md/m_utl_finfo_created.md)
    * [m_utl_finfo_modified.sas](md/m_utl_finfo_modified.md)
    * [m_utl_finfo_size.sas](md/m_utl_finfo_size.md)
+   * [m_utl_fmtinfo.sas](md/m_utl_fmtinfo.md)
    * [m_utl_get_auto_info.sas](md/m_utl_get_auto_info.md)
    * [m_utl_get_attrc.sas](md/m_utl_get_attrc.md)
    * [m_utl_get_attrn.sas](md/m_utl_get_attrn.md)
@@ -207,4 +208,5 @@ The SAS&reg; macro documentation files are listed here. Click on any link below 
    * [m_val_chk_duplicates.sas](md/m_val_chk_duplicates.md)
    * [m_val_chk_invalid.sas](md/m_val_chk_invalid.md)
    * [m_val_chk_missing.sas](md/m_val_chk_missing.md)
+   * [m_val_run_profiling.sas](md/m_val_run_profiling.md)
    * [m_val_run_validation.sas](md/m_val_run_validation.md)

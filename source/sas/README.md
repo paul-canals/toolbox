@@ -126,6 +126,7 @@ The SAS&reg; macros (sasautos) may not be listed here, but can be obtained by co
    * [m_utl_finfo_created.sas](../../docs/md/m_utl_finfo_created.md)
    * [m_utl_finfo_modified.sas](../../docs/md/m_utl_finfo_modified.md)
    * [m_utl_finfo_size.sas](../../docs/md/m_utl_finfo_size.md)
+   * [m_utl_fmtinfo.sas](../../docs/md/m_utl_fmtinfo.md)
    * [m_utl_get_auto_info.sas](../../docs/md/m_utl_get_auto_info.md)
    * [m_utl_get_attrc.sas](../../docs/md/m_utl_get_attrc.md)
    * [m_utl_get_attrn.sas](../../docs/md/m_utl_get_attrn.md)
@@ -207,4 +208,5 @@ The SAS&reg; macros (sasautos) may not be listed here, but can be obtained by co
    * [m_val_chk_duplicates.sas](../../docs/md/m_val_chk_duplicates.md)
    * [m_val_chk_invalid.sas](../../docs/md/m_val_chk_invalid.md)
    * [m_val_chk_missing.sas](../../docs/md/m_val_chk_missing.md)
+   * [m_val_run_profiling.sas](../../docs/md/m_val_run_profiling.md)
    * [m_val_run_validation.sas](../../docs/md/m_val_run_validation.md)

@@ -9,19 +9,25 @@
 ***
 
 ### Description
-The macro can be used to obtain a list of columns from an input SAS dataset or database table. The result list can be filtered by column type, column name, column prefix or suffix or contain string. The output column list can be blank-, comma- or any custom character separated. Furthermore the column list can be single or double quoted and columns names can be extended with a custom prefix. The m_utl_varlist.sas macro recognizes almost all date and time variable format types including the ISO 8601 basic and extended notations. The ISO 8601 standard is an international standard for representing dates and time, including many variations for representing dates, times, and intervals. The two main representations of date, time, and datetime values within ISO 8601 standards are the basic and extended notations. This macro is originally based on the ut_varlist.sas macro program by Dave Prinsloo (dave.prinsloo@yahoo.com)
+The macro can be used to obtain a list of columns from an input SAS dataset or database table. The result list can be filtered by column type, column name, column prefix or suffix or contain string. The output column list can be blank-, comma- or any custom character separated. Furthermore the column list can be single or double quoted and columns names can be extended with a custom prefix.
+
+ The m_utl_varlist.sas macro recognizes almost all date and time variable format types including the ISO 8601 basic and extended notations. The ISO 8601 standard is an international standard for representing dates and time, including many variations for representing dates, times, and intervals. The two main representations of date, time, and datetime values within ISO 8601 standards are the basic and extended notations.
+
+ This macro is originally based on the ut_varlist.sas macro program by Dave Prinsloo (dave.prinsloo@yahoo.com)
+
+
 
 ##### *Note:*
-*In case of encrypted SAS datasets, the ENCRYPTKEY= parameter must be provided as part of the CREDS credentials string.*
+*In case of encrypted or access protected SAS datasets, ALTER=, ENCRYPTKEY=, PW=, READ or WRITE= SAS dataset options must be provided through the CREDS credentials parameter string value.*
 
 ### Authors
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 
 ### Date
-* 2023-11-13 00:00:00
+* 2024-06-16 00:00:00
 
 ### Version
-* 23.1.11
+* 24.1.06
 
 ### Link
 * https://github.com/paul-canals/toolbox
@@ -33,7 +39,7 @@ The macro can be used to obtain a list of columns from an input SAS dataset or d
 | Input | table | Full LIBNAME.TABLENAME name of the SAS Dataset or database table to get the column list from. The parameter can contain a combination of SAS data step style statement between brackets like where, keep, drop or rename. The default value for TABLE is: \_NONE\_. |
 | Input | dataset | Alias of the TABLE parameter. |
 | Input | data | Alias of the TABLE parameter. |
-| Input | creds | Optional. Specifies the ENCRYPTKEY= parameter value if there is an encrypted table involved. |
+| Input | creds | Optional. Specifies the ENCRYPTKEY= parameter value when TABLE involves an encrypted, or PW=, ALTER=, READ= or WRITE= for a protected dataset. |
 | Input | type | Indicator [CHAR/DATE/DATETIME/NUM/TIME] to filter the result varlist selection by vartype and format. The default value is: _ALL_. |
 | Input | contain | Optional character search string to reduce columns selected in the result varlist to those having the contain parameter value string in the column name. |
 | Input | position | Optional indicator [START/END] or left blank to determine where the parameter _contain_ value is to be found in the column name. |
@@ -70,7 +76,6 @@ run;
 
 proc print data=WORK.class;
 run;
-
 ```
 
 ##### Example 3: Select columns from encrypted WORK.class and rename column Name into Scholar:
@@ -86,7 +91,6 @@ run;
 
 proc print data=WORK.class;
 run;
-
 ```
 
 ##### Example 4: Select only CHAR columns from SASHELP.class into a quoted list:
@@ -100,7 +104,6 @@ run;
       );
 
 %put &=list.;
-
 ```
 
 ##### Example 5: Select columns from SASHELP.class into a comma separated list:
@@ -113,7 +116,6 @@ run;
       );
 
 %put &=list.;
-
 ```
 
 ##### Example 6: Select columns from SASHELP.class into a custom separated list:
@@ -126,7 +128,6 @@ run;
       );
 
 %put &=list.;
-
 ```
 
 ##### Example 7: Select only NUM columns from SASHELP.workers (including Date):
@@ -138,7 +139,6 @@ run;
 
 proc print data=WORK.workers;
 run;
-
 ```
 
 ##### Example 8: Select only DATE columns from SASHELP.workers:
@@ -150,7 +150,6 @@ run;
 
 proc print data=WORK.workers;
 run;
-
 ```
 
 ##### Example 9: Select columns from SASHELP.class and add a prefix to the names:
@@ -163,7 +162,6 @@ run;
       );
 
 %put &=list.;
-
 ```
 
 ##### Example 10: Select only columns from SASHELP.class into the output table:
@@ -176,7 +174,6 @@ run;
 
 proc print data=WORK.class;
 run;
-
 ```
 
 ##### Example 11: To check if a column exists in a given table:
@@ -189,7 +186,6 @@ run;
 %mend findColumn;
 
 %findColumn(table=SASHELP.class,colnm=Sex);
-
 ```
 
 ##### Example 12: To search for common columns between two tables:
@@ -207,7 +203,6 @@ run;
    );
 
 %put Common columns are: &list.;
-
 ```
 
 ##### Example 13: Generic Join on common columns with two tables:
@@ -242,7 +237,6 @@ quit;
 
 proc print data=WORK.join;
 run;
-
 ```
 
 ##### Example 14: Select columns from WORK.class into a named quoted list:
@@ -263,11 +257,10 @@ run;
    );
 
 %put Result column list: &list.;
-
 ```
 
 ### Copyright
-Copyright 2008-2023 Paul Alexander Canals y Trocha. 
+Copyright 2008-2024 Paul Alexander Canals y Trocha. 
  
 This program is free software: you can redistribute it and/or modify 
 it under the terms of the GNU General Public License as published by 
@@ -284,4 +277,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 ***
-*This document was generated on 2023.11.13 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*
+*This document was generated on 2024.06.16 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*

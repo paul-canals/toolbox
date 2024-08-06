@@ -11,6 +11,8 @@
 ### Description
 The macro incapsulates a SAS DI-Job for execution and processing in batch. It collects run time information and creates a log with detailed information.
 
+
+
 ### Authors
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 

@@ -88,7 +88,7 @@
  , tgt_path = &APPL_TEST.
  , sendmail = N
  , mailaddr = %str(pact@hermes.local)
- , debug    = N
+ , debug    = Y
    );
 
 %* Create macro test scripts: ;

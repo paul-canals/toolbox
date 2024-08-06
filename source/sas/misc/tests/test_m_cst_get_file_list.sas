@@ -8,8 +8,8 @@
  *             Run this program in a SAS editor or batch script.
  * 
  * \author     Paul Alexander Canals y Trocha (paul.canals@gmail.com)
- * \date       2023-09-11 00:00:00
- * \version    23.1.09
+ * \date       2024-05-19 00:00:00
+ * \version    24.1.05
  * \sa         https://github.com/paul-canals/toolbox
  * 
  * \calls
@@ -47,22 +47,12 @@
  , debug   = Y
    );
  
-%* Example 3: List files and dirs in core/sashelp directory: ;
+%* Example 3: List files and dirs in sasroot/maps directory: ;
 %m_cst_get_file_list(
-   rootdir = %sysget(SASROOT)/core/sashelp
+   rootdir = %sysget(SASROOT)/maps
  , prefix  = src_
  , subdirs = N
  , finfo   = Y
- , print   = Y
- , debug   = Y
-   );
- 
-%* Example 4: List files and dirs in sasroot/core directory: ;
-%m_cst_get_file_list(
-   rootdir = %sysget(SASROOT)/core
- , prefix  = src_
- , subdirs = Y
- , finfo   = N
  , print   = Y
  , debug   = Y
    );

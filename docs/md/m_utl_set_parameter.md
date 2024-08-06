@@ -9,16 +9,18 @@
 ***
 
 ### Description
-This program reads a list of macro variables defined in an input CSV file or SAS dataset. Records in the file can either be environment dependent (INHOST) or not, or set inactive in case of PRMFLG set to 0. The following macro variable types are valid:
- CHAR : Character value(s list)
- DATE : Uses DATE format on date() input, returns numerical
- value on DDMONYYYY input (e.g.\ 31dec2016) DTTM : Uses DATETIME format on datetime() input, returns
- numerical value on DDMONYYYY HH:MM:SS input
- (e.g.\ 31dec2016 23:59:59)
- FUNC : Uses %sysfunc() function
- MVAR : Uses %str(&)PRMVAL%str(.)
- NUM : Numerical value(s list)
- SGET : Uses %sysget() function
+This program reads a list of macro variables defined in an input CSV file or SAS dataset. Records in the file can either be environment dependent (INHOST) or not, or set inactive in case of PRMFLG set to 0.
+
+ The following macro variable types are valid:
+
+- CHAR : Character value(s list)
+- DATE : Uses DATE format on date() input, returns numerical value on DDMONYYYY input (e.g.\ 31dec2016)
+- DTTM : Uses DATETIME format on datetime() input, returns numerical value on DDMONYYYY HH:MM:SS input (e.g.\ 31dec2016 23:59:59)
+- FUNC : Uses %sysfunc() function
+- MVAR : Uses %str(&)PRMVAL%str(.)
+- NUM  : Numerical value(s list)
+- SGET : Uses %sysget() function
+
 
 
 ##### *Note:*
@@ -28,10 +30,10 @@ This program reads a list of macro variables defined in an input CSV file or SAS
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 
 ### Date
-* 2021-10-31 00:00:00
+* 2024-06-30 00:00:00
 
 ### Version
-* 21.1.10
+* 24.1.06
 
 ### Link
 * https://github.com/paul-canals/toolbox
@@ -68,15 +70,15 @@ This program reads a list of macro variables defined in an input CSV file or SAS
 ##### Example 2 - Step 1: Create macro variable parameter table:
 ```sas
 data WORK.params;
-   attrib PARAM_ENV    length = $3;
-   attrib PARAM_NAME   length = $32;
-   attrib PARAM_VALUE  length = $100;
-   attrib PARAM_TYPE   length = $4;
-   attrib PARAM_TEXT   length = $100;
-   attrib MACRO_FLG    length = 8;
-
+   attrib
+      PARAM_ENV    length=$3    label='Environment'
+      PARAM_NAME   length=$32   label='Name'
+      PARAM_VALUE  length=$100  label='Value'
+      PARAM_TYPE   length=$4    label='Type'
+      PARAM_TEXT   length=$100  label='Description'
+      MACRO_FLG    length=8     label='Active Flag'
+      ;
    * Date Function;
-
    PARAM_ENV   = "ALL";
    PARAM_NAME  = "X_TODAY_FUNC";
    PARAM_VALUE = "date()";
@@ -84,9 +86,7 @@ data WORK.params;
    PARAM_TEXT  = "Represents today in numerical string";
    MACRO_FLG   = 1;
    output;
-
    * Date Type with date() input;
-
    PARAM_ENV   = "ALL";
    PARAM_NAME  = "X_TODAY_DATE";
    PARAM_VALUE = "date()";
@@ -94,9 +94,7 @@ data WORK.params;
    PARAM_TEXT  = "Represents today in date format";
    MACRO_FLG   = 1;
    output;
-
    * Date Type with 31dec2016 input;
-
    PARAM_ENV   = "ALL";
    PARAM_NAME  = "X_DAY_DATE";
    PARAM_VALUE = "31dec2016";
@@ -104,9 +102,7 @@ data WORK.params;
    PARAM_TEXT  = "Represents today in date format";
    MACRO_FLG   = 1;
    output;
-
    * List Character Type;
-
    PARAM_ENV   = "ALL";
    PARAM_NAME  = "X_WEEKEND_LIST";
    PARAM_VALUE = "Saturday";
@@ -114,7 +110,6 @@ data WORK.params;
    PARAM_TEXT  = "Represents the weekend day names";
    MACRO_FLG   = 1;
    output;
-
    PARAM_ENV   = "ALL";
    PARAM_NAME  = "X_WEEKEND_LIST";
    PARAM_VALUE = "Sunday";
@@ -123,7 +118,6 @@ data WORK.params;
    MACRO_FLG   = 1;
    output;
 run;
-
 ```
 
 ##### Example 2 - Step 2: Register macro variables from params table:
@@ -151,7 +145,7 @@ run;
 ```
 
 ### Copyright
-Copyright 2008-2021 Paul Alexander Canals y Trocha. 
+Copyright 2008-2024 Paul Alexander Canals y Trocha. 
  
 This program is free software: you can redistribute it and/or modify 
 it under the terms of the GNU General Public License as published by 
@@ -168,4 +162,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 ***
-*This document was generated on 2021.10.31 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*
+*This document was generated on 2024.06.30 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*

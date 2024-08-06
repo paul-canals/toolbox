@@ -11,6 +11,8 @@
 ### Description
 The macro uses the funcionality of the SAS proc contents procedure to obtain the full path including file name for an input SAS dataset. The result path and file name string is loaded and returned into a SAS macro variable.
 
+
+
 ### Authors
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 

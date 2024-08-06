@@ -11,6 +11,8 @@
 ### Description
 The macro searches the SAS dictionary tables to find the engine information of the given SAS library reference. The library reference parameter LIBREF may also contain table information to retrieve the engine value from the libname.tablename level. This can be usefull in case of SAS SQL or SAS data-step Views. See also Usage Example 4.
 
+
+
 ##### *Note:*
 *This macro is originally based on getEngine.sas() macro program by Chris Hemedinger (chris.hemedinger@sas.com), and Peter Crawford (peter.crawford@blueyonder.co.uk).*
 

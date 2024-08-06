@@ -9,8 +9,8 @@
  * 
  * \author     Paul Alexander Canals y Trocha (paul.canals@gmail.com)
  * \author     Dr. Simone Kossmann (simone.kossmann@web.de)
- * \date       2021-03-27 00:00:00
- * \version    21.1.03
+ * \date       2024-08-03 00:00:00
+ * \version    24.1.08
  * \sa         https://github.com/paul-canals/toolbox
  * 
  * \calls
@@ -41,6 +41,7 @@
 data WORK.rules;
    length
       rule_id    8
+      rule_grp   $32
       rule_type  $20
       library    $10
       table      $32
@@ -54,6 +55,7 @@ data WORK.rules;
    missover;
    input
       rule_id
+      rule_grp   $
       rule_type  $
       library    $
       table      $
@@ -64,24 +66,28 @@ data WORK.rules;
       expression $
       ;
 datalines4;
-1;Missing;WORK;CARS;Make; ; ; ; ;
-2;Missing;WORK;CARS;Model Type; ; ; ; ;
-3;Duplicate;WORK;CARS;Make Model Type; ; ; ; ;
-4;Invalid;WORK;CARS;Cylinders; ; ;4 6 8 10 12; ;
-5;Invalid;WORK;CARS;Invoice;30000;50000; ; ;
-6;Invalid;WORK;CARS;Invoice;30000; ; ; ;
-7;Invalid;WORK;CARS;Invoice; ;50000; ; ;
-8;Custom;WORK;CARS; ; ; ; ;Invoice lt 50000; ; ;
-9;Custom;WORK;CARS; ; ; ; ;(substr(Make,1,1) ne "") and (Type ^= '');
-10;Missing;WORK;CLASS;Name Sex; ; ; ; ;
-11;Invalid;WORK;CLASS;Sex; ; ;F M; ;
-12;Invalid;WORK;CLASS;Age; ;18; ; ;
-13;Custom;WORK;CLASS; ; ; ; ;Name in (select Name from SASHELP.classfit where Name ne 'John'); ; ;
-14;Custom;WORK;CLASS; ; ; ; ;Weight in (select Weight from SASHELP.classfit where Weight > 70); ; ;
-15;Custom;WORK;CLASS; ; ; ; ;Weight in (select Weight from SASHELP.classfit where Weight gt 70); ; ;
+1; ;Missing;WORK;CARS;Make; ; ; ; ;
+2; ;Missing;WORK;CARS;Model Type; ; ; ; ;
+3; ;Duplicate;WORK;CARS;Make Model Type; ; ; ; ;
+4; ;Invalid;WORK;CARS;Cylinders; ; ;4 6 8 10 12; ;
+5; ;Invalid;WORK;CARS;Invoice;30000;50000; ; ;
+6; ;Invalid;WORK;CARS;Invoice;30000; ; ; ;
+7; ;Invalid;WORK;CARS;Invoice; ;50000; ; ;
+8;Mobile;Custom;WORK;CARS; ; ; ; ;Invoice lt 50000;
+9;Mobile;Custom;WORK;CARS; ; ; ; ;(substr(Make,1,1) ne "") and (Type ^= '');
+10;Student;Missing;WORK;CLASS;Name Sex; ; ; ; ;
+11;Student;Invalid;WORK;CLASS;Sex; ; ;F M; ;
+12;Student;Invalid;WORK;CLASS;Age; ;18; ; ;
+15;Fittness;Custom;WORK;CLASS; ; ; ; ;Name in (select Name from SASHELP.classfit where Name ne 'John'); ; ;
+16;Fittness;Custom;WORK;CLASS; ; ; ; ;Height in (select Height from SASHELP.classfit where Height > 55); ; ;
+17;Fittness;Custom;WORK;CLASS; ; ; ; ;Weight in (select Weight from SASHELP.classfit where Weight gt 70); ; ;
+30; ;Missing;SASHELP;PRDSAL2;COUNTRY STATE; ; ; ; ;
+31; ;Invalid;SASHELP;PRDSAL2;QUARTER;1;4; ; ;
+32; ;Invalid;SASHELP;PRDSAL2;QUARTER; ; ;1 2 3 4; ;
+33; ;Invalid;SASHELP;PRDSAL2;YEAR;1996;1998; ; ;
+35; ;Custom;SASHELP;PRDSAL2; ; ; ; ;COUNTRY in (lookup COUNTRY from SASHELP.prdsal3 where COUNTY ne '');
 ;;;;
 run;
-
  
 %* Example 2: Step 2 - Prepare the SASHELP.cars table for missing values: ;
 data WORK.cars;
@@ -91,24 +97,41 @@ data WORK.cars;
       length = .;
    end;
 run;
-
  
 %* Example 2: Step 3 - Prepare the SASHELP.class table for invalid values: ;
-data WORK.class;
+data WORK.class / view=WORK.class;
    set SASHELP.class;
    if Name eq 'John' then Sex = '';
 run;
-
  
-%* Example 2: Step 4 - Run the valdiation checks on the control table: ;
+%* Example 2: Step 4 - Run all of the listed valdiation checks: ;
 %m_val_run_validation(
    ctl_tbl = WORK.rules
+ , exc_sum = WORK.summary
  , exc_tbl = WORK.exceptions
  , print   = Y
- , debug   = Y
+ , debug   = N
    );
 
-proc print data=WORK.exceptions label;
+proc print data=WORK.exceptions (obs=10) label;
 run;
+ 
+%* Example 2: Step 5 - Run only filtered list of valdiation checks: ;
+%m_val_run_validation(
+   ctl_tbl = WORK.rules
+ , exc_sum = WORK.summary
+ , exc_tbl = WORK.exceptions
+ , filter  = %str(Student Fittness)
+ , replace = Y
+ , print   = Y
+ , debug   = N
+   );
 
+proc print data=WORK.exceptions (obs=10) label;
+run;
+ 
+%* Example 2: Step 6 - Since we are done delete modified tables: ;
+proc datasets lib=WORK memtype=(DATA VIEW) nodetails noprint;
+   delete cars class ;
+quit;
  

@@ -11,6 +11,8 @@
 ### Description
 The macro can be used to validate data by using a rule to detect missing values of columns in a given SAS dataset or database table. The COL_LIST parameter may contain one or more columns from the source table. The routine detects the existance of the columns in the given source table automatically. The columns in the list are stored including its value in the exception table. If the output target, error or exception tables are not defined by their according parameter values, output tables are defined by the macro routine and created in the sessions WORK library. If the exception table is given, the exceptions found by the validation will be appended to the given exception table per default. The same procedure is used for the error table, just as long as the ACTION parameter value is not equal to "Check".
 
+
+
 ##### *Note:*
 *If the PRINT parameter value is set to Y, a SAS proc report step is used to print the validation summary status on the result tab of SAS Enterprise Guide or Stored Process Server.*
 
@@ -18,10 +20,10 @@ The macro can be used to validate data by using a rule to detect missing values 
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 
 ### Date
-* 2021-03-27 00:00:00
+* 2024-02-29 00:00:00
 
 ### Version
-* 21.1.03
+* 24.1.02
 
 ### Link
 * https://github.com/paul-canals/toolbox
@@ -113,7 +115,7 @@ run;
 ```
 
 ### Copyright
-Copyright 2008-2021 Paul Alexander Canals y Trocha. 
+Copyright 2008-2024 Paul Alexander Canals y Trocha. 
  
 This program is free software: you can redistribute it and/or modify 
 it under the terms of the GNU General Public License as published by 
@@ -130,4 +132,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 ***
-*This document was generated on 2021.03.27 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*
+*This document was generated on 2024.02.29 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*

@@ -9,16 +9,20 @@
 ***
 
 ### Description
-This program can be used to migrate SAS datasets and SAS views from one system and encoding to another system with a different encoding. The migration of SAS datasets uses the XPT transport file mechanism for exporting source system and importing on the target system. For the SAS view migration the view description information is exported over a XPT transport file, and is used to recreate the SAS view on the target system. The result information is presented by a SAS proc report step and can be send by email as an PDF format attachment.
+This program can be used to migrate SAS datasets and SAS views from one system and encoding to another system with a different encoding. The migration of SAS datasets uses the XPT transport file mechanism for exporting source system and importing on the target system. For the SAS view migration the view description information is exported over a XPT transport file, and is used to recreate the SAS view on the target system.
+
+ The result information is presented by a SAS proc report step and can be send by email as an PDF format attachment.
+
+
 
 ### Authors
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 
 ### Date
-* 2022-08-11 00:00:00
+* 2024-05-13 00:00:00
 
 ### Version
-* 22.1.08
+* 24.1.05
 
 ### Link
 * https://github.com/paul-canals/toolbox
@@ -70,47 +74,38 @@ This program can be used to migrate SAS datasets and SAS views from one system a
 %m_adm_migrate_data(?)
 ```
 
-##### Example 2: Migrate data from SASHELP to WORK (Mode=Full):
+##### Example 2: Migrate data from MAPS to WORK (Mode=Full):
 ```sas
 %m_adm_migrate_data(
-   src_path = %str(%sysget(SASROOT)/core/sashelp)
- , trg_path = %str(%sysfunc(getoption(WORK))/sashelp)
+   src_path = %str(%sysget(SASROOT)/maps)
+ , trg_path = %str(%sysfunc(getoption(WORK))/maps)
+ , xpt_fmt  = AUTO
+ , mode     = FULL
+ , type     = ALL
  , print    = Y
  , debug    = N
    );
 ```
 
-##### Example 3: Migrate data from SASHELP to WORK (Mode=Full):
+##### Example 3: Export data from SASHELP to WORK (Mode=Export):
 ```sas
 %m_adm_migrate_data(
-   src_path = %str(%sysget(SASROOT)/core/sashelp)
- , trg_path = %str(%sysfunc(getoption(WORK))/sashelp)
- , sendmail = Y
- , mailaddr = %str(pact@hermes.local)
- , debug    = N
-   );
-```
-
-##### Example 4: Export SAS datasets from CORE recursively (Mode=Export):
-```sas
-%m_adm_migrate_data(
-   src_path = %str(%sysget(SASROOT)/core)
+   src_path = %str(%sysget(SASROOT)/nls/u8/sashelp)
  , trg_path = %str(%sysfunc(getoption(WORK))/export)
- , mode     = E
+ , mode     = EXPORT
  , type     = ALL
- , subdirs  = Y
  , finfo    = Y
  , print    = Y
  , debug    = N
    );
 ```
 
-##### Example 5: Import SAS datasets to CORE recursively (Mode=Import):
+##### Example 4: Import SAS datasets to SASHELP (Mode=Import):
 ```sas
 %m_adm_migrate_data(
    src_path = %str(%sysfunc(getoption(WORK))/export)
- , trg_path = %str(%sysfunc(getoption(WORK))/core)
- , mode     = I
+ , trg_path = %str(%sysfunc(getoption(WORK))/sashelp)
+ , mode     = IMPORT
  , type     = DS
  , subdirs  = Y
  , finfo    = Y
@@ -119,25 +114,11 @@ This program can be used to migrate SAS datasets and SAS views from one system a
    );
 ```
 
-##### Example 6: Import SAS views to CORE recursively (Mode=Import):
+##### Example 5: Validate source against target (Mode=Validate):
 ```sas
 %m_adm_migrate_data(
-   src_path = %str(%sysfunc(getoption(WORK))/export)
- , trg_path = %str(%sysfunc(getoption(WORK))/core)
- , mode     = I
- , type     = VW
- , subdirs  = Y
- , finfo    = Y
- , print    = Y
- , debug    = N
-   );
-```
-
-##### Example 7: Validate core source against target (Mode=Validate):
-```sas
-%m_adm_migrate_data(
-   src_path = %str(%sysget(SASROOT)/core)
- , trg_path = %str(%sysfunc(getoption(WORK))/core)
+   src_path = %str(%sysget(SASROOT)/nls/u8/sashelp)
+ , trg_path = %str(%sysfunc(getoption(WORK))/sashelp)
  , mode     = V
  , type     = ALL
  , subdirs  = Y
@@ -147,7 +128,7 @@ This program can be used to migrate SAS datasets and SAS views from one system a
 ```
 
 ### Copyright
-Copyright 2008-2022 Paul Alexander Canals y Trocha. 
+Copyright 2008-2024 Paul Alexander Canals y Trocha. 
  
 This program is free software: you can redistribute it and/or modify 
 it under the terms of the GNU General Public License as published by 
@@ -164,4 +145,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 ***
-*This document was generated on 2022.08.11 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*
+*This document was generated on 2024.05.13 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*

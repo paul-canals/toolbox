@@ -11,6 +11,8 @@
 ### Description
 This program collects the user session SAS macro variables information from the SAS dictionary tables. The result list can be filtered using scope, prefixes and/or wildcards.
 
+
+
 ### Authors
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 

@@ -9,10 +9,15 @@
 ***
 
 ### Description
-The macro performs Union, Intersection, Difference operation on sets represented by word lists. When the argument operation is set to Union, the macro combines the Left and Right set items. When set to Intersection, only items listed in both sets are kept. When set to Difference only the items missing in the right set (compared to the left set) are kept. The output list can be modified by adding a comma delimiter between each result item. Left(A B) \/ right(B C) Operation: Union \-> result: A B C
+The macro performs Union, Intersection, Difference operation on sets represented by word lists. When the argument operation is set to Union, the macro combines the Left and Right set items. When set to Intersection, only items listed in both sets are kept. When set to Difference only the items missing in the right set (compared to the left set) are kept. The output list can be modified by adding a comma delimiter between each result item.
+
+ Left(A B) \/ right(B C) Operation: Union \-> result: A B C
  Left(A B) \/ right(B C) Operation: Intersection \-> result: B
  Left(A B) \/ right(B C) Operation: Difference \-> result: A
+
  This macro is originally based on the ut_list_operation.sas macro program by Dave Prinsloo (dave.prinsloo@yahoo.com)
+
+
 
 ### Authors
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)

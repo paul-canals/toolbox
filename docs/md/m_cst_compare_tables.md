@@ -11,6 +11,8 @@
 ### Description
 The macro compares two tables or SAS datasets, the base dataset TABLE1 and the comparison dataset TABLE2. The macro procedure determines both matching variables and records or observations. Matching variables are those having the same name and type. Matching observations are those having identical values for all specified IDCOLS variables or if IDCOLS parameter is not set, those columns that occur in the same position in the datasets. If matched observations by IDCOLS variables is set, then both SAS datasets or tables must be sorted by all IDCOLS variables.
 
+
+
 ### Authors
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 

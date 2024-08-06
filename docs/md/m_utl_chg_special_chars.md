@@ -10,21 +10,24 @@
 
 ### Description
 This program works in mixed unicode environments. It replaces special characters inline into readeable charecters to avoid conversion errors. The macro can be executed in the context of either a macro call or it generates code to be executed in the context of a data step. This is controlled by the CONTEXT macro parameter. The valid values for CONTEXT are: MACRO or DATASTEP.
+
  At present the following characters are replaced by the routine:
- Ä \/ ä \-> Ae \/ ae
- Ö \/ ö \-> Oe \/ oe
- Ü \/ ü \-> Ue \/ ue
- ß \-> ss
+
+- Ä \/ ä : Ae \/ ae
+- Ö \/ ö : Oe \/ oe
+- Ü \/ ü : Ue \/ ue
+- ß     : ss
+
 
 
 ### Authors
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 
 ### Date
-* 2020-09-07 00:00:00
+* 2024-08-03 00:00:00
 
 ### Version
-* 20.1.09
+* 24.1.08
 
 ### Link
 * https://github.com/paul-canals/toolbox
@@ -102,7 +105,7 @@ run;
 ```
 
 ### Copyright
-Copyright 2008-2020 Paul Alexander Canals y Trocha. 
+Copyright 2008-2024 Paul Alexander Canals y Trocha. 
  
 This program is free software: you can redistribute it and/or modify 
 it under the terms of the GNU General Public License as published by 
@@ -119,4 +122,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 ***
-*This document was generated on 2020.09.07 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*
+*This document was generated on 2024.08.03 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*

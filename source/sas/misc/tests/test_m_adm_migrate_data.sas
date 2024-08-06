@@ -8,8 +8,8 @@
  *             Run this program in a SAS editor or batch script.
  * 
  * \author     Paul Alexander Canals y Trocha (paul.canals@gmail.com)
- * \date       2022-08-11 00:00:00
- * \version    22.1.08
+ * \date       2024-05-13 00:00:00
+ * \version    24.1.05
  * \sa         https://github.com/paul-canals/toolbox
  * 
  * \calls
@@ -36,40 +36,33 @@
 %* Example 1: Show help information: ;
 %m_adm_migrate_data(?)
  
-%* Example 2: Migrate data from SASHELP to WORK (Mode=Full): ;
+%* Example 2: Migrate data from MAPS to WORK (Mode=Full): ;
 %m_adm_migrate_data(
-   src_path = %str(%sysget(SASROOT)/core/sashelp)
- , trg_path = %str(%sysfunc(getoption(WORK))/sashelp)
+   src_path = %str(%sysget(SASROOT)/maps)
+ , trg_path = %str(%sysfunc(getoption(WORK))/maps)
+ , xpt_fmt  = AUTO
+ , mode     = FULL
+ , type     = ALL
  , print    = Y
  , debug    = N
    );
  
-%* Example 3: Migrate data from SASHELP to WORK (Mode=Full): ;
+%* Example 3: Export data from SASHELP to WORK (Mode=Export): ;
 %m_adm_migrate_data(
-   src_path = %str(%sysget(SASROOT)/core/sashelp)
- , trg_path = %str(%sysfunc(getoption(WORK))/sashelp)
- , sendmail = Y
- , mailaddr = %str(pact@hermes.local)
- , debug    = N
-   );
- 
-%* Example 4: Export SAS datasets from CORE recursively (Mode=Export): ;
-%m_adm_migrate_data(
-   src_path = %str(%sysget(SASROOT)/core)
+   src_path = %str(%sysget(SASROOT)/nls/u8/sashelp)
  , trg_path = %str(%sysfunc(getoption(WORK))/export)
- , mode     = E
+ , mode     = EXPORT
  , type     = ALL
- , subdirs  = Y
  , finfo    = Y
  , print    = Y
  , debug    = N
    );
  
-%* Example 5: Import SAS datasets to CORE recursively (Mode=Import): ;
+%* Example 4: Import SAS datasets to SASHELP (Mode=Import): ;
 %m_adm_migrate_data(
    src_path = %str(%sysfunc(getoption(WORK))/export)
- , trg_path = %str(%sysfunc(getoption(WORK))/core)
- , mode     = I
+ , trg_path = %str(%sysfunc(getoption(WORK))/sashelp)
+ , mode     = IMPORT
  , type     = DS
  , subdirs  = Y
  , finfo    = Y
@@ -77,22 +70,10 @@
  , debug    = N
    );
  
-%* Example 6: Import SAS views to CORE recursively (Mode=Import): ;
+%* Example 5: Validate source against target (Mode=Validate): ;
 %m_adm_migrate_data(
-   src_path = %str(%sysfunc(getoption(WORK))/export)
- , trg_path = %str(%sysfunc(getoption(WORK))/core)
- , mode     = I
- , type     = VW
- , subdirs  = Y
- , finfo    = Y
- , print    = Y
- , debug    = N
-   );
- 
-%* Example 7: Validate core source against target (Mode=Validate): ;
-%m_adm_migrate_data(
-   src_path = %str(%sysget(SASROOT)/core)
- , trg_path = %str(%sysfunc(getoption(WORK))/core)
+   src_path = %str(%sysget(SASROOT)/nls/u8/sashelp)
+ , trg_path = %str(%sysfunc(getoption(WORK))/sashelp)
  , mode     = V
  , type     = ALL
  , subdirs  = Y

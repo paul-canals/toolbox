@@ -9,10 +9,14 @@
 ***
 
 ### Description
-This program controls the SAS user environment by reading the group memberships from metadata, the database library information from the DBACCESS table and sets global macro variables based on the users function and role. The macro is called by the appserver_autoexec_usermods.sas at logon and creates result control datasets in the USR_INFO library containing information on the users metadata and his personal database access list.
+This program controls the SAS user environment by reading the group memberships from metadata, the database library information from the DBACCESS table and sets global macro variables based on the users function and role. The macro is called by the appserver_autoexec_usermods.sas at logon and creates result control datasets in the USR_INFO libref containing information on the users metadata and personal database access list.
 
-##### *Note:*
-*The user groups within the SAS Metadata Server needs to be named according to the following naming convention: User group within RACE : GRP_SYS_* (e.g.\ GRP_SYS_IT_DEVELOPER) Database access control : GRP_DBS_* (e.g.\ GRP_DBS_ACCESS_SAP_BW)*
+ The user groups within the SAS Metadata Server needs to be named according to the following naming convention:
+
+- User Group : GRP_SYS_* (e.g.\ GRP_SYS_IT_DEVELOPER)
+- DB Access : GRP_DBS_* (e.g.\ GRP_DBS_ACCESS_SAP_BW)
+
+
 
 ##### *Warning:*
 *Do remember that a user can only be a member of just one main user group in SAS Metadata representing his role!*
@@ -21,10 +25,10 @@ This program controls the SAS user environment by reading the group memberships 
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 
 ### Date
-* 2023-10-06 00:00:00
+* 2024-08-03 00:00:00
 
 ### Version
-* 23.1.10
+* 24.1.08
 
 ### Link
 * https://github.com/paul-canals/toolbox
@@ -42,18 +46,10 @@ This program controls the SAS user environment by reading the group memberships 
 | Input | debug | Boolean [Y/N] parameter to provide verbose mode information. The default value is: N. |
 
 ### Returns
-* WORK._PROJ_INFO
-
-### Returns
-* WORK._PROJ_INFO
-
-### Returns
-* WORK._PROJ_INFO
-
-### Returns
-* WORK._PROJ_INFO
-
-### Returns
+* WORK._DATA_INFO
+* WORK._DATA_VIEW
+* WORK._MAIL_VIEW
+* WORK._META_INFO
 * WORK._PROJ_INFO
 
 ### Calls
@@ -85,7 +81,7 @@ This program controls the SAS user environment by reading the group memberships 
 ```
 
 ### Copyright
-Copyright 2008-2023 Paul Alexander Canals y Trocha. 
+Copyright 2008-2024 Paul Alexander Canals y Trocha. 
  
 This program is free software: you can redistribute it and/or modify 
 it under the terms of the GNU General Public License as published by 
@@ -102,4 +98,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 ***
-*This document was generated on 2023.10.06 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*
+*This document was generated on 2024.08.03 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*

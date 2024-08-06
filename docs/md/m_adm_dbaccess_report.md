@@ -11,6 +11,8 @@
 ### Description
 The macro creates a report of all database connections and SAS librefs using the database groups known on the SAS Metadata Server filtered by by PREFIX= and DBSVAL=, against the entries listed in the DBACCESS table. The result information is presented by a SAS proc report step and can be send by email as an PDF format attachment.
 
+
+
 ### Authors
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 

@@ -10,22 +10,24 @@
 
 ### Description
 The macro toggles verbose mode logging on/off for debugging during execution. Valid values for MODE are:
- D or Debug
- N or Notes
- O or Off
- R or Reset
- S or Standard
- V or Verbose
+
+- D or Debug
+- N or Notes
+- O or Off
+- R or Reset
+- S or Standard
+- V or Verbose
+
 
 
 ### Authors
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 
 ### Date
-* 2023-07-27 00:00:00
+* 2024-08-03 00:00:00
 
 ### Version
-* 23.1.07
+* 24.1.08
 
 ### Link
 * https://github.com/paul-canals/toolbox
@@ -76,7 +78,7 @@ run;
 ```
 
 ### Copyright
-Copyright 2008-2023 Paul Alexander Canals y Trocha. 
+Copyright 2008-2024 Paul Alexander Canals y Trocha. 
  
 This program is free software: you can redistribute it and/or modify 
 it under the terms of the GNU General Public License as published by 
@@ -93,4 +95,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 ***
-*This document was generated on 2023.07.27 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*
+*This document was generated on 2024.08.03 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*

@@ -8,8 +8,8 @@
  *             Run this program in a SAS editor or batch script.
  * 
  * \author     Paul Alexander Canals y Trocha (paul.canals@gmail.com)
- * \date       2024-02-11 00:00:00
- * \version    24.1.02
+ * \date       2024-08-01 00:00:00
+ * \version    24.1.08
  * \sa         https://github.com/paul-canals/toolbox
  * 
  * \calls
@@ -177,6 +177,67 @@ quit;
  , diff   = WORK.prdsal_diff
  , idcols = Country State County Prodtype Product Year Quarter Month
  , nodups = Y
+ , print  = Y
+ , debug  = N
+   );
+ 
+%* Example 10: Compare SASHELP.class against WORK.class using METHOD=ABS: ;
+data WORK.class;
+   set SASHELP.class;
+   if name eq 'John' then Height = 59.000001;
+run;
+
+%m_utl_compare_tables(
+   base   = SASHELP.class
+ , comp   = WORK.class
+ , method = ABSOLUTE
+ , gamma  = 0.000001
+ , idcols = Name Age
+ , print  = Y
+ , debug  = N
+   );
+ 
+%* Example 11: Compare SASHELP.class against WORK.class using METHOD=PCT: ;
+data WORK.class;
+   set SASHELP.class;
+   if name eq 'John' then Height = 59.000001;
+run;
+
+%m_utl_compare_tables(
+   base   = SASHELP.class
+ , comp   = WORK.class
+ , method = PERCENT
+ , gamma  = 0.000001
+ , idcols = Name Age
+ , print  = Y
+ , debug  = N
+   );
+ 
+%* Example 12: Compare SASHELP.class against WORK.class using NOMISS=N: ;
+data WORK.class;
+   set SASHELP.class;
+   if name eq 'John' then Age = . ;
+run;
+
+%m_utl_compare_tables(
+   base   = SASHELP.class
+ , comp   = WORK.class
+ , idcols = Name
+ , print  = Y
+ , debug  = N
+   );
+ 
+%* Example 13: Compare SASHELP.class against WORK.class using NOMISS=Y: ;
+data WORK.class;
+   set SASHELP.class;
+   if name eq 'John' then Age = . ;
+run;
+
+%m_utl_compare_tables(
+   base   = SASHELP.class
+ , comp   = WORK.class
+ , idcols = Name
+ , nomiss = Y
  , print  = Y
  , debug  = N
    );

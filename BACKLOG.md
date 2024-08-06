@@ -9,8 +9,9 @@
 | 3 | 21.1.03 | Done | Create a macro [m_hdr_crt_rtf_file.sas](docs/md/m_hdr_crt_rtf_file.md) for documentation in RTF format functionality |
 | 4 | 21.1.03 | Done | Change macro [m_hdr_crt_rtf_file.sas](docs/md/m_hdr_crt_rtf_file.md) for documentation in RTF format like PDF layout |
 | 5 | 21.1.03 | Done | Consolidated Toolbox macro [m_hdr_crt_pdf_file.sas](docs/md/m_hdr_crt_pdf_file.md) documenation for PDF format |
-| 6 |  | Open | Consolidated macro [m_hdr_crt_rtf_file.sas](docs/md/m_hdr_crt_rtf_file.md) documenation for RTF format |
-| 7 |  | Open | Add an option to include macro code as content of paragraph "Coding" to the output documentation file |
+| 6 | 24.1.06 | Done | Consolidated Toolbox macro [m_hdr_crt_rtf_file.sas](docs/md/m_hdr_crt_rtf_file.md) documenation for RTF format |
+| 7 | 24.1.06 | Done | Create a cover page for consolidated Toolbox macro documenation for PDF and RTF format |
+| 8 |  | Open | Add an option to include macro code as content of paragraph "Coding" to the output documentation file |
 
 ## Installation
 
@@ -55,6 +56,8 @@
 
 | Item | Assigned | State | Description |
 | :--: | :------: | :---: | ----------- |
-| 1 |  | Open | Implement further DQ Rules filter functionality when using the rules list |
-| 2 |  | Open | Performance Optimisation and general improvements when using custom rules |
-| 3 |  | Open | Create a data lineage script using PROC SCAPROC and m_utl_print_mtrace.sas |
+| 1 | 24.1.02 | Done | Implement further DQ Rules filter functionality when using the rules list |
+| 2 | 24.1.02 | Done | Performance Optimisation and general improvements when using custom rules |
+| 3 | 24.1.05 | Done | Create a macro [m_val_run_profiling.sas](docs/md/m_val_run_profiling.md) to perform data profiling on an input table |
+| 4 |  | Open | Create a data lineage script using PROC SCAPROC and m_utl_print_mtrace.sas |
+| 5 |  | Open | Create a macro m_val_chk_replace.sas to find and replace missing or invalid values |

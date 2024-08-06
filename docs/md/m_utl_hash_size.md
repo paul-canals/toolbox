@@ -9,7 +9,10 @@
 ***
 
 ### Description
-The macro can be used anywhere in a SAS program including within a SAS procedure or SAS data step. If the table does not exist, it returns \-1. If the table exists, but cannot opened it returns 0. Different parameter names are allowed. This macro is based on the hashsize.sas macro program from SAS Support Samples (http://support.sas.com/kb/34/193.html).
+The macro can be used anywhere in a SAS program including within a SAS procedure or SAS data step. If the table does not exist, it returns \-1. If the table exists, but cannot opened it returns 0. Different parameter names are allowed.
+
+ This macro is based on the hashsize.sas macro program from SAS Support Samples (http://support.sas.com/kb/34/193.html).
+
 
 
 ##### *Note:*

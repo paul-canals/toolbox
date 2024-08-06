@@ -11,6 +11,8 @@
 ### Description
 The macro creates a list of databaase reserved words, which can be used inline to check column names before creating the table in the database. The macro was initially made to avoid column name errors against an Oracle Database.
 
+
+
 ##### *Note:*
 *To avoid the SAS warning around the quoted string currently being processed has become longer than 262 characters try to set the noquotelenmax system option before calling the macro.*
 
@@ -49,7 +51,6 @@ The macro creates a list of databaase reserved words, which can be used inline t
 ```
 
 ##### Example 2: Create global macro variable M_RESERVED_WORDS containing the database reserved words list (global):
-
 ```sas
 %m_utl_chk_reserved_words(
    global  = Y
@@ -62,7 +63,6 @@ The macro creates a list of databaase reserved words, which can be used inline t
 ```
 
 ##### Example 3: Create a macro variable reserved_words containing the database reserved words list (inline):
-
 ```sas
 %let reserved_words =
    %m_utl_chk_reserved_words(

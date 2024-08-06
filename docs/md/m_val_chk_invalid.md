@@ -11,6 +11,8 @@
 ### Description
 The macro can be used to validate data by using a selection of rules to detect invalid values of a column in a given database table or SAS dataset. There are multiple ways to build a rule. A rule can either be build by using a list of valid character or numerical values separated by a blank character (VAL_LIST), or using a valid value range by providing a minimum and maximum value (VAL_MIN and VAL_MAX). Otherwise build a rule by using the minimum or maximum value independantly as greater-than-or-equal or lesser-than-or-equal respectively. The COL_NAME parameter may contain only one column from the given source table. The routine will detect the existance of the column in the source table automatically. The column is stored including its value in the exception table. If the output target, error and/or exception tables are not defined by their according parameter values, they will be defined by the macro routine and created in the sessions WORK library. If an output exception table is given, the exceptions found by the validation will be appended to the given exception table. The same procedure is used for the error table just as long as the ACTION parameter value is not "Check".
 
+
+
 ##### *Note:*
 *If the PRINT parameter value is set to Y, a SAS proc report step is used to print the validation summary status on the result tab of SAS Enterprise Guide or Stored Process Server.*
 
@@ -18,10 +20,10 @@ The macro can be used to validate data by using a selection of rules to detect i
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 
 ### Date
-* 2021-03-27 00:00:00
+* 2024-02-29 00:00:00
 
 ### Version
-* 21.1.03
+* 24.1.02
 
 ### Link
 * https://github.com/paul-canals/toolbox
@@ -163,7 +165,7 @@ run;
 ```
 
 ### Copyright
-Copyright 2008-2021 Paul Alexander Canals y Trocha. 
+Copyright 2008-2024 Paul Alexander Canals y Trocha. 
  
 This program is free software: you can redistribute it and/or modify 
 it under the terms of the GNU General Public License as published by 
@@ -180,4 +182,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 ***
-*This document was generated on 2021.03.27 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*
+*This document was generated on 2024.02.29 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*

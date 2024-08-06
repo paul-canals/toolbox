@@ -11,6 +11,8 @@
 ### Description
 This macro works by using either the SAS dictionary tables or Oracle system tables for column information on the passed table and returns a list of table column variables in the order in which those are listed by the table definition.
 
+
+
 ### Authors
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 

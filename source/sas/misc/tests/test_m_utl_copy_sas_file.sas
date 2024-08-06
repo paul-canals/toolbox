@@ -8,8 +8,8 @@
  *             Run this program in a SAS editor or batch script.
  * 
  * \author     Paul Alexander Canals y Trocha (paul.canals@gmail.com)
- * \date       2023-10-07 00:00:00
- * \version    23.1.10
+ * \date       2024-05-14 00:00:00
+ * \version    24.1.05
  * \sa         https://github.com/paul-canals/toolbox
  * 
  * \calls
@@ -50,13 +50,13 @@ libname TEMP "%sysfunc(getoption(WORK))/backup";
 options nodlcreatedir;
 
 %m_utl_copy_sas_file(
-   indir  = %sysfunc(pathname(SASROOT))/core/cmacros
+   indir  = %sysfunc(getoption(WORK))
  , outlib = TEMP
- , select = sasmacr.sas7bcat
+ , select = sasmac1.sas7bcat
  , debug  = Y
    );
 
-proc catalog cat=TEMP.sasmacr;
+proc catalog cat=TEMP.sasmac1;
    contents;
    run;
 quit;

@@ -11,6 +11,8 @@
 ### Description
 The macro will add a new SAS macro path in front of the existing SASAUTOS paths list.
 
+
+
 ##### *Note:*
 *Be aware of the fact that SAS registers the SAS macro paths within the SASAUTO list in a sequential manner. This means that a macro is registered more than once, and it is the most actual registration of that macro which is in effect.*
 

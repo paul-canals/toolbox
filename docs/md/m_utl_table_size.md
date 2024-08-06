@@ -9,7 +9,11 @@
 ***
 
 ### Description
-The macro can be used anywhere in a SAS program including within a SAS procedure or SAS data step. If the table does not exist, it returns \-1. If the table exists, but cannot opened it returns 0. Different parameter names are allowed. This macro is based on the sizedata.sas macro program by Michael A. Raithel (michaelraithel1@verizon.net).
+The macro can be used anywhere in a SAS program including within a SAS procedure or SAS data step. If the table does not exist, it returns \-1. If the table exists, but cannot opened it returns 0. Different parameter names are allowed.
+
+ This macro is based on the sizedata.sas macro program by Michael A. Raithel (michaelraithel1@verizon.net).
+
+
 
 ##### *Note:*
 *The SHOW_ERR parameter shows or suppresses possible warnings or errors in the log. The default for SHOW_ERR is value is N.*
@@ -19,10 +23,10 @@ The macro can be used anywhere in a SAS program including within a SAS procedure
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 
 ### Date
-* 2020-09-07 00:00:00
+* 2024-04-11 00:00:00
 
 ### Version
-* 20.1.09
+* 24.1.04
 
 ### Link
 * https://github.com/paul-canals/toolbox
@@ -135,7 +139,7 @@ run;
 ```
 
 ### Copyright
-Copyright 2008-2020 Paul Alexander Canals y Trocha. 
+Copyright 2008-2024 Paul Alexander Canals y Trocha. 
  
 This program is free software: you can redistribute it and/or modify 
 it under the terms of the GNU General Public License as published by 
@@ -152,4 +156,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 ***
-*This document was generated on 2020.09.07 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*
+*This document was generated on 2024.04.11 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*

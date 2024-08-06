@@ -11,6 +11,8 @@
 ### Description
 This program creates a new directory, including any parent directories that does not exist yet. It also verifies that the directory actually exists. If not, an error message is thrown in the log after which the run is terminated.
 
+
+
 ##### *Note:*
 *This program is able to work in system environments where x-command or unix pipes are not allowed or cannot be used.*
 

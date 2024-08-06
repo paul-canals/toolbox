@@ -8,8 +8,8 @@
  *             Run this program in a SAS editor or batch script.
  * 
  * \author     Paul Alexander Canals y Trocha (paul.canals@gmail.com)
- * \date       2023-10-08 00:00:00
- * \version    23.1.10
+ * \date       2024-05-22 00:00:00
+ * \version    24.1.05
  * \sa         https://github.com/paul-canals/toolbox
  * 
  * \calls
@@ -36,9 +36,12 @@
 %* Example 1: Show help information: ;
 %m_cst_unpack_zip(?)
  
-%* Example 2: View all files listed in a ZIP archive (mode: View): ;
-%* Create ZIP archive: ;
-filename tmpfile "%sysfunc(pathname(SASROOT))/core/sashelp/cars.sas7bdat";
+%* Example 2: Step 1 - Create and load from SASHELP into a ZIP archive: ;
+proc copy out=WORK in=SASHELP clone;
+   select cars class;
+run;
+
+filename tmpfile "%sysfunc(getoption(WORK))/cars.sas7bdat";
 filename zipfile zip "%sysfunc(getoption(WORK))/sashelp.zip" member="cars.sas7bdat";
 
 %* byte-by-byte copy ;
@@ -49,7 +52,7 @@ data _null_;
    put byte $char1. @;
 run;
 
-filename tmpfile "%sysfunc(pathname(SASROOT))/core/sashelp/class.sas7bdat";
+filename tmpfile "%sysfunc(getoption(WORK))/class.sas7bdat";
 filename zipfile zip "%sysfunc(getoption(WORK))/sashelp.zip" member="class.sas7bdat";
 
 %* byte-by-byte copy ;
@@ -62,43 +65,8 @@ run;
 
 filename tmpfile clear;
 filename zipfile clear;
-
-%* view ZIP contents ;
-%m_cst_unpack_zip(
-   infile  = %sysfunc(getoption(WORK))/sashelp.zip
- , runmode = VIEW
- , print   = Y
- , debug   = Y
-   );
  
-%* Example 3: Extract all files listed in a ZIP archive (mode: Extract): ;
-%* Create ZIP archive: ;
-filename tmpfile "%sysfunc(pathname(SASROOT))/core/sashelp/cars.sas7bdat";
-filename zipfile zip "%sysfunc(getoption(WORK))/sashelp.zip" member="cars.sas7bdat";
-
-%* byte-by-byte copy ;
-data _null_;
-   infile tmpfile recfm=n;
-   file zipfile recfm=n;
-   input byte $char1. @;
-   put byte $char1. @;
-run;
-
-filename tmpfile "%sysget(SASROOT)/core/sashelp/class.sas7bdat";
-filename zipfile zip "%sysfunc(getoption(WORK))/sashelp.zip" member="class.sas7bdat";
-
-%* byte-by-byte copy ;
-data _null_;
-   infile tmpfile recfm=n;
-   file zipfile recfm=n;
-   input byte $char1. @;
-   put byte $char1. @;
-run;
-
-filename tmpfile clear;
-filename zipfile clear;
-
-%* extract ZIP contents ;
+%* Example 3: Step 3 - Extract all files listed in a ZIP archive (mode: Extract): ;
 %m_cst_unpack_zip(
    infile  = %sysfunc(getoption(WORK))/sashelp.zip
  , outdir  = %sysfunc(getoption(WORK))/sashelp

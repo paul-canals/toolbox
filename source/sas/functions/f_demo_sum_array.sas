@@ -13,7 +13,7 @@
  *             container under: /toolbox/source/sas/misc/scripts/.
  *             
  * \author     Paul Alexander Canals y Trocha (paul.canals@gmail.com)
- * \date       2023-10-01 hh:mm:ss
+ * \date       2023-10-01 00:00:00
  * \version    23.1.10
  * \sa         https://github.com/paul-canals/toolbox
  * 

@@ -9,7 +9,10 @@
 ***
 
 ### Description
-This program is used to read all programs in a given folder and create test scripts based on the usage example code that are contained in the SAS program or macro header comments. The following Doxygen program header commands are mandatory:
+This program is used to read all programs in a given folder and create test scripts based on the usage example code that are contained in the SAS program or macro header comments.
+
+ The following Doxygen program header commands are mandatory:
+
  \\file
  \\ingroup
  \\brief
@@ -23,20 +26,23 @@ This program is used to read all programs in a given folder and create test scri
  \\calls
  \\usage
  \\example
+
  The following Doxygen program header commands are optional:
+
  \\note
  \\todo
  \\warning
+
 
 
 ### Authors
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 
 ### Date
-* 2023-11-19 00:00:00
+* 2024-06-30 00:00:00
 
 ### Version
-* 23.1.11
+* 24.1.06
 
 ### Link
 * https://github.com/paul-canals/toolbox
@@ -94,7 +100,7 @@ This program is used to read all programs in a given folder and create test scri
 ```
 
 ### Copyright
-Copyright 2008-2023 Paul Alexander Canals y Trocha. 
+Copyright 2008-2024 Paul Alexander Canals y Trocha. 
  
 This program is free software: you can redistribute it and/or modify 
 it under the terms of the GNU General Public License as published by 
@@ -111,4 +117,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 ***
-*This document was generated on 2023.11.19 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*
+*This document was generated on 2024.06.30 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*

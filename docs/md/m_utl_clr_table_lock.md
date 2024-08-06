@@ -10,8 +10,10 @@
 
 ### Description
 This macro can be used to clear an exclusive lock from a dataset, which is owned by the user running this program. The result value can be returned in a SAS macro variable. Valid lock status result values are:
- RESULT \= 1 \-> Table is now unlocked by you.
- RESULT \= 0 \-> Table could not be unlocked by you.
+
+- RESULT \= 1 : Table is now unlocked by you.
+- RESULT \= 0 : Table could not be unlocked by you.
+
 
 
 ##### *Note:*
@@ -21,10 +23,10 @@ This macro can be used to clear an exclusive lock from a dataset, which is owned
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 
 ### Date
-* 2023-11-23 00:00:00
+* 2024-08-03 00:00:00
 
 ### Version
-* 23.1.11
+* 24.1.08
 
 ### Link
 * https://github.com/paul-canals/toolbox
@@ -77,7 +79,7 @@ lock WORK.class;
 ```
 
 ### Copyright
-Copyright 2008-2023 Paul Alexander Canals y Trocha. 
+Copyright 2008-2024 Paul Alexander Canals y Trocha. 
  
 This program is free software: you can redistribute it and/or modify 
 it under the terms of the GNU General Public License as published by 
@@ -94,4 +96,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 ***
-*This document was generated on 2023.11.23 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*
+*This document was generated on 2024.08.03 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*

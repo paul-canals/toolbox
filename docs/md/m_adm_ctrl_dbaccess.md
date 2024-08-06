@@ -11,6 +11,8 @@
 ### Description
 Macro to administrate the database connection entries in the DBACCESS table. An admin uses this macro to initially create the DBACCESS table, insert, update, delete entries or view all entries in a report which can be send to an email address. The program contains a SAS print routine to display the pre and post states of the DBACCESS record entry change action.
 
+
+
 ##### *Note:*
 *The SAS dataset containing the database connection profiles has to be named DBACCESS since all the routines expects this.*
 *If you lose or forget the ENCRYPTKEY, there will be absolutely no way to open the DBACCESS table and recover the data!*

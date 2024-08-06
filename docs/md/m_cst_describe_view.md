@@ -11,6 +11,8 @@
 ### Description
 This macro can be used to transfer data step or SQL type views across different operating environments. The program uses the SAS dictionary tables to determine the view type, which can be a SAS data step or SQL type view, and then uses the describe statement accordingly to obtain the view code to recreate it.
 
+
+
 ##### *Note:*
 *The macro returns the source path, view name, and view code information as result in a SAS dataset, which could be ported into a XPT type file, and transferred to another SAS system.*
 

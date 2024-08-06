@@ -12,6 +12,7 @@
 This program prints the contents of an external text file to the SAS log output destination (SAS Log). The file types are checked by comparing the file extension with a valid file type list. Currently the following file types are allowed: CSV, LOG or TXT.
 
 
+
 ### Authors
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 

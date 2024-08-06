@@ -9,14 +9,17 @@
 ***
 
 ### Description
-This program converts a JSON javascript object notation file into SAS datasets or database tables. The macro will process the json file looking for key value pairs and arrays. A SAS dataset or database table is created containing all key value pairs and is named by the _OUT_DS_ value. Furthermore complementary tables are created for each array found in the json file. These arrays are named by the following name convention: _OUT_DS_ARRAY-NAME_.
- In case of a json file that contains no pairs and only an array, only one table will be created with the given _OUT_DS_ name. The program handles common differences of the _PRETTY_ format by removing existing formats, and reformatting again by default. The following JSON data types are implemented:
- Number: a signed decimal number.
- String: a sequence of zero or more Unicode characters.
- Boolean: either of the values true or false.
- Array: an ordered list of zero or more values.
- Object: an unordered collection of key-value pairs
- Null: an empty value, using the word null.
+This program converts a JSON javascript object notation file into SAS datasets or database tables. The macro will process the json file looking for key value pairs and arrays. A SAS dataset or database table is created containing all key value pairs and is named by the _OUT_DS_ value. Furthermore complementary tables are created for each array found in the json file. These arrays are named by the following name convention: _OUT_DS_ARRAY-NAME_. In case of a json file that contains no pairs and only an array, only one table will be created with the given _OUT_DS_ name. The program handles common differences of the _PRETTY_ format by removing existing formats, and reformatting again by default.
+
+ The following JSON data types are implemented:
+
+- Number: a signed decimal number.
+- String: a sequence of zero or more Unicode characters.
+- Boolean: either of the values true or false.
+- Array: an ordered list of zero or more values.
+- Object: an unordered collection of key-value pairs
+- Null: an empty value, using the word null.
+
 
 
 ##### *Note:*
@@ -26,10 +29,10 @@ This program converts a JSON javascript object notation file into SAS datasets o
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 
 ### Date
-* 2022-11-08 00:00:00
+* 2024-06-30 00:00:00
 
 ### Version
-* 22.1.11
+* 24.1.06
 
 ### Link
 * https://github.com/paul-canals/toolbox
@@ -227,7 +230,7 @@ run;
 ```
 
 ### Copyright
-Copyright 2008-2022 Paul Alexander Canals y Trocha. 
+Copyright 2008-2024 Paul Alexander Canals y Trocha. 
  
 This program is free software: you can redistribute it and/or modify 
 it under the terms of the GNU General Public License as published by 
@@ -244,4 +247,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 ***
-*This document was generated on 2022.11.08 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*
+*This document was generated on 2024.06.30 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*

@@ -11,6 +11,8 @@
 ### Description
 The macro generates a random (integer) number between a given minimum and maximum values using SAS floor and rand functions.
 
+
+
 ### Authors
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 

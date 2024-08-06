@@ -8,8 +8,8 @@
  *             Run this program in a SAS editor or batch script.
  * 
  * \author     Paul Alexander Canals y Trocha (paul.canals@gmail.com)
- * \date       2020-09-07 00:00:00
- * \version    20.1.09
+ * \date       2024-04-11 00:00:00
+ * \version    24.1.04
  * \sa         https://github.com/paul-canals/toolbox
  * 
  * \calls

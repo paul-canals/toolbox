@@ -11,6 +11,8 @@
 ### Description
 This macro obtains all column, index and constraint information from a given table to be used to generate a Data Definition Language (DDL) file. The DDL file contains a SAS proc sql step to create a new instance of the given source table.
 
+
+
 ##### *Note:*
 *This macro is able to generate DDL files to create tables for engine type of SAS or Oracle. Other engine types may be added in the future.*
 

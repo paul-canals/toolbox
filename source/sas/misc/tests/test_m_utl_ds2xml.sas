@@ -8,8 +8,8 @@
  *             Run this program in a SAS editor or batch script.
  * 
  * \author     Paul Alexander Canals y Trocha (paul.canals@gmail.com)
- * \date       2022-11-08 00:00:00
- * \version    22.1.11
+ * \date       2024-06-16 00:00:00
+ * \version    24.1.06
  * \sa         https://github.com/paul-canals/toolbox
  * 
  * \calls
@@ -166,7 +166,7 @@ run;
 
 filename class clear;
  
-%* Example 9: Export a SAS dataset into XML by using a XML map file: ;
+%* Example 9: Step 1 - Create a SAS dataset TEAMS using data-cards: ;
 data WORK.teams ;
 attrib
    NAME        length= $30  format=$30.  label='NAME'
@@ -194,7 +194,8 @@ datalines4;
 "Sharks","SJ","Western","Pacific"
 ;;;;
 run;
-
+ 
+%* Example 9: Step 2 - Create a XML map file for TEAMS table: ;
 filename nhl_map "%sysfunc(getoption(WORK))/nhl.map";
 
 data _null_;
@@ -238,7 +239,8 @@ data _null_;
 run;
 
 filename nhl_map clear;
-
+ 
+%* Example 9: Step 3 - Export TEAMS table into XML by using a XML map file: ;
 %m_utl_ds2xml(
    base_ds  = WORK.teams
  , xml_file = %sysfunc(getoption(WORK))/nhl.xml

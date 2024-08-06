@@ -10,6 +10,7 @@
 
 ### Description
 The macro can be used to obtain numerical attribute information of a SAS DATASET. The following is a list of valid numerical SAS dataset attribute names:
+
  ALTERPW
  ANOBS
  ANY
@@ -45,17 +46,18 @@ The macro can be used to obtain numerical attribute information of a SAS DATASET
  WRITEPW
 
 
+
 ##### *Note:*
-*The SHOW_ERR parameter shows or suppresses possible warnings or errors in the log. The default is value is N.*
+*The SHOW_ERR parameter shows or suppresses possible warnings or errors in the log. The default for SHOW_ERR is value is N.*
 
 ### Authors
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 
 ### Date
-* 2020-09-07 00:00:00
+* 2024-04-13 00:00:00
 
 ### Version
-* 20.1.07
+* 24.1.04
 
 ### Link
 * https://github.com/paul-canals/toolbox
@@ -64,7 +66,9 @@ The macro can be used to obtain numerical attribute information of a SAS DATASET
 | Type | Name | Description |
 | ---- | ---- | ----------- |
 | Input | help | Parameter, if set ( or ?) to print the Help information in the log. In all other cases this parameter should be left out from the macro call. |
-| Input | intable | Full qualified LIBNAME.TABLENAME name of the source database table or SAS dataset. The default value for INTABLE is: \_NONE\_. |
+| Input | table | Full qualified LIBNAME.TABLENAME name of the source database table or SAS dataset. The default value for TABLE is: \_NONE\_. |
+| Input | table_id | Parameter representing the SAS dataset or table identifier. The parameter contains the value of the table identifier when the table was already opened before calling this macro. The default value for TABLE_ID is: 0. |
+| Input | creds | Optional. Specifies the ENCRYPTKEY= parameter value when TABLE involves an encrypted, or PW=, ALTER=, READ= or WRITE= for a protected dataset. |
 | Input | attr_nm | Parameter to specify the name of the SAS data set attribute whose numeric value is returned. If the value of ATTR_NM is invalid, a missing value is returned and optionally a warning or error message will be written in the SAS log. |
 | Input | show_err | Boolean [Y/N] parameter to show or hide warnings or errors in the log. The default value is: N. |
 | Input | debug | Boolean [Y/N] parameter to provide verbose mode information. The default value is: N. |
@@ -87,7 +91,7 @@ The macro can be used to obtain numerical attribute information of a SAS DATASET
 ```sas
 %let numobs =
    %m_utl_get_attrn(
-      intable = SASHELP.class (where=(Sex eq 'F'))
+      table   = SASHELP.class (where=(Sex eq 'F'))
     , attr_nm = NLOBS
     , debug   = Y
       );
@@ -100,7 +104,7 @@ The macro can be used to obtain numerical attribute information of a SAS DATASET
 ```sas
 %let numcols =
    %m_utl_get_attrn(
-      intable = SASHELP.class
+      table   = SASHELP.class
     , attr_nm = NVARS
     , debug   = Y
       );
@@ -113,7 +117,7 @@ The macro can be used to obtain numerical attribute information of a SAS DATASET
 ```sas
 %let pwdexist =
    %m_utl_get_attrn(
-      intable = SASHELP.class
+      table   = SASHELP.class
     , attr_nm = PW
     , debug   = Y
       );
@@ -126,7 +130,7 @@ run;
 
 %let pwdexist =
    %m_utl_get_attrn(
-      intable = WORK.class (pw=password)
+      table   = WORK.class (pw=password)
     , attr_nm = PW
     , debug   = Y
       );
@@ -141,7 +145,7 @@ quit;
 ```
 
 ### Copyright
-Copyright 2008-2020 Paul Alexander Canals y Trocha. 
+Copyright 2008-2024 Paul Alexander Canals y Trocha. 
  
 This program is free software: you can redistribute it and/or modify 
 it under the terms of the GNU General Public License as published by 
@@ -158,4 +162,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 ***
-*This document was generated on 2020.09.07 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*
+*This document was generated on 2024.04.13 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*

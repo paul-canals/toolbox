@@ -10,9 +10,11 @@
 
 ### Description
 The macro checks the current SAS session for the existance of the following SAS system macro variables (ordered list):
+
  _METAPERSON : valid in context of SAS Stored Process Server
- _METAUSER : valid in context of SAS Workspace Server
- SYSUSERID : valid in context of local SAS or batch
+ _METAUSER   : valid in context of SAS Workspace Server
+ SYSUSERID   : valid in context of local SAS or batch
+
 
 
 ### Authors

@@ -9,19 +9,24 @@
 ***
 
 ### Description
-The macro is used to obtain attribute information for a given column in a table. The macro is used to declare a column inside a data step, SAS proc SQL or database type SQL syntax. Column information may contain name, length, (in-)format and label. The SHOW_ERR parameter shows or suppresses possible errors in the log. In case of a table with columns containing special attributes the VALID_NAME parameter converts these names to valid names. This paramater currently only works for proc SQL and DB type column name constructions. This macro is based on the ut_get_col_attrib.sas macro by Dave Prinsloo (dave.prinsloo@yahoo.com).
+The macro is used to obtain attribute information for a given column in a table. The macro is used to declare a column inside a data step, SAS proc SQL or database type SQL syntax. Column information may contain name, length, (in-)format and label. The SHOW_ERR parameter shows or suppresses possible errors in the log. In case of a table with columns containing special attributes the VALID_NAME parameter converts these names to valid names. This paramater currently only works for proc SQL and DB type column name constructions.
+
+ This macro is based on the ut_get_col_attrib.sas macro by Dave Prinsloo (dave.prinsloo@yahoo.com).
+
+
 
 ##### *Note:*
-*In case of encrypted SAS datasets, the ENCRYPTKEY= parameter must be provided as part of the CREDS credentials string.*
+*In case of encrypted or access protected SAS datasets, ALTER=, ENCRYPTKEY=, PW=, READ or WRITE= SAS dataset options must be provided through the CREDS credentials parameter string value.*
+*The SHOW_ERR parameter shows or suppresses possible warnings or errors in the log. The default for SHOW_ERR is value is N.*
 
 ### Authors
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 
 ### Date
-* 2020-12-07 00:00:00
+* 2024-05-13 00:00:00
 
 ### Version
-* 20.1.12
+* 24.1.05
 
 ### Link
 * https://github.com/paul-canals/toolbox
@@ -30,9 +35,9 @@ The macro is used to obtain attribute information for a given column in a table.
 | Type | Name | Description |
 | ---- | ---- | ----------- |
 | Input | help | Parameter, if set (Help or ?) to print the Help information in the log. In all other cases this parameter should be left out from the macro call. |
-| Input | table | Full LIBNAME.TABLENAME name of the or SAS dataset to get the column attribute information. The default value is: \_NONE\_. |
+| Input | table | Full LIBNAME.TABLENAME name of the or SAS dataset to get the column attribute information. The default value for TABLE is: \_NONE\_. |
 | Input | table_dsid | Parameter representing the SAS dataset or table identifier. The parameter contains the value of the table identifier when the table was already opened before calling this macro. The default value for TABLE_DSID is: 0. |
-| Input | creds | Optional. Specifies the ENCRYPTKEY= parameter value if DATASET involves an encrypted dataset. |
+| Input | creds | Optional. Specifies the ENCRYPTKEY= parameter value when TABLE involves an encrypted, or PW=, ALTER=, READ= or WRITE= for a protected dataset. |
 | Input | type | Indicator [DATA/DB/ORACLE/SQL] to specify how the column attribute information list is constructed. The default value for TYPE is: DATA (Data Step). |
 | Input | chartype | Indicator [BYTE/CHAR] to specify whether the Oracle character attribute type VARCHAR2 is to be declared as 'length' BYTE or CHAR. This argument is only valid for Oracle column type VARCHAR2. The default value is: BYTE. |
 | Input | col_name | Parameter to specify the column attribute name. |
@@ -102,7 +107,7 @@ run;
 ```
 
 ### Copyright
-Copyright 2008-2020 Paul Alexander Canals y Trocha. 
+Copyright 2008-2024 Paul Alexander Canals y Trocha. 
  
 This program is free software: you can redistribute it and/or modify 
 it under the terms of the GNU General Public License as published by 
@@ -119,4 +124,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 ***
-*This document was generated on 2020.12.07 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*
+*This document was generated on 2024.05.13 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*

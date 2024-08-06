@@ -9,16 +9,20 @@
 ***
 
 ### Description
-This program sets the SAS proc printto log output destination to either an external log file or to the default log window. If the log output destination was already set to an external file, a printto list will be created so that the log output destination can be set back to its former state. This also works for nested printto log file statements. A notification with the full printto list of will be printed in the log file.
+This program sets the SAS proc printto log output destination to either an external log file or to the default log window.
+
+ If the log output destination was already set to an external file, a printto list will be created so that the log output destination can be set back to its former state. This also works for nested printto log file statements. A notification with the full printto list of will be printed in the log file.
+
+
 
 ### Authors
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 
 ### Date
-* 2023-10-07 00:00:00
+* 2024-06-16 00:00:00
 
 ### Version
-* 23.1.10
+* 24.1.06
 
 ### Link
 * https://github.com/paul-canals/toolbox
@@ -79,7 +83,6 @@ data _null_;
    input;
    put _infile_;
 run;
-
 ```
 
 ##### Example 3: Set the proc printto log output to a file with prefix:
@@ -109,7 +112,6 @@ data _null_;
    input;
    put _infile_;
 run;
-
 ```
 
 ##### Example 4: Set the proc printto log output to a file with timestamp in name:
@@ -141,7 +143,6 @@ data _null_;
    input;
    put _infile_;
 run;
-
 ```
 
 ##### Example 5: Set nested proc printto log outputs to multiple log files:
@@ -175,26 +176,17 @@ run;
    );
 %put &_sysprinttolist.;
 
-%m_utl_printto(
-   log_dest = LOG
- , debug    = Y
-   );
+%m_utl_printto(log_dest = LOG, debug = Y);
 
 proc print data=WORK.classfit;
 run;
 
-%m_utl_printto(
-   log_dest = LOG
- , debug    = Y
-   );
+%m_utl_printto(log_dest = LOG, debug = Y);
 
 proc print data=WORK.class;
 run;
 
-%m_utl_printto(
-   log_dest = LOG
- , debug    = Y
-   );
+%m_utl_printto(log_dest = LOG, debug = Y);
 
 filename log_file "%sysfunc(getoption(WORK))/log1.log";
 data _null_;
@@ -216,11 +208,10 @@ data _null_;
    input;
    put 'PRINT LOG3:' _infile_;
 run;
-
 ```
 
 ### Copyright
-Copyright 2008-2023 Paul Alexander Canals y Trocha. 
+Copyright 2008-2024 Paul Alexander Canals y Trocha. 
  
 This program is free software: you can redistribute it and/or modify 
 it under the terms of the GNU General Public License as published by 
@@ -237,4 +228,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 ***
-*This document was generated on 2023.10.07 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*
+*This document was generated on 2024.06.16 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*

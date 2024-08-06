@@ -11,6 +11,8 @@
 ### Description
 The macro can be used to extract data from a source SAS dataset or database table incremetially by processing delta loads. The macro compares both the maximum keys and number of records on the source and target table to detect changes. Depending on the comparison result, it will be decided wether to perform a full or a delta load from the source table into the target table.
 
+
+
 ##### *Note:*
 *In case of encrypted SAS datasets, the ENCRYPTKEY= parameter must be provided as part of the CREDS credentials string.*
 

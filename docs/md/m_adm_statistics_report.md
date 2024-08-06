@@ -9,32 +9,40 @@
 ***
 
 ### Description
-The macro creates a report containing the server load and usage statistics. The statistics are collected by parsing the SAS Metadata Server and Workspace Server log files and performs statistical analyses on the parsed connection data. The macro contains the following time analysis modes:
- HIS \-> to analyse all historical data
- Y2D \-> to analyse year-to-date data
- 12M \-> to analyse last 12 months data
- 6M \-> to analyse last 6 months data
- 3M \-> to analyse last 3 months data
- 1M \-> to analyse last month data
+The macro creates a report containing the server load and usage statistics. The statistics are collected by parsing the SAS Metadata Server and Workspace Server log files and performs statistical analyses on the parsed connection data.
+
+ The macro contains the following time analysis modes:
+
+- HIS : to analyse all historical data
+- Y2D : to analyse year-to-date data
+- 12M : to analyse last 12 months data
+- 6M : to analyse last 6 months data
+- 3M : to analyse last 3 months data
+- 1M : to analyse last month data
+
  The macro contains the following result report types:
- ALL \-> complete connection analysis
- DAY \-> connection analysis per day
- DIR \-> connection analysis per directory
- HRS \-> connection analysis per hour
- MTH \-> connection analysis per month
- USR \-> connection analysis per user
- WDAY \-> connection analysis per weekday
+
+- ALL : complete connection analysis
+- DAY : connection analysis per day
+- DIR : connection analysis per directory
+- HRS : connection analysis per hour
+- MTH : connection analysis per month
+- USR : connection analysis per user
+- WDAY : connection analysis per weekday
+
  The result information is presented by a SAS graph or plot step and can be send by email as an PDF format attachment.
+
+
 
 ### Authors
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 * Dr. Simone Kossmann (simone.kossmann@web.de)
 
 ### Date
-* 2023-10-06 00:00:00
+* 2024-08-03 00:00:00
 
 ### Version
-* 23.1.10
+* 24.1.08
 
 ### Link
 * https://github.com/paul-canals/toolbox
@@ -80,33 +88,31 @@ The macro creates a report containing the server load and usage statistics. The 
 %m_adm_statistics_report(?)
 ```
 
-##### Example 2: Perform year-to-date monthly user connection analysis. Exclude type: \@saspw and user: system from statistics.
-
+##### Example 2: Perform year-to-date monthly user connection analysis.
 ```sas
 %let rc = %sysfunc(filename(fref,.));
 %let cd = %sysfunc(pathname(&fref.));
 %let rc = %sysfunc(filename(fref));
-
+* Exclude type: \@saspw and user: system from statistics ;
 %m_adm_statistics_report(
    rootdir  = %str(&APPL_BASE.)
  , mslogs   = %str(&cd./../SASMeta/MetadataServer/Logs)
  , wslogs   = %str(&cd./../ObjectSpawner/Logs)
  , mode     = Y2D
  , type     = MTH
+ , interpol = Y
  , excltype = @saspw
  , excluser = system
  , debug    = N
    );
-
 ```
 
-##### Example 3: Perform all time hourly user connection analysis. Exclude type: \@saspw and user: system from statistics.
-
+##### Example 3: Perform all time hourly user connection analysis.
 ```sas
 %let rc = %sysfunc(filename(fref,.));
 %let cd = %sysfunc(pathname(&fref.));
 %let rc = %sysfunc(filename(fref));
-
+* Exclude type: \@saspw and user: system from statistics ;
 %m_adm_statistics_report(
    rootdir  = %str(&APPL_BASE.)
  , mslogs   = %str(&cd./../SASMeta/MetadataServer/Logs)
@@ -118,16 +124,14 @@ The macro creates a report containing the server load and usage statistics. The 
  , excluser = system
  , debug    = N
    );
-
 ```
 
-##### Example 4: Perform year-to-date analysis per user with top 5 users. Exclude type: \@saspw and user: system from statistics.
-
+##### Example 4: Perform year-to-date analysis per user with top 5 users.
 ```sas
 %let rc = %sysfunc(filename(fref,.));
 %let cd = %sysfunc(pathname(&fref.));
 %let rc = %sysfunc(filename(fref));
-
+* Exclude type: \@saspw and user: system from statistics ;
 %m_adm_statistics_report(
    rootdir  = %str(&APPL_BASE.)
  , mslogs   = %str(&cd./../SASMeta/MetadataServer/Logs)
@@ -139,16 +143,14 @@ The macro creates a report containing the server load and usage statistics. The 
  , excluser = system
  , debug    = N
    );
-
 ```
 
-##### Example 5: Perform all time complete server connection analysis. Exclude type: \@saspw and user: system from statistics.
-
+##### Example 5: Perform all time complete server connection analysis.
 ```sas
 %let rc = %sysfunc(filename(fref,.));
 %let cd = %sysfunc(pathname(&fref.));
 %let rc = %sysfunc(filename(fref));
-
+* Exclude type: \@saspw and user: system from statistics ;
 %m_adm_statistics_report(
    rootdir  = %str(&APPL_BASE.)
  , mslogs   = %str(&cd./../SASMeta/MetadataServer/Logs)
@@ -160,30 +162,27 @@ The macro creates a report containing the server load and usage statistics. The 
  , excluser = system
  , debug    = N
    );
-
 ```
 
-##### Example 6: Perform a complete server connection analysis for a given month. Exclude type: \@saspw and user: system from statistics.
-
+##### Example 6: Perform a complete server connection analysis for a given month.
 ```sas
 %let rc = %sysfunc(filename(fref,.));
 %let cd = %sysfunc(pathname(&fref.));
 %let rc = %sysfunc(filename(fref));
-
+* Exclude type: \@saspw and user: system from statistics ;
 %m_adm_statistics_report(
    rootdir  = %str(&APPL_BASE.)
  , mslogs   = %str(&cd./../SASMeta/MetadataServer/Logs)
  , wslogs   = %str(&cd./../ObjectSpawner/Logs)
  , mode     = 1M
  , type     = ALL
- , lastdate = 31012021
+ , lastdate = %sysfunc(putn(%sysfunc(today()),ddmmyyn8.))
  , firstday = MON
  , topusers = 5
  , excltype = @saspw
  , excluser = system
  , debug    = N
    );
-
 ```
 
 ##### Example 7: Perform a file system directory analysis for a given month.
@@ -194,7 +193,6 @@ The macro creates a report containing the server load and usage statistics. The 
  , type    = DIR
  , debug   = Y
    );
-
 ```
 
 ##### Example 8: Send the year-to-date statistics report as PDF to a given email address.
@@ -211,11 +209,10 @@ The macro creates a report containing the server load and usage statistics. The 
  , mailaddr = %str(pact@hermes.local)
  , debug    = N
    );
-
 ```
 
 ### Copyright
-Copyright 2008-2023 Paul Alexander Canals y Trocha. 
+Copyright 2008-2024 Paul Alexander Canals y Trocha. 
  
 This program is free software: you can redistribute it and/or modify 
 it under the terms of the GNU General Public License as published by 
@@ -232,4 +229,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 ***
-*This document was generated on 2023.10.06 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*
+*This document was generated on 2024.08.03 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*

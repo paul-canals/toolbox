@@ -8,8 +8,8 @@
  *             Run this program in a SAS editor or batch script.
  * 
  * \author     Paul Alexander Canals y Trocha (paul.canals@gmail.com)
- * \date       2023-07-28 00:00:00
- * \version    23.1.07
+ * \date       2024-05-23 00:00:00
+ * \version    24.1.05
  * \sa         https://github.com/paul-canals/toolbox
  * 
  * \calls
@@ -40,6 +40,7 @@
 %m_test_execute_scripts(
    src_path = %str(&APPL_TEST.)
  , log_path = %str(%sysfunc(getoption(WORK)))
+ , prefix   = test_m_utl
  , print    = Y
  , debug    = N
    );
@@ -48,6 +49,7 @@
 %m_test_execute_scripts(
    src_path = %str(&APPL_TEST.)
  , log_path = %str(%sysfunc(getoption(WORK)))
+ , contains = run
  , sendmail = Y
  , mailaddr = %str(pact@hermes.local)
  , debug    = N

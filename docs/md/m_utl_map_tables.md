@@ -11,6 +11,8 @@
 ### Description
 The macro reads the given source table SRC_TBL and target table TRG_TBL to collect the column information to be able to create a mapping between the source and target columns which exist in both source and target tables. The column mapping list can be filtered using the optional SRC_COLS and TRG_COLS parameters. If both the SRC_COLS and TRG_COLS parameters are set, mapping can be performed between source and target table columns with name differences. In this case the order of the columns listed in the SRC_COLS and TRG_COLS is as important as also the number of source and target table columns for the routine to create the correct mapping between source and target column pairs.
 
+
+
 ##### *Note:*
 *The mapping engine is able to match source to target columns having different names. This is done by processing SRC_COLS and TRG_COLS sequentially. Before the mapping process starts a check is performed to verify the number of columns between source and target are equal (balanced).*
 
@@ -18,10 +20,10 @@ The macro reads the given source table SRC_TBL and target table TRG_TBL to colle
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 
 ### Date
-* 2024-02-07 00:00:00
+* 2024-06-08 00:00:00
 
 ### Version
-* 24.1.02
+* 24.1.06
 
 ### Link
 * https://github.com/paul-canals/toolbox
@@ -129,6 +131,11 @@ run;
 
 ##### Example 6: Copy data from SASHELP.class to selected columns of WORK.classfit:
 ```sas
+data WORK.class;
+   set SASHELP.class;
+   if Name eq 'John' then weight = . ;
+run;
+
 data WORK.classfit (rename=(_Name=Name _Age=Age _Weight=Weight));
    attrib _Name length=$7. label='Name';
    attrib _Age length=$3. label='Age';
@@ -145,6 +152,9 @@ run;
  , print    = Y
  , debug    = N
    );
+
+proc print data=WORK.classfit (keep=Name Sex Age Weight) label;
+run;
 
 ```
 
@@ -192,6 +202,9 @@ run;
  , print    = Y
  , debug    = N
    );
+
+proc print data=WORK.airline (keep=Date Flights obs=10);
+run;
 
 ```
 
@@ -265,4 +278,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 ***
-*This document was generated on 2024.02.07 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*
+*This document was generated on 2024.06.08 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*

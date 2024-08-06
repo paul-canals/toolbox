@@ -9,7 +9,13 @@
 ***
 
 ### Description
-This program extracts all files from a given ZIP archive to a given target directory preserving the directory structure that is contained in the ZIP archive. The macro uses byte-by-byte including dynamic chunksize copying to extract files from the given ZIP archive, delivering high performance ZIP extraction. The finfo option for Zip archive members is based on the blog article "Using FILENAME ZIP and FINFO to list the details in your ZIP files" by Chris Hemedinger (chris.hemedinger@sas.com). The chunksize option that is used in this macro is based on the binaryfilecopy by Bruno Mueller (bruno.mueller@sas.com).
+This program extracts all files from a given ZIP archive to a given target directory preserving the directory structure that is contained in the ZIP archive. The macro uses byte-by-byte including dynamic chunksize copying to extract files from the given ZIP archive, delivering high performance ZIP extraction.
+
+ The finfo option for Zip archive members is based on the blog article "Using FILENAME ZIP and FINFO to list the details in your ZIP files" by Chris Hemedinger (chris.hemedinger@sas.com).
+
+ The chunksize option that is used in this macro is based on the binaryfilecopy by Bruno Mueller (bruno.mueller@sas.com).
+
+
 
 ##### *Note:*
 *This program is able to work in system environments where x-command or unix pipes are not allowed or cannot be used.*
@@ -18,10 +24,10 @@ This program extracts all files from a given ZIP archive to a given target direc
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 
 ### Date
-* 2023-10-08 00:00:00
+* 2024-05-22 00:00:00
 
 ### Version
-* 23.1.10
+* 24.1.05
 
 ### Link
 * https://github.com/paul-canals/toolbox
@@ -49,10 +55,13 @@ This program extracts all files from a given ZIP archive to a given target direc
 %m_cst_unpack_zip(?)
 ```
 
-##### Example 2: View all files listed in a ZIP archive (mode: View):
+##### Example 2: Step 1 - Create and load from SASHELP into a ZIP archive:
 ```sas
-%* Create ZIP archive: ;
-filename tmpfile "%sysfunc(pathname(SASROOT))/core/sashelp/cars.sas7bdat";
+proc copy out=WORK in=SASHELP clone;
+   select cars class;
+run;
+
+filename tmpfile "%sysfunc(getoption(WORK))/cars.sas7bdat";
 filename zipfile zip "%sysfunc(getoption(WORK))/sashelp.zip" member="cars.sas7bdat";
 
 %* byte-by-byte copy ;
@@ -63,7 +72,7 @@ data _null_;
    put byte $char1. @;
 run;
 
-filename tmpfile "%sysfunc(pathname(SASROOT))/core/sashelp/class.sas7bdat";
+filename tmpfile "%sysfunc(getoption(WORK))/class.sas7bdat";
 filename zipfile zip "%sysfunc(getoption(WORK))/sashelp.zip" member="class.sas7bdat";
 
 %* byte-by-byte copy ;
@@ -76,45 +85,10 @@ run;
 
 filename tmpfile clear;
 filename zipfile clear;
-
-%* view ZIP contents ;
-%m_cst_unpack_zip(
-   infile  = %sysfunc(getoption(WORK))/sashelp.zip
- , runmode = VIEW
- , print   = Y
- , debug   = Y
-   );
 ```
 
-##### Example 3: Extract all files listed in a ZIP archive (mode: Extract):
+##### Example 3: Step 3 - Extract all files listed in a ZIP archive (mode: Extract):
 ```sas
-%* Create ZIP archive: ;
-filename tmpfile "%sysfunc(pathname(SASROOT))/core/sashelp/cars.sas7bdat";
-filename zipfile zip "%sysfunc(getoption(WORK))/sashelp.zip" member="cars.sas7bdat";
-
-%* byte-by-byte copy ;
-data _null_;
-   infile tmpfile recfm=n;
-   file zipfile recfm=n;
-   input byte $char1. @;
-   put byte $char1. @;
-run;
-
-filename tmpfile "%sysget(SASROOT)/core/sashelp/class.sas7bdat";
-filename zipfile zip "%sysfunc(getoption(WORK))/sashelp.zip" member="class.sas7bdat";
-
-%* byte-by-byte copy ;
-data _null_;
-   infile tmpfile recfm=n;
-   file zipfile recfm=n;
-   input byte $char1. @;
-   put byte $char1. @;
-run;
-
-filename tmpfile clear;
-filename zipfile clear;
-
-%* extract ZIP contents ;
 %m_cst_unpack_zip(
    infile  = %sysfunc(getoption(WORK))/sashelp.zip
  , outdir  = %sysfunc(getoption(WORK))/sashelp
@@ -125,7 +99,7 @@ filename zipfile clear;
 ```
 
 ### Copyright
-Copyright 2008-2023 Paul Alexander Canals y Trocha. 
+Copyright 2008-2024 Paul Alexander Canals y Trocha. 
  
 This program is free software: you can redistribute it and/or modify 
 it under the terms of the GNU General Public License as published by 
@@ -142,4 +116,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 ***
-*This document was generated on 2023.10.08 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*
+*This document was generated on 2024.05.22 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*

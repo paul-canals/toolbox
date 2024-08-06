@@ -9,40 +9,45 @@
 ***
 
 ### Description
-This program is used to read all programs in a given directory to create Markdown, PDF, or RTF formatted documents based using the Doxygen header structure in each SAS program or macro file. The header needs to comply to the Doxygen command structure to be able to use this program. The following Doxygen program header commands are mandatory:
- \\file
- \\ingroup
- \\brief
- \\details
- \\author
- \\date
- \\version
- \\sa
- \\param
- \\return
- \\calls
- \\usage
- \\example
+This program is used to read all programs in a given directory to create Markdown, PDF, or RTF formatted documents based using the Doxygen header structure in each SAS program or macro file.
+
+ The header needs to comply to the Doxygen command structure to be able to use this program.
+
+ The following Doxygen program header commands are mandatory:
+
+- \file
+- \ingroup
+- \brief
+- \details
+- \author
+- \date
+- \version
+- \sa
+- \param
+- \return
+- \calls
+- \usage
+- \example
+
  The following Doxygen program header commands are optional:
- \\note
- \\todo
- \\warning
+
+- \note
+- \todo
+- \warning
+
 
 
 ##### *Note:*
-*The \\param command is checked for valid suffices [in] and [out]. All other given suffix values will result as invalid.*
-
-##### *Todo:*
-*The consolidated RTF document output when APPEND parameter value is set to Y is not finalised yet, and it may result in missing bookmarks links in the target RTF document file. For consolidated file output it is best to use the DOC_TYPE parameter value "PDF" in combination with APPEND parameter value set to Y. The issue will be analysed, resolved and released in the near future, or latest by the end of 2021.*
+*The \param command is checked for valid suffices [in] and [out]. All other given suffix values will result as invalid.*
 
 ### Authors
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 
 ### Date
-* 2023-09-26 00:00:00
+* 2024-06-30 00:00:00
 
 ### Version
-* 23.1.09
+* 24.1.06
 
 ### Link
 * https://github.com/paul-canals/toolbox
@@ -53,10 +58,11 @@ This program is used to read all programs in a given directory to create Markdow
 | Input | help | Parameter, if set (Help or ?) to print the Help information in the log. In all other cases this parameter should be left out from the macro call. |
 | Input | in_dir | Specifies the full path and directory name where the source SAS programs or macros resides. These programs must include a header including example code that will be used for generating the scripts. The default value for IN_DIR is: \_NONE\_. |
 | Input | out_dir | Specifies the full path and directory name where the generated test scripts are to be created in. The default value for OUT_DIR is: \_NONE\_. |
-| Input | excl_lst | Optional. A list of valid but optional Doxygen header commands which are to be ignored. |
+| Input | exc_lst | Optional. A list [CMD1[CMD2..CMDn]] of optional Doxygen header commands which are to be ignored. |
 | Input | doc_type | Indicator [MD/PDF/RTF] to specify the format type. The default value for DOC_TYPE is: MD. |
 | Input | doc_image | Optional. Specifies an image file name including a full or relative path. If an image file is set it will be located on top of the output MD file. |
 | Input | doc_name | Optional. Specifies the output file name in case of parameter APPEND value is set to: Y. The file extension part is defined by the DOC_TYPE value. The default value for DOC_NAME is: reference. |
+| Input | doc_vers | Optional. Specifies the document version value in case of parameter APPEND value is set to: Y. The default value for DOC_VERS is set to: NULL. |
 | Input | doc_title | Optional. Specifies an optional title value for the output document files in OUT_DIR, but only when the APPEND parameter value is set to: Y. |
 | Input | doc_author | Optional. Specifies an optional author value for the output document files in OUT_DIR. |
 | Input | doc_subject | Optional. Specifies an optional subject value for the output document file in OUT_DIR. |
@@ -75,6 +81,7 @@ This program is used to read all programs in a given directory to create Markdow
 * [m_hdr_crt_rtf_file.sas](m_hdr_crt_rtf_file.md)
 * [m_utl_create_dir.sas](m_utl_create_dir.md)
 * [m_utl_get_file_list.sas](m_utl_get_file_list.md)
+* [m_utl_ods_output.sas](m_utl_ods_output.md)
 * [m_utl_nlobs.sas](m_utl_nlobs.md)
 * [m_utl_print_message.sas](m_utl_print_message.md)
 * [m_utl_print_mtrace.sas](m_utl_print_mtrace.md)
@@ -93,7 +100,7 @@ This program is used to read all programs in a given directory to create Markdow
    in_dir      = %str(&APPL_PRGM.)
  , out_dir     = %str(%sysfunc(getoption(WORK))/misc/docs)
  , doc_type    = MD
- , doc_image   = %str(../misc/images/doc_banner.png)
+ , doc_image   = %str(../../misc/images/doc_banner.png)
  , print       = Y
  , debug       = N
    );
@@ -105,7 +112,6 @@ This program is used to read all programs in a given directory to create Markdow
    in_dir      = %str(&APPL_PRGM.)
  , out_dir     = %str(%sysfunc(getoption(WORK))/misc/docs)
  , doc_type    = PDF
- , doc_name    = reference
  , doc_title   = SAS PDF Documentation Reference
  , doc_author  = Paul Alexander Canals y Trocha
  , doc_subject = Generated SAS Documentation
@@ -114,21 +120,24 @@ This program is used to read all programs in a given directory to create Markdow
    );
 ```
 
-##### Example 4: Generate RTF documentation into temporary folder in WORK:
+##### Example 4: Generate consolidated RTF documentation with cover in WORK:
 ```sas
 %m_hdr_gen_documents(
    in_dir      = %str(&APPL_PRGM.)
  , out_dir     = %str(%sysfunc(getoption(WORK))/misc/docs)
  , doc_type    = RTF
- , doc_title   = SAS RTF Documentation Reference
+ , doc_image   = %str(&APPL_BASE./misc/images/toolbox.jpg)
+ , doc_name    = %str(Reference Manual)
+ , doc_title   = %str(Paul%'s SAS Macro Utility Toolbox)
  , doc_author  = Paul Alexander Canals y Trocha
  , doc_subject = Generated SAS Documentation
+ , append      = Y
  , print       = Y
  , debug       = N
    );
 ```
 
-##### Example 5: Generate RTF documentation and output report by email:
+##### Example 5: Generate consolidated RTF documentation and output report by email:
 ```sas
 *%m_hdr_gen_documents(
 *   in_dir      = %str(&APPL_PRGM.)
@@ -144,7 +153,7 @@ This program is used to read all programs in a given directory to create Markdow
 ```
 
 ### Copyright
-Copyright 2008-2023 Paul Alexander Canals y Trocha. 
+Copyright 2008-2024 Paul Alexander Canals y Trocha. 
  
 This program is free software: you can redistribute it and/or modify 
 it under the terms of the GNU General Public License as published by 
@@ -161,4 +170,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 ***
-*This document was generated on 2023.09.26 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*
+*This document was generated on 2024.06.30 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*

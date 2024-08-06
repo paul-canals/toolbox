@@ -11,6 +11,8 @@
 ### Description
 The macro checks the result status of a SAS DI-Job, and writes a protocol as an entry in a SAS dataset or database table.
 
+
+
 ##### *Note:*
 *All parameters with <b>p_</b> prefix are optional when the macro is used in a SAS Data Integration Studio job, since the parameter variables will be filled automatically.*
 

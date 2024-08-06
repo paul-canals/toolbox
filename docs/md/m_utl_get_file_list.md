@@ -11,6 +11,8 @@
 ### Description
 This program creates two tables containing file and directory structure information, including level to identify the number of sub directories below the root directory. If a file is write-locked the macro still produces a record into the FILE_LIST dataset and column LOCKED gets a value Y, but no file size, creation time or last modified date is set.
 
+
+
 ##### *Note:*
 *This program is able to work in system environments where x-command or unix pipes are not allowed or cannot be used.*
 
@@ -18,10 +20,10 @@ This program creates two tables containing file and directory structure informat
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 
 ### Date
-* 2021-08-24 00:00:00
+* 2024-07-26 00:00:00
 
 ### Version
-* 21.1.08
+* 24.1.07
 
 ### Link
 * https://github.com/paul-canals/toolbox
@@ -39,9 +41,7 @@ This program creates two tables containing file and directory structure informat
 | Input | debug | Boolean [Y/N] parameter to provide verbose mode information. The default value is: N. |
 
 ### Returns
-* WORK.[SRC|PREFIX]_FILE_LIST
-
-### Returns
+* WORK.[SRC|PREFIX]_DIR_LIST
 * WORK.[SRC|PREFIX]_FILE_LIST
 
 ### Calls
@@ -74,7 +74,7 @@ This program creates two tables containing file and directory structure informat
 ```
 
 ### Copyright
-Copyright 2008-2021 Paul Alexander Canals y Trocha. 
+Copyright 2008-2024 Paul Alexander Canals y Trocha. 
  
 This program is free software: you can redistribute it and/or modify 
 it under the terms of the GNU General Public License as published by 
@@ -91,4 +91,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 ***
-*This document was generated on 2021.08.24 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*
+*This document was generated on 2024.07.26 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*

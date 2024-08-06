@@ -9,9 +9,13 @@
 ***
 
 ### Description
-The program checks if the given BOOL boolean attribute value is in a list of common used boolean values to determine the result true/false boolean values set by B_TRUE and B_FALSE. The result boolean value is returned inline (inline macro). Valid common input boolean values:
- Boolean true: [1, e, j, o, s, y, E, J, O, S, Y, True]
- Boolean false: [0, h, n, H, N, False]
+The program checks if the given BOOL boolean attribute value is in a list of common used boolean values to determine the result true/false boolean values set by B_TRUE and B_FALSE. The result boolean value is returned inline (inline macro).
+
+ Valid common input boolean values:
+
+- TRUE: [1, e, j, o, s, y, E, J, O, S, Y, True]
+- FALSE: [0, h, n, H, N, False]
+
 
 
 ##### *Note:*
@@ -21,10 +25,10 @@ The program checks if the given BOOL boolean attribute value is in a list of com
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 
 ### Date
-* 2024-02-11 00:00:00
+* 2024-08-03 00:00:00
 
 ### Version
-* 24.1.02
+* 24.1.08
 
 ### Link
 * https://github.com/paul-canals/toolbox
@@ -111,7 +115,7 @@ The program checks if the given BOOL boolean attribute value is in a list of com
       bool    = true
     , b_true  = 1
     , b_false = 0
-    , debug   = %m_utl_chk_bool(bool=&debug.)
+    , debug   = %m_utl_chk_boolean(bool=&debug.)
       );
 
 %put &=bool.;
@@ -136,4 +140,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 ***
-*This document was generated on 2024.02.11 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*
+*This document was generated on 2024.08.03 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*

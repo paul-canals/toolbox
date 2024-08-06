@@ -11,6 +11,8 @@
 ### Description
 The macro generates a unique (integer) number based on a combination of a minimum \/ maximum value and a number sequence. The last number used value is held by a global SAS macro variable defined by the MVAR_NAME parameter.
 
+
+
 ### Authors
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 

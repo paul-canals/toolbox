@@ -11,6 +11,8 @@
 ### Description
 The macro creates a compressed backup file of filesystem data directory and file structure into a ZIP format. The program contains print routines to display the list of files that are included in the compressed file (zip).
 
+
+
 ### Authors
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 
@@ -39,18 +41,10 @@ The macro creates a compressed backup file of filesystem data directory and file
 | Input | debug | Boolean [Y/N] parameter to provide verbose mode information. The default value is: N. |
 
 ### Returns
-* WORK.TGT_FILE_LIST
-
-### Returns
-* WORK.TGT_FILE_LIST
-
-### Returns
-* WORK.TGT_FILE_LIST
-
-### Returns
-* WORK.TGT_FILE_LIST
-
-### Returns
+* WORK.SRC_DIR_LIST
+* WORK.SRC_FILE_LIST
+* WORK.TGT_DIR_LIST
+* WORK.TGT_FILE_DIFF
 * WORK.TGT_FILE_LIST
 
 ### Calls

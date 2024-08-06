@@ -8,8 +8,8 @@
  *             Run this program in a SAS editor or batch script.
  * 
  * \author     Paul Alexander Canals y Trocha (paul.canals@gmail.com)
- * \date       2021-10-31 00:00:00
- * \version    21.1.10
+ * \date       2024-06-30 00:00:00
+ * \version    24.1.06
  * \sa         https://github.com/paul-canals/toolbox
  * 
  * \calls
@@ -38,15 +38,15 @@
  
 %* Example 2 - Step 1: Create macro variable parameter table: ;
 data WORK.params;
-   attrib PARAM_ENV    length = $3;
-   attrib PARAM_NAME   length = $32;
-   attrib PARAM_VALUE  length = $100;
-   attrib PARAM_TYPE   length = $4;
-   attrib PARAM_TEXT   length = $100;
-   attrib MACRO_FLG    length = 8;
-
+   attrib
+      PARAM_ENV    length=$3    label='Environment'
+      PARAM_NAME   length=$32   label='Name'
+      PARAM_VALUE  length=$100  label='Value'
+      PARAM_TYPE   length=$4    label='Type'
+      PARAM_TEXT   length=$100  label='Description'
+      MACRO_FLG    length=8     label='Active Flag'
+      ;
    * Date Function;
-
    PARAM_ENV   = "ALL";
    PARAM_NAME  = "X_TODAY_FUNC";
    PARAM_VALUE = "date()";
@@ -54,9 +54,7 @@ data WORK.params;
    PARAM_TEXT  = "Represents today in numerical string";
    MACRO_FLG   = 1;
    output;
-
    * Date Type with date() input;
-
    PARAM_ENV   = "ALL";
    PARAM_NAME  = "X_TODAY_DATE";
    PARAM_VALUE = "date()";
@@ -64,9 +62,7 @@ data WORK.params;
    PARAM_TEXT  = "Represents today in date format";
    MACRO_FLG   = 1;
    output;
-
    * Date Type with 31dec2016 input;
-
    PARAM_ENV   = "ALL";
    PARAM_NAME  = "X_DAY_DATE";
    PARAM_VALUE = "31dec2016";
@@ -74,9 +70,7 @@ data WORK.params;
    PARAM_TEXT  = "Represents today in date format";
    MACRO_FLG   = 1;
    output;
-
    * List Character Type;
-
    PARAM_ENV   = "ALL";
    PARAM_NAME  = "X_WEEKEND_LIST";
    PARAM_VALUE = "Saturday";
@@ -84,7 +78,6 @@ data WORK.params;
    PARAM_TEXT  = "Represents the weekend day names";
    MACRO_FLG   = 1;
    output;
-
    PARAM_ENV   = "ALL";
    PARAM_NAME  = "X_WEEKEND_LIST";
    PARAM_VALUE = "Sunday";
@@ -93,7 +86,6 @@ data WORK.params;
    MACRO_FLG   = 1;
    output;
 run;
-
  
 %* Example 2 - Step 2: Register macro variables from params table: ;
 %m_utl_set_parameter(

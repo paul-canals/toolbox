@@ -8,8 +8,8 @@
  *             Run this program in a SAS editor or batch script.
  * 
  * \author     Paul Alexander Canals y Trocha (paul.canals@gmail.com)
- * \date       2021-03-27 00:00:00
- * \version    21.1.03
+ * \date       2024-02-29 00:00:00
+ * \version    24.1.02
  * \sa         https://github.com/paul-canals/toolbox
  * 
  * \calls
@@ -49,7 +49,7 @@
 %* Example 3: Validate SASHELP.class to ensure all student info is unique: ;
 %m_val_chk_duplicates(
    src_tbl  = SASHELP.class
- , col_list = Weight Height
+ , col_list = Height Weight
  , action   = Move
  , print    = Y
  , debug    = N
@@ -63,7 +63,7 @@ run;
 %m_val_chk_duplicates(
    src_tbl  = SASHELP.class
  , exc_tbl  = WORK.class_dups
- , col_list = Weight
+ , col_list = Height
  , action   = Check
  , print    = Y
  , debug    = N
@@ -72,7 +72,7 @@ run;
 %m_val_chk_duplicates(
    src_tbl  = SASHELP.class
  , exc_tbl  = WORK.class_dups
- , col_list = Height
+ , col_list = Weight
  , action   = Check
  , print    = Y
  , debug    = N

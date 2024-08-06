@@ -11,6 +11,8 @@
 ### Description
 This program converts a SAS view into a SAS transport (XPT) file. This is a method to transport views independently from one operating system or host to another or different system.
 
+
+
 ##### *Note:*
 *Note that if the data set is V5 compliant, all variable names will be upcased when stored in the V5 transport file. This is consistent with the XPORT engine. If the SAS dataset name contains over 8 characters, or if any variable name exceeds 8 characters, or has any characters that are not letters, digits, or underscore, or if any character variable exceeds length 200, then a V5 transport file cannot be created. If AUTO is in effect then V8 format will be assumed in such cases. If any format or informat name exceeds a length of 8 characters, then V9 format will be assumed in such cases.*
 

@@ -11,14 +11,16 @@
 ### Description
 This program can be used to activate or deactivate the Output Delivery System trace information in the log output. It writes to the SAS log destination a record of each output object that is created, or suppresses the writing of this record. SAS ODS produces an output object by combining data from the data component with a table template. The trace record provides information about the data component, the table template, and the output object.
 
+
+
 ### Authors
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 
 ### Date
-* 2023-11-23 00:00:00
+* 2024-05-21 00:00:00
 
 ### Version
-* 23.1.11
+* 24.1.05
 
 ### Link
 * https://github.com/paul-canals/toolbox
@@ -83,7 +85,7 @@ quit;
 ```
 
 ### Copyright
-Copyright 2008-2023 Paul Alexander Canals y Trocha. 
+Copyright 2008-2024 Paul Alexander Canals y Trocha. 
  
 This program is free software: you can redistribute it and/or modify 
 it under the terms of the GNU General Public License as published by 
@@ -100,4 +102,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 ***
-*This document was generated on 2023.11.23 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*
+*This document was generated on 2024.05.21 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*

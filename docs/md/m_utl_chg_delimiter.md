@@ -9,7 +9,11 @@
 ***
 
 ### Description
-The macro replaces all specified delimiters from an input text string with a new specified delimiter string. If the IN_DLM parameter value contains multiple characters, then any instance of the detected character will be replaced by the specified OUT_DLM parameter value. If OUT_DLM contains multiple characters then all the characters will be used as one delimiter. If the OUT_DLM parameter value is a blank, then the macro works like the compress function. Furthermore the result list can be quoted by setting either single or double quotation marks. This macro is originally based on the ut_chg_dlm.sas macro program by Dave Prinsloo (dave.prinsloo@yahoo.com)
+The macro replaces all specified delimiters from an input text string with a new specified delimiter string. If the IN_DLM parameter value contains multiple characters, then any instance of the detected character will be replaced by the specified OUT_DLM parameter value. If OUT_DLM contains multiple characters then all the characters will be used as one delimiter. If the OUT_DLM parameter value is a blank, then the macro works like the compress function. Furthermore the result list can be quoted by setting either single or double quotation marks.
+
+ This macro is originally based on the ut_chg_dlm.sas macro program by Dave Prinsloo (dave.prinsloo@yahoo.com)
+
+
 
 ### Authors
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)

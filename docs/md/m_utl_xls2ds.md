@@ -11,6 +11,8 @@
 ### Description
 This program converts an Microsoft Excelsheet into one or more SAS datasets or database tables. The macro will process the file looking for existing worksheets, and import each worksheet as a dataset or database table. The imported datasets or tables are loaded into the library identified by the OUT_LIB value. Furthermore it is possible to provide a worksheet as parameter. In this case only the provided worksheet will be imported.
 
+
+
 ##### *Note:*
 *The engine parameter can be set to two values: XLSX or PCFILES. In most actual cases the engine set to XLSX will be sufficient to import Microsoft Excel files with .xlsx extension. For files created by an older version of Microsoft Excel or equivalents, or in case of having a mixed 32/64 bit environment, the engine parameter value should be set to PCFILES. This means that there must be a SAS PC Files Server running in the environment to be able to use the PCFILES engine setting.*
 
