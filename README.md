@@ -1,7 +1,7 @@
 [![misc/images/banner.png](misc/images/banner.png)](https://github.com/paul-canals/toolbox-dev)
 
 # 
-[![Release: v24.1.08](https://img.shields.io/badge/release-v24.1.08-orange.svg)](https://github.com/paul-canals/toolbox/releases/tag/24.1.08)
+[![Release: v24.1.08](https://img.shields.io/badge/release-v24.1.08-orange.svg)](https://github.com/paul-canals/toolbox/releases/tag/24.1.08-final)
 [![SAS Version: 9.4](https://img.shields.io/badge/sas-9.4-blue.svg)](https://www.sas.com)
 [![License: GPL v3](https://img.shields.io/badge/license-GPLv3-green.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
