@@ -8,8 +8,8 @@
  *             Run this program in a SAS editor or batch script.
  * 
  * \author     Paul Alexander Canals y Trocha (paul.canals@gmail.com)
- * \date       2023-11-23 00:00:00
- * \version    23.1.11
+ * \date       2024-06-30 00:00:00
+ * \version    24.1.06
  * \sa         https://github.com/paul-canals/toolbox
  * 
  * \calls
@@ -42,7 +42,7 @@
 proc print data=SASHELP.class label;
 run;
 
-%m_utl_ods_output(mode=ON)
+%m_utl_ods_output(mode=SET);
  
 %* Example 3: Supress PROC REG output to SAS ODS but allow data output: ;
 %m_utl_ods_output(mode=OFF);
@@ -52,9 +52,39 @@ ods trace on;
 proc reg data=SASHELP.cars plots=none;
    model Horsepower = EngineSize weight;
    ods output ParameterEstimates = WORK.stats;
+   ods output close;
 quit;
 
 ods trace off;
 
-%m_utl_ods_output(mode=ON)
+%m_utl_ods_output(mode=SET);
+ 
+%* Example 4: Supress and reset nested ODS output using tokens: ;
+%m_utl_ods_output(mode=VIEW);
+
+ods html;
+ods pdf;
+
+%m_utl_ods_output(mode=OFF);
+
+%m_utl_ods_output(mode=VIEW);
+
+ods html close;
+ods pdf close;
+
+%m_utl_ods_output(mode=OFF);
+
+%m_utl_ods_output(mode=VIEW);
+
+proc means data=SASHELP.class;
+run;
+
+%m_utl_ods_output(mode=SET);
+
+%m_utl_ods_output(mode=RESET);
+
+proc means data=SASHELP.class;
+run;
+
+%m_utl_ods_output(mode=VIEW);
  

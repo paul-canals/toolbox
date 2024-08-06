@@ -11,6 +11,8 @@
 ### Description
 This is a standalone macro program to list all files in a given root directory, and sub-directories. The rsult of this macro are two tables containing the file and directory structure information, including level to identify the number of sub directories below the root directory. If a file is locked, the macro still produces a record into the FILE_LIST dataset and column LOCKED gets a value Y, but no file size, creation time or last modified date is set.
 
+
+
 ##### *Note:*
 *This program is able to work in system environments where x-command or unix pipes are not allowed or cannot be used.*
 
@@ -18,10 +20,10 @@ This is a standalone macro program to list all files in a given root directory, 
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 
 ### Date
-* 2023-09-11 00:00:00
+* 2024-05-19 00:00:00
 
 ### Version
-* 23.1.09
+* 24.1.05
 
 ### Link
 * https://github.com/paul-canals/toolbox
@@ -64,10 +66,10 @@ This is a standalone macro program to list all files in a given root directory, 
    );
 ```
 
-##### Example 3: List files and dirs in core/sashelp directory:
+##### Example 3: List files and dirs in sasroot/maps directory:
 ```sas
 %m_cst_get_file_list(
-   rootdir = %sysget(SASROOT)/core/sashelp
+   rootdir = %sysget(SASROOT)/maps
  , prefix  = src_
  , subdirs = N
  , finfo   = Y
@@ -76,20 +78,8 @@ This is a standalone macro program to list all files in a given root directory, 
    );
 ```
 
-##### Example 4: List files and dirs in sasroot/core directory:
-```sas
-%m_cst_get_file_list(
-   rootdir = %sysget(SASROOT)/core
- , prefix  = src_
- , subdirs = Y
- , finfo   = N
- , print   = Y
- , debug   = Y
-   );
-```
-
 ### Copyright
-Copyright 2008-2023 Paul Alexander Canals y Trocha. 
+Copyright 2008-2024 Paul Alexander Canals y Trocha. 
  
 This program is free software: you can redistribute it and/or modify 
 it under the terms of the GNU General Public License as published by 
@@ -106,4 +96,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 ***
-*This document was generated on 2023.09.11 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*
+*This document was generated on 2024.05.19 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*

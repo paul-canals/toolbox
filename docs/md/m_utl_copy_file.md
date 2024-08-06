@@ -9,7 +9,11 @@
 ***
 
 ### Description
-This program uses a byte-for-byte method or uses chunks to copy the input file onto another location. Therefore there are no restrictions to copying external files, however SAS file types should be copied by the m_utl_copy_sas_file.sas macro routine to avoid issues. The chunksize option that is used in this macro is based on the binaryfilecopy by Bruno Mueller (bruno.mueller@sas.com).
+This program uses a byte-for-byte method or uses chunks to copy the input file onto another location. Therefore there are no restrictions to copying external files, however SAS file types should be copied by the m_utl_copy_sas_file.sas macro routine to avoid issues.
+
+ The chunksize option that is used in this macro is based on the binaryfilecopy by Bruno Mueller (bruno.mueller@sas.com).
+
+
 
 ##### *Note:*
 *This program is able to work in system environments where x-command or unix pipes are not allowed or cannot be used.*
@@ -18,10 +22,10 @@ This program uses a byte-for-byte method or uses chunks to copy the input file o
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 
 ### Date
-* 2023-10-07 00:00:00
+* 2024-05-14 00:00:00
 
 ### Version
-* 23.1.10
+* 24.1.05
 
 ### Link
 * https://github.com/paul-canals/toolbox
@@ -55,15 +59,18 @@ This program uses a byte-for-byte method or uses chunks to copy the input file o
 ##### Example 2: Copy an external file to another directory (byte-for-byte):
 ```sas
 %m_utl_copy_file(
-   infile    = %sysfunc(pathname(SASROOT))/core/sashelp/class.sas7bdat
- , outfile   = %sysfunc(getoption(WORK))/backup/class.sas7bdat
+   infile    = %sysfunc(pathname(SASROOT))/maps/counties.sas7bdat
+ , outfile   = %sysfunc(getoption(WORK))/backup/counties.sas7bdat
  , overwrite = Y
- , debug     = Y
+ , debug     = N
    );
 
 libname OUT "%sysfunc(getoption(WORK))/backup";
 
-proc print data=OUT.class label;
+proc contents data=MAPS.counties;
+run;
+
+proc contents data=OUT.counties;
 run;
 
 libname OUT clear;
@@ -73,63 +80,37 @@ libname OUT clear;
 ##### Example 3: Copy an external file to another directory (using chunks):
 ```sas
 %m_utl_copy_file(
-   infile    = %sysfunc(pathname(SASROOT))/core/sashelp/class.sas7bdat
- , outfile   = %sysfunc(getoption(WORK))/backup/class.sas7bdat
+   infile    = %sysfunc(pathname(SASROOT))/maps/counties.sas7bdat
+ , outfile   = %sysfunc(getoption(WORK))/backup/counties.sas7bdat
  , chunksize = 8192
  , overwrite = Y
- , debug     = Y
+ , debug     = N
    );
 
 libname OUT "%sysfunc(getoption(WORK))/backup";
 
-proc print data=OUT.class label;
+proc contents data=OUT.counties;
 run;
 
 libname OUT clear;
 
 ```
 
-##### Example 4: Avoid copying to an existing external file (throwing an error):
+##### Example 4: Avoid copying to an existing external file (no error thrown):
 ```sas
 %m_utl_copy_file(
-   infile    = %sysfunc(pathname(SASROOT))/core/sashelp/class.sas7bdat
- , outfile   = %sysfunc(getoption(WORK))/backup/class.sas7bdat
+   infile    = %sysfunc(pathname(SASROOT))/maps/counties.sas7bdat
+ , outfile   = %sysfunc(getoption(WORK))/backup/counties.sas7bdat
  , chunksize = 8192
  , overwrite = N
- , show_err  = Y
+ , show_err  = N
  , debug     = Y
    );
-
-libname OUT "%sysfunc(getoption(WORK))/backup";
-
-proc print data=OUT.class label;
-run;
-
-libname OUT clear;
-
-```
-
-##### Example 5: Avoid copying to an existing external file (no error thrown):
-```sas
-%m_utl_copy_file(
-   infile    = %sysfunc(pathname(SASROOT))/core/sashelp/class.sas7bdat
- , outfile   = %sysfunc(getoption(WORK))/backup/class.sas7bdat
- , chunksize = 8192
- , overwrite = N
- , debug     = Y
-   );
-
-libname OUT "%sysfunc(getoption(WORK))/backup";
-
-proc print data=OUT.class label;
-run;
-
-libname OUT clear;
 
 ```
 
 ### Copyright
-Copyright 2008-2023 Paul Alexander Canals y Trocha. 
+Copyright 2008-2024 Paul Alexander Canals y Trocha. 
  
 This program is free software: you can redistribute it and/or modify 
 it under the terms of the GNU General Public License as published by 
@@ -146,4 +127,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 ***
-*This document was generated on 2023.10.07 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*
+*This document was generated on 2024.05.14 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*

@@ -8,8 +8,8 @@
  *             Run this program in a SAS editor or batch script.
  * 
  * \author     Paul Alexander Canals y Trocha (paul.canals@gmail.com)
- * \date       2024-02-07 00:00:00
- * \version    24.1.02
+ * \date       2024-06-08 00:00:00
+ * \version    24.1.06
  * \sa         https://github.com/paul-canals/toolbox
  * 
  * \calls
@@ -99,6 +99,11 @@ run;
 
  
 %* Example 6: Copy data from SASHELP.class to selected columns of WORK.classfit: ;
+data WORK.class;
+   set SASHELP.class;
+   if Name eq 'John' then weight = . ;
+run;
+
 data WORK.classfit (rename=(_Name=Name _Age=Age _Weight=Weight));
    attrib _Name length=$7. label='Name';
    attrib _Age length=$3. label='Age';
@@ -115,6 +120,9 @@ run;
  , print    = Y
  , debug    = N
    );
+
+proc print data=WORK.classfit (keep=Name Sex Age Weight) label;
+run;
 
  
 %* Example 7: Copy data from selected columns of SASHELP.class to WORK.result: ;
@@ -158,6 +166,9 @@ run;
  , print    = Y
  , debug    = N
    );
+
+proc print data=WORK.airline (keep=Date Flights obs=10);
+run;
 
  
 %* Example 9: Map and load data with column type and format change (Num->Char): ;

@@ -7,9 +7,9 @@
  *             by the m_test_generate_scripts.sas macro program.
  *             Run this program in a SAS editor or batch script.
  * 
- * \date        
- * \version     
- * \author      
+ * \author     Paul Alexander Canals y Trocha (paul.canals@gmail.com)
+ * \date       2024-08-03 00:00:00
+ * \version    24.1.08
  * \sa         https://github.com/paul-canals/toolbox
  * 
  * \calls

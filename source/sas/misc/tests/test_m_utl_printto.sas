@@ -8,8 +8,8 @@
  *             Run this program in a SAS editor or batch script.
  * 
  * \author     Paul Alexander Canals y Trocha (paul.canals@gmail.com)
- * \date       2023-10-07 00:00:00
- * \version    23.1.10
+ * \date       2024-06-16 00:00:00
+ * \version    24.1.06
  * \sa         https://github.com/paul-canals/toolbox
  * 
  * \calls
@@ -61,7 +61,6 @@ data _null_;
    input;
    put _infile_;
 run;
-
  
 %* Example 3: Set the proc printto log output to a file with prefix: ;
 %m_utl_printto(
@@ -89,7 +88,6 @@ data _null_;
    input;
    put _infile_;
 run;
-
  
 %* Example 4: Set the proc printto log output to a file with timestamp in name: ;
 %m_utl_printto(
@@ -119,7 +117,6 @@ data _null_;
    input;
    put _infile_;
 run;
-
  
 %* Example 5: Set nested proc printto log outputs to multiple log files: ;
 %m_utl_printto(
@@ -151,26 +148,17 @@ run;
    );
 %put &_sysprinttolist.;
 
-%m_utl_printto(
-   log_dest = LOG
- , debug    = Y
-   );
+%m_utl_printto(log_dest = LOG, debug = Y);
 
 proc print data=WORK.classfit;
 run;
 
-%m_utl_printto(
-   log_dest = LOG
- , debug    = Y
-   );
+%m_utl_printto(log_dest = LOG, debug = Y);
 
 proc print data=WORK.class;
 run;
 
-%m_utl_printto(
-   log_dest = LOG
- , debug    = Y
-   );
+%m_utl_printto(log_dest = LOG, debug = Y);
 
 filename log_file "%sysfunc(getoption(WORK))/log1.log";
 data _null_;
@@ -192,5 +180,4 @@ data _null_;
    input;
    put 'PRINT LOG3:' _infile_;
 run;
-
  

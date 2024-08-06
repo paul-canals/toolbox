@@ -11,6 +11,8 @@
 ### Description
 This macro works by using either the SAS dictionary tables or Oracle system tables for constraint information on the passed table and returns a list of constraints and their variables in the order in which those are listed by the constraint.
 
+
+
 ### Authors
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 

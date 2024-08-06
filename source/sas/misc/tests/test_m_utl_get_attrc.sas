@@ -8,8 +8,8 @@
  *             Run this program in a SAS editor or batch script.
  * 
  * \author     Paul Alexander Canals y Trocha (paul.canals@gmail.com)
- * \date       2020-09-07 00:00:00
- * \version    20.1.09
+ * \date       2024-04-13 00:00:00
+ * \version    24.1.04
  * \sa         https://github.com/paul-canals/toolbox
  * 
  * \calls
@@ -39,7 +39,7 @@
 %* Example 2: Get the library name of a SAS dataset: ;
 %let libref =
    %m_utl_get_attrc(
-      intable = SASHELP.class
+      table   = SASHELP.class
     , attr_nm = LIB
     , debug   = Y
       );
@@ -50,7 +50,7 @@
 %* Example 3: Get the data type of a SAS dataset: ;
 %let datatype =
    %m_utl_get_attrc(
-      intable = SASHELP.class
+      table   = SASHELP.class
     , attr_nm = TYPE
     , debug   = Y
       );
@@ -61,7 +61,7 @@
 %* Example 4: Check if the SAS dataset is encrypted: ;
 %let encrypted =
    %m_utl_get_attrc(
-      intable = SASHELP.class
+      table   = SASHELP.class
     , attr_nm = ENCRYPT
     , debug   = Y
       );
@@ -74,7 +74,7 @@ run;
 
 %let encrypted =
    %m_utl_get_attrc(
-      intable = WORK.class (encryptkey=passkey)
+      table   = WORK.class (encryptkey=passkey)
     , attr_nm = ENCRYPT
     , debug   = Y
       );

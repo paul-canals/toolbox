@@ -6,10 +6,14 @@
 
 ##### Utility macro to extract data from a historised SAS dataset.
 
+
+
 ***
 
 ### Description
 This macro can be used to extract data from a historised table or dataset using a combination of valid date and version number as historisation attributes. Unless given as a parameter value, the macro routine returns a selection of data for a given date using the maximum version number value related to that date.
+
+
 
 ##### *Note:*
 *SAS Problem Note 2859: LOCK statement or function with LIST or QUERY options might report locks incorrectly: http://support.sas.com/kb/2/859.html*

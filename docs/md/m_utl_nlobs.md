@@ -9,7 +9,11 @@
 ***
 
 ### Description
-The macro can be used anywhere in a SAS program including within a SAS procedure or SAS data step. If the table does not exist, it returns \-1. If the table exists, but cannot opened it returns 0. Different parameter names are allowed. This macro is originally based on the ut_nlobs.sas macro by Dave Prinsloo (dave.prinsloo@yahoo.com) and also the where statement inclusion by Roland Rashleigh-Berry.
+The macro can be used anywhere in a SAS program including within a SAS procedure or SAS data step. If the table does not exist, it returns \-1. If the table exists, but cannot opened it returns 0. Different parameter names are allowed.
+
+ This macro is originally based on the ut_nlobs.sas macro by Dave Prinsloo (dave.prinsloo@yahoo.com) and also the where statement inclusion by Roland Rashleigh-Berry.
+
+
 
 ##### *Note:*
 *The SHOW_ERR parameter shows or suppresses possible warnings or errors in the log. The default value for SHOW_ERR is: N.*

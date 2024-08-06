@@ -11,14 +11,16 @@
 ### Description
 This program copies the contents of a SAS macro catalog into the default user session SAS macro catalog in WORK.
 
+
+
 ### Authors
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 
 ### Date
-* 2020-10-01 00:00:00
+* 2024-03-20 00:00:00
 
 ### Version
-* 20.1.10
+* 24.1.03
 
 ### Link
 * https://github.com/paul-canals/toolbox
@@ -57,7 +59,7 @@ This program copies the contents of a SAS macro catalog into the default user se
 ```
 
 ### Copyright
-Copyright 2008-2020 Paul Alexander Canals y Trocha. 
+Copyright 2008-2024 Paul Alexander Canals y Trocha. 
  
 This program is free software: you can redistribute it and/or modify 
 it under the terms of the GNU General Public License as published by 
@@ -74,4 +76,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 ***
-*This document was generated on 2020.10.01 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*
+*This document was generated on 2024.03.20 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*

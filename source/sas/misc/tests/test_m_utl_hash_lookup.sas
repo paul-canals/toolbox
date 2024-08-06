@@ -8,8 +8,8 @@
  *             Run this program in a SAS editor or batch script.
  * 
  * \author     Paul Alexander Canals y Trocha (paul.canals@gmail.com)
- * \date       2020-10-22 00:00:00
- * \version    20.1.10
+ * \date       2024-06-29 00:00:00
+ * \version    24.1.06
  * \sa         https://github.com/paul-canals/toolbox
  * 
  * \calls
@@ -54,8 +54,8 @@ run;
 %put &=_LIST_.;
 
 proc print data=WORK.result;
-run;
-
+   title 'Example 2: Create a new hash object and perform lookup for all columns';
+run; title ;
  
 %* Example 3: Create a new hash object and perform lookup for some columns: ;
 %let _LIST_=;
@@ -75,8 +75,8 @@ run;
 %put &=_LIST_.;
 
 proc print data=WORK.result;
-run;
-
+   title 'Example 3: Create a new hash object and perform lookup for some columns';
+run; title ;
  
 %* Example 4: Create new hash objects and perform lookups (will fail): ;
 %let _LIST_=;
@@ -104,8 +104,8 @@ run;
 %put &=_LIST_.;
 
 proc print data=WORK.result;
-run;
-
+   title 'Example 4: Create new hash objects and perform lookups (will fail)';
+run; title ;
  
 %* Example 5: Create new hash objects and perform lookups (successful): ;
 %let _LIST_=;
@@ -133,8 +133,8 @@ run;
 %put &=_LIST_.;
 
 proc print data=WORK.result;
-run;
-
+   title 'Example 5: Create new hash objects and perform lookups (successful)';
+run; title ;
  
 %* Example 6: Create a hash object and perform lookups with changed key names: ;
 %let _LIST_=;
@@ -159,8 +159,8 @@ run;
 %put &=_LIST_.;
 
 proc print data=WORK.result;
-run;
-
+   title 'Example 6: Create a hash object and perform lookups with changed key names';
+run; title ;
  
 %* Example 7: Create a hash object, perform lookups with changed column and key names: ;
 %let _LIST_=;
@@ -186,8 +186,8 @@ run;
 %put &=_LIST_.;
 
 proc print data=WORK.result;
-run;
-
+   title 'Example 7: Create a hash object, perform lookups with changed column and key names';
+run; title ;
  
 %* Example 8: Create a hash object, perform lookups with added prefix to all data columns: ;
 %let _LIST_=;
@@ -208,8 +208,8 @@ run;
 %put &=_LIST_.;
 
 proc print data=WORK.result;
-run;
-
+   title 'Example 8: Create a hash object, perform lookups with added prefix to all data columns';
+run; title ;
  
 %* Example 9: Create a hash object, perform lookups with added attribute Predicted_Weight format: ;
 %let _LIST_=;
@@ -231,8 +231,8 @@ run;
 %put &=_LIST_.;
 
 proc print data=WORK.result;
-run;
-
+   title 'Example 9: Create a hash object, perform lookups with added attribute Predicted_Weight format';
+run; title ;
  
 %* Example 10: Create a hash object, perform lookups on an encrypted SAS dataset: ;
 %let _LIST_=;
@@ -257,8 +257,8 @@ run;
 %put &=_LIST_.;
 
 proc print data=WORK.result;
-run;
-
+   title 'Example 10: Create a hash object, perform lookups on an encrypted SAS dataset';
+run; title ;
  
 %* Example 11: Create a hash object, and perform lookups using SAS invalid names: ;
 %let _LIST_=;
@@ -299,6 +299,50 @@ run;
 %put &=_LIST_.;
 
 proc print data=WORK.result;
+   title 'Example 11: Create a hash object, and perform lookups using SAS invalid names';
+run; title ;
+ 
+%* Example 12: Perform KEY_ORIG lookups where KEY column exists and should be kept: ;
+%let _LIST_=;
+
+data WORK.class;
+   set SASHELP.class;
+   Partner = Name;
+   if Partner eq 'John'
+      then Partner = '';
 run;
 
+data WORK.classfit;
+   set SASHELP.classfit;
+   if Name eq 'John' then Name = '';
+run;
+
+data WORK.result;
+   set WORK.class;
+   %m_utl_hash_lookup(
+      table      = WORK.classfit
+    , context    = class
+    , keys       = Name Sex
+    , keys_orig  = Partner Sex
+    , cols       = lower upper
+    , cols_orig  = lowermean uppermean
+    , list_mvar  = _LIST_
+    , debug      = Y
+      );
+   %m_utl_hash_lookup(
+      table      = SASHELP.classfit
+    , context    = classfit
+    , keys       = Name
+    , keys_orig  = Partner
+    , cols       = lowermean uppermean predict
+    , list_mvar  = _LIST_
+    , debug      = Y
+      );
+run;
+
+%put &=_LIST_.;
+
+proc print data=WORK.result;
+   title 'Example 12: Perform KEY_ORIG lookups where KEY column exists and should be kept';
+run; title ;
  

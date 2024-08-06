@@ -9,13 +9,17 @@
 ***
 
 ### Description
-The macro will encode or encrypt any given password string and returns the result value into a SAS macro variable _PWENCODE. Depending on the installed SAS version and the presence of the SAS/SECURE module the following values for METHOD are valid:
+The macro will encode or encrypt any given password string and returns the result value into a SAS macro variable _PWENCODE.
+
+ Depending on the installed SAS version and the presence of the SAS/SECURE module the following values for METHOD are valid:
+
  SAS001 : Uses base64 method to encode passwords.
  SAS002 : Uses a 32-bit key to encode passwords. (Default)
- SAS003 : Uses a 256-bit key plus 16-bit salt value
- to encode passwords (AES encryption). SAS004 : Uses a 256-bit key plus 64-bit salt value
- to encrypt passwords (AES encrytion). SAS005 : Uses a 256-bit key plus 64-bit salt value
- with additional hash iterations to encrypt passwords (AES encrytion).
+ SAS003 : Uses a 256-bit key plus 16-bit salt value to encode passwords (AES encryption).
+ SAS004 : Uses a 256-bit key plus 64-bit salt value to encrypt passwords (AES encrytion).
+ SAS005 : Uses a 256-bit key plus 64-bit salt value with additional hash iterations to encrypt passwords (AES encrytion).
+
+
 
 ##### *Note:*
 *If the selected method is invalid or could not be found the SAS002 method is used to encode the input password string.*

@@ -11,6 +11,8 @@
 ### Description
 The macro deletes an index from a given table or dataset by using the PROC DATASETS procedure. This macro can be included inline into an existing PROC DATASETS step by setting the INLINE_FLG parameter to Y. Also there is a build in check on INDEX_NAME or INDEX_COLS to verify that the given index does exist. If this is not the case, the macro returns silently.
 
+
+
 ### Authors
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 

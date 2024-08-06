@@ -9,7 +9,11 @@
 ***
 
 ### Description
-The macro can be used to create a hash table in memory based on a list selection of columns from a transaction SAS dataset or database table. Only columns listed in the KEYS= and COLS= parameters will be added to the hash object. If the hash object already exist in the SAS data step context, it will be declared only once to avoid duplicate hash objects in memory. It can be used anywhere in a SAS program specially within SAS data step. This macro is based on the ut_hash_lookup.sas macro program from Dave Prinsloo (dave.prinsloo@yahoo.com).
+The macro can be used to create a hash table in memory based on a list selection of columns from a transaction SAS dataset or database table. Only columns listed in the KEYS= and COLS= parameters will be added to the hash object. If the hash object already exist in the SAS data step context, it will be declared only once to avoid duplicate hash objects in memory. It can be used anywhere in a SAS program specially within SAS data step.
+
+ This macro is based on the ut_hash_lookup.sas macro program from Dave Prinsloo (dave.prinsloo@yahoo.com).
+
+
 
 ##### *Note:*
 *In case of encrypted SAS datasets, the ENCRYPTKEY= parameter must be provided as part of the CREDS credentials string.*
@@ -18,10 +22,10 @@ The macro can be used to create a hash table in memory based on a list selection
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 
 ### Date
-* 2020-10-22 00:00:00
+* 2024-06-29 00:00:00
 
 ### Version
-* 20.1.10
+* 24.1.06
 
 ### Link
 * https://github.com/paul-canals/toolbox
@@ -84,8 +88,8 @@ run;
 %put &=_LIST_.;
 
 proc print data=WORK.result;
-run;
-
+   title 'Example 2: Create a new hash object and perform lookup for all columns';
+run; title ;
 ```
 
 ##### Example 3: Create a new hash object and perform lookup for some columns:
@@ -107,8 +111,8 @@ run;
 %put &=_LIST_.;
 
 proc print data=WORK.result;
-run;
-
+   title 'Example 3: Create a new hash object and perform lookup for some columns';
+run; title ;
 ```
 
 ##### Example 4: Create new hash objects and perform lookups (will fail):
@@ -138,8 +142,8 @@ run;
 %put &=_LIST_.;
 
 proc print data=WORK.result;
-run;
-
+   title 'Example 4: Create new hash objects and perform lookups (will fail)';
+run; title ;
 ```
 
 ##### Example 5: Create new hash objects and perform lookups (successful):
@@ -169,8 +173,8 @@ run;
 %put &=_LIST_.;
 
 proc print data=WORK.result;
-run;
-
+   title 'Example 5: Create new hash objects and perform lookups (successful)';
+run; title ;
 ```
 
 ##### Example 6: Create a hash object and perform lookups with changed key names:
@@ -197,8 +201,8 @@ run;
 %put &=_LIST_.;
 
 proc print data=WORK.result;
-run;
-
+   title 'Example 6: Create a hash object and perform lookups with changed key names';
+run; title ;
 ```
 
 ##### Example 7: Create a hash object, perform lookups with changed column and key names:
@@ -226,8 +230,8 @@ run;
 %put &=_LIST_.;
 
 proc print data=WORK.result;
-run;
-
+   title 'Example 7: Create a hash object, perform lookups with changed column and key names';
+run; title ;
 ```
 
 ##### Example 8: Create a hash object, perform lookups with added prefix to all data columns:
@@ -250,8 +254,8 @@ run;
 %put &=_LIST_.;
 
 proc print data=WORK.result;
-run;
-
+   title 'Example 8: Create a hash object, perform lookups with added prefix to all data columns';
+run; title ;
 ```
 
 ##### Example 9: Create a hash object, perform lookups with added attribute Predicted_Weight format:
@@ -275,8 +279,8 @@ run;
 %put &=_LIST_.;
 
 proc print data=WORK.result;
-run;
-
+   title 'Example 9: Create a hash object, perform lookups with added attribute Predicted_Weight format';
+run; title ;
 ```
 
 ##### Example 10: Create a hash object, perform lookups on an encrypted SAS dataset:
@@ -303,8 +307,8 @@ run;
 %put &=_LIST_.;
 
 proc print data=WORK.result;
-run;
-
+   title 'Example 10: Create a hash object, perform lookups on an encrypted SAS dataset';
+run; title ;
 ```
 
 ##### Example 11: Create a hash object, and perform lookups using SAS invalid names:
@@ -347,12 +351,58 @@ run;
 %put &=_LIST_.;
 
 proc print data=WORK.result;
+   title 'Example 11: Create a hash object, and perform lookups using SAS invalid names';
+run; title ;
+```
+
+##### Example 12: Perform KEY_ORIG lookups where KEY column exists and should be kept:
+```sas
+%let _LIST_=;
+
+data WORK.class;
+   set SASHELP.class;
+   Partner = Name;
+   if Partner eq 'John'
+      then Partner = '';
 run;
 
+data WORK.classfit;
+   set SASHELP.classfit;
+   if Name eq 'John' then Name = '';
+run;
+
+data WORK.result;
+   set WORK.class;
+   %m_utl_hash_lookup(
+      table      = WORK.classfit
+    , context    = class
+    , keys       = Name Sex
+    , keys_orig  = Partner Sex
+    , cols       = lower upper
+    , cols_orig  = lowermean uppermean
+    , list_mvar  = _LIST_
+    , debug      = Y
+      );
+   %m_utl_hash_lookup(
+      table      = SASHELP.classfit
+    , context    = classfit
+    , keys       = Name
+    , keys_orig  = Partner
+    , cols       = lowermean uppermean predict
+    , list_mvar  = _LIST_
+    , debug      = Y
+      );
+run;
+
+%put &=_LIST_.;
+
+proc print data=WORK.result;
+   title 'Example 12: Perform KEY_ORIG lookups where KEY column exists and should be kept';
+run; title ;
 ```
 
 ### Copyright
-Copyright 2008-2020 Paul Alexander Canals y Trocha. 
+Copyright 2008-2024 Paul Alexander Canals y Trocha. 
  
 This program is free software: you can redistribute it and/or modify 
 it under the terms of the GNU General Public License as published by 
@@ -369,4 +419,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 ***
-*This document was generated on 2020.10.22 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*
+*This document was generated on 2024.06.29 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*

@@ -11,6 +11,12 @@
 ### Description
 This program copies all files from a given directory including sub directories preserving the directory structure or it copies a single selected file defined by the INDIR into a ZIP archive. The macro uses the ODS package function or a fileref to create the archive. The ODS package archiving is restricted to a single source file size maximum of 4GB. This means that if a file has an uncompressed size larger than 4 GB, an error is returned. The ZIP fileref function comes without this restriction and is available since SAS 9.4. However when archiving a large number of files the ZIP fileref function can be much slower than with using ODS package ZIP archiving function. Therefore the program has a third and default runmode that combines both ODS archiving and ZIP fileref to overcome both the ODS 4GB restriction and the ZIP fileref problem. The macro program also checks for locked files, which are excluded gracefully from the archiving routine.
 
+ When archiving single files into a ZIP archive, it is best to use the FILEREF runmode. When used in combination with a given ZIPNAME, it is possible to add files into a given ZIP archive.
+
+ The finfo option for Zip archive members is based on the blog article "Using FILENAME ZIP and FINFO to list the details in your ZIP files" by Chris Hemedinger (chris.hemedinger@sas.com).
+
+
+
 ##### *Note:*
 *This program is able to work in system environments where x-command or unix pipes are not allowed or cannot be used.*
 
@@ -18,10 +24,10 @@ This program copies all files from a given directory including sub directories p
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 
 ### Date
-* 2023-09-26 00:00:00
+* 2024-03-13 00:00:00
 
 ### Version
-* 23.1.09
+* 24.1.03
 
 ### Link
 * https://github.com/paul-canals/toolbox
@@ -34,7 +40,7 @@ This program copies all files from a given directory including sub directories p
 | Input | infile | Alias of the INDIR= parameter when selecting an input file instead of an input directory. |
 | Input | outdir | Full qualified path to the target directory where the ZIP file is to be created. |
 | Input | zipname | Name of the archive file to be created including the .ZIP extention. |
-| Input | runmode | Indicator [A/F/O] specify whether the macro uses the (O)DS package function, the (F)ileref or the default (A)uto mode for which a combination of ODS archiving and Fileref is selected to create the archive. The default value is: A. |
+| Input | runmode | Indicator [A/F/O] specify whether the macro uses the (O)DS package function, the (F)ileref or the default (A)uto mode for which a combination of ODS archiving and Fileref is selected to create the archive. The default value is: AUTO. |
 | Input | overwrite | Boolean [Y/N] parameter to specify wether to overwrite or appended to an existing archive. The default value is: Y. |
 | Input | subdirs | Boolean [Y/N] parameter to decide if the file list is to include files in sub directories under ROOTDIR. The default value is: N. |
 | Input | emptydirs | Boolean [Y/N] parameter to specify wether empty folders are included in the output zip file. This parameter is only valid when used together with RUNMODE set to Auto, SUBDIRS set to Y. The default value for EMPTYDIRS is: N. |
@@ -110,8 +116,34 @@ This program copies all files from a given directory including sub directories p
    );
 ```
 
+##### Example 6: Step 1 - Copy a first file into a new ZIP archive: ;
+```sas
+%m_utl_create_zip(
+   infile    = %sysget(SASROOT)/core/sashelp/class.sas7bdat
+ , outdir    = %sysfunc(getoption(WORK))/backup
+ , zipname   = class.zip
+ , runmode   = FILEREF
+ , overwrite = Y
+ , print     = Y
+ , debug     = Y
+   );
+```
+
+##### Example 6: Step 2 - Copy a second file into the ZIP archive: ;
+```sas
+%m_utl_create_zip(
+   infile    = %sysget(SASROOT)/core/sashelp/class.sas7bdat
+ , outdir    = %sysfunc(getoption(WORK))/backup
+ , zipname   = class.zip
+ , runmode   = FILEREF
+ , overwrite = N
+ , print     = Y
+ , debug     = Y
+   );
+```
+
 ### Copyright
-Copyright 2008-2023 Paul Alexander Canals y Trocha. 
+Copyright 2008-2024 Paul Alexander Canals y Trocha. 
  
 This program is free software: you can redistribute it and/or modify 
 it under the terms of the GNU General Public License as published by 
@@ -128,4 +160,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 ***
-*This document was generated on 2023.09.26 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*
+*This document was generated on 2024.03.13 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*

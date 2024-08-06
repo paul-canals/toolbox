@@ -9,7 +9,11 @@
 ***
 
 ### Description
-The macro reads a string with a list of words as input which can be delimited with a blank or comma. The list is transferred by quoting each word within the string and is separated by a delimiter. This output delimiter can be a blank or a comma. This macro is originally based on the ut_quote_elems.sas macro program by Dave Prinsloo (dave.prinsloo@yahoo.com)
+The macro reads a string with a list of words as input which can be delimited with a blank or comma. The list is transferred by quoting each word within the string and is separated by a delimiter. This output delimiter can be a blank or a comma.
+
+ This macro is originally based on the ut_quote_elems.sas macro program by Dave Prinsloo (dave.prinsloo@yahoo.com)
+
+
 
 ### Authors
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)

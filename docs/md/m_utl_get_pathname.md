@@ -11,6 +11,8 @@
 ### Description
 This macro searches for the directory path of a SAS libref or fileref by using the dictionary table information. In case of a SAS libref, the macro returns the full path of the library or alias. For concatenated SAS librefs, the macro returns all paths in a single quoted string when using the default value for REF_POS=_ALL_. When the optional REF_POS parameter is set, the macro returns the path representing the positional value. For a SAS fileref, the macro returns both path and file name. This macro runs inline per default, but can be used to return the result into a global SAS macro variable specified by the GLOBAL_FLG and MVAR_NAME parameters.
 
+
+
 ### Authors
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 

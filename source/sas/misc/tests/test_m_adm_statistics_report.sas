@@ -9,8 +9,8 @@
  * 
  * \author     Paul Alexander Canals y Trocha (paul.canals@gmail.com)
  * \author     Dr. Simone Kossmann (simone.kossmann@web.de)
- * \date       2023-10-06 00:00:00
- * \version    23.1.10
+ * \date       2024-08-03 00:00:00
+ * \version    24.1.08
  * \sa         https://github.com/paul-canals/toolbox
  * 
  * \calls
@@ -37,30 +37,28 @@
 %* Example 1: Show help information: ;
 %m_adm_statistics_report(?)
  
-%* Example 2: Perform year-to-date monthly user connection analysis. Exclude type: \@saspw and user: system from statistics.
- ;
+%* Example 2: Perform year-to-date monthly user connection analysis. ;
 %let rc = %sysfunc(filename(fref,.));
 %let cd = %sysfunc(pathname(&fref.));
 %let rc = %sysfunc(filename(fref));
-
+* Exclude type: \@saspw and user: system from statistics ;
 %m_adm_statistics_report(
    rootdir  = %str(&APPL_BASE.)
  , mslogs   = %str(&cd./../SASMeta/MetadataServer/Logs)
  , wslogs   = %str(&cd./../ObjectSpawner/Logs)
  , mode     = Y2D
  , type     = MTH
+ , interpol = Y
  , excltype = @saspw
  , excluser = system
  , debug    = N
    );
-
  
-%* Example 3: Perform all time hourly user connection analysis. Exclude type: \@saspw and user: system from statistics.
- ;
+%* Example 3: Perform all time hourly user connection analysis. ;
 %let rc = %sysfunc(filename(fref,.));
 %let cd = %sysfunc(pathname(&fref.));
 %let rc = %sysfunc(filename(fref));
-
+* Exclude type: \@saspw and user: system from statistics ;
 %m_adm_statistics_report(
    rootdir  = %str(&APPL_BASE.)
  , mslogs   = %str(&cd./../SASMeta/MetadataServer/Logs)
@@ -72,14 +70,12 @@
  , excluser = system
  , debug    = N
    );
-
  
-%* Example 4: Perform year-to-date analysis per user with top 5 users. Exclude type: \@saspw and user: system from statistics.
- ;
+%* Example 4: Perform year-to-date analysis per user with top 5 users. ;
 %let rc = %sysfunc(filename(fref,.));
 %let cd = %sysfunc(pathname(&fref.));
 %let rc = %sysfunc(filename(fref));
-
+* Exclude type: \@saspw and user: system from statistics ;
 %m_adm_statistics_report(
    rootdir  = %str(&APPL_BASE.)
  , mslogs   = %str(&cd./../SASMeta/MetadataServer/Logs)
@@ -91,14 +87,12 @@
  , excluser = system
  , debug    = N
    );
-
  
-%* Example 5: Perform all time complete server connection analysis. Exclude type: \@saspw and user: system from statistics.
- ;
+%* Example 5: Perform all time complete server connection analysis. ;
 %let rc = %sysfunc(filename(fref,.));
 %let cd = %sysfunc(pathname(&fref.));
 %let rc = %sysfunc(filename(fref));
-
+* Exclude type: \@saspw and user: system from statistics ;
 %m_adm_statistics_report(
    rootdir  = %str(&APPL_BASE.)
  , mslogs   = %str(&cd./../SASMeta/MetadataServer/Logs)
@@ -110,28 +104,25 @@
  , excluser = system
  , debug    = N
    );
-
  
-%* Example 6: Perform a complete server connection analysis for a given month. Exclude type: \@saspw and user: system from statistics.
- ;
+%* Example 6: Perform a complete server connection analysis for a given month. ;
 %let rc = %sysfunc(filename(fref,.));
 %let cd = %sysfunc(pathname(&fref.));
 %let rc = %sysfunc(filename(fref));
-
+* Exclude type: \@saspw and user: system from statistics ;
 %m_adm_statistics_report(
    rootdir  = %str(&APPL_BASE.)
  , mslogs   = %str(&cd./../SASMeta/MetadataServer/Logs)
  , wslogs   = %str(&cd./../ObjectSpawner/Logs)
  , mode     = 1M
  , type     = ALL
- , lastdate = 31012021
+ , lastdate = %sysfunc(putn(%sysfunc(today()),ddmmyyn8.))
  , firstday = MON
  , topusers = 5
  , excltype = @saspw
  , excluser = system
  , debug    = N
    );
-
  
 %* Example 7: Perform a file system directory analysis for a given month. ;
 %m_adm_statistics_report(
@@ -140,7 +131,6 @@
  , type    = DIR
  , debug   = Y
    );
-
  
 %* Example 8: Send the year-to-date statistics report as PDF to a given email address. ;
 %let rc = %sysfunc(filename(fref,.));
@@ -155,5 +145,4 @@
  , mailaddr = %str(pact@hermes.local)
  , debug    = N
    );
-
  

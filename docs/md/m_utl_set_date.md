@@ -10,20 +10,22 @@
 
 ### Description
 The macro converts a given date by day pointer and/or format, as also returns a list of dates based on the given day date:
- given day date
- [actual|first|middle|last] day of [actual|last|next] month
- [actual|first|middle|last] day of [actual|last|next] quarter
- [actual|first|middle|last] day of [actual|last|next] year
+
+- given day date
+- [actual|first|middle|last] day of [actual|last|next] month
+- [actual|first|middle|last] day of [actual|last|next] quarter
+- [actual|first|middle|last] day of [actual|last|next] year
+
 
 
 ### Authors
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 
 ### Date
-* 2023-08-15 00:00:00
+* 2024-06-30 00:00:00
 
 ### Version
-* 23.1.08
+* 24.1.06
 
 ### Link
 * https://github.com/paul-canals/toolbox
@@ -168,7 +170,7 @@ The macro converts a given date by day pointer and/or format, as also returns a 
 ```
 
 ### Copyright
-Copyright 2008-2023 Paul Alexander Canals y Trocha. 
+Copyright 2008-2024 Paul Alexander Canals y Trocha. 
  
 This program is free software: you can redistribute it and/or modify 
 it under the terms of the GNU General Public License as published by 
@@ -185,4 +187,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 ***
-*This document was generated on 2023.08.15 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*
+*This document was generated on 2024.06.30 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*

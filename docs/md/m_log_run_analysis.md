@@ -9,16 +9,20 @@
 ***
 
 ### Description
-This program is used to perform overall runtime performance on SAS steps and run status analysis, on a given SAS log file. The result information is presented in the result tab by using a SAS proc report step, including a hyperlink to download the log file including line number at the beginning of each line. Optionally the macro can run SAS data step perofrmance analyses to determine the run time, the size of the input table, and the size of the ouput table written into a (temporary) log file. This macro is originally based on the experimental SAS logparse macro paper by Michael A. Raithel (michaelraithel1@verizon.net)
+This program is used to perform overall runtime performance on SAS steps and run status analysis, on a given SAS log file. The result information is presented in the result tab by using a SAS proc report step, including a hyperlink to download the log file including line number at the beginning of each line. Optionally the macro can run SAS data step perofrmance analyses to determine the run time, the size of the input table, and the size of the ouput table written into a (temporary) log file.
+
+ This macro is originally based on the experimental SAS logparse macro paper by Michael A. Raithel (michaelraithel1@verizon.net)
+
+
 
 ### Authors
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 
 ### Date
-* 2023-07-27 00:00:00
+* 2024-05-25 00:00:00
 
 ### Version
-* 23.1.07
+* 24.1.05
 
 ### Link
 * https://github.com/paul-canals/toolbox
@@ -143,7 +147,7 @@ options nosyntaxcheck obs=max;
 ```
 
 ### Copyright
-Copyright 2008-2023 Paul Alexander Canals y Trocha. 
+Copyright 2008-2024 Paul Alexander Canals y Trocha. 
  
 This program is free software: you can redistribute it and/or modify 
 it under the terms of the GNU General Public License as published by 
@@ -160,4 +164,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 ***
-*This document was generated on 2023.07.27 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*
+*This document was generated on 2024.05.25 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*

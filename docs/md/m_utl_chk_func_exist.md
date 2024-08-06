@@ -11,6 +11,8 @@
 ### Description
 This macro checks wether a user defined function is registered in a given function library container. If the function is found in the function library container, the value of the output macro variable MVAR_MATCH is set to 1, otherwise the value is set to 0.
 
+
+
 ##### *Note:*
 *This macro can be used as inline code by setting the parameter GLOBAL_FLG to N. In this case the MVAR_MATCH variable is set as a local SAS macro variable.*
 

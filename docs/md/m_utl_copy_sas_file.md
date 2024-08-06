@@ -11,6 +11,8 @@
 ### Description
 This program is capable of copying datasets, indexes, catalogs and programs onto another location. In case of cross platforms with different formats or encoding the copying is handled by the SAS Cross Environment Data Access (CEDA) utility.
 
+
+
 ##### *Note:*
 *This program is able to work in system environments where x-command or unix pipes are not allowed or cannot be used.*
 
@@ -18,10 +20,10 @@ This program is capable of copying datasets, indexes, catalogs and programs onto
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 
 ### Date
-* 2023-10-07 00:00:00
+* 2024-05-14 00:00:00
 
 ### Version
-* 23.1.10
+* 24.1.05
 
 ### Link
 * https://github.com/paul-canals/toolbox
@@ -71,13 +73,13 @@ libname TEMP "%sysfunc(getoption(WORK))/backup";
 options nodlcreatedir;
 
 %m_utl_copy_sas_file(
-   indir  = %sysfunc(pathname(SASROOT))/core/cmacros
+   indir  = %sysfunc(getoption(WORK))
  , outlib = TEMP
- , select = sasmacr.sas7bcat
+ , select = sasmac1.sas7bcat
  , debug  = Y
    );
 
-proc catalog cat=TEMP.sasmacr;
+proc catalog cat=TEMP.sasmac1;
    contents;
    run;
 quit;
@@ -148,7 +150,7 @@ libname TEMP clear;
 ```
 
 ### Copyright
-Copyright 2008-2023 Paul Alexander Canals y Trocha. 
+Copyright 2008-2024 Paul Alexander Canals y Trocha. 
  
 This program is free software: you can redistribute it and/or modify 
 it under the terms of the GNU General Public License as published by 
@@ -165,4 +167,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 ***
-*This document was generated on 2023.10.07 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*
+*This document was generated on 2024.05.14 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*

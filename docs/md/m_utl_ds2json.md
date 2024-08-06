@@ -9,13 +9,15 @@
 ***
 
 ### Description
-This program converts a SAS dataset or database table into a javascript object notation (JSON) file. The program can be run in SAS environments prior to SAS version 9.4 M3. The following JSON data types are implemented:
- Number: a signed decimal number.
+This program converts a SAS dataset or database table into a javascript object notation (JSON) file. The program can be run in SAS environments prior to SAS version 9.4 M3.
+
+ The following JSON data types are implemented: Number: a signed decimal number.
  String: a sequence of zero or more Unicode characters.
  Boolean: either of the values true or false.
  Array: an ordered list of zero or more values.
  Object: an unordered collection of key-value pairs
  Null: an empty value, using the word null.
+
 
 
 ##### *Note:*

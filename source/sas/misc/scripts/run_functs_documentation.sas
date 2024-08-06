@@ -6,11 +6,11 @@
  * \details    This script can be run in a SAS editor or batch script.
  * 
  * \author     Paul Alexander Canals y Trocha (paul.canals@gmail.com)
- * \date       2023-10-14 00:00:00
- * \version    23.1.10
+ * \date       2024-08-02 00:00:00
+ * \version    24.1.08
  * \sa         https://github.com/paul-canals/toolbox
  * 
- * \copyright  Copyright 2008-2023 Paul Alexander Canals y Trocha.
+ * \copyright  Copyright 2008-2024 Paul Alexander Canals y Trocha.
  * 
  *     This program is free software: you can redistribute it and/or modify
  *     it under the terms of the GNU General Public License as published by
@@ -30,7 +30,7 @@
 %macro run_functs_documentation(
    sas_path    = _NONE_
  , doc_path    = _NONE_
- , excl_lst    = %str(\note \todo \warning)
+ , exc_lst     = %str(\note \todo \warning)
  , doc_type    = RTF
  , doc_image   = 
  , doc_name    = reference
@@ -66,7 +66,7 @@
    %m_hdr_gen_documents(
       in_dir      = %str(&sas_path.)
     , out_dir     = %str(&doc_path./%lowcase(&doc_type.))
-    , excl_lst    = &excl_lst.
+    , exc_lst     = &exc_lst.
     , doc_type    = &doc_type.
     , doc_image   = &doc_image.
     , doc_name    = &doc_name.
@@ -102,16 +102,12 @@
 %run_functs_documentation(
    sas_path    = &APPL_FUNC.
  , doc_path    = &APPL_DOCS.
- , excl_lst    = %str(\note \todo \warning)
+ , exc_lst     = %str(\todo \warning)
  , doc_type    = MD
  , doc_image   = ../../misc/images/doc_banner.png
- , doc_name    = reference
- , doc_title   = SAS PDF Documentation Reference
+ , doc_title   = %str(Paul%'s SAS Macro Utility Toolbox)
  , doc_author  = Paul Alexander Canals y Trocha
- , doc_subject = Generated SAS MD Documentation
- , append      = N
- , sendmail    = N
- , mailaddr    = %str(pact@hermes.local)
+ , doc_subject = Generated SAS Documentation
  , debug       = N
    );
 
@@ -119,29 +115,50 @@
 %run_functs_documentation(
    sas_path    = &APPL_FUNC.
  , doc_path    = &APPL_DOCS.
- , excl_lst    = %str(\note \todo \warning)
+ , exc_lst     = %str(\todo \warning)
  , doc_type    = PDF
- , doc_name    = reference
- , doc_title   = SAS PDF Documentation Reference
+ , doc_title   = %str(Paul%'s SAS Macro Utility Toolbox)
  , doc_author  = Paul Alexander Canals y Trocha
- , doc_subject = Generated SAS PDF Documentation
- , append      = N
- , sendmail    = N
- , mailaddr    = %str(pact@hermes.local)
+ , doc_subject = Generated SAS Documentation
  , debug       = N
    );
 
 %run_functs_documentation(
    sas_path    = &APPL_FUNC.
  , doc_path    = &APPL_DOCS.
+ , exc_lst     = %str(\todo \warning)
  , doc_type    = RTF
- , doc_name    = reference
- , doc_title   = SAS RTF Documentation Reference
+ , doc_title   = %str(Paul%'s SAS Macro Utility Toolbox)
  , doc_author  = Paul Alexander Canals y Trocha
- , doc_subject = Generated SAS RTF Documentation
- , append      = N
- , sendmail    = N
- , mailaddr    = %str(pact@hermes.local)
+ , doc_subject = Generated SAS Documentation
+ , debug       = N
+   );
+
+%run_functs_documentation(
+   sas_path    = &APPL_FUNC.
+ , doc_path    = &APPL_DOCS.
+ , exc_lst     = %str(\note \todo \warning)
+ , doc_type    = PDF
+ , doc_image   = &APPL_BASE./misc/images/toolbox.jpg
+ , doc_name    = %str(Reference Manual)
+ , doc_title   = %str(Paul%'s SAS Macro Utility Toolbox)
+ , doc_author  = Paul Alexander Canals y Trocha
+ , doc_subject = Generated SAS Documentation
+ , append      = Y
+ , debug       = N
+   );
+
+%run_functs_documentation(
+   sas_path    = &APPL_FUNC.
+ , doc_path    = &APPL_DOCS.
+ , exc_lst     = %str(\note \todo \warning)
+ , doc_type    = RTF
+ , doc_image   = &APPL_BASE./misc/images/toolbox.jpg
+ , doc_name    = %str(Reference Manual)
+ , doc_title   = %str(Paul%'s SAS Macro Utility Toolbox)
+ , doc_author  = Paul Alexander Canals y Trocha
+ , doc_subject = Generated SAS Documentation
+ , append      = Y
  , debug       = N
    );
 */

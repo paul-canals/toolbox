@@ -10,9 +10,11 @@
 
 ### Description
 The program checks if a table or dataset exists and can be opened for reading and/or writing. The result is returned inline. The valid RESULT values are:
- RESULT \= 1 \-> Table exists and can be opened.
- RESULT \= 0 \-> Table does not exist.
- RESULT \= \-1 \-> Table exists, but can not be opened.
+
+- RESULT \=  1 : Table exists and can be opened.
+- RESULT \=  0 : Table does not exist.
+- RESULT \= \-1 : Table exists, but can not be opened.
+
 
 
 ##### *Note:*
@@ -22,10 +24,10 @@ The program checks if a table or dataset exists and can be opened for reading an
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 
 ### Date
-* 2021-01-09 00:00:00
+* 2024-08-03 00:00:00
 
 ### Version
-* 21.1.01
+* 24.1.08
 
 ### Link
 * https://github.com/paul-canals/toolbox
@@ -96,7 +98,7 @@ lock SASHELP.class clear;
 ```
 
 ### Copyright
-Copyright 2008-2021 Paul Alexander Canals y Trocha. 
+Copyright 2008-2024 Paul Alexander Canals y Trocha. 
  
 This program is free software: you can redistribute it and/or modify 
 it under the terms of the GNU General Public License as published by 
@@ -113,4 +115,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 ***
-*This document was generated on 2021.01.09 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*
+*This document was generated on 2024.08.03 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*

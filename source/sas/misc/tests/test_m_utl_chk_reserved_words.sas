@@ -36,8 +36,7 @@
 %* Example 1: Show help information: ;
 %m_utl_chk_reserved_words(?)
  
-%* Example 2: Create global macro variable M_RESERVED_WORDS containing the database reserved words list (global):
- ;
+%* Example 2: Create global macro variable M_RESERVED_WORDS containing the database reserved words list (global): ;
 %m_utl_chk_reserved_words(
    global  = Y
  , varname = M_RESERVED_WORDS
@@ -47,8 +46,7 @@
 %put &=M_RESERVED_WORDS.;
 
  
-%* Example 3: Create a macro variable reserved_words containing the database reserved words list (inline):
- ;
+%* Example 3: Create a macro variable reserved_words containing the database reserved words list (inline): ;
 %let reserved_words =
    %m_utl_chk_reserved_words(
     , debug   = Y

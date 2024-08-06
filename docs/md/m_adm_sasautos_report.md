@@ -4,17 +4,23 @@
 
 ### Admin
 
-##### Admin macro to create the SASAUTO macro members report.
+##### Admin macro to create the SASAUTO macro program members report.
 
 ***
 
 ### Description
-The macro collects all SAS macro names from various directories and filerefs returned by the GETOPTION and PATHNAME (SASAUTOS) functions. It examines WORK.SASMACR, and other SASMACR catalogs returned by pathname(getoption(SASMSTORE)). The macro lists the .SAS files and catalog macro objects found within directories surfaced by:
- getoption('sasautos') \-> SASAUTOS altered by options statement
- pathname('sasautos') \-> SASAUTOS config file definition
- filerefs/catalogs found within SASAUTOS definitions
- pathname(getoption('sasmstore')) \-> compiled macros.
+The macro collects all SAS macro names from various directories and filerefs returned by the GETOPTION and PATHNAME (SASAUTOS) functions. It examines WORK.SASMACR, and other SASMACR catalogs returned by pathname(getoption(SASMSTORE)). The macro lists the SAS files and catalog macro objects found within directories by:
+
+- getoption('sasautos') : SASAUTOS altered by options statement
+- pathname('sasautos') : SASAUTOS config file definition
+- filerefs/catalogs found within SASAUTOS definitions
+- pathname(getoption('sasmstore')) : compiled macros.
+
+ If WORK_FLG=Y (default), compiled macros from the WORK library will also be included in the output result. In addition to the report output (PRINT=Y), the results are also available in the WORK.LIST_SASAUTOS dataset, or in PDF format when SENDMAIL=Y.
+
  This macro is originally based on the list_sasautos.sas macro from Harry Droogendyk (harry@stratia.ca) and enhancements made by Dave Prinsloo (dave.prinsloo@yahoo.com)
+
+
 
 ##### *Note:*
 *Not every module found within these directories is necessarily a macro definition. Furthermore, this macro does NOT open files to verify the presence of the required "macro" statement.*
@@ -23,10 +29,10 @@ The macro collects all SAS macro names from various directories and filerefs ret
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 
 ### Date
-* 2023-09-26 00:00:00
+* 2024-08-03 00:00:00
 
 ### Version
-* 23.1.09
+* 24.1.08
 
 ### Link
 * https://github.com/paul-canals/toolbox
@@ -95,7 +101,7 @@ The macro collects all SAS macro names from various directories and filerefs ret
 ```
 
 ### Copyright
-Copyright 2008-2023 Paul Alexander Canals y Trocha. 
+Copyright 2008-2024 Paul Alexander Canals y Trocha. 
  
 This program is free software: you can redistribute it and/or modify 
 it under the terms of the GNU General Public License as published by 
@@ -112,4 +118,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 ***
-*This document was generated on 2023.09.26 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*
+*This document was generated on 2024.08.03 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*

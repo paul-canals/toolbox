@@ -11,6 +11,8 @@
 ### Description
 This program collects the SAS system environment information from the SAS server system as also the user own client system.
 
+
+
 ### Authors
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 

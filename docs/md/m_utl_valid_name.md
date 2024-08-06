@@ -10,11 +10,13 @@
 
 ### Description
 The macro converts special characters found in text string into an underscore to comply to a SAS standard valid names. If the name is already valid, then the result will be the same as the input. Since name length in SAS is restricted to 32 characters, the result name is reduced automatically to 32 positions. The macro can be executed in the context of a SAS macro call or generates code to be executed in the context of a data step. This is controlled by the CONTEXT macro parameter. Valid values for CONTEXT are: _MACRO_ or _DATASTEP_.
+
  The m_utl_valid_name.sas macro containes the following features:
- For standard SAP BW names that start with \/BIC/ or \/BI0/, this
- part of the text string will be removed. This is controlled by the macro parameter BW_SPECIAL. Valid values are: Y or N.
- Macro parameter CHK_FIRST will check if the first character
- of the text string is a \/ or a digit, or first character is a \/ followed by a digit. The first character of the name will be removed instead of being converted to an underscore. Valid values for CHK_FISRT are: Y or N.
+
+ For standard SAP BW names that start with \/BIC/ or \/BI0/, this part of the text string will be removed. This is controlled by the macro parameter BW_SPECIAL. Valid values are: Y or N.
+
+ Macro parameter CHK_FIRST will check if the first character of the text string is a \/ or a digit, or first character is a \/ followed by a digit. The first character of the name will be removed instead of being converted to an underscore. Valid values for CHK_FISRT are: Y or N.
+
 
 
 ##### *Note:*

@@ -8,8 +8,8 @@
  *             Run this program in a SAS editor or batch script.
  * 
  * \author     Paul Alexander Canals y Trocha (paul.canals@gmail.com)
- * \date       2020-09-07 00:00:00
- * \version    20.1.07
+ * \date       2024-04-13 00:00:00
+ * \version    24.1.04
  * \sa         https://github.com/paul-canals/toolbox
  * 
  * \calls
@@ -39,7 +39,7 @@
 %* Example 2: Get the number of observations in a SAS dataset (ignores WHERE statement): ;
 %let numobs =
    %m_utl_get_attrn(
-      intable = SASHELP.class (where=(Sex eq 'F'))
+      table   = SASHELP.class (where=(Sex eq 'F'))
     , attr_nm = NLOBS
     , debug   = Y
       );
@@ -50,7 +50,7 @@
 %* Example 3: Get the number of columns in a SAS dataset: ;
 %let numcols =
    %m_utl_get_attrn(
-      intable = SASHELP.class
+      table   = SASHELP.class
     , attr_nm = NVARS
     , debug   = Y
       );
@@ -61,7 +61,7 @@
 %* Example 4: Check if the SAS dataset is password protected: ;
 %let pwdexist =
    %m_utl_get_attrn(
-      intable = SASHELP.class
+      table   = SASHELP.class
     , attr_nm = PW
     , debug   = Y
       );
@@ -74,7 +74,7 @@ run;
 
 %let pwdexist =
    %m_utl_get_attrn(
-      intable = WORK.class (pw=password)
+      table   = WORK.class (pw=password)
     , attr_nm = PW
     , debug   = Y
       );

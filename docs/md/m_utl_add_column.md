@@ -11,6 +11,8 @@
 ### Description
 The macro tries to add a column to an existing database table or SAS dataset. The given column name is checked against a list of databaase reserved words, the given column type and length. The macro was originally designed for adding columns to an Oracle table, but has been expanded ever since.
 
+
+
 ##### *Note:*
 *In case of encrypted SAS datasets, the ENCRYPTKEY= parameter must be specified as part of the CREDS credentials string.*
 

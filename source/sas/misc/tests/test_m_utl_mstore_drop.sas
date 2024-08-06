@@ -8,8 +8,8 @@
  *             Run this program in a SAS editor or batch script.
  * 
  * \author     Paul Alexander Canals y Trocha (paul.canals@gmail.com)
- * \date       2023-10-07 00:00:00
- * \version    23.1.10
+ * \date       2024-05-14 00:00:00
+ * \version    24.1.05
  * \sa         https://github.com/paul-canals/toolbox
  * 
  * \calls
@@ -37,19 +37,23 @@
 %m_utl_mstore_drop(?)
  
 %* Example 2: Step 1 - Copy the contents of SASHELP core macro catalog: ;
-libname TMP "%sysfunc(pathname(SASROOT))/core/sashelp";
+options dlcreatedir;
+libname TEMP "%sysfunc(getoption(WORK))/catalog";
+options nodlcreatedir;
 
-proc catalog cat=TMP.sasmacr force;
-   copy out=WORK.sasmacr;
+proc catalog cat=WORK.sasmac1 force;
+   copy out=TEMP.sasmacr;
    run;
    contents;
    run;
 quit;
+
+libname TEMP clear;
  
 %* Example 2: Step 2 - Delete a member from the copied macro catalog: ;
 %m_utl_mstore_drop(
-   indir = %sysfunc(getoption(WORK))
- , entry = AARFM_EXEC
+   indir = %sysfunc(getoption(WORK))/catalog
+ , entry = M_UTL_MSTORE_DROP
  , print = Y
  , debug = Y
    );

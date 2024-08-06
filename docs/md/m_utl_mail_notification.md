@@ -11,6 +11,8 @@
 ### Description
 The macro is used to send an email notification to a given email address or address list including attachments. For this macro to function properly, a working email server must be configured.
 
+
+
 ### Authors
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 

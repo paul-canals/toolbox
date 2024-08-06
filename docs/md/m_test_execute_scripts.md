@@ -11,14 +11,16 @@
 ### Description
 This program is used to create a list of all test scripts in a selected folder, and execute these in a sequential order.
 
+
+
 ### Authors
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 
 ### Date
-* 2023-07-28 00:00:00
+* 2024-05-23 00:00:00
 
 ### Version
-* 23.1.07
+* 24.1.05
 
 ### Link
 * https://github.com/paul-canals/toolbox
@@ -30,8 +32,7 @@ This program is used to create a list of all test scripts in a selected folder, 
 | Input | src_path | Specifies the full path and directory name where the executeable test scripts are stored. The default value for SRC_PATH is: \_NONE\_. |
 | Input | log_path | Specifies the full path and directory name where the test script log files will be stored. The default value for SRC_PATH is: \_NONE\_. |
 | Input | prefix | Optional. Specifies a textual string to filter the test script selection. |
-| Input | contains | Optional. Specifies a character search string to reduce the selected test scripts to those having the contain parameter word value as part of the file name. |
-| Input | position | Optional. indicator [START/END] or left blank to determine where the parameter CONTAINS word value is positioned in the file name. |
+| Input | contains | Optional. Specifies a single character search string value to reduce the list of selected test scripts to select only those where the parameter word value is part of the file name. |
 | Input | print | Boolean [Y/N] parameter to generate the output by using proc report steps with style HtmlBlue. The default value for PRINT is: N. |
 | Input | sendmail | Boolean [Y/N] parameter to specify if a result summary document in PDF format will be send to one of more addresses defined by the MAILADDR parameter. The default value is: N. |
 | Input | mailaddr | Specifies one or more email addresses to which notifications will be send to. In case of more than one email address, the parameter contains a list of email addresses seperated by a blank. |
@@ -60,6 +61,7 @@ This program is used to create a list of all test scripts in a selected folder, 
 %m_test_execute_scripts(
    src_path = %str(&APPL_TEST.)
  , log_path = %str(%sysfunc(getoption(WORK)))
+ , prefix   = test_m_utl
  , print    = Y
  , debug    = N
    );
@@ -70,6 +72,7 @@ This program is used to create a list of all test scripts in a selected folder, 
 %m_test_execute_scripts(
    src_path = %str(&APPL_TEST.)
  , log_path = %str(%sysfunc(getoption(WORK)))
+ , contains = run
  , sendmail = Y
  , mailaddr = %str(pact@hermes.local)
  , debug    = N
@@ -77,7 +80,7 @@ This program is used to create a list of all test scripts in a selected folder, 
 ```
 
 ### Copyright
-Copyright 2008-2023 Paul Alexander Canals y Trocha. 
+Copyright 2008-2024 Paul Alexander Canals y Trocha. 
  
 This program is free software: you can redistribute it and/or modify 
 it under the terms of the GNU General Public License as published by 
@@ -94,4 +97,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 ***
-*This document was generated on 2023.07.28 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*
+*This document was generated on 2024.05.23 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*

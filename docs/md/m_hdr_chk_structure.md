@@ -9,28 +9,43 @@
 ***
 
 ### Description
-This program is used to check if the program header structure is compliant to the standard Doxygen program header commands, together with the toolbox own custom command syntax extension. The following Doxygen program header commands are mandatory:
- \\file
- \\ingroup
- \\brief
- \\details
- \\author
- \\date
- \\version
- \\sa
- \\param
- \\return
- \\calls
- \\usage
- \\example
+This program is used to check if the program header structure is compliant to the standard Doxygen program header commands, together with the toolbox own custom command syntax extension.
+
+ The following Doxygen program header commands are mandatory:
+
+- \file
+- \ingroup
+- \brief
+- \details
+- \author
+- \date
+- \version
+- \sa
+- \param
+- \return
+- \calls
+- \usage
+- \example
+
  The following Doxygen program header commands are optional:
- \\note
- \\todo
- \\warning
+
+- \note
+- \todo
+- \warning
+
 
 
 ##### *Note:*
 *The \\param command is checked for valid suffices [in] and [out]. All other given suffix values will result as invalid.*
+
+### Authors
+* Paul Alexander Canals y Trocha (paul.canals@gmail.com)
+
+### Date
+* 2024-08-03 00:00:00
+
+### Version
+* 24.1.08
 
 ### Link
 * https://github.com/paul-canals/toolbox
@@ -96,7 +111,7 @@ This program is used to check if the program header structure is compliant to th
 ```
 
 ### Copyright
-Copyright 2008-2021 Paul Alexander Canals y Trocha. 
+Copyright 2008-2024 Paul Alexander Canals y Trocha. 
  
 This program is free software: you can redistribute it and/or modify 
 it under the terms of the GNU General Public License as published by 
@@ -113,4 +128,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 ***
-*This document was generated on   by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*
+*This document was generated on 2024.08.03 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*

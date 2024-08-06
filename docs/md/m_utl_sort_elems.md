@@ -11,6 +11,8 @@
 ### Description
 The macro reads a text string with a list of words as input, to be sorted alphabetically using the SORTC function call. With the MODE parameter value the sort order can be set to either Ascending or Descending on the result text string. The result list can be quoted by quoting each word within the text string and is separated by a delimiter which can be a blank or a comma.
 
+
+
 ### Authors
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 

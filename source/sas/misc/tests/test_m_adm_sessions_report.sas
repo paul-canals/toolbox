@@ -8,8 +8,8 @@
  *             Run this program in a SAS editor or batch script.
  * 
  * \author     Paul Alexander Canals y Trocha (paul.canals@gmail.com)
- * \date       2020-09-07 00:00:00
- * \version    20.1.09
+ * \date       2024-04-30 00:00:00
+ * \version    24.1.04
  * \sa         https://github.com/paul-canals/toolbox
  * 
  * \calls
@@ -38,7 +38,7 @@
  
 %* Example 2: Output report to result: ;
 %m_adm_sessions_report(
-   host  = hermes.pact.SAS.com
+   host  = hermes
  , port  = 8581
  , user  = sasadm@saspw
  , pass  = {SAS002}DA9A0A5C1A1935335ABF908E1DAAB71E
@@ -47,7 +47,7 @@
  
 %* Example 3: Output report by email: ;
 %m_adm_sessions_report(
-   host     = hermes.pact.SAS.com
+   host     = hermes
  , port     = 8581
  , user     = sasadm@saspw
  , pass     = {SAS002}DA9A0A5C1A1935335ABF908E1DAAB71E

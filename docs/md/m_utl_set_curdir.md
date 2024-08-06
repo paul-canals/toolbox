@@ -9,7 +9,11 @@
 ***
 
 ### Description
-This program changes for the current working directory using a filename reference in combination with the pathname and dlgcdir functions to identify and change the value during a SAS session. The result is returned inline, and a global SAS macro variable named _SASWORKINGFOLDER is set with the current changed value. This macro is based on the curdir macro by Tom Hoffman and Fan Zhou to which I stumbled upon reading at communities.sas.com.
+This program changes for the current working directory using a filename reference in combination with the pathname and dlgcdir functions to identify and change the value during a SAS session. The result is returned inline, and a global SAS macro variable named _SASWORKINGFOLDER is set with the current changed value.
+
+ This macro is based on the curdir macro by Tom Hoffman and Fan Zhou to which I stumbled upon reading at communities.sas.com.
+
+
 
 ##### *Note:*
 *This program is able to work in system environments where x-command or unix pipes are not allowed or cannot be used.*

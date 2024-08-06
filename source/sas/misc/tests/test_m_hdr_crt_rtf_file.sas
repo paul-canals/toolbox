@@ -9,8 +9,8 @@
  * 
  * \author     Paul Alexander Canals y Trocha (paul.canals@gmail.com)
  * \author     Dr. Simone Kossmann (simone.kossmann@web.de)
- * \date       2021-04-02 00:00:00
- * \version    21.1.04
+ * \date       2024-08-03 00:00:00
+ * \version    24.1.08
  * \sa         https://github.com/paul-canals/toolbox
  * 
  * \calls
@@ -40,7 +40,7 @@
 %* Example 2: Create macro RTF documentation including optional commands: ;
 %m_hdr_crt_rtf_file(
    in_file  = %str(&APPL_PRGM./m_hdr_crt_rtf_file.sas)
- , out_file = %str(%sysfunc(getoption(WORK))/m_hdr_crt_rtf_file.pdf)
+ , out_file = %str(%sysfunc(getoption(WORK))/m_hdr_crt_rtf_file.rtf)
  , opt_lst  = %str(\note \todo \warning)
  , debug    = N
    )
@@ -48,7 +48,7 @@
 %* Example 3: Create macro RTF documentation with optional information: ;
 %m_hdr_crt_rtf_file(
    in_file     = %str(&APPL_PRGM./m_hdr_crt_rtf_file.sas)
- , out_file    = %str(%sysfunc(getoption(WORK))/m_hdr_crt_rtf_file.pdf)
+ , out_file    = %str(%sysfunc(getoption(WORK))/m_hdr_crt_rtf_file.rtf)
  , doc_title   = RTF Toolbox Document
  , doc_author  = Paul Alexander Canals y Trocha
  , doc_subject = Generated SAS RTF documentation

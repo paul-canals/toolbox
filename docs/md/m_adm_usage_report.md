@@ -6,10 +6,14 @@
 
 ##### Admin macro to create the server monthly usage list report.
 
+
+
 ***
 
 ### Description
 The macro creates a report of the SAS server usage (amount of connections per month) based on the information from the SAS Metadata and ObjectSpwaner server logs. The result information is presented by a SAS gplot report step and can be send by email as an PDF format attachment.
+
+
 
 ### Authors
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)

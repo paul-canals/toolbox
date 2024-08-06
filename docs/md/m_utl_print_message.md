@@ -11,6 +11,8 @@
 ### Description
 This program prints a status message to either the SAS log output or the result destination. SAS proc report is used to print a status message in the SAS Enterprise Guide or SAS Stored Process result tab.
 
+
+
 ### Authors
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 

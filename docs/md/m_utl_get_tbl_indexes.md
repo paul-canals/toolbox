@@ -11,6 +11,8 @@
 ### Description
 This macro works by using either the SAS dictionary tables or Oracle system tables for index information on the passed table and returns a list of indexes and their variables in the order in which those are listed by the index table.
 
+
+
 ### Authors
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 

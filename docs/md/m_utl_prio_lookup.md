@@ -11,6 +11,8 @@
 ### Description
 The macro reads a given lookup table MAP_TBL, and split the mapping entries by a) the number of given key combinations, and b) by priority given by a designated priority column in the mappng table. The number of combination lookup tables is defined by 2**k, where k is the number of key columns.
 
+
+
 ##### *Note:*
 *The combinations are written in their binary representation using the SAS binary format binaryw. where w is set to k. E.g. for k=3, combinations=000 111 110 101 100 011 010 001. This list is then reordered by importance, counting the '1', into the following list: 111 110 101 011 100 010 001 000. The entries from the mapping table will be splitted over smaller tables using the ranked binary list as marker for the given specified key columns per entry. A key column is specified when its value is unequal to the NULL parameter value (e.g. # or n.r.). After splitting the mapping table, the smaller tables are then defined and included as hash tables, using the following order: acsending priority value. Important is that the priority value in the MAP_TBL must be set using the following logic: the higher the priority, the lower its value. Also note that the mapping table must contain an entry for a default value if no key combination match can be made and that this entry contains the highest priority value, otherwise no value (missing) is returned.*
 

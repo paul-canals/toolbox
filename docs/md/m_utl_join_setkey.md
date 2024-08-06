@@ -9,7 +9,11 @@
 ***
 
 ### Description
-The macro can be used to join two or more tables by using index to perform table lookup, the process of locating observations in a table file based on values in a master file. The advantages of using an index for table lookup are that only the observations where a match occurs are read from the table, multiple values can be retrieved from the table, and the master observation is directly matched. This means that if guidelines are adhered to, access to the lookup table is made significantly faster. Possible disadvantages are that more CPU cycles and I/O operations are needed to create and maintain the index, and also that extra memory is needed to load the index pages during code processing, and to store the index on disk. The macro will set a CALL MISSING statement by default. If the DEFAULT_KEY argument is provided, the missing values will be set to the values of the default key value instead. This macro is based on the "Using KEY= to Perform Table Look-up" SAS paper from Sandra Lynn Aker (sandra.l.aker@chi.monsanto.com) and on the ut_hash_define.sas macro program from Dave Prinsloo (dave.prinsloo@yahoo.com).
+The macro can be used to join two or more tables by using index to perform table lookup, the process of locating observations in a table file based on values in a master file. The advantages of using an index for table lookup are that only the observations where a match occurs are read from the table, multiple values can be retrieved from the table, and the master observation is directly matched. This means that if guidelines are adhered to, access to the lookup table is made significantly faster. Possible disadvantages are that more CPU cycles and I/O operations are needed to create and maintain the index, and also that extra memory is needed to load the index pages during code processing, and to store the index on disk. The macro will set a CALL MISSING statement by default. If the DEFAULT_KEY argument is provided, the missing values will be set to the values of the default key value instead.
+
+ This macro is based on the "Using KEY= to Perform Table Look-up" SAS paper from Sandra Lynn Aker (sandra.l.aker@chi.monsanto.com) and on the ut_hash_define.sas macro program from Dave Prinsloo (dave.prinsloo@yahoo.com).
+
+
 
 ##### *Note:*
 *It is important to sort the master table records by the master key variable to avoid repeated look-ups of the identical record in the look-up tables!*
@@ -18,10 +22,10 @@ The macro can be used to join two or more tables by using index to perform table
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 
 ### Date
-* 2023-11-23 00:00:00
+* 2024-05-22 00:00:00
 
 ### Version
-* 23.1.11
+* 24.1.05
 
 ### Link
 * https://github.com/paul-canals/toolbox
@@ -81,7 +85,7 @@ data
    tkey1 = 0;
    tkey2 = 0;
    tkey3 = 0;
-   do loopi = 1 to 100000;
+   do loopi = 1 to 30000;
       do itrankey1 = 1 to 5;
          tkey1 = tkey1 + 1;
          trans1_txt = put(tkey1, z3.);
@@ -120,18 +124,7 @@ data
 run;
 ```
 
-##### Example 2: Step 2 - Create a sorted and unsorted Master Table:
-```sas
-proc sort data=WORK.master out=WORK.master_unsort;
-   by ranuni;
-run;
-
-proc sort data=WORK.master out=WORK.master_sorted;
-   by mkey1 mkey2 mkey3;
-run;
-```
-
-##### Example 2: Step 3 - Sort lookup tables and create simple indexes:
+##### Example 2: Step 2 - Sort lookup tables and create simple indexes:
 ```sas
 proc sort data=WORK.trans1 nodupkey
    out=WORK.trans1(index=(tkey1));
@@ -149,12 +142,12 @@ proc sort data=WORK.trans3 nodupkey
 run;
 ```
 
-##### Example 2: Step 4 - Join Master and Lookup tables by data step set key=:
+##### Example 2: Step 3 - Join Master and Lookup tables by data step set key=:
 ```sas
 %let _start = %sysfunc(datetime());
 
 data WORK.master_keyjoin;
-   set WORK.master_sorted;
+   set WORK.master;
    %m_utl_join_setkey(
       master_key  = mkey1
     , table       = WORK.trans1
@@ -197,11 +190,11 @@ proc print data=WORK.result noobs;
 run;
 ```
 
-##### Example 2: Step 5 - Join Master and Lookup tables by proc sql join:
+##### Example 2: Step 4 - Join Master and Lookup tables by proc sql join:
 ```sas
 %let _start = %sysfunc(datetime());
 
-proc sql noprint;
+proc sql noprint nothreads;
    create table WORK.mtemp_1 as
    select m.*
         , t.*
@@ -238,7 +231,7 @@ run;
 ```
 
 ### Copyright
-Copyright 2008-2023 Paul Alexander Canals y Trocha. 
+Copyright 2008-2024 Paul Alexander Canals y Trocha. 
  
 This program is free software: you can redistribute it and/or modify 
 it under the terms of the GNU General Public License as published by 
@@ -255,4 +248,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 ***
-*This document was generated on 2023.11.23 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*
+*This document was generated on 2024.05.22 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*

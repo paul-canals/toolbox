@@ -11,6 +11,8 @@
 ### Description
 The macro lists all SAS macros from a selected directory and adds them into a SAS macro catalog using secured compilation. The result information is presented by a SAS Proc Report step and can be send by email as an PDF format attachment.
 
+
+
 ##### *Note:*
 *All macros containing m_adm_compile or m_utl_mstore as prefix are excluded during the macro catalog compilation execution.*
 
@@ -18,10 +20,10 @@ The macro lists all SAS macros from a selected directory and adds them into a SA
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 
 ### Date
-* 2023-09-26 00:00:00
+* 2024-03-07 00:00:00
 
 ### Version
-* 23.1.09
+* 24.1.03
 
 ### Link
 * https://github.com/paul-canals/toolbox
@@ -82,7 +84,7 @@ The macro lists all SAS macros from a selected directory and adds them into a SA
 ```
 
 ### Copyright
-Copyright 2008-2023 Paul Alexander Canals y Trocha. 
+Copyright 2008-2024 Paul Alexander Canals y Trocha. 
  
 This program is free software: you can redistribute it and/or modify 
 it under the terms of the GNU General Public License as published by 
@@ -99,4 +101,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 ***
-*This document was generated on 2023.09.26 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*
+*This document was generated on 2024.03.07 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*

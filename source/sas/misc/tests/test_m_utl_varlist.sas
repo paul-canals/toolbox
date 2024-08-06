@@ -8,8 +8,8 @@
  *             Run this program in a SAS editor or batch script.
  * 
  * \author     Paul Alexander Canals y Trocha (paul.canals@gmail.com)
- * \date       2023-11-13 00:00:00
- * \version    23.1.11
+ * \date       2024-06-16 00:00:00
+ * \version    24.1.06
  * \sa         https://github.com/paul-canals/toolbox
  * 
  * \calls
@@ -45,7 +45,6 @@ run;
 
 proc print data=WORK.class;
 run;
-
  
 %* Example 3: Select columns from encrypted WORK.class and rename column Name into Scholar: ;
 data WORK.class(encrypt=aes encryptkey=aespasskey);
@@ -59,7 +58,6 @@ run;
 
 proc print data=WORK.class;
 run;
-
  
 %* Example 4: Select only CHAR columns from SASHELP.class into a quoted list: ;
 %let list=
@@ -71,7 +69,6 @@ run;
       );
 
 %put &=list.;
-
  
 %* Example 5: Select columns from SASHELP.class into a comma separated list: ;
 %let list=
@@ -82,7 +79,6 @@ run;
       );
 
 %put &=list.;
-
  
 %* Example 6: Select columns from SASHELP.class into a custom separated list: ;
 %let list=
@@ -93,7 +89,6 @@ run;
       );
 
 %put &=list.;
-
  
 %* Example 7: Select only NUM columns from SASHELP.workers (including Date): ;
 data WORK.workers;
@@ -103,7 +98,6 @@ run;
 
 proc print data=WORK.workers;
 run;
-
  
 %* Example 8: Select only DATE columns from SASHELP.workers: ;
 data WORK.workers;
@@ -113,7 +107,6 @@ run;
 
 proc print data=WORK.workers;
 run;
-
  
 %* Example 9: Select columns from SASHELP.class and add a prefix to the names: ;
 %let list=
@@ -124,7 +117,6 @@ run;
       );
 
 %put &=list.;
-
  
 %* Example 10: Select only columns from SASHELP.class into the output table: ;
 data WORK.class;
@@ -135,7 +127,6 @@ run;
 
 proc print data=WORK.class;
 run;
-
  
 %* Example 11: To check if a column exists in a given table: ;
 %macro findColumn(table=,colnm=);
@@ -146,7 +137,6 @@ run;
 %mend findColumn;
 
 %findColumn(table=SASHELP.class,colnm=Sex);
-
  
 %* Example 12: To search for common columns between two tables: ;
 data WORK.class;
@@ -162,7 +152,6 @@ run;
    );
 
 %put Common columns are: &list.;
-
  
 %* Example 13: Generic Join on common columns with two tables: ;
 data WORK.class;
@@ -195,7 +184,6 @@ quit;
 
 proc print data=WORK.join;
 run;
-
  
 %* Example 14: Select columns from WORK.class into a named quoted list: ;
 data WORK.class;
@@ -214,5 +202,4 @@ run;
    );
 
 %put Result column list: &list.;
-
  

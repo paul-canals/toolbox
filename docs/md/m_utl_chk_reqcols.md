@@ -9,8 +9,11 @@
 ***
 
 ### Description
-The macro checks if a given list of required columns exist in a given SAS dataset or table. The macro returns a boolean value: the value 1 means that all columns are present in the
- table, and 0 when not all columns are present. This macro is originally based on the ut_reqcols_found.sas macro program by Dave Prinsloo (dave.prinsloo@yahoo.com)
+The macro checks if a given list of required columns exist in a given SAS dataset or table. The macro returns a boolean value: the value 1 means that all columns are present in the table, and 0 when not all columns are present.
+
+ This macro is originally based on the ut_reqcols_found.sas macro program by Dave Prinsloo (dave.prinsloo@yahoo.com)
+
+
 
 ### Authors
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)

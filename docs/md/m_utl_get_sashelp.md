@@ -10,42 +10,44 @@
 
 ### Description
 The macro can be usefull to select and extract information from SAS dictionary tables. The dictionary tables are listed under the SASHELP SAS library reference:
- VALLOPT
- (Contains information about SAS system and graphics options) VCATALG
- (Contains information about known SAS catalogs) VCHKCON
- (Contains information about known check constraints) VCOLUMN
- (Contains information about columns in all known tables) VCNCOLU
- (Contains information about columns that are referred to by integrity constraints) VCNTABU
- (Contains information about tables that have integrity constraints defined on them) VDATAIT
- (Contains information about known information map data items) VDEST
- (Contains information about known ODS destinations) VDCTNRY
- (Contains information about all SAS dictionary tables) VENGINE
- (Contains information about SAS engines) VEXTFL
- (Contains information about known external files) VFILTER
- (Contains information about known information map filters) VFORMAT
- (Contains information about current accessible formats and informats) VFUNC
- (Contains information about current accessible functions) VGOPT
- (Contains information about current defined graphics options) VINDEX
- (Contains information about known indexes) VINFOMP
- (Contains information about known information maps) VLIBNAM
- (Contains information about current defined libraries) VMACRO
- (Contains information about current defined macro variables) VMEMBER
- (Contains information about all objects that are in current defined libraries) VSACCES
- (Contains information about allocated libraries and user created views list) VSCATLG
- (Contains information about allocated libraries and known SAS catalogs list) VSLIB
- (Contains information about allocated libraries and physical path name information) VSTABLE
- (Contains information about allocated libraries and known tables list) VSTABVW
- (Contains information about allocated libraries and known tables/views list) VSVIEW
- (Contains information about allocated libraries and known views list) VOPTION
- (Contains information about SAS system options) VREFCON
- (Contains information about referential constraints) VREMEMB
- (Contains information about known remembers) VSTYLE
- (Contains information about known ODS styles) VTABCON
- (Contains information about integrity constraints in all known tables) VTABLE
- (Contains information about known tables) VTITLE
- (Contains information about current defined titles and footnotes) VVIEW
- (Contains information about known data views) VXATTR
- (Contains information about extended attributes)
+
+ VALLOPT (Contains information about SAS system and graphics options)
+ VCATALG (Contains information about known SAS catalogs)
+ VCHKCON (Contains information about known check constraints)
+ VCOLUMN (Contains information about columns in all known tables)
+ VCNCOLU (Contains information about columns that are referred to by integrity constraints)
+ VCNTABU (Contains information about tables that have integrity constraints defined on them)
+ VDATAIT (Contains information about known information map data items)
+ VDEST (Contains information about known ODS destinations)
+ VDCTNRY (Contains information about all SAS dictionary tables)
+ VENGINE (Contains information about SAS engines)
+ VEXTFL (Contains information about known external files)
+ VFILTER (Contains information about known information map filters)
+ VFORMAT (Contains information about current accessible formats and informats)
+ VFUNC (Contains information about current accessible functions)
+ VGOPT (Contains information about current defined graphics options)
+ VINDEX (Contains information about known indexes)
+ VINFOMP (Contains information about known information maps)
+ VLIBNAM (Contains information about current defined libraries)
+ VMACRO (Contains information about current defined macro variables)
+ VMEMBER (Contains information about all objects that are in current defined libraries)
+ VSACCES (Contains information about allocated libraries and user created views list)
+ VSCATLG (Contains information about allocated libraries and known SAS catalogs list)
+ VSLIB (Contains information about allocated libraries and physical path name information)
+ VSTABLE (Contains information about allocated libraries and known tables list)
+ VSTABVW (Contains information about allocated libraries and known tables/views list)
+ VSVIEW (Contains information about allocated libraries and known views list)
+ VOPTION (Contains information about SAS system options)
+ VREFCON (Contains information about referential constraints)
+ VREMEMB (Contains information about known remembers)
+ VSTYLE (Contains information about known ODS styles)
+ VTABCON (Contains information about integrity constraints in all known tables)
+ VTABLE (Contains information about known tables)
+ VTITLE (Contains information about current defined titles and footnotes)
+ VVIEW (Contains information about known data views)
+ VXATTR (Contains information about extended attributes)
+
+
 
 ### Authors
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)

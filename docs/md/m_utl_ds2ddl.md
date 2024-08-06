@@ -11,6 +11,8 @@
 ### Description
 This macro obtains all column, index and constraint information from a given dataset to be used to generate a Data Definition Language (DDL) file. The DDL file contains a SAS proc sql step to create a new instance of the given source dataset.
 
+
+
 ### Authors
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 

@@ -8,8 +8,8 @@
  *             Run this program in a SAS editor or batch script.
  * 
  * \author     Paul Alexander Canals y Trocha (paul.canals@gmail.com)
- * \date       2023-11-23 00:00:00
- * \version    23.1.11
+ * \date       2024-05-22 00:00:00
+ * \version    24.1.05
  * \sa         https://github.com/paul-canals/toolbox
  * 
  * \calls
@@ -54,7 +54,7 @@ data
    tkey1 = 0;
    tkey2 = 0;
    tkey3 = 0;
-   do loopi = 1 to 100000;
+   do loopi = 1 to 30000;
       do itrankey1 = 1 to 5;
          tkey1 = tkey1 + 1;
          trans1_txt = put(tkey1, z3.);
@@ -92,16 +92,7 @@ data
    end;
 run;
  
-%* Example 2: Step 2 - Create a sorted and unsorted Master Table: ;
-proc sort data=WORK.master out=WORK.master_unsort;
-   by ranuni;
-run;
-
-proc sort data=WORK.master out=WORK.master_sorted;
-   by mkey1 mkey2 mkey3;
-run;
- 
-%* Example 2: Step 3 - Sort lookup tables and create simple indexes: ;
+%* Example 2: Step 2 - Sort lookup tables and create simple indexes: ;
 proc sort data=WORK.trans1 nodupkey
    out=WORK.trans1(index=(tkey1));
    by descending tkey1;
@@ -117,11 +108,11 @@ proc sort data=WORK.trans3 nodupkey
    by descending tkey3;
 run;
  
-%* Example 2: Step 4 - Join Master and Lookup tables by data step set key=: ;
+%* Example 2: Step 3 - Join Master and Lookup tables by data step set key=: ;
 %let _start = %sysfunc(datetime());
 
 data WORK.master_keyjoin;
-   set WORK.master_sorted;
+   set WORK.master;
    %m_utl_join_setkey(
       master_key  = mkey1
     , table       = WORK.trans1
@@ -163,10 +154,10 @@ run;
 proc print data=WORK.result noobs;
 run;
  
-%* Example 2: Step 5 - Join Master and Lookup tables by proc sql join: ;
+%* Example 2: Step 4 - Join Master and Lookup tables by proc sql join: ;
 %let _start = %sysfunc(datetime());
 
-proc sql noprint;
+proc sql noprint nothreads;
    create table WORK.mtemp_1 as
    select m.*
         , t.*

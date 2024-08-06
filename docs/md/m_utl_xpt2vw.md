@@ -11,14 +11,16 @@
 ### Description
 This program converts a SAS transport (XPT) file into a SAS view. The macro is able to handle V5 transport files written by the SAS XPORT engine. It should also be able to handle V8 or V9 extended transport files created by companion vw2xpt macro.
 
+
+
 ### Authors
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 
 ### Date
-* 2023-10-07 00:00:00
+* 2024-06-16 00:00:00
 
 ### Version
-* 23.1.10
+* 24.1.06
 
 ### Link
 * https://github.com/paul-canals/toolbox
@@ -116,7 +118,7 @@ run;
 ```
 
 ### Copyright
-Copyright 2008-2023 Paul Alexander Canals y Trocha. 
+Copyright 2008-2024 Paul Alexander Canals y Trocha. 
  
 This program is free software: you can redistribute it and/or modify 
 it under the terms of the GNU General Public License as published by 
@@ -133,4 +135,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 ***
-*This document was generated on 2023.10.07 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*
+*This document was generated on 2024.06.16 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*

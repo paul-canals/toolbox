@@ -9,7 +9,11 @@
 ***
 
 ### Description
-The macro takes a string or SAS macro variable as input and then transfers it by adding single quotes around it. This macro is originally based on the ut_single_quote.sas macro program by Dave Prinsloo (dave.prinsloo@yahoo.com)
+The macro takes a string or SAS macro variable as input and then transfers it by adding single quotes around it.
+
+ This macro is originally based on the ut_single_quote.sas macro program by Dave Prinsloo (dave.prinsloo@yahoo.com)
+
+
 
 ### Authors
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)

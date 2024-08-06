@@ -8,8 +8,8 @@
  *             Run this program in a SAS editor or batch script.
  * 
  * \author     Paul Alexander Canals y Trocha (paul.canals@gmail.com)
- * \date       2021-03-27 00:00:00
- * \version    21.1.03
+ * \date       2024-06-29 00:00:00
+ * \version    24.1.06
  * \sa         https://github.com/paul-canals/toolbox
  * 
  * \calls
@@ -53,8 +53,11 @@ data _null_;
    rc = class.output(dataset: 'WORK.result');
 run;
 
+proc print data=WORK.result noobs;
+   title 'Example 2: Create a hash object from an encrypted SAS dataset';
+run; title ;
  
-%* Example 3: Create an ordered hash object: ;
+%* Example 3: Create an ordered hash object (ordered=Y): ;
 data _null_;
    %m_utl_hash_define(
       table   = SASHELP.class
@@ -67,8 +70,11 @@ data _null_;
    rc = class.output(dataset: 'WORK.result');
 run;
 
+proc print data=WORK.result noobs;
+   title 'Example 3: Create an ordered hash object (ordered=Y)';
+run; title ;
  
-%* Example 4: Create an (A)scending ordered hash object: ;
+%* Example 4: Create an (A)scending ordered hash object (ordered=A): ;
 data _null_;
    %m_utl_hash_define(
       table   = SASHELP.class
@@ -81,8 +87,11 @@ data _null_;
    rc = class.output(dataset: 'WORK.result');
 run;
 
+proc print data=WORK.result noobs;
+   title 'Example 4: Create an (A)scending ordered hash object (ordered=A)';
+run; title ;
  
-%* Example 5: Create an (D)escending ordered hash object: ;
+%* Example 5: Create an (D)escending ordered hash object (ordered=D): ;
 data _null_;
    %m_utl_hash_define(
       table   = SASHELP.class
@@ -95,6 +104,9 @@ data _null_;
    rc = class.output(dataset: 'WORK.result');
 run;
 
+proc print data=WORK.result noobs;
+   title 'Example 5: Create an (D)escending ordered hash object (ordered=D)';
+run; title ;
  
 %* Example 6: Create a hash object with a selection of columns (keep=): ;
 data WORK.result;
@@ -110,6 +122,9 @@ data WORK.result;
    drop rc;
 run;
 
+proc print data=WORK.result noobs;
+   title 'Example 6: Create a hash object with a selection of columns (keep=)';
+run; title ;
  
 %* Example 7: Create a hash object with a selection of columns (drop=): ;
 data WORK.result;
@@ -125,6 +140,9 @@ data WORK.result;
    drop rc;
 run;
 
+proc print data=WORK.result noobs;
+   title 'Example 7: Create a hash object with a selection of columns (drop=)';
+run; title ;
  
 %* Example 8: Create a hash object with a selection and renaming of columns: ;
 data WORK.result;
@@ -142,8 +160,8 @@ data WORK.result;
 run;
 
 proc print data=WORK.result noobs;
-run;
-
+   title 'Example 8: Create a hash object with a selection and renaming of columns';
+run; title ;
  
 %* Example 9: When loading duplicate key data items, only the last known value is saved: ;
 data WORK.class;
@@ -151,9 +169,6 @@ data WORK.class;
    if Name eq 'Alice' then do;
       output; Age=16; output;
    end;
-run;
-
-proc print data=WORK.class;
 run;
 
 data _null_;
@@ -167,9 +182,13 @@ data _null_;
    rc = class.output(dataset: 'WORK.result');
 run;
 
-proc print data=WORK.result;
+proc print data=WORK.class;
+   title 'Example 9: When loading duplicate key data items, only the last known value is saved';
 run;
 
+proc print data=WORK.result;
+   title ;
+run;
  
 %* Example 10: Step 1 - Load duplicate key data item pairs into the hash object (multidata): ;
 data WORK.class;
@@ -180,8 +199,8 @@ data WORK.class;
 run;
 
 proc print data=WORK.class;
-run;
-
+   title 'Example 10: Step 1 - Load duplicate key data item pairs into the hash object (multidata)';
+run; title ;
  
 %* Example 10: Step 2 - Use FIND with key to get data items from hash object (returns first key): ;
 data Work.result;
@@ -197,8 +216,8 @@ data Work.result;
 run;
 
 proc print data=WORK.result;
-run;
-
+   title 'Example 10: Step 2 - Use FIND with key to get data items from hash object (returns first key)';
+run; title ;
  
 %* Example 10: Step 3 - Use OUTPUT to get all data items from hash object (returns all keys): ;
 data _null_;
@@ -214,10 +233,10 @@ data _null_;
 run;
 
 proc print data=WORK.result;
-run;
-
+   title 'Example 10: Step 3 - Use OUTPUT to get all data items from hash object (returns all keys)';
+run; title ;
  
-%* Example 11: Create hash iterative object using the FIRST and NEXT methods to obtain data items from hash object: ;
+%* Example 11: Create hash iterative object using the FIRST and NEXT methods to obtain data items: ;
 data Work.result;
    %m_utl_hash_define(
       table     = SASHELP.class
@@ -246,6 +265,6 @@ data Work.result;
 run;
 
 proc print data=WORK.result;
-run;
-
+   title 'Example 11: Create hash iterative object using the FIRST and NEXT methods to obtain data items';
+run; title ;
  

@@ -11,6 +11,8 @@
 ### Description
 The macro uses the SAS FINFO function to determine the size of an external file in bytes.
 
+
+
 ##### *Note:*
 *The FINFO function returns the value of a system-dependent information item for an external file that was previously opened and assigned a file-id by the SAS FOPEN function. The FINFO function returns a blank if the value given for info-item is invalid. This can be the case when the system has an other locale than the SAS default english language. The m_utl_finfo_size.sas macro routine however will work system and language independent.*
 

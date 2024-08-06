@@ -11,6 +11,8 @@
 ### Description
 The macro creates a report of all users with corresponding group membership information. The result information is presented by a SAS proc report step and can be send by email as an PDF format attachment.
 
+
+
 ### Authors
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 

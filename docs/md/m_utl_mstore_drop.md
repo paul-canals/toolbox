@@ -11,14 +11,16 @@
 ### Description
 This program deletes one or more members from a SAS macro catalog. The type of the catalog member is restricted by this program to the MACRO type entry.
 
+
+
 ### Authors
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 
 ### Date
-* 2023-10-07 00:00:00
+* 2024-05-14 00:00:00
 
 ### Version
-* 23.1.10
+* 24.1.05
 
 ### Link
 * https://github.com/paul-canals/toolbox
@@ -48,28 +50,32 @@ This program deletes one or more members from a SAS macro catalog. The type of t
 
 ##### Example 2: Step 1 - Copy the contents of SASHELP core macro catalog:
 ```sas
-libname TMP "%sysfunc(pathname(SASROOT))/core/sashelp";
+options dlcreatedir;
+libname TEMP "%sysfunc(getoption(WORK))/catalog";
+options nodlcreatedir;
 
-proc catalog cat=TMP.sasmacr force;
-   copy out=WORK.sasmacr;
+proc catalog cat=WORK.sasmac1 force;
+   copy out=TEMP.sasmacr;
    run;
    contents;
    run;
 quit;
+
+libname TEMP clear;
 ```
 
 ##### Example 2: Step 2 - Delete a member from the copied macro catalog:
 ```sas
 %m_utl_mstore_drop(
-   indir = %sysfunc(getoption(WORK))
- , entry = AARFM_EXEC
+   indir = %sysfunc(getoption(WORK))/catalog
+ , entry = M_UTL_MSTORE_DROP
  , print = Y
  , debug = Y
    );
 ```
 
 ### Copyright
-Copyright 2008-2023 Paul Alexander Canals y Trocha. 
+Copyright 2008-2024 Paul Alexander Canals y Trocha. 
  
 This program is free software: you can redistribute it and/or modify 
 it under the terms of the GNU General Public License as published by 
@@ -86,4 +92,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 ***
-*This document was generated on 2023.10.07 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*
+*This document was generated on 2024.05.14 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*

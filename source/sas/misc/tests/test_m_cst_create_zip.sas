@@ -8,8 +8,8 @@
  *             Run this program in a SAS editor or batch script.
  * 
  * \author     Paul Alexander Canals y Trocha (paul.canals@gmail.com)
- * \date       2023-09-26 00:00:00
- * \version    23.1.09
+ * \date       2024-03-13 00:00:00
+ * \version    24.1.03
  * \sa         https://github.com/paul-canals/toolbox
  * 
  * \calls
@@ -75,6 +75,28 @@
    infile    = %sysget(SASROOT)/core/sashelp/class.sas7bdat
  , outdir    = %sysfunc(getoption(WORK))/backup
  , runmode   = AUTO
+ , print     = Y
+ , debug     = Y
+   );
+ 
+%* Example 6: Step 1 - Copy a first file into a new ZIP archive: ; ;
+%m_utl_create_zip(
+   infile    = %sysget(SASROOT)/core/sashelp/class.sas7bdat
+ , outdir    = %sysfunc(getoption(WORK))/backup
+ , zipname   = class.zip
+ , runmode   = FILEREF
+ , overwrite = Y
+ , print     = Y
+ , debug     = Y
+   );
+ 
+%* Example 6: Step 2 - Copy a second file into the ZIP archive: ; ;
+%m_utl_create_zip(
+   infile    = %sysget(SASROOT)/core/sashelp/class.sas7bdat
+ , outdir    = %sysfunc(getoption(WORK))/backup
+ , zipname   = class.zip
+ , runmode   = FILEREF
+ , overwrite = N
  , print     = Y
  , debug     = Y
    );

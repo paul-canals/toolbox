@@ -9,7 +9,11 @@
 ***
 
 ### Description
-This program searches for the current working directory using a filename reference in combination with the pathname function. The result is returned inline, and a global SAS macro variable named _SASINITIALFOLDER is set initially with the current value. This macro is based on the curdir macro by Tom Hoffman and Fan Zhou to which I stumbled upon reading at communities.sas.com.
+This program searches for the current working directory using a filename reference in combination with the pathname function. The result is returned inline, and a global SAS macro variable named _SASINITIALFOLDER is set initially with the current value.
+
+ This macro is based on the curdir macro by Tom Hoffman and Fan Zhou to which I stumbled upon reading at communities.sas.com.
+
+
 
 ##### *Note:*
 *This program is able to work in system environments where x-command or unix pipes are not allowed or cannot be used.*

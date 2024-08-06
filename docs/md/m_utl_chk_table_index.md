@@ -9,7 +9,11 @@
 ***
 
 ### Description
-This macro works by opening a cursor on the VINDEX view subset for indexes on the passed table. This view contains a record for every variable in the index. The cursor returns a list of indexes and their indexed variables. Fortunately, this view returns records in order of INDXNAME which identifies the index name and INDXPOS which designates the order in which variables in a compound index are indexed. The program need only identify any index whose variables match those passed in the order they were passed. If the existing index contains both the correct variables and also some extras later in the sequence, that index will serve the purpose and is also considered a match. If a match is found the value of the output macro variable MVAR_MATCH is set to 1, otherwise the value is set to 0. This macro is based on a publication from 2006 called The Wealth of Information Found in the SASHELP Data Dictionary Views and how to Use It by Curtis Mack (curtis.mack@lgan.com).
+This macro works by opening a cursor on the VINDEX view subset for indexes on the passed table. This view contains a record for every variable in the index. The cursor returns a list of indexes and their indexed variables. Fortunately, this view returns records in order of INDXNAME which identifies the index name and INDXPOS which designates the order in which variables in a compound index are indexed. The program need only identify any index whose variables match those passed in the order they were passed. If the existing index contains both the correct variables and also some extras later in the sequence, that index will serve the purpose and is also considered a match. If a match is found the value of the output macro variable MVAR_MATCH is set to 1, otherwise the value is set to 0.
+
+ This macro is based on a publication from 2006 called The Wealth of Information Found in the SASHELP Data Dictionary Views and how to Use It by Curtis Mack (curtis.mack@lgan.com).
+
+
 
 ##### *Note:*
 *This macro can be used as inline code by setting the parameter GLOBAL_FLG to N. In this case both the MVAR_MATCH and MVAR_NAME variables are set to local macro variables. MVAR_MATCH parameter returns either 1 or 0 and VAR_NAME the index name or null value depending on if a match could be found.*

@@ -10,7 +10,9 @@
 
 ### Description
 The macro is used to obtain a list of all nested macros that are being executed from a starting point upto a given nested macro level end point, and print this resulting macro trace list as an information statement in the SAS system log:
+
  MTRACE(macro_1.macro_2. .. macro_N);
+
 
 
 ##### *Note:*

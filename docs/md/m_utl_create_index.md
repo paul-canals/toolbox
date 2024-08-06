@@ -9,7 +9,11 @@
 ***
 
 ### Description
-The macro creates a new index on a given table or dataset by using the PROC DATASETS procedure. This macro can be included inline into an existing PROC DATASETS step by setting the INLINE_FLG parameter to Y. Also there is a build in check on INDEX_COLS to verify that the index does not exist yet for the given table. If this is the case, the macro returns silently. This macro is based on the ut_create_index.sas macro program by Dave Prinsloo (dave.prinsloo@yahoo.com)
+The macro creates a new index on a given table or dataset by using the PROC DATASETS procedure. This macro can be included inline into an existing PROC DATASETS step by setting the INLINE_FLG parameter to Y. Also there is a build in check on INDEX_COLS to verify that the index does not exist yet for the given table. If this is the case, the macro returns silently.
+
+ This macro is based on the ut_create_index.sas macro program by Dave Prinsloo (dave.prinsloo@yahoo.com)
+
+
 
 ### Authors
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)

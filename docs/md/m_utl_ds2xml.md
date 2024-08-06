@@ -11,14 +11,16 @@
 ### Description
 This program converts a SAS dataset or database table into one extensible markup file with the XML extension. The program uses the XML or XMLV2 libname engine and works much like any other SAS engines. A libname statement is executed to assign a libref named MyXML and specified by the XML or XMLV2 engine. The XMLV2 engine is available since SAS 9.2 on all supported operating environments. For previous SAS versions and/or using MSACCESS as as xmltype or providing a xmlmap file, the basic XML engine is used for exporting a SAS dataset or database table to a xml file.
 
+
+
 ### Authors
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 
 ### Date
-* 2022-11-08 00:00:00
+* 2024-06-16 00:00:00
 
 ### Version
-* 22.1.11
+* 24.1.06
 
 ### Link
 * https://github.com/paul-canals/toolbox
@@ -201,7 +203,7 @@ run;
 filename class clear;
 ```
 
-##### Example 9: Export a SAS dataset into XML by using a XML map file:
+##### Example 9: Step 1 - Create a SAS dataset TEAMS using data-cards:
 ```sas
 data WORK.teams ;
 attrib
@@ -230,7 +232,10 @@ datalines4;
 "Sharks","SJ","Western","Pacific"
 ;;;;
 run;
+```
 
+##### Example 9: Step 2 - Create a XML map file for TEAMS table:
+```sas
 filename nhl_map "%sysfunc(getoption(WORK))/nhl.map";
 
 data _null_;
@@ -274,7 +279,10 @@ data _null_;
 run;
 
 filename nhl_map clear;
+```
 
+##### Example 9: Step 3 - Export TEAMS table into XML by using a XML map file:
+```sas
 %m_utl_ds2xml(
    base_ds  = WORK.teams
  , xml_file = %sysfunc(getoption(WORK))/nhl.xml
@@ -294,7 +302,7 @@ filename nhl clear;
 ```
 
 ### Copyright
-Copyright 2008-2022 Paul Alexander Canals y Trocha. 
+Copyright 2008-2024 Paul Alexander Canals y Trocha. 
  
 This program is free software: you can redistribute it and/or modify 
 it under the terms of the GNU General Public License as published by 
@@ -311,4 +319,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 ***
-*This document was generated on 2022.11.08 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*
+*This document was generated on 2024.06.16 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*

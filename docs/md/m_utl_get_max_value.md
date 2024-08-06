@@ -11,6 +11,8 @@
 ### Description
 The program is used to obtain the max value of a column in a table for both numeric and character type columns. When all of the values for the given column are missing, the macro returns RESULT=0 for numeric or RESULT= for character type columns.
 
+
+
 ##### *Note:*
 *The output argument RESULT should be set to: %local result; in the program that calls the m_utl_get_max_value.sas macro.*
 

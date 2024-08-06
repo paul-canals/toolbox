@@ -11,17 +11,40 @@
 ### Description
 The macro compares two tables or SAS datasets, the base dataset TABLE1 and the comparison dataset TABLE2. The macro procedure determines both matching variables and records or observations. Matching variables are those having the same name and type. Matching observations are those having identical values for all specified IDCOLS variables or if IDCOLS parameter is not set, those columns that occur in the same position in the datasets. If matched observations by IDCOLS variables is set, then both SAS datasets or tables must be sorted by all IDCOLS variables.
 
+ The SAS compare procedure uses the SYSINFO return code value for status messaging. The macro call parameters MVAR_RC and MVAR_MSG represents the return code and status message values. The SAS SYSINFO return codes are in fact binary numbers. These 16 differences can be viewed as 16 bit positions in a binary number of 16 digits: where "0" at a particular position means the difference is absent and "1" means the difference has been detected. The return code may the following status messages:
+
+- 01 : Data set labels differ
+- 02 : Data set types differ
+- 03 : Variable has different informat
+- 04 : Variable has different format
+- 05 : Variable has different length
+- 06 : Variable has different label
+- 07 : BASE data set has observations not in COMP
+- 08 : COMP data set has observations not in BASE
+- 09 : BASE data set has BY group not in COMP
+- 10 : COMP data set has BY group not in BASE
+- 11 : BASE data set has variable not in COMP
+- 12 : COMP data set has variable not in BASE
+- 13 : A value comparison was unequal
+- 14 : Conflicting variable types
+- 15 : BY variables do not match
+- 16 : Fatal error: comparison not done
+
+ For example when the SYSINFO return code has value of 4224, the will translate to the binary value of: 0001000010000000 (13 digits \- 4096, and 8 digits \- 128), which represents the following two messages: "COMP data set has observations not in BASE" and "A value comparison was unequal".
+
+
+
 ##### *Note:*
-*The use of PROC COMPARE in combination with SYSINFO return code is based on SAS Global Forum Paper (063-2012) by Joseph Hinson and Margaret Coughlin in which they presented a novel approach of interpreting SYSINFO codes using the SAS bitwise function called "bAND" or "bitwise AND" since SYSINFO codes are binary. The SAS SYSINFO return codes represent binary numbers. These 16 differences can be viewed as 16 bit positions in a binary number of 16 digits: 16 15 14 13 12 11 10 9 8 7 6 5 4 3 2 1 0 1 1 0 0 0 1 0 1 0 0 1 1 1 0 1 where "0" at a particular position means the difference is absent and "1" means the difference has been detected.*
+*The use of PROC COMPARE in combination with SYSINFO return code is based on SAS Global Forum Paper (063-2012) by Joseph Hinson and Margaret Coughlin in which they presented a novel approach of interpreting SYSINFO codes using the SAS bitwise function called "bAND" or "bitwise AND" since SYSINFO codes are binary.*
 
 ### Authors
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 
 ### Date
-* 2024-02-11 00:00:00
+* 2024-08-01 00:00:00
 
 ### Version
-* 24.1.02
+* 24.1.08
 
 ### Link
 * https://github.com/paul-canals/toolbox
@@ -38,10 +61,13 @@ The macro compares two tables or SAS datasets, the base dataset TABLE1 and the c
 | Input | comp | Alias of the TABLE2= parameter. |
 | Input | outtbl | Full LIBNAME.TABLENAME name of the output diff table. The default value for OUTTBL is: \_NONE\_. |
 | Input | diff | Alias of the OUTTBL= parameter. |
+| Input | method | Indicator [ABSOLUTE/EXACT/PERCENT] to specify the method used for the COMPARE procedure. The standard method is EXACT. If ABSOLUTE or PERCENT then the CRITERION option is used to determine data changes during the evaluation. The default value for METHOD is: EXACT. |
+| Input | gamma | Optional. Parameter to specify the criterion for judging the equality of numeric values. The parameter value is only valid when METHOD parameter value is set to ABSOLUTE or PERCENT. |
 | Input | idcols | A blank separated list of column names to be used to match observations between the base and comparison tables. If no id columns are given, both base and compare tables must have identical record entries (only column values are checked for differences). |
 | Input | exclude | Optional. A blank separated list of columns to be excluded from the table comparison routine. |
 | Input | stats | Boolean [Y/N] parameter to specify if an output table containing the comparison statistics is to be created. The default value is: N. |
 | Input | nodups | Boolean [Y/N] parameter to specify if duplicate observations are ignored from the comparison. The default value for NODUPS is: Y. |
+| Input | nomiss | Boolean [Y/N] parameter to specify if missing values in both the base and comparison tables are to be judged as equal to any value. If set N, a missing value is equal only to a missing value of the same kind. If set Y, a missing value is equal to ANY value. The default value for NOMISS is: N. |
 | Output | mvar_rc | Name of the global macro variable containing the comaprison result return code (SYSINFO). The default value for MVAR_RC is: _comp_rc. |
 | Output | mvar_msg | Name of the global macro variable containing the comparison detailed result message text. The default value for MVAR_TXT is: _comp_msg. |
 | Input | print | Boolean [Y/N] parameter to generate the output by using proc report steps with style HtmlBlue. The default value for PRINT is: N. |
@@ -232,6 +258,75 @@ quit;
    );
 ```
 
+##### Example 10: Compare SASHELP.class against WORK.class using METHOD=ABS:
+```sas
+data WORK.class;
+   set SASHELP.class;
+   if name eq 'John' then Height = 59.000001;
+run;
+
+%m_utl_compare_tables(
+   base   = SASHELP.class
+ , comp   = WORK.class
+ , method = ABSOLUTE
+ , gamma  = 0.000001
+ , idcols = Name Age
+ , print  = Y
+ , debug  = N
+   );
+```
+
+##### Example 11: Compare SASHELP.class against WORK.class using METHOD=PCT:
+```sas
+data WORK.class;
+   set SASHELP.class;
+   if name eq 'John' then Height = 59.000001;
+run;
+
+%m_utl_compare_tables(
+   base   = SASHELP.class
+ , comp   = WORK.class
+ , method = PERCENT
+ , gamma  = 0.000001
+ , idcols = Name Age
+ , print  = Y
+ , debug  = N
+   );
+```
+
+##### Example 12: Compare SASHELP.class against WORK.class using NOMISS=N:
+```sas
+data WORK.class;
+   set SASHELP.class;
+   if name eq 'John' then Age = . ;
+run;
+
+%m_utl_compare_tables(
+   base   = SASHELP.class
+ , comp   = WORK.class
+ , idcols = Name
+ , print  = Y
+ , debug  = N
+   );
+```
+
+##### Example 13: Compare SASHELP.class against WORK.class using NOMISS=Y:
+```sas
+data WORK.class;
+   set SASHELP.class;
+   if name eq 'John' then Age = . ;
+run;
+
+%m_utl_compare_tables(
+   base   = SASHELP.class
+ , comp   = WORK.class
+ , idcols = Name
+ , nomiss = Y
+ , print  = Y
+ , debug  = N
+   );
+```
+
 ### Copyright
 Copyright 2008-2024 Paul Alexander Canals y Trocha. 
  
@@ -250,4 +345,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 ***
-*This document was generated on 2024.02.11 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*
+*This document was generated on 2024.08.01 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*

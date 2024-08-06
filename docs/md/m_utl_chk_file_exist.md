@@ -10,9 +10,11 @@
 
 ### Description
 The program checks if an external file exists and can be opened for reading and/or writing. The result is returned inline. The valid RESULT values are:
- RESULT \= 1 \-> File exists and can be opened.
- RESULT \= 0 \-> File does not exist.
- RESULT \= \-1 \-> File exists, but can not be opened.
+
+- RESULT \=  1 : File exists and can be opened.
+- RESULT \=  0 : File does not exist.
+- RESULT \= \-1 : File exists, but can not be opened.
+
 
 
 ##### *Note:*
@@ -22,10 +24,10 @@ The program checks if an external file exists and can be opened for reading and/
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 
 ### Date
-* 2023-10-07 00:00:00
+* 2024-08-03 00:00:00
 
 ### Version
-* 23.1.10
+* 24.1.08
 
 ### Link
 * https://github.com/paul-canals/toolbox
@@ -92,7 +94,7 @@ The program checks if an external file exists and can be opened for reading and/
 ```
 
 ### Copyright
-Copyright 2008-2023 Paul Alexander Canals y Trocha. 
+Copyright 2008-2024 Paul Alexander Canals y Trocha. 
  
 This program is free software: you can redistribute it and/or modify 
 it under the terms of the GNU General Public License as published by 
@@ -109,4 +111,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 ***
-*This document was generated on 2023.10.07 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*
+*This document was generated on 2024.08.03 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*

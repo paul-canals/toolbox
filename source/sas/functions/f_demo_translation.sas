@@ -13,7 +13,7 @@
  *             container under: /toolbox/source/sas/misc/scripts/.
  *             
  * \author     Paul Alexander Canals y Trocha (paul.canals@gmail.com)
- * \date       2023-10-01 hh:mm:ss
+ * \date       2023-10-06 00:00:00
  * \version    23.1.10
  * \sa         https://github.com/paul-canals/toolbox
  * 
@@ -30,7 +30,7 @@
  * \example    Example 1: Translate yes into spanish
  * \code
  * 
- *             proc fcmp outlib=WORK.funcs.demo; ;
+ *             proc fcmp outlib=WORK.functs.demo; ;
  *                function f_demo_translation(word $) $ 12;
  *                   if lowcase(x) eq "yes" then return('Si');
  *                   else return('No!');

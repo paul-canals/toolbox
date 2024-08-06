@@ -11,6 +11,8 @@
 ### Description
 This macro can be used to register a table or view in SAS metadata, using the PROC METALIB procedure. This creates and updates SAS metadata in the SAS Metadata Repository to match the given data source.
 
+
+
 ##### *Note:*
 *The M_MYFOLDER macro variable used in the USAGE examples is set by the m_utl_set_parameter.sas macro using the /pub/toolbox/config/run_parameter_ctrl.csv file.*
 

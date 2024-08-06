@@ -8,8 +8,8 @@
  *             Run this program in a SAS editor or batch script.
  * 
  * \author     Paul Alexander Canals y Trocha (paul.canals@gmail.com)
- * \date       2022-10-18 00:00:00
- * \version    22.1.10
+ * \date       2024-08-03 00:00:00
+ * \version    24.1.08
  * \sa         https://github.com/paul-canals/toolbox
  * 
  * \calls
@@ -39,7 +39,7 @@
 %* Example 2: Validate SASHELP.class to check that all male students are minor: ;
 %m_val_chk_custom(
    src_tbl  = SASHELP.class
- , val_rule = %str(Sex='M' and Age<18)
+ , val_rule = %str(Sex='M' and Age<=17)
  , action   = Check
  , print    = Y
  , debug    = Y
@@ -122,12 +122,25 @@ proc print data=WORK.baseball_custom label;
 run;
 
  
-%* Example 9: Validate SASHELP.class to check Name against SASHELP.classfit: ;
+%* Example 9: Validate SASHELP.class to check Name against SASHELP.classfit (SQL): ;
 %m_val_chk_custom(
    src_tbl  = SASHELP.class
  , exc_tbl  = WORK.class_custom
  , val_rule = %str(Name in (select Name from SASHELP.classfit where Name ne 'John'))
- , sql_type = Y
+ , action   = Check
+ , print    = Y
+ , debug    = N
+   );
+
+proc print data=WORK.class_custom label;
+run;
+
+ 
+%* Example 10: Validate SASHELP.class to check Name against SASHELP.classfit (HASH): ;
+%m_val_chk_custom(
+   src_tbl  = SASHELP.class
+ , exc_tbl  = WORK.class_custom
+ , val_rule = %str(Name in (lookup Name from SASHELP.classfit where Name ne 'John'))
  , action   = Check
  , print    = Y
  , debug    = N

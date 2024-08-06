@@ -11,6 +11,8 @@
 ### Description
 This program is to delete a single file. If failed, an error message will be thrown in the log and the run is terminated.
 
+
+
 ##### *Note:*
 *This program is able to work in system environments where x-command or unix pipes are not allowed or cannot be used.*
 

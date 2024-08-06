@@ -11,18 +11,21 @@
 ### Description
 This macro sets a certain database connection into an active or inactive state. This macro is either called from the admin SAS stored proces, or from the m_sys_set_dbaccess.sas macro program when the user password combination is invalid during logon to a database connection. The program creates a backup of the DBACCESS table before making any changes to the ACTIVE state of an entry.
 
+ The SAS dataset containing the database connection profiles has to be named DBACCESS since all the routines expects this.
+
+
+
 ##### *Note:*
-*The SAS dataset containing the database connection profiles has to be named DBACCESS since all the routines expects this.*
 *If you lose or forget the ENCRYPTKEY, there will be absolutely no way to open the DBACCESS table and recover the data!*
 
 ### Authors
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 
 ### Date
-* 2020-09-07 00:00:00
+* 2024-08-03 00:00:00
 
 ### Version
-* 20.1.09
+* 24.1.08
 
 ### Link
 * https://github.com/paul-canals/toolbox
@@ -111,7 +114,7 @@ This macro sets a certain database connection into an active or inactive state. 
 ```
 
 ### Copyright
-Copyright 2008-2020 Paul Alexander Canals y Trocha. 
+Copyright 2008-2024 Paul Alexander Canals y Trocha. 
  
 This program is free software: you can redistribute it and/or modify 
 it under the terms of the GNU General Public License as published by 
@@ -128,4 +131,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 ***
-*This document was generated on 2020.09.07 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*
+*This document was generated on 2024.08.03 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*

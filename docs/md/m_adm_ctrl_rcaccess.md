@@ -11,6 +11,8 @@
 ### Description
 Macro to administrate the SAS remote connect server entries in the rcaccess table. An admin can use this macro to initially create the rcaccess table, insert, update, delete entries or view all entries into a report which can be send to a given email address. The program contains a SAS print routine to display the pre- and post states of the rcaccess record entry change action.
 
+
+
 ##### *Note:*
 *The SAS dataset containing the database connection profiles has to be named rcaccess since all the routines expects this.*
 *If you lose or forget the ENCRYPTKEY, there will be absolutely no way to open the rcaccess table and recover the data!*

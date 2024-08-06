@@ -9,7 +9,27 @@
 ***
 
 ### Description
-The macro can be used to create a hash table in memory based on a list selection of columns from an input SAS dataset or database table. Only the columns listed in the KEYS= and COLS= parameters will be added to the hash object. The macro can be used anywhere in a SAS program specially within SAS data step. This macro is based on the ut_hash_define.sas macro program from Dave Prinsloo (dave.prinsloo@yahoo.com).
+The macro can be used to create a hash table in memory based on a list selection of columns from an input SAS dataset or database table. Only the columns listed in the KEYS= and COLS= parameters will be added to the hash object. The macro can be used anywhere in a SAS program specially within SAS data step.
+
+ Most used hash object methods are:
+
+- _hash_.check(): Checks whether a given key has been stored in the hash object. The data variables are not updated. Return codes are the same as for the find method.
+- _hash_.clear(): Removes all entries from the hash object without deleting the hash object itself.
+- _hash_.find(): Determines whether the given key has been stored in the hash object. If so, the data variables are updated and the return code is set to zero. If the key has not been found, the return code is non-zero.
+- _hash_.output(): Creates the dataset with dataset_name which will contain the data from the hash object.
+- _hash_.remove(): Removes the data associated with the given key from the hash object.
+- _hash_.sum(): Gets the key summary for the given key and stores it in a dataset or table variable. Key summaries are incremented when a key is accessed.
+
+ Hash iterative object methods are:
+
+- _hiter_.first(): Copies the data for the first item in the hash object into the data variables for the hash object.
+- _hiter_.last(): Copies the data for the last item in the hash object into the data variables for the hash object.
+- _hiter_.next(): Use iteratively to traverse the hash object and return the data items in key order. If _first_ has not been called, next begins with the first data item.
+- _hiter_.prev(): Use iteratively to traverse the hash object and return the data items in reverse key order. If _last_ has not been called, prev begins with the last data item.
+
+ This macro is based on the ut_hash_define.sas macro program from Dave Prinsloo (dave.prinsloo@yahoo.com).
+
+
 
 ##### *Note:*
 *In case of encrypted SAS datasets, the ENCRYPTKEY= parameter must be provided as part of the CREDS credentials string.*
@@ -18,10 +38,10 @@ The macro can be used to create a hash table in memory based on a list selection
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 
 ### Date
-* 2021-03-27 00:00:00
+* 2024-06-29 00:00:00
 
 ### Version
-* 21.1.03
+* 24.1.06
 
 ### Link
 * https://github.com/paul-canals/toolbox
@@ -84,9 +104,12 @@ data _null_;
    rc = class.output(dataset: 'WORK.result');
 run;
 
+proc print data=WORK.result noobs;
+   title 'Example 2: Create a hash object from an encrypted SAS dataset';
+run; title ;
 ```
 
-##### Example 3: Create an ordered hash object:
+##### Example 3: Create an ordered hash object (ordered=Y):
 ```sas
 data _null_;
    %m_utl_hash_define(
@@ -100,9 +123,12 @@ data _null_;
    rc = class.output(dataset: 'WORK.result');
 run;
 
+proc print data=WORK.result noobs;
+   title 'Example 3: Create an ordered hash object (ordered=Y)';
+run; title ;
 ```
 
-##### Example 4: Create an (A)scending ordered hash object:
+##### Example 4: Create an (A)scending ordered hash object (ordered=A):
 ```sas
 data _null_;
    %m_utl_hash_define(
@@ -116,9 +142,12 @@ data _null_;
    rc = class.output(dataset: 'WORK.result');
 run;
 
+proc print data=WORK.result noobs;
+   title 'Example 4: Create an (A)scending ordered hash object (ordered=A)';
+run; title ;
 ```
 
-##### Example 5: Create an (D)escending ordered hash object:
+##### Example 5: Create an (D)escending ordered hash object (ordered=D):
 ```sas
 data _null_;
    %m_utl_hash_define(
@@ -132,6 +161,9 @@ data _null_;
    rc = class.output(dataset: 'WORK.result');
 run;
 
+proc print data=WORK.result noobs;
+   title 'Example 5: Create an (D)escending ordered hash object (ordered=D)';
+run; title ;
 ```
 
 ##### Example 6: Create a hash object with a selection of columns (keep=):
@@ -149,6 +181,9 @@ data WORK.result;
    drop rc;
 run;
 
+proc print data=WORK.result noobs;
+   title 'Example 6: Create a hash object with a selection of columns (keep=)';
+run; title ;
 ```
 
 ##### Example 7: Create a hash object with a selection of columns (drop=):
@@ -166,6 +201,9 @@ data WORK.result;
    drop rc;
 run;
 
+proc print data=WORK.result noobs;
+   title 'Example 7: Create a hash object with a selection of columns (drop=)';
+run; title ;
 ```
 
 ##### Example 8: Create a hash object with a selection and renaming of columns:
@@ -185,8 +223,8 @@ data WORK.result;
 run;
 
 proc print data=WORK.result noobs;
-run;
-
+   title 'Example 8: Create a hash object with a selection and renaming of columns';
+run; title ;
 ```
 
 ##### Example 9: When loading duplicate key data items, only the last known value is saved:
@@ -196,9 +234,6 @@ data WORK.class;
    if Name eq 'Alice' then do;
       output; Age=16; output;
    end;
-run;
-
-proc print data=WORK.class;
 run;
 
 data _null_;
@@ -212,9 +247,13 @@ data _null_;
    rc = class.output(dataset: 'WORK.result');
 run;
 
-proc print data=WORK.result;
+proc print data=WORK.class;
+   title 'Example 9: When loading duplicate key data items, only the last known value is saved';
 run;
 
+proc print data=WORK.result;
+   title ;
+run;
 ```
 
 ##### Example 10: Step 1 - Load duplicate key data item pairs into the hash object (multidata):
@@ -227,8 +266,8 @@ data WORK.class;
 run;
 
 proc print data=WORK.class;
-run;
-
+   title 'Example 10: Step 1 - Load duplicate key data item pairs into the hash object (multidata)';
+run; title ;
 ```
 
 ##### Example 10: Step 2 - Use FIND with key to get data items from hash object (returns first key):
@@ -246,8 +285,8 @@ data Work.result;
 run;
 
 proc print data=WORK.result;
-run;
-
+   title 'Example 10: Step 2 - Use FIND with key to get data items from hash object (returns first key)';
+run; title ;
 ```
 
 ##### Example 10: Step 3 - Use OUTPUT to get all data items from hash object (returns all keys):
@@ -265,11 +304,11 @@ data _null_;
 run;
 
 proc print data=WORK.result;
-run;
-
+   title 'Example 10: Step 3 - Use OUTPUT to get all data items from hash object (returns all keys)';
+run; title ;
 ```
 
-##### Example 11: Create hash iterative object using the FIRST and NEXT methods to obtain data items from hash object:
+##### Example 11: Create hash iterative object using the FIRST and NEXT methods to obtain data items:
 ```sas
 data Work.result;
    %m_utl_hash_define(
@@ -299,12 +338,12 @@ data Work.result;
 run;
 
 proc print data=WORK.result;
-run;
-
+   title 'Example 11: Create hash iterative object using the FIRST and NEXT methods to obtain data items';
+run; title ;
 ```
 
 ### Copyright
-Copyright 2008-2021 Paul Alexander Canals y Trocha. 
+Copyright 2008-2024 Paul Alexander Canals y Trocha. 
  
 This program is free software: you can redistribute it and/or modify 
 it under the terms of the GNU General Public License as published by 
@@ -321,4 +360,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 ***
-*This document was generated on 2021.03.27 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*
+*This document was generated on 2024.06.29 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*

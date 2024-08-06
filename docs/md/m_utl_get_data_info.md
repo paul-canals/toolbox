@@ -11,6 +11,8 @@
 ### Description
 This program collects the user session data library information from the SAS dictionary tables. The result list can be filtered using prefixes and/or wildcard list of search words.
 
+
+
 ### Authors
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 

@@ -8,8 +8,8 @@
  *             Run this program in a SAS editor or batch script.
  * 
  * \author     Paul Alexander Canals y Trocha (paul.canals@gmail.com)
- * \date       2023-09-26 00:00:00
- * \version    23.1.09
+ * \date       2024-06-30 00:00:00
+ * \version    24.1.06
  * \sa         https://github.com/paul-canals/toolbox
  * 
  * \calls
@@ -41,7 +41,7 @@
    in_dir      = %str(&APPL_PRGM.)
  , out_dir     = %str(%sysfunc(getoption(WORK))/misc/docs)
  , doc_type    = MD
- , doc_image   = %str(../misc/images/doc_banner.png)
+ , doc_image   = %str(../../misc/images/doc_banner.png)
  , print       = Y
  , debug       = N
    );
@@ -51,7 +51,6 @@
    in_dir      = %str(&APPL_PRGM.)
  , out_dir     = %str(%sysfunc(getoption(WORK))/misc/docs)
  , doc_type    = PDF
- , doc_name    = reference
  , doc_title   = SAS PDF Documentation Reference
  , doc_author  = Paul Alexander Canals y Trocha
  , doc_subject = Generated SAS Documentation
@@ -59,19 +58,22 @@
  , debug       = N
    );
  
-%* Example 4: Generate RTF documentation into temporary folder in WORK: ;
+%* Example 4: Generate consolidated RTF documentation with cover in WORK: ;
 %m_hdr_gen_documents(
    in_dir      = %str(&APPL_PRGM.)
  , out_dir     = %str(%sysfunc(getoption(WORK))/misc/docs)
  , doc_type    = RTF
- , doc_title   = SAS RTF Documentation Reference
+ , doc_image   = %str(&APPL_BASE./misc/images/toolbox.jpg)
+ , doc_name    = %str(Reference Manual)
+ , doc_title   = %str(Paul%'s SAS Macro Utility Toolbox)
  , doc_author  = Paul Alexander Canals y Trocha
  , doc_subject = Generated SAS Documentation
+ , append      = Y
  , print       = Y
  , debug       = N
    );
  
-%* Example 5: Generate RTF documentation and output report by email: ;
+%* Example 5: Generate consolidated RTF documentation and output report by email: ;
 *%m_hdr_gen_documents(
 *   in_dir      = %str(&APPL_PRGM.)
 * , out_dir     = %str(%sysfunc(getoption(WORK))/misc/docs)

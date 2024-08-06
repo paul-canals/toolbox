@@ -11,6 +11,8 @@
 ### Description
 This program converts a SAS dataset into a Ms. Excel XLS or XLSX file. This program supports the XLSX engine for exporting to an Excel 2007, 2010, or later spreadsheet (.xlsx format), the XLS engine for exporting to an Excel 97, 2000, 2002, or 2003 spreadsheet (using file formats). Alternatively the EXCELCS engine can be used for exporting to an Excel workbook connecting remotely through SAS PC Files Server (uses the PCFILES engine).
 
+
+
 ##### *Note:*
 *Transcoding is not supported for ENGINE=XLS. If your file has fewer than 255 columns, use ENGINE=EXCELCS as an alternative. Otherwise, save your SAS dataset or database table to an .xlsx file to support (32/64 bit) transcoding.*
 

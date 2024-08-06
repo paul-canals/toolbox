@@ -11,14 +11,16 @@
 ### Description
 The macro stops a SAS spawned server process identified by the Universal Unique user session IDentifier (UUID).
 
+
+
 ### Authors
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 
 ### Date
-* 2023-07-27 00:00:00
+* 2024-04-30 00:00:00
 
 ### Version
-* 23.1.07
+* 24.1.04
 
 ### Link
 * https://github.com/paul-canals/toolbox
@@ -51,7 +53,7 @@ The macro stops a SAS spawned server process identified by the Universal Unique 
 ##### Example 2 - Step 1: Get the actual list of running processes:
 ```sas
 %m_adm_sessions_report(
-   host  = hermes.pact.SAS.com
+   host  = hermes
  , port  = 8581
  , user  = sasadm@saspw
  , pass  = {SAS002}DA9A0A5C1A1935335ABF908E1DAAB71E
@@ -76,7 +78,7 @@ run;
 ##### Example 2 - Step 3: Stop the user session process:
 ```sas
 *%m_adm_kill_user_session(
-*   host = hermes.pact.SAS.com
+*   host = hermes
 * , port = 8581
 * , user = sasadm@saspw
 * , pass = {SAS002}DA9A0A5C1A1935335ABF908E1DAAB71E
@@ -85,7 +87,7 @@ run;
 ```
 
 ### Copyright
-Copyright 2008-2023 Paul Alexander Canals y Trocha. 
+Copyright 2008-2024 Paul Alexander Canals y Trocha. 
  
 This program is free software: you can redistribute it and/or modify 
 it under the terms of the GNU General Public License as published by 
@@ -102,4 +104,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 ***
-*This document was generated on 2023.07.27 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*
+*This document was generated on 2024.04.30 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*

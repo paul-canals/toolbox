@@ -11,14 +11,16 @@
 ### Description
 This program converts an external comma separated file with an CSV extension into a SAS datasets or database table.
 
+
+
 ### Authors
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 
 ### Date
-* 2023-10-07 00:00:00
+* 2024-04-24 00:00:00
 
 ### Version
-* 23.1.10
+* 24.1.04
 
 ### Link
 * https://github.com/paul-canals/toolbox
@@ -34,7 +36,7 @@ This program converts an external comma separated file with an CSV extension int
 | Input | getnames | Boolean [Y/N] to decide whether to import the first record of the CSV file containing the column names. The default value is: Y. |
 | Input | datarow | Optional parameter to specify the first records containing the data information. This parameter is only valid if the GETNAMES parameter is set to N. The default value is: 2. |
 | Input | chkrows | Optional parameter to specify the number of rows to check to obtain the column length information. The default value for CHKROWS is: 20. |
-| Input | delimiter | Optional parameter to specify the that separates the columns in the IN_FILE delimited file. Valid values can be a comma, colon, space or semi-colon. The default value is: , (comma). |
+| Input | delimiter | Optional parameter to specify the that separates the columns in the IN_FILE delimited file. Valid values can be 09 (tab), 20 (space), 2C (comma), 3A (colon), or 3B (semi-colon). The default value for DELIMITER is: 2C (comma). |
 | Input | debug | Boolean [Y/N] parameter to provide verbose mode information. The default value is: N. |
 
 ### Returns
@@ -76,7 +78,7 @@ run;
 ```
 
 ### Copyright
-Copyright 2008-2023 Paul Alexander Canals y Trocha. 
+Copyright 2008-2024 Paul Alexander Canals y Trocha. 
  
 This program is free software: you can redistribute it and/or modify 
 it under the terms of the GNU General Public License as published by 
@@ -93,4 +95,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 ***
-*This document was generated on 2023.10.07 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*
+*This document was generated on 2024.04.24 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*

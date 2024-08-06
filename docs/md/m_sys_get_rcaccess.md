@@ -11,18 +11,21 @@
 ### Description
 This macro is used for retrieving remote connection profile information stored in the RCACCESS table to be able to connect to a SAS connect server by using a remote submit statement.
 
+ The SAS dataset containing the database connection profiles has to be named RCACCESS since all the routines expects this.
+
+
+
 ##### *Note:*
-*The SAS dataset containing the database connection profiles has to be named RCACCESS since all the routines expects this.*
 *If you lose or forget the ENCRYPTKEY, there will be absolutely no way to open the RCACCESS table and recover the data!*
 
 ### Authors
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 
 ### Date
-* 2020-12-07 00:00:00
+* 2024-08-03 00:00:00
 
 ### Version
-* 20.1.12
+* 24.1.08
 
 ### Link
 * https://github.com/paul-canals/toolbox
@@ -202,7 +205,7 @@ run;
 ```
 
 ### Copyright
-Copyright 2008-2020 Paul Alexander Canals y Trocha. 
+Copyright 2008-2024 Paul Alexander Canals y Trocha. 
  
 This program is free software: you can redistribute it and/or modify 
 it under the terms of the GNU General Public License as published by 
@@ -219,4 +222,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 ***
-*This document was generated on 2020.12.07 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*
+*This document was generated on 2024.08.03 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*

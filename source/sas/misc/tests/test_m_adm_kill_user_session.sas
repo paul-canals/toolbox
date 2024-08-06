@@ -8,8 +8,8 @@
  *             Run this program in a SAS editor or batch script.
  * 
  * \author     Paul Alexander Canals y Trocha (paul.canals@gmail.com)
- * \date       2023-07-27 00:00:00
- * \version    23.1.07
+ * \date       2024-04-30 00:00:00
+ * \version    24.1.04
  * \sa         https://github.com/paul-canals/toolbox
  * 
  * \calls
@@ -38,7 +38,7 @@
  
 %* Example 2 - Step 1: Get the actual list of running processes: ;
 %m_adm_sessions_report(
-   host  = hermes.pact.SAS.com
+   host  = hermes
  , port  = 8581
  , user  = sasadm@saspw
  , pass  = {SAS002}DA9A0A5C1A1935335ABF908E1DAAB71E
@@ -59,7 +59,7 @@ run;
  
 %* Example 2 - Step 3: Stop the user session process: ;
 *%m_adm_kill_user_session(
-*   host = hermes.pact.SAS.com
+*   host = hermes
 * , port = 8581
 * , user = sasadm@saspw
 * , pass = {SAS002}DA9A0A5C1A1935335ABF908E1DAAB71E
