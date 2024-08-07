@@ -1,4 +1,4 @@
-![../../misc/images/doc_banner.png](../../misc/images/doc_banner.png)
+![../../misc/images/doc_header.png](../../misc/images/doc_header.png)
 # 
 # File Reference: f_demo_hello_world.sas
 
