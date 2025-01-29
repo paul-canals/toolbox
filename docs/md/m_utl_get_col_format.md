@@ -1,4 +1,4 @@
-![../../misc/images/doc_header.png](../../misc/images/doc_header.png)
+[![../../misc/images/doc_header.png](../../misc/images/doc_header.png)](#)
 # 
 # File Reference: m_utl_get_col_format.sas
 
@@ -21,10 +21,10 @@ The macro is used to obtain the attribute format information from a given column
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 
 ### Date
-* 2024-05-13 00:00:00
+* 2024-08-23 00:00:00
 
 ### Version
-* 24.1.05
+* 24.1.08
 
 ### Link
 * https://github.com/paul-canals/toolbox
@@ -38,7 +38,7 @@ The macro is used to obtain the attribute format information from a given column
 | Input | creds | Optional. Specifies the ENCRYPTKEY= parameter value when TABLE involves an encrypted, or PW=, ALTER=, READ= or WRITE= for a protected dataset. |
 | Input | col_name | Parameter to specify the column attribute name. |
 | Input | col | Alias of the COL_NAME= parameter. |
-| Input | decimals | Parameter to specify the number of in case the numeric format could not be defined. The default value for DECIMALS is: 1. |
+| Input | decimals | Optional. Parameter to specify the number of decimal positions in case the numeric format could not be defined. The DECIMALS parameter is considered when the DEFAULT parameter is set to Y, and the DECIMALS value is greater than 0, otherwise the BEST32 format value is set. The default value for DECIMALS is: 0. |
 | Input | dec | Alias of the DECIMALS= parameter. |
 | Input | default | Boolean [Y/N] parameter to specify if a format value is to be set case the format could not be found. The default value is: N. |
 | Input | def | Alias of the DEFAULT= parameter. |
@@ -63,6 +63,7 @@ The macro is used to obtain the attribute format information from a given column
 ##### Example 2: Obtain column format information for Actual column of the SASHELP.prdsale table:
 ```sas
 data WORK.result;
+   Example=2;
    Table="SASHELP.prdsale";
    Column='Actual';
    Format="%m_utl_get_col_format(table=SASHELP.prdsale,col=Actual,debug=Y)";
@@ -77,6 +78,7 @@ run;
 ##### Example 3: Obtain column format information for Prodtype column of the SASHELP.prdsale table:
 ```sas
 data WORK.result;
+   Example=3;
    Table="SASHELP.prdsale";
    Column='Prodtype';
    Format="%m_utl_get_col_format(table=SASHELP.prdsale,col=Prodtype,debug=Y)";
@@ -91,9 +93,61 @@ run;
 ##### Example 4: Obtain column format information for Invioce column of the SASHELP.cars table:
 ```sas
 data WORK.result;
+   Example=4;
    Table="SASHELP.cars";
    Column='Invoice';
    Format="%m_utl_get_col_format(table=SASHELP.cars,col=Invoice,debug=Y)";
+   output;
+run;
+
+proc print data=WORK.result noobs;
+run;
+
+```
+
+##### Example 5: Obtain column format information for Age column of the SASHELP.class table:
+```sas
+data WORK.result;
+   Example=5;
+   Table="SASHELP.class";
+   Column='Age';
+   Default='N';
+   Decimals=0;
+   Format="%m_utl_get_col_format(table=SASHELP.class,col=Age,debug=Y)";
+   output;
+run;
+
+proc print data=WORK.result noobs;
+run;
+
+```
+
+##### Example 6: Obtain column format information for Age column of the SASHELP.class table:
+```sas
+data WORK.result;
+   Example=6;
+   Table="SASHELP.class";
+   Column='Age';
+   Default='Y';
+   Decimals=0;
+   Format="%m_utl_get_col_format(table=SASHELP.class,col=Age,def=Y,debug=Y)";
+   output;
+run;
+
+proc print data=WORK.result noobs;
+run;
+
+```
+
+##### Example 7: Obtain column format information for Age column of the SASHELP.class table:
+```sas
+data WORK.result;
+   Example=7;
+   Table="SASHELP.class";
+   Column='Age';
+   Default='Y';
+   Decimals=1;
+   Format="%m_utl_get_col_format(table=SASHELP.class,col=Age,def=Y,dec=1,debug=Y)";
    output;
 run;
 
@@ -120,4 +174,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 ***
-*This document was generated on 2024.05.13 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*
+*This document was generated on 2024.08.23 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*

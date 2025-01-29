@@ -6,11 +6,11 @@
  * \details    This script can be run in a SAS editor or batch script.
  * 
  * \author     Paul Alexander Canals y Trocha (paul.canals@gmail.com)
- * \date       2024-08-02 00:00:00
- * \version    24.1.08
+ * \date       2025-01-28 00:00:00
+ * \version    25.1.01
  * \sa         https://github.com/paul-canals/toolbox
  * 
- * \copyright  Copyright 2008-2024 Paul Alexander Canals y Trocha.
+ * \copyright  Copyright 2008-2025 Paul Alexander Canals y Trocha.
  * 
  *     This program is free software: you can redistribute it and/or modify
  *     it under the terms of the GNU General Public License as published by
@@ -102,9 +102,9 @@
 %run_functs_documentation(
    sas_path    = &APPL_FUNC.
  , doc_path    = &APPL_DOCS.
- , exc_lst     = %str(\todo \warning)
+ , exc_lst     = %str(\note \todo \warning)
  , doc_type    = MD
- , doc_image   = ../../misc/images/doc_banner.png
+ , doc_image   = ../../misc/images/doc_header.png
  , doc_title   = %str(Paul%'s SAS Macro Utility Toolbox)
  , doc_author  = Paul Alexander Canals y Trocha
  , doc_subject = Generated SAS Documentation
@@ -115,7 +115,7 @@
 %run_functs_documentation(
    sas_path    = &APPL_FUNC.
  , doc_path    = &APPL_DOCS.
- , exc_lst     = %str(\todo \warning)
+ , excl_lst    = %str(\note \todo \warning)
  , doc_type    = PDF
  , doc_title   = %str(Paul%'s SAS Macro Utility Toolbox)
  , doc_author  = Paul Alexander Canals y Trocha
@@ -126,7 +126,6 @@
 %run_functs_documentation(
    sas_path    = &APPL_FUNC.
  , doc_path    = &APPL_DOCS.
- , exc_lst     = %str(\todo \warning)
  , doc_type    = RTF
  , doc_title   = %str(Paul%'s SAS Macro Utility Toolbox)
  , doc_author  = Paul Alexander Canals y Trocha

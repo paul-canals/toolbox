@@ -1,7 +1,7 @@
-[![misc/images/banner.png](misc/images/banner.png)](https://github.com/paul-canals/toolbox-dev)
+[![misc/images/banner.png](misc/images/banner.png)](#)
 
-# 
-[![Release: v24.1.08](https://img.shields.io/badge/release-v24.1.08-orange.svg)](https://github.com/paul-canals/toolbox/releases/tag/24.1.08-final)
+#
+[![Release: v25.1.01](https://img.shields.io/badge/release-v25.1.01-orange.svg)](#)
 [![SAS Version: 9.4](https://img.shields.io/badge/sas-9.4-blue.svg)](https://www.sas.com)
 [![License: GPL v3](https://img.shields.io/badge/license-GPLv3-green.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
@@ -58,9 +58,10 @@ Now we can continue with the Installation Steps.
 5. Open the `/pub/toolbox/misc/scripts/autoexec.sas` file into the SAS&reg; editor of your choice, and edit the following entries:
 
       ```sas
-      %let APPL_HOST = DEV;           /* Set to [PRD|TST|DEV] */
-      %let APPL_META = GRP;           /* Acronym for SAS Metadata Server Usergroup */
-      %let APPL_BASE = /pub/toolbox;  /* Root path to Toolbox files */
+      %let APPL_HOST = DEV;                /* Set to [PRD|TST|DEV] */
+      %let APPL_META = GRP;                /* Acronym for SAS Metadata Server Usergroup */
+      %let APPL_BASE = /pub/toolbox;       /* Root path to Toolbox files */
+      %let USER_BASE = /pub/toolbox/user;  /* Root path to Toolbox user data */
       ```
 
 7. Save the changes made to the `/pub/toolbox/misc/scripts/autoexec.sas` file, and close it.
@@ -122,7 +123,7 @@ Now we can continue with the Installation Steps.
     | Check if value for APPL_TEST is set: '/pub/toolbox/source/sas/misc/tests' | OK |
     | Check if value for APPL_TMPL is set: '/pub/toolbox/source/sas/misc/templates' | OK |
     | Check if value for APPL_UCMR is set: '/pub/toolbox/source/sas/ucmacros' | OK |
-    | Check if value for APPL_VERS is set: '23.01.09' | OK |
+    | Check if value for APPL_VERS is set: '25.1.01' | OK |
     | Check if directory '/pub/toolbox' exists | OK |
     | Check if directory '/pub/toolbox/config' exists | OK |
     | Check if directory '/pub/toolbox/docs' exists | OK |    
@@ -167,31 +168,29 @@ This is good enough for now. It is time now for some *Post Installation Steps*.
 
 ### Post Installation Steps
 
-In order to compile all of the the toolbox macros into a SAS&reg; macro catalog, run the m_adm_compile_macros.sas (toolbox) program:
+In order to check the existance of the toolbox functions in the SAS&reg; user compiled functions container, run the m_utl_get_func_info.sas (toolbox) macro:
 
 ```sas
-%m_adm_compile_macros(
-   indir    = %str(/pub/toolbox/source/sas/sasautos)
- , outdir   = %str(/pub/toolbox/source/sas/catalogs)
- , print    = Y
- , debug    = Y
+%m_utl_get_func_info(
+   outlib = WORK
+ , debug  = Y
    );
+proc print data=WORK.func_info;
+run;
 ```
 
-After the program finishes, a new SAS&reg; macro catalog has been created (in our case) under `/pub/toolbox/misc/catalogs/sasmacr.sas7bcat`.
-
-To view the contents of the SAS&reg; macro catalog run the m_utl_mstore_view.sas (toolbox) program:
+In order to check the existance of the toolbox macros in the SAS&reg; macro catalog, run the m_utl_get_mcat_info.sas (toolbox) macro:
 
 ```sas
-%m_utl_mstore_view(
-   indir    = %str(/pub/toolbox/source/sas/catalogs)
- , outds    = TEMP
- , print    = Y
- , debug    = Y
+%m_utl_get_mcat_info(
+   outlib = WORK
+ , debug  = Y
    );
+proc print data=WORK.mcat_info;
+run;
 ```
 
-Now that the compiled SAS&reg; macro catalog is created for the toolbox macros, we may include the catalog into the autoexec.sas program. Therefore, we have to change some entries to the following code block: 
+Now that we use a compiled SAS&reg; macro catalog included in the autoexec.sas program, we may want to change the following code block: 
 
 ```sas
  %*---------------------------------------------------------------------------;
@@ -200,7 +199,7 @@ Now that the compiled SAS&reg; macro catalog is created for the toolbox macros, 
  options sasautos=("&APPL_PRGM." %sysfunc(getoption(SASAUTOS)));
 ```
 
-Since we want to register the toolbox macros by using the SAS&reg; macro catalog we created before under `/pub/toolbox/source/sas/catalogs/sasmacr.sas7bcat`, we need to make the following changes to the autoexec.sas program:
+into:
 
 ```sas
  %*---------------------------------------------------------------------------;

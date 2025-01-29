@@ -6,11 +6,11 @@
  * \details    This script can be run in a SAS editor or batch script.
  * 
  * \author     Paul Alexander Canals y Trocha (paul.canals@gmail.com)
- * \date       2021-10-31 00:00:00
- * \version    21.1.10
+ * \date       2025-01-28 00:00:00
+ * \version    25.1.01
  * \sa         https://github.com/paul-canals/toolbox
  * 
- * \copyright  Copyright 2008-2021 Paul Alexander Canals y Trocha.
+ * \copyright  Copyright 2008-2025 Paul Alexander Canals y Trocha.
  * 
  *     This program is free software: you can redistribute it and/or modify
  *     it under the terms of the GNU General Public License as published by
@@ -88,7 +88,7 @@
  , tgt_path = &APPL_TEST.
  , sendmail = N
  , mailaddr = %str(pact@hermes.local)
- , debug    = Y
+ , debug    = N
    );
 
 %* Create macro test scripts: ;

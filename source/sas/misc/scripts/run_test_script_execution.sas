@@ -6,11 +6,11 @@
  * \details    This script can be run in a SAS editor or batch script.
  * 
  * \author     Paul Alexander Canals y Trocha (paul.canals@gmail.com)
- * \date       2023-10-01 00:00:00
- * \version    23.1.10
+ * \date       2025-01-28 00:00:00
+ * \version    25.1.01
  * \sa         https://github.com/paul-canals/toolbox
  * 
- * \copyright  Copyright 2008-2023 Paul Alexander Canals y Trocha.
+ * \copyright  Copyright 2008-2025 Paul Alexander Canals y Trocha.
  * 
  *     This program is free software: you can redistribute it and/or modify
  *     it under the terms of the GNU General Public License as published by

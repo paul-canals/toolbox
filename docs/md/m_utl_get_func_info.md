@@ -1,4 +1,4 @@
-![../../misc/images/doc_header.png](../../misc/images/doc_header.png)
+[![../../misc/images/doc_header.png](../../misc/images/doc_header.png)](#)
 # 
 # File Reference: m_utl_get_func_info.sas
 
@@ -17,10 +17,10 @@ This program collects the user compiled functions information from a given filep
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 
 ### Date
-* 2023-12-07 00:00:00
+* 2024-09-11 00:00:00
 
 ### Version
-* 23.1.12
+* 24.1.09
 
 ### Link
 * https://github.com/paul-canals/toolbox
@@ -41,7 +41,6 @@ This program collects the user compiled functions information from a given filep
 * [m_utl_nlobs.sas](m_utl_nlobs.md)
 * [m_utl_print_message.sas](m_utl_print_message.md)
 * [m_utl_print_mtrace.sas](m_utl_print_mtrace.md)
-* [m_utl_quote_elems.sas](m_utl_quote_elems.md)
 
 ### Usage
 
@@ -70,7 +69,7 @@ This program collects the user compiled functions information from a given filep
 ```
 
 ### Copyright
-Copyright 2008-2023 Paul Alexander Canals y Trocha. 
+Copyright 2008-2024 Paul Alexander Canals y Trocha. 
  
 This program is free software: you can redistribute it and/or modify 
 it under the terms of the GNU General Public License as published by 
@@ -87,4 +86,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 ***
-*This document was generated on 2023.12.07 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*
+*This document was generated on 2024.09.11 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*

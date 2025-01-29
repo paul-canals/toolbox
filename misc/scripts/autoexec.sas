@@ -7,11 +7,11 @@
  *             library using the m_utl_set_sasauto.sas utility macro program.
  * 
  * \author     Paul Alexander Canals y Trocha (paul.canals@gmail.com)
- * \date       2024-02-11 00:00:00
- * \version    24.1.02
+ * \date       2025-01-28 00:00:00
+ * \version    25.1.01
  * \sa         https://github.com/paul-canals/toolbox
  * 
- * \return     Registered toolbox macros and library references.
+ * \return     Registered toolbox functions, macros and library references.
  * 
  * \calls
  *             + m_utl_create_dir.sas
@@ -36,7 +36,7 @@
  *             %include '/pub/toolbox/misc/scripts/autoexec.sas';
  * \endcode
  * 
- * \copyright  Copyright 2008-2024 Paul Alexander Canals y Trocha.
+ * \copyright  Copyright 2008-2025 Paul Alexander Canals y Trocha.
  * 
  *     This program is free software: you can redistribute it and/or modify
  *     it under the terms of the GNU General Public License as published by
@@ -57,7 +57,7 @@
  %* SAS system options settings:                                              ;
  %*---------------------------------------------------------------------------;
 
- options source source2 notes mprint minoperator noimplmac compress=yes;
+ options nosource nosource2 notes nomprint minoperator noimplmac compress=yes;
 
  %*---------------------------------------------------------------------------;
  %* Custom entries: main application paths + environment macro variables:     ;
@@ -99,7 +99,7 @@
  %*---------------------------------------------------------------------------;
     
  %let APPL_NAME = Toolbox;
- %let APPL_VERS = 24.1.02;
+ %let APPL_VERS = 25.1.01;
  %let APPL_CONF = &APPL_BASE./config;
  %let APPL_DOCS = &APPL_BASE./docs;
  %let APPL_LOGS = &APPL_BASE./misc/logs;
@@ -126,10 +126,14 @@
  %* !!!!!! NOTE: NO MACRO FUNCTION CALLS ARE ALLOWED ABOVE THIS LINE !!!!!!!! ;
 
  %macro setCatalog;
-    %if %sysfunc(fileexist(&APPL_MCAT./sasmacr.sas7bcat)) %then %do;
+    %local sys; %let sys = %sysfunc(ifc(%lowcase(&sysscp.) eq win,win,lnx));
+    %if %sysfunc(fileexist(&APPL_MCAT./sasmacr_&sys..sas7bcat)) %then %do;
+       %if %bquote(%sysfunc(getoption(SASMSTORE))) ne %bquote() %then %do;
+          %sysmstoreclear;
+       %end;
        libname TMP_MCAT "&APPL_MCAT." access=readonly;
-       libname USR_WORK "%sysfunc(pathname(work))"; 
-       proc catalog cat = TMP_MCAT.sasmacr force;
+       libname USR_WORK "%sysfunc(getoption(WORK))";
+       proc catalog cat = TMP_MCAT.sasmacr_&sys. force;
           copy out = USR_WORK.sasmacr;
        quit;
        libname TMP_MCAT clear;
@@ -265,3 +269,9 @@
  %*---------------------------------------------------------------------------;
 
  %m_utl_get_sys_info(outlib=USR_INFO,debug=N);
+
+ %*---------------------------------------------------------------------------;
+ %* Set SAS system options for current user session:                          ;
+ %*---------------------------------------------------------------------------;
+
+ options source source2 notes mprint minoperator noimplmac compress=yes;

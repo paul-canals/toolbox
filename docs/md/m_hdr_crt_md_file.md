@@ -1,4 +1,4 @@
-![../../misc/images/doc_header.png](../../misc/images/doc_header.png)
+[![../../misc/images/doc_header.png](../../misc/images/doc_header.png)](#)
 # 
 # File Reference: m_hdr_crt_md_file.sas
 
@@ -42,10 +42,10 @@ The macro generates a Markdown formatted document containing program or macro in
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 
 ### Date
-* 2024-06-30 00:00:00
+* 2024-08-31 00:00:00
 
 ### Version
-* 24.1.06
+* 24.1.08
 
 ### Link
 * https://github.com/paul-canals/toolbox
@@ -118,4 +118,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 ***
-*This document was generated on 2024.06.30 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*
+*This document was generated on 2024.08.31 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*

@@ -1,4 +1,4 @@
-![../../misc/images/doc_header.png](../../misc/images/doc_header.png)
+[![../../misc/images/doc_header.png](../../misc/images/doc_header.png)](#)
 # 
 # File Reference: m_val_run_validation.sas
 
@@ -47,17 +47,17 @@ The macro reads a list of validation rules from a SAS dataset or database table 
 
 
 ##### *Note:*
-*If the PRINT parameter value is set to Y, a SAS proc report step is used to print the validation summary status on the result tab of SAS Enterprise Guide or Stored Process Server.*
+*If the PRINT parameter value is set to Y, a SAS proc report step is used to print the profiling summary status on the result tab of SAS Enterprise Guide, SAS STP or SAS Studio.*
 
 ### Authors
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 * Dr. Simone Kossmann (simone.kossmann@web.de)
 
 ### Date
-* 2024-08-03 00:00:00
+* 2024-12-12 00:00:00
 
 ### Version
-* 24.1.08
+* 24.1.12
 
 ### Link
 * https://github.com/paul-canals/toolbox
@@ -229,4 +229,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 ***
-*This document was generated on 2024.08.03 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*
+*This document was generated on 2024.12.12 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*

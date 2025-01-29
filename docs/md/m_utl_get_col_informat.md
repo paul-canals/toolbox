@@ -1,4 +1,4 @@
-![../../misc/images/doc_header.png](../../misc/images/doc_header.png)
+[![../../misc/images/doc_header.png](../../misc/images/doc_header.png)](#)
 # 
 # File Reference: m_utl_get_col_informat.sas
 
@@ -21,10 +21,10 @@ The macro is used to obtain the attribute informat information from a given colu
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 
 ### Date
-* 2024-05-13 00:00:00
+* 2024-08-23 00:00:00
 
 ### Version
-* 24.1.05
+* 24.1.08
 
 ### Link
 * https://github.com/paul-canals/toolbox
@@ -38,7 +38,7 @@ The macro is used to obtain the attribute informat information from a given colu
 | Input | creds | Optional. Specifies the ENCRYPTKEY= parameter value when TABLE involves an encrypted, or PW=, ALTER=, READ= or WRITE= for a protected dataset. |
 | Input | col_name | Parameter to specify the column attribute name. |
 | Input | col | Alias of the COL_NAME= parameter. |
-| Input | decimals | Parameter to specify the number of in case the numeric format could not be defined. The default value for DECIMALS is: 1. |
+| Input | decimals | Optional. Parameter to specify the number of decimal positions in case the numeric format could not be defined. The DECIMALS parameter is considered when the DEFAULT parameter is set to Y, and the DECIMALS value is greater than 0, otherwise the BEST32 format value is set. The default value for DECIMALS is: 0. |
 | Input | dec | Alias of the DECIMALS= parameter. |
 | Input | default | Boolean [Y/N] parameter to specify if a format value is to be set case the format could not be found. The default value is: N. |
 | Input | def | Alias of the DEFAULT= parameter. |
@@ -60,12 +60,13 @@ The macro is used to obtain the attribute informat information from a given colu
 %m_utl_get_col_informat(?)
 ```
 
-##### Example 2: Obtain column informat information for Actual column of the SASHELP.prdsale table:
+##### Example 2: Obtain column informat information for Monyr column of the SASHELP.prdsal2 table:
 ```sas
 data WORK.result;
-   Table="SASHELP.prdsale";
-   Column='Actual';
-   Informat="%m_utl_get_col_informat(table=SASHELP.prdsale,col=Actual,debug=Y)";
+   Example=2;
+   Table="SASHELP.prdsal2";
+   Column='Monyr';
+   Informat="%m_utl_get_col_informat(table=SASHELP.prdsal2,col=Monyr,debug=Y)";
    output;
 run;
 
@@ -77,8 +78,10 @@ run;
 ##### Example 3: Obtain column informat information for Prodtype column of the SASHELP.prdsale table:
 ```sas
 data WORK.result;
+   Example=3;
    Table="SASHELP.prdsale";
    Column='Prodtype';
+   Default='N';
    Informat="%m_utl_get_col_informat(table=SASHELP.prdsale,col=Prodtype,debug=Y)";
    output;
 run;
@@ -88,12 +91,65 @@ run;
 
 ```
 
-##### Example 4: Obtain column informat information for Invioce column of the SASHELP.cars table:
+##### Example 4: Obtain column informat information for Prodtype column of the SASHELP.prdsale table:
 ```sas
 data WORK.result;
-   Table="SASHELP.cars";
-   Column='Invoice';
-   Informat="%m_utl_get_col_informat(table=SASHELP.cars,col=Invoice,debug=Y)";
+   Example=4;
+   Table="SASHELP.prdsale";
+   Column='Prodtype';
+   Default='Y';
+   Informat="%m_utl_get_col_informat(table=SASHELP.prdsale,col=Prodtype,def=Y,debug=Y)";
+   output;
+run;
+
+proc print data=WORK.result noobs;
+run;
+
+```
+
+##### Example 5: Obtain column informat information for Actual column of the SASHELP.prdsale table:
+```sas
+data WORK.result;
+   Example=5;
+   Table="SASHELP.prdsale";
+   Column='Actual';
+   Default='N';
+   Decimals=0;
+   Informat="%m_utl_get_col_informat(table=SASHELP.prdsale,col=Actual,debug=Y)";
+   output;
+run;
+
+proc print data=WORK.result noobs;
+run;
+
+```
+
+##### Example 6: Obtain column informat information for Actual column of the SASHELP.prdsale table:
+```sas
+data WORK.result;
+   Example=6;
+   Table="SASHELP.prdsale";
+   Column='Actual';
+   Default='Y';
+   Decimals=0;
+   Informat="%m_utl_get_col_informat(table=SASHELP.prdsale,col=Actual,def=Y,debug=Y)";
+   output;
+run;
+
+proc print data=WORK.result noobs;
+run;
+
+```
+
+##### Example 7: Obtain column informat information for Actual column of the SASHELP.prdsale table:
+```sas
+data WORK.result;
+   Example=7;
+   Table="SASHELP.prdsale";
+   Column='Actual';
+   Default='Y';
+   Decimals=2;
+   Informat="%m_utl_get_col_informat(table=SASHELP.prdsale,col=Actual,def=Y,dec=2,debug=Y)";
    output;
 run;
 
@@ -120,4 +176,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 ***
-*This document was generated on 2024.05.13 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*
+*This document was generated on 2024.08.23 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*

@@ -1,10 +1,10 @@
-![../../misc/images/doc_header.png](../../misc/images/doc_header.png)
+[![../../misc/images/doc_header.png](../../misc/images/doc_header.png)](#)
 # 
 # File Reference: m_utl_get_engine.sas
 
 ### Utilities
 
-##### This macro returns the engine name of a given SAS library.
+##### Utility macro to get the engine name of a given SAS library.
 
 ***
 
@@ -21,10 +21,10 @@ The macro searches the SAS dictionary tables to find the engine information of t
 * Dr. Simone Kossmann (simone.kossmann@web.de)
 
 ### Date
-* 2023-11-18 00:00:00
+* 2024-10-28 00:00:00
 
 ### Version
-* 23.1.11
+* 24.1.10
 
 ### Link
 * https://github.com/paul-canals/toolbox
@@ -95,7 +95,7 @@ run;
 ```
 
 ### Copyright
-Copyright 2008-2023 Paul Alexander Canals y Trocha. 
+Copyright 2008-2024 Paul Alexander Canals y Trocha. 
  
 This program is free software: you can redistribute it and/or modify 
 it under the terms of the GNU General Public License as published by 
@@ -112,4 +112,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 ***
-*This document was generated on 2023.11.18 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*
+*This document was generated on 2024.10.28 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*

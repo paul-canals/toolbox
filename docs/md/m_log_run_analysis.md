@@ -1,4 +1,4 @@
-![../../misc/images/doc_header.png](../../misc/images/doc_header.png)
+[![../../misc/images/doc_header.png](../../misc/images/doc_header.png)](#)
 # 
 # File Reference: m_log_run_analysis.sas
 
@@ -19,10 +19,10 @@ This program is used to perform overall runtime performance on SAS steps and run
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 
 ### Date
-* 2024-05-25 00:00:00
+* 2024-08-25 00:00:00
 
 ### Version
-* 24.1.05
+* 24.1.08
 
 ### Link
 * https://github.com/paul-canals/toolbox
@@ -135,8 +135,8 @@ options nosyntaxcheck obs=max;
    in_file    = %str(%sysfunc(getoption(work))/sas.log)
  , program    = RUN_ANALYSIS
  , run_mode   = COPY
- , in_tbl     = SASHELP.cars
- , out_tbl    = WORK.cars
+ , in_tbl     = SASHELP.prdsal2
+ , out_tbl    = WORK.prdsal2
  , file_flg   = Y
  , print      = Y
  , print_log  = Y
@@ -164,4 +164,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 ***
-*This document was generated on 2024.05.25 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*
+*This document was generated on 2024.08.25 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*

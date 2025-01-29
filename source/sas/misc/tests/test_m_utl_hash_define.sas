@@ -8,14 +8,14 @@
  *             Run this program in a SAS editor or batch script.
  * 
  * \author     Paul Alexander Canals y Trocha (paul.canals@gmail.com)
- * \date       2024-06-29 00:00:00
- * \version    24.1.06
+ * \date       2024-11-29 00:00:00
+ * \version    24.1.11
  * \sa         https://github.com/paul-canals/toolbox
  * 
  * \calls
  *             + m_utl_hash_define.sas
  * 
- * \copyright  Copyright 2008-2024 Paul Alexander Canals y Trocha
+ * \copyright  Copyright 2008-2025 Paul Alexander Canals y Trocha
  * 
  *     This program is free software: you can redistribute it and/or modify
  *     it under the terms of the GNU General Public License as published by

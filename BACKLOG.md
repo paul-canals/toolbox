@@ -51,6 +51,11 @@
 | 7 | 23.1.11 | Done | Create a macro [m_utl_prio_lookup.sas](docs/md/m_utl_prio_lookup.md) to perform hash table lookups by column mapping table priority for efficient mapping table usage |
 | 8 | 23.1.11 | Done | Create a macro [m_utl_get_engine.sas](docs/md/m_utl_get_engine.md) that returns the engine name of a given SAS library including database management system type engines |
 | 9 | 23.1.11 | Done | Finalise the integration of [m_utl_print_mtrace.sas](docs/md/m_utl_print_mtrace.md) for all Toolbox macros to enforce macro trace options in SAS log |
+| 10 | 24.1.01 | Done | Create a macro [m_utl_chk_boolean.sas](docs/md/m_utl_chk_boolean.md) that checks and converts a given boolean attribute flag value |
+| 11 | 24.1.02 | Done | Create a macro [m_utl_map_tables.sas](docs/md/m_utl_map_tables.md) that reads a given source table and target table to collect column information in order to map columns tables |
+| 12 | 24.1.04 | Done | Create a macro [m_utl_get_col_number.sas](docs/md/m_utl_get_col_number.md) that returns the column number attribute value from a table or dataset |
+| 13 | 24.1.04 | Done | Create a macro [m_utl_get_col_label.sas](docs/md/m_utl_get_col_label.md) that returns the column label attribute value from a table or dataset |
+| 14 | 24.1.05 | Done | Create a macro [m_utl_fmtinfo.sas](docs/md/m_utl_fmtinfo.md) that returns if a given SAS format or informat value is valid |
 
 ## Validation
 

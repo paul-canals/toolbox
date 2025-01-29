@@ -8,14 +8,14 @@
  *             Run this program in a SAS editor or batch script.
  * 
  * \author     Paul Alexander Canals y Trocha (paul.canals@gmail.com)
- * \date       2024-05-13 00:00:00
- * \version    24.1.05
+ * \date       2024-08-23 00:00:00
+ * \version    24.1.08
  * \sa         https://github.com/paul-canals/toolbox
  * 
  * \calls
  *             + m_utl_get_col_format.sas
  * 
- * \copyright  Copyright 2008-2024 Paul Alexander Canals y Trocha
+ * \copyright  Copyright 2008-2025 Paul Alexander Canals y Trocha
  * 
  *     This program is free software: you can redistribute it and/or modify
  *     it under the terms of the GNU General Public License as published by
@@ -38,6 +38,7 @@
  
 %* Example 2: Obtain column format information for Actual column of the SASHELP.prdsale table: ;
 data WORK.result;
+   Example=2;
    Table="SASHELP.prdsale";
    Column='Actual';
    Format="%m_utl_get_col_format(table=SASHELP.prdsale,col=Actual,debug=Y)";
@@ -50,6 +51,7 @@ run;
  
 %* Example 3: Obtain column format information for Prodtype column of the SASHELP.prdsale table: ;
 data WORK.result;
+   Example=3;
    Table="SASHELP.prdsale";
    Column='Prodtype';
    Format="%m_utl_get_col_format(table=SASHELP.prdsale,col=Prodtype,debug=Y)";
@@ -62,9 +64,55 @@ run;
  
 %* Example 4: Obtain column format information for Invioce column of the SASHELP.cars table: ;
 data WORK.result;
+   Example=4;
    Table="SASHELP.cars";
    Column='Invoice';
    Format="%m_utl_get_col_format(table=SASHELP.cars,col=Invoice,debug=Y)";
+   output;
+run;
+
+proc print data=WORK.result noobs;
+run;
+
+ 
+%* Example 5: Obtain column format information for Age column of the SASHELP.class table: ;
+data WORK.result;
+   Example=5;
+   Table="SASHELP.class";
+   Column='Age';
+   Default='N';
+   Decimals=0;
+   Format="%m_utl_get_col_format(table=SASHELP.class,col=Age,debug=Y)";
+   output;
+run;
+
+proc print data=WORK.result noobs;
+run;
+
+ 
+%* Example 6: Obtain column format information for Age column of the SASHELP.class table: ;
+data WORK.result;
+   Example=6;
+   Table="SASHELP.class";
+   Column='Age';
+   Default='Y';
+   Decimals=0;
+   Format="%m_utl_get_col_format(table=SASHELP.class,col=Age,def=Y,debug=Y)";
+   output;
+run;
+
+proc print data=WORK.result noobs;
+run;
+
+ 
+%* Example 7: Obtain column format information for Age column of the SASHELP.class table: ;
+data WORK.result;
+   Example=7;
+   Table="SASHELP.class";
+   Column='Age';
+   Default='Y';
+   Decimals=1;
+   Format="%m_utl_get_col_format(table=SASHELP.class,col=Age,def=Y,dec=1,debug=Y)";
    output;
 run;
 
