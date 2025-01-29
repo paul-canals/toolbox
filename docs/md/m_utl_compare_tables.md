@@ -1,4 +1,4 @@
-![../../misc/images/doc_header.png](../../misc/images/doc_header.png)
+[![../../misc/images/doc_header.png](../../misc/images/doc_header.png)](#)
 # 
 # File Reference: m_utl_compare_tables.sas
 
@@ -41,7 +41,7 @@ The macro compares two tables or SAS datasets, the base dataset TABLE1 and the c
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 
 ### Date
-* 2024-08-01 00:00:00
+* 2024-08-30 00:00:00
 
 ### Version
 * 24.1.08
@@ -62,7 +62,7 @@ The macro compares two tables or SAS datasets, the base dataset TABLE1 and the c
 | Input | outtbl | Full LIBNAME.TABLENAME name of the output diff table. The default value for OUTTBL is: \_NONE\_. |
 | Input | diff | Alias of the OUTTBL= parameter. |
 | Input | method | Indicator [ABSOLUTE/EXACT/PERCENT] to specify the method used for the COMPARE procedure. The standard method is EXACT. If ABSOLUTE or PERCENT then the CRITERION option is used to determine data changes during the evaluation. The default value for METHOD is: EXACT. |
-| Input | gamma | Optional. Parameter to specify the criterion for judging the equality of numeric values. The parameter value is only valid when METHOD parameter value is set to ABSOLUTE or PERCENT. |
+| Input | gamma | Optional. Parameter to specify the criterion for judging the equality of numeric values. The GAMMA parameter value is only valid when the METHOD parameter is either set to ABSOLUTE ((C-B)>gamma) or PERCENT (100((C-B)/B)>gamma). |
 | Input | idcols | A blank separated list of column names to be used to match observations between the base and comparison tables. If no id columns are given, both base and compare tables must have identical record entries (only column values are checked for differences). |
 | Input | exclude | Optional. A blank separated list of columns to be excluded from the table comparison routine. |
 | Input | stats | Boolean [Y/N] parameter to specify if an output table containing the comparison statistics is to be created. The default value is: N. |
@@ -270,7 +270,7 @@ run;
  , comp   = WORK.class
  , method = ABSOLUTE
  , gamma  = 0.000001
- , idcols = Name Age
+ , idcols = Name Sex
  , print  = Y
  , debug  = N
    );
@@ -288,7 +288,7 @@ run;
  , comp   = WORK.class
  , method = PERCENT
  , gamma  = 0.000001
- , idcols = Name Age
+ , idcols = Name Sex
  , print  = Y
  , debug  = N
    );
@@ -345,4 +345,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 ***
-*This document was generated on 2024.08.01 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*
+*This document was generated on 2024.08.30 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*

@@ -8,14 +8,14 @@
  *             Run this program in a SAS editor or batch script.
  * 
  * \author     Paul Alexander Canals y Trocha (paul.canals@gmail.com)
- * \date       2024-08-03 00:00:00
- * \version    24.1.08
+ * \date       2025-01-25 00:00:00
+ * \version    25.1.01
  * \sa         https://github.com/paul-canals/toolbox
  * 
  * \calls
  *             + m_val_run_profiling.sas
  * 
- * \copyright  Copyright 2008-2024 Paul Alexander Canals y Trocha
+ * \copyright  Copyright 2008-2025 Paul Alexander Canals y Trocha
  * 
  *     This program is free software: you can redistribute it and/or modify
  *     it under the terms of the GNU General Public License as published by
@@ -50,6 +50,7 @@
    src_tbl = SASHELP.classfit
  , out_lib = WORK
  , replace = Y
+ , d_round = Y
  , print   = Y
  , debug   = N
    );
@@ -87,8 +88,10 @@
 %* Example 4: Step 2 - Run data profiling on the indexed table: ;
 %m_val_run_profiling(
    src_tbl = WORK.prdsale
+ , q_plot  = ALL
+ , q_wght  = Y
  , print   = Y
- , debug   = N
+ , debug   = Y
    );
  
 %* Example 4: Step 3 - Since we are done delete indexed table: ;
@@ -219,5 +222,88 @@ run;
 %* Example 9: Step 3 - Since we are done delete audited table: ;
 proc datasets lib=WORK nodetails noprint;
    delete class (alter=mypasswd);
+quit;
+ 
+%* Example 10: Step 1 - Create and prepare an actual table: ;
+data WORK.class;
+   set SASHELP.class;
+   attrib Repdat length=8 format=ddmmyyp10.;
+   repdat = today();
+run;
+ 
+%* Example 10: Step 2 - Run data profiling checks on actual table: ;
+%m_val_run_profiling(
+   src_tbl = WORK.class
+ , print   = Y
+ , debug   = N
+   );
+ 
+%* Example 10: Step 3 - Run data profiling checks on actual table: ;
+%m_val_run_profiling(
+   src_tbl = WORK.class
+ , t_colmn = Repdat
+ , print   = Y
+ , debug   = N
+   );
+ 
+%* Example 10: Step 4 - Since we are done delete actual table: ;
+proc datasets lib=WORK nodetails noprint;
+   delete class;
+quit;
+ 
+%* Example 11: Step 1 - Create and prepare an actual table: ;
+data WORK.heart;
+   set SASHELP.heart;
+   attrib Repdat length=8 format=ddmmyyp10.;
+   repdat = today();
+run;
+ 
+%* Example 11: Step 2 - Run IQR outlier checks on actual table: ;
+%m_val_run_profiling(
+   src_tbl = WORK.heart
+ , t_colmn = Repdat
+ , q_plot  = ALL
+ , q_mode  = IQR
+ , q_wght  = N
+ , print   = Y
+ , debug   = Y
+   );
+ 
+%* Example 11: Step 3 - Run MAD outlier checks on actual table: ;
+%m_val_run_profiling(
+   src_tbl = WORK.heart
+ , t_colmn = Repdat
+ , q_plot  = HIS
+ , q_mode  = MAD
+ , q_wght  = Y
+ , print   = Y
+ , debug   = N
+   );
+ 
+%* Example 11: Step 4 - Run GINI outlier checks on actual table: ;
+%m_val_run_profiling(
+   src_tbl = WORK.heart
+ , t_colmn = Repdat
+ , q_plot  = HIS
+ , q_mode  = GINI
+ , q_wght  = Y
+ , print   = Y
+ , debug   = N
+   );
+ 
+%* Example 11: Step 5 - Run STD outlier checks on actual table: ;
+%m_val_run_profiling(
+   src_tbl = WORK.heart
+ , t_colmn = Repdat
+ , q_plot  = HIS
+ , q_mode  = STD
+ , q_wght  = Y
+ , print   = Y
+ , debug   = N
+   );
+ 
+%* Example 11: Step 6 - Since we are done delete actual table: ;
+proc datasets lib=WORK nodetails noprint;
+   delete heart;
 quit;
  

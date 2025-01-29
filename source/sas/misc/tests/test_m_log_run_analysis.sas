@@ -8,14 +8,14 @@
  *             Run this program in a SAS editor or batch script.
  * 
  * \author     Paul Alexander Canals y Trocha (paul.canals@gmail.com)
- * \date       2024-05-25 00:00:00
- * \version    24.1.05
+ * \date       2024-08-25 00:00:00
+ * \version    24.1.08
  * \sa         https://github.com/paul-canals/toolbox
  * 
  * \calls
  *             + m_log_run_analysis.sas
  * 
- * \copyright  Copyright 2008-2024 Paul Alexander Canals y Trocha
+ * \copyright  Copyright 2008-2025 Paul Alexander Canals y Trocha
  * 
  *     This program is free software: you can redistribute it and/or modify
  *     it under the terms of the GNU General Public License as published by
@@ -95,8 +95,8 @@ options nosyntaxcheck obs=max;
    in_file    = %str(%sysfunc(getoption(work))/sas.log)
  , program    = RUN_ANALYSIS
  , run_mode   = COPY
- , in_tbl     = SASHELP.cars
- , out_tbl    = WORK.cars
+ , in_tbl     = SASHELP.prdsal2
+ , out_tbl    = WORK.prdsal2
  , file_flg   = Y
  , print      = Y
  , print_log  = Y

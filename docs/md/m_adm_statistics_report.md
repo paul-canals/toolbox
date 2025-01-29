@@ -1,4 +1,4 @@
-![../../misc/images/doc_header.png](../../misc/images/doc_header.png)
+[![../../misc/images/doc_header.png](../../misc/images/doc_header.png)](#)
 # 
 # File Reference: m_adm_statistics_report.sas
 
@@ -13,22 +13,22 @@ The macro creates a report containing the server load and usage statistics. The 
 
  The macro contains the following time analysis modes:
 
-- HIS : to analyse all historical data
-- Y2D : to analyse year-to-date data
-- 12M : to analyse last 12 months data
-- 6M : to analyse last 6 months data
-- 3M : to analyse last 3 months data
-- 1M : to analyse last month data
+ HIS \-> to analyse all historical data
+ Y2D \-> to analyse year-to-date data
+ 12M \-> to analyse last 12 months data
+ 6M \-> to analyse last 6 months data
+ 3M \-> to analyse last 3 months data
+ 1M \-> to analyse last month data
 
  The macro contains the following result report types:
 
-- ALL : complete connection analysis
-- DAY : connection analysis per day
-- DIR : connection analysis per directory
-- HRS : connection analysis per hour
-- MTH : connection analysis per month
-- USR : connection analysis per user
-- WDAY : connection analysis per weekday
+ ALL \-> complete connection analysis
+ DAY \-> connection analysis per day
+ DIR \-> connection analysis per directory
+ HRS \-> connection analysis per hour
+ MTH \-> connection analysis per month
+ USR \-> connection analysis per user
+ WDAY \-> connection analysis per weekday
 
  The result information is presented by a SAS graph or plot step and can be send by email as an PDF format attachment.
 
@@ -39,7 +39,7 @@ The macro creates a report containing the server load and usage statistics. The 
 * Dr. Simone Kossmann (simone.kossmann@web.de)
 
 ### Date
-* 2024-08-03 00:00:00
+* 2024-08-25 00:00:00
 
 ### Version
 * 24.1.08
@@ -88,7 +88,7 @@ The macro creates a report containing the server load and usage statistics. The 
 %m_adm_statistics_report(?)
 ```
 
-##### Example 2: Perform year-to-date monthly user connection analysis.
+##### Example 2: Perform year-to-date monthly user connection analysis:
 ```sas
 %let rc = %sysfunc(filename(fref,.));
 %let cd = %sysfunc(pathname(&fref.));
@@ -107,7 +107,7 @@ The macro creates a report containing the server load and usage statistics. The 
    );
 ```
 
-##### Example 3: Perform all time hourly user connection analysis.
+##### Example 3: Perform 12 months hourly user connection analysis:
 ```sas
 %let rc = %sysfunc(filename(fref,.));
 %let cd = %sysfunc(pathname(&fref.));
@@ -117,7 +117,7 @@ The macro creates a report containing the server load and usage statistics. The 
    rootdir  = %str(&APPL_BASE.)
  , mslogs   = %str(&cd./../SASMeta/MetadataServer/Logs)
  , wslogs   = %str(&cd./../ObjectSpawner/Logs)
- , mode     = HIS
+ , mode     = 12M
  , type     = HRS
  , topusers = 5
  , excltype = @saspw
@@ -126,7 +126,7 @@ The macro creates a report containing the server load and usage statistics. The 
    );
 ```
 
-##### Example 4: Perform year-to-date analysis per user with top 5 users.
+##### Example 4: Perform 6 months analysis per user with top 5 users:
 ```sas
 %let rc = %sysfunc(filename(fref,.));
 %let cd = %sysfunc(pathname(&fref.));
@@ -136,7 +136,7 @@ The macro creates a report containing the server load and usage statistics. The 
    rootdir  = %str(&APPL_BASE.)
  , mslogs   = %str(&cd./../SASMeta/MetadataServer/Logs)
  , wslogs   = %str(&cd./../ObjectSpawner/Logs)
- , mode     = Y2D
+ , mode     = 6M
  , type     = USR
  , topusers = 5
  , excltype = @saspw
@@ -145,7 +145,7 @@ The macro creates a report containing the server load and usage statistics. The 
    );
 ```
 
-##### Example 5: Perform all time complete server connection analysis.
+##### Example 5: Perform 3 months complete server connection analysis:
 ```sas
 %let rc = %sysfunc(filename(fref,.));
 %let cd = %sysfunc(pathname(&fref.));
@@ -155,7 +155,7 @@ The macro creates a report containing the server load and usage statistics. The 
    rootdir  = %str(&APPL_BASE.)
  , mslogs   = %str(&cd./../SASMeta/MetadataServer/Logs)
  , wslogs   = %str(&cd./../ObjectSpawner/Logs)
- , mode     = HIS
+ , mode     = 3M
  , type     = ALL
  , topusers = 5
  , excltype = @saspw
@@ -164,7 +164,7 @@ The macro creates a report containing the server load and usage statistics. The 
    );
 ```
 
-##### Example 6: Perform a complete server connection analysis for a given month.
+##### Example 6: Perform a complete server connection analysis for a given month:
 ```sas
 %let rc = %sysfunc(filename(fref,.));
 %let cd = %sysfunc(pathname(&fref.));
@@ -185,7 +185,7 @@ The macro creates a report containing the server load and usage statistics. The 
    );
 ```
 
-##### Example 7: Perform a file system directory analysis for a given month.
+##### Example 7: Perform a year-to-date file system directory analysis:
 ```sas
 %m_adm_statistics_report(
    rootdir = %str(&APPL_BASE.)
@@ -195,7 +195,7 @@ The macro creates a report containing the server load and usage statistics. The 
    );
 ```
 
-##### Example 8: Send the year-to-date statistics report as PDF to a given email address.
+##### Example 8: Send the year-to-date statistics report as PDF in an email:
 ```sas
 %let rc = %sysfunc(filename(fref,.));
 %let cd = %sysfunc(pathname(&fref.));
@@ -229,4 +229,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 ***
-*This document was generated on 2024.08.03 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*
+*This document was generated on 2024.08.25 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*

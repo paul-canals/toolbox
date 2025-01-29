@@ -1,4 +1,4 @@
-![../../misc/images/doc_banner.png](../../misc/images/doc_banner.png)
+[![../../misc/images/doc_banner.png](../../misc/images/doc_banner.png)](#)
 # 
 # File Reference list
 The SAS&reg; macros (sasautos) may not be listed here, but can be obtained by contacting me through sending an email to: [paul.canals@gmail.com](mailto:paul.canals@gmail.com). 

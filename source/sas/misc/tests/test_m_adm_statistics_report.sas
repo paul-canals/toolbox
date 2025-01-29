@@ -9,14 +9,14 @@
  * 
  * \author     Paul Alexander Canals y Trocha (paul.canals@gmail.com)
  * \author     Dr. Simone Kossmann (simone.kossmann@web.de)
- * \date       2024-08-03 00:00:00
+ * \date       2024-08-25 00:00:00
  * \version    24.1.08
  * \sa         https://github.com/paul-canals/toolbox
  * 
  * \calls
  *             + m_adm_statistics_report.sas
  * 
- * \copyright  Copyright 2008-2024 Paul Alexander Canals y Trocha
+ * \copyright  Copyright 2008-2025 Paul Alexander Canals y Trocha
  * 
  *     This program is free software: you can redistribute it and/or modify
  *     it under the terms of the GNU General Public License as published by
@@ -37,7 +37,7 @@
 %* Example 1: Show help information: ;
 %m_adm_statistics_report(?)
  
-%* Example 2: Perform year-to-date monthly user connection analysis. ;
+%* Example 2: Perform year-to-date monthly user connection analysis: ;
 %let rc = %sysfunc(filename(fref,.));
 %let cd = %sysfunc(pathname(&fref.));
 %let rc = %sysfunc(filename(fref));
@@ -54,7 +54,7 @@
  , debug    = N
    );
  
-%* Example 3: Perform all time hourly user connection analysis. ;
+%* Example 3: Perform 12 months hourly user connection analysis: ;
 %let rc = %sysfunc(filename(fref,.));
 %let cd = %sysfunc(pathname(&fref.));
 %let rc = %sysfunc(filename(fref));
@@ -63,7 +63,7 @@
    rootdir  = %str(&APPL_BASE.)
  , mslogs   = %str(&cd./../SASMeta/MetadataServer/Logs)
  , wslogs   = %str(&cd./../ObjectSpawner/Logs)
- , mode     = HIS
+ , mode     = 12M
  , type     = HRS
  , topusers = 5
  , excltype = @saspw
@@ -71,7 +71,7 @@
  , debug    = N
    );
  
-%* Example 4: Perform year-to-date analysis per user with top 5 users. ;
+%* Example 4: Perform 6 months analysis per user with top 5 users: ;
 %let rc = %sysfunc(filename(fref,.));
 %let cd = %sysfunc(pathname(&fref.));
 %let rc = %sysfunc(filename(fref));
@@ -80,7 +80,7 @@
    rootdir  = %str(&APPL_BASE.)
  , mslogs   = %str(&cd./../SASMeta/MetadataServer/Logs)
  , wslogs   = %str(&cd./../ObjectSpawner/Logs)
- , mode     = Y2D
+ , mode     = 6M
  , type     = USR
  , topusers = 5
  , excltype = @saspw
@@ -88,7 +88,7 @@
  , debug    = N
    );
  
-%* Example 5: Perform all time complete server connection analysis. ;
+%* Example 5: Perform 3 months complete server connection analysis: ;
 %let rc = %sysfunc(filename(fref,.));
 %let cd = %sysfunc(pathname(&fref.));
 %let rc = %sysfunc(filename(fref));
@@ -97,7 +97,7 @@
    rootdir  = %str(&APPL_BASE.)
  , mslogs   = %str(&cd./../SASMeta/MetadataServer/Logs)
  , wslogs   = %str(&cd./../ObjectSpawner/Logs)
- , mode     = HIS
+ , mode     = 3M
  , type     = ALL
  , topusers = 5
  , excltype = @saspw
@@ -105,7 +105,7 @@
  , debug    = N
    );
  
-%* Example 6: Perform a complete server connection analysis for a given month. ;
+%* Example 6: Perform a complete server connection analysis for a given month: ;
 %let rc = %sysfunc(filename(fref,.));
 %let cd = %sysfunc(pathname(&fref.));
 %let rc = %sysfunc(filename(fref));
@@ -124,7 +124,7 @@
  , debug    = N
    );
  
-%* Example 7: Perform a file system directory analysis for a given month. ;
+%* Example 7: Perform a year-to-date file system directory analysis: ;
 %m_adm_statistics_report(
    rootdir = %str(&APPL_BASE.)
  , mode    = Y2D
@@ -132,7 +132,7 @@
  , debug   = Y
    );
  
-%* Example 8: Send the year-to-date statistics report as PDF to a given email address. ;
+%* Example 8: Send the year-to-date statistics report as PDF in an email: ;
 %let rc = %sysfunc(filename(fref,.));
 %let cd = %sysfunc(pathname(&fref.));
 %let rc = %sysfunc(filename(fref));

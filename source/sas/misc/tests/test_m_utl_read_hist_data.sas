@@ -8,14 +8,14 @@
  *             Run this program in a SAS editor or batch script.
  * 
  * \author     Paul Alexander Canals y Trocha (paul.canals@gmail.com)
- * \date       2021-02-08 00:00:00
- * \version    21.1.02
+ * \date       2025-01-28 00:00:00
+ * \version    25.1.01
  * \sa         https://github.com/paul-canals/toolbox
  * 
  * \calls
  *             + m_utl_read_hist_data.sas
  * 
- * \copyright  Copyright 2008-2024 Paul Alexander Canals y Trocha
+ * \copyright  Copyright 2008-2025 Paul Alexander Canals y Trocha
  * 
  *     This program is free software: you can redistribute it and/or modify
  *     it under the terms of the GNU General Public License as published by
@@ -39,30 +39,38 @@
 %* Example 2: Read most actual data from a historised table WORK.class: ;
 data WORK.class;
    set SASHELP.class;
-   attrib LOAD_ID   length=8 format=z8.;
-   attrib LOAD_CD   length=$32.;
-   attrib VALID_DT length=8 format=ddmmyyp10.;
-   attrib VERSION  length=8 format=z5.;
-   attrib LOAD_DTTM length=8 format=datetime20.;
+   attrib
+      LOAD_ID   length=8   format=z8.
+      LOAD_CD   length=$32
+      VALID_DT  length=8   format=ddmmyyp10.
+      VERSION   length=8   format=z5.
+      LOAD_DTTM length=8   format=datetime20.
+      ;
    load_id   = 1;
-   load_cd   = '';
+   load_cd   = 'SAS';
    valid_dt  = "30sep2017"d;
    version   = 1;
    load_dttm = datetime()-2000;
    output;
    load_id   = 2;
-   load_cd   = '';
+   load_cd   = 'SAS';
    valid_dt  = "30sep2017"d;
    version   = 2;
    load_dttm = datetime()-1000;
    output;
    load_id   = 3;
-   load_cd   = '';
+   load_cd   = 'SAS';
    valid_dt  = date();
    version   = 1;
    load_dttm = datetime();
    output;
 run;
+
+proc print data=WORK.class;
+   title 'Example 2: WORK.CLASS (Filtered)';
+   footnote "Filter: Sex = 'F' and Age > 13";
+   where sex eq 'F' and age gt 13;
+run; title; footnote;
 
 %m_utl_read_hist_data(
    intable  = WORK.class (drop=Height Weight)
@@ -70,9 +78,11 @@ run;
  , where    = %str(Sex = 'F' and Age > 13)
  , valid_dt = 30.09.2017
  , verscol  = version
- , debug    = Y
+ , debug    = N
    );
 
 proc print data=WORK.students;
-run;
+   title 'Example 2: WORK.STUDENTS (Filtered)';
+   footnote "Date: 30.09.2017 | Filter: Sex = 'F' and Age > 13";
+run; title; footnote;
  

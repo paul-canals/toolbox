@@ -8,14 +8,14 @@
  *             Run this program in a SAS editor or batch script.
  * 
  * \author     Paul Alexander Canals y Trocha (paul.canals@gmail.com)
- * \date       2024-06-30 00:00:00
- * \version    24.1.06
+ * \date       2025-01-28 00:00:00
+ * \version    25.1.01
  * \sa         https://github.com/paul-canals/toolbox
  * 
  * \calls
  *             + m_utl_save_hist_data.sas
  * 
- * \copyright  Copyright 2008-2024 Paul Alexander Canals y Trocha
+ * \copyright  Copyright 2008-2025 Paul Alexander Canals y Trocha
  * 
  *     This program is free software: you can redistribute it and/or modify
  *     it under the terms of the GNU General Public License as published by
@@ -45,7 +45,7 @@ quit;
 %m_utl_save_hist_data(
    in_tbl   = SASHELP.classfit (drop=Sex rename=(Name=Student))
  , out_tbl  = WORK.classfit
- , where    = %str(Sex = 'F' and Age > 12)
+ , where    = %str(Sex = 'F' and Age > 13)
  , valid_dt = 30.09.2017
  , debug    = Y
    );
@@ -53,13 +53,15 @@ quit;
 %m_utl_save_hist_data(
    intable  = SASHELP.classfit (drop=Sex rename=(Name=Student))
  , outtable = WORK.classfit
- , where    = %str(Sex = 'M' and Age > 12)
+ , where    = %str(Sex = 'M' and Age > 13)
  , valid_dt = 30.09.2017
- , debug    = Y
+ , debug    = N
    );
 
 proc print data=WORK.classfit;
-run;
+   title 'Example 2: SASHELP.CLASSFIT (Filtered)';
+   footnote "Date: 30.09.2017 | Filter: Sex in ('F','M') and Age > 13";
+run; title; footnote;
  
 %* Example 3: Load data from SASHELP.class into a historised table (with LOAD_CD): ;
 %* Initialize class table ;
@@ -70,23 +72,25 @@ quit;
 %m_utl_save_hist_data(
    in_tbl   = SASHELP.class
  , out_tbl  = WORK.class
- , where    = %str(Sex = 'F')
+ , where    = %str(Sex = 'F' and Age > 13)
  , valid_dt = 30.09.2017
  , verscol  = version
  , type_cd  = GIRLS
- , debug    = Y
+ , debug    = N
    );
 
 %m_utl_save_hist_data(
    intable  = SASHELP.class
  , outtable = WORK.class
- , where    = %str(Sex = 'M')
+ , where    = %str(Sex = 'M' and Age > 13)
  , valid_dt = 30.09.2017
  , verscol  = version
  , type_cd  = BOYS
- , debug    = Y
+ , debug    = N
    );
 
 proc print data=WORK.class;
-run;
+   title 'Example 2: SASHELP.CLASS (Filtered)';
+   footnote "Date: 30.09.2017 | Filter: Sex in ('F','M') and Age > 13";
+run; title; footnote;
  

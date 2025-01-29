@@ -1,4 +1,4 @@
-![../../misc/images/doc_header.png](../../misc/images/doc_header.png)
+[![../../misc/images/doc_header.png](../../misc/images/doc_header.png)](#)
 # 
 # File Reference: m_utl_read_hist_data.sas
 
@@ -22,10 +22,10 @@ This macro can be used to extract data from a historised table or dataset using 
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 
 ### Date
-* 2021-02-08 00:00:00
+* 2025-01-28 00:00:00
 
 ### Version
-* 21.1.02
+* 25.1.01
 
 ### Link
 * https://github.com/paul-canals/toolbox
@@ -38,6 +38,7 @@ This macro can be used to extract data from a historised table or dataset using 
 | Input | intable | Alias of the IN_TBL= parameter. |
 | Input | out_tbl | Specifies the full LIBNAME.TABLENAME name of the target SAS dataset or database table. The default value for OUT_TBL is: \_NONE\_. |
 | Input | outtable | Alias of the OUT_TBL= parameter. |
+| Input | engine | Indicator [SAS/DBMS] parameter to specify the library engine of the IN_TBL database table or SAS dataset. Important to note here is that if ENGINE value is not SAS, the VALID_DT column in the database table should be set to datetime format. The default value for ENGINE is: SAS. |
 | Input | where | Optional. Specifies a valid WHERE clause that selects observations from the IN_TBL SAS dataset. Using this argument subsets your data based on the criteria that you supply for the expression. |
 | Input | valid_dt | Specifies the valid date selection for filtering the data content. The value is to be specified by using the following format: _DD.MM.YYYY_. |
 | Input | datecol | Specifies the name of valid date selection column. The default value is: VALID_DT. |
@@ -69,30 +70,38 @@ This macro can be used to extract data from a historised table or dataset using 
 ```sas
 data WORK.class;
    set SASHELP.class;
-   attrib LOAD_ID   length=8 format=z8.;
-   attrib LOAD_CD   length=$32.;
-   attrib VALID_DT length=8 format=ddmmyyp10.;
-   attrib VERSION  length=8 format=z5.;
-   attrib LOAD_DTTM length=8 format=datetime20.;
+   attrib
+      LOAD_ID   length=8   format=z8.
+      LOAD_CD   length=$32
+      VALID_DT  length=8   format=ddmmyyp10.
+      VERSION   length=8   format=z5.
+      LOAD_DTTM length=8   format=datetime20.
+      ;
    load_id   = 1;
-   load_cd   = '';
+   load_cd   = 'SAS';
    valid_dt  = "30sep2017"d;
    version   = 1;
    load_dttm = datetime()-2000;
    output;
    load_id   = 2;
-   load_cd   = '';
+   load_cd   = 'SAS';
    valid_dt  = "30sep2017"d;
    version   = 2;
    load_dttm = datetime()-1000;
    output;
    load_id   = 3;
-   load_cd   = '';
+   load_cd   = 'SAS';
    valid_dt  = date();
    version   = 1;
    load_dttm = datetime();
    output;
 run;
+
+proc print data=WORK.class;
+   title 'Example 2: WORK.CLASS (Filtered)';
+   footnote "Filter: Sex = 'F' and Age > 13";
+   where sex eq 'F' and age gt 13;
+run; title; footnote;
 
 %m_utl_read_hist_data(
    intable  = WORK.class (drop=Height Weight)
@@ -100,15 +109,17 @@ run;
  , where    = %str(Sex = 'F' and Age > 13)
  , valid_dt = 30.09.2017
  , verscol  = version
- , debug    = Y
+ , debug    = N
    );
 
 proc print data=WORK.students;
-run;
+   title 'Example 2: WORK.STUDENTS (Filtered)';
+   footnote "Date: 30.09.2017 | Filter: Sex = 'F' and Age > 13";
+run; title; footnote;
 ```
 
 ### Copyright
-Copyright 2008-2021 Paul Alexander Canals y Trocha. 
+Copyright 2008-2025 Paul Alexander Canals y Trocha. 
  
 This program is free software: you can redistribute it and/or modify 
 it under the terms of the GNU General Public License as published by 
@@ -125,4 +136,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 ***
-*This document was generated on 2021.02.08 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*
+*This document was generated on 2025.01.28 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*

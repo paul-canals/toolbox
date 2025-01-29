@@ -1,10 +1,10 @@
-![../../misc/images/doc_header.png](../../misc/images/doc_header.png)
+[![../../misc/images/doc_header.png](../../misc/images/doc_header.png)](#)
 # 
 # File Reference: m_utl_get_dspath.sas
 
 ### Utilities
 
-##### Utility macro the full path and file name of a SAS dataset.
+##### Utility macro to get full path and file name of a SAS dataset.
 
 ***
 
@@ -17,10 +17,10 @@ The macro uses the funcionality of the SAS proc contents procedure to obtain the
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 
 ### Date
-* 2023-11-23 00:00:00
+* 2024-10-28 00:00:00
 
 ### Version
-* 23.1.11
+* 24.1.10
 
 ### Link
 * https://github.com/paul-canals/toolbox
@@ -61,7 +61,7 @@ The macro uses the funcionality of the SAS proc contents procedure to obtain the
 ```
 
 ### Copyright
-Copyright 2008-2023 Paul Alexander Canals y Trocha. 
+Copyright 2008-2024 Paul Alexander Canals y Trocha. 
  
 This program is free software: you can redistribute it and/or modify 
 it under the terms of the GNU General Public License as published by 
@@ -78,4 +78,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 ***
-*This document was generated on 2023.11.23 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*
+*This document was generated on 2024.10.28 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*

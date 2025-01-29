@@ -1,4 +1,4 @@
-![../../misc/images/doc_header.png](../../misc/images/doc_header.png)
+[![../../misc/images/doc_header.png](../../misc/images/doc_header.png)](#)
 # 
 # File Reference: m_utl_create_zip.sas
 
@@ -24,10 +24,10 @@ This program copies all files from a given directory including sub directories p
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 
 ### Date
-* 2024-03-13 00:00:00
+* 2024-08-26 00:00:00
 
 ### Version
-* 24.1.03
+* 24.1.08
 
 ### Link
 * https://github.com/paul-canals/toolbox
@@ -160,4 +160,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 ***
-*This document was generated on 2024.03.13 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*
+*This document was generated on 2024.08.26 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*

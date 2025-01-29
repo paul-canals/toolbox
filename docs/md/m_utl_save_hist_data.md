@@ -1,4 +1,4 @@
-![../../misc/images/doc_header.png](../../misc/images/doc_header.png)
+[![../../misc/images/doc_header.png](../../misc/images/doc_header.png)](#)
 # 
 # File Reference: m_utl_save_hist_data.sas
 
@@ -20,10 +20,10 @@ This macro can be used to load new data into a historised table or dataset using
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 
 ### Date
-* 2024-06-30 00:00:00
+* 2025-01-28 00:00:00
 
 ### Version
-* 24.1.06
+* 25.1.01
 
 ### Link
 * https://github.com/paul-canals/toolbox
@@ -36,6 +36,7 @@ This macro can be used to load new data into a historised table or dataset using
 | Input | intable | Alias of the IN_TBL= parameter. |
 | Input | out_tbl | Specifies the full LIBNAME.TABLENAME name of the target SAS dataset or database table. The default value for OUT_TBL is: \_NONE\_. |
 | Input | outtable | Alias of the OUT_TBL= parameter. |
+| Input | engine | Indicator [SAS/DBMS] parameter to specify the library engine of the IN_TBL database table or SAS dataset. Important to note here is that if ENGINE value is not SAS, the VALID_DT column in the database table should be set to datetime format. The default value for ENGINE is: SAS. |
 | Input | where | Optional. Specifies a valid WHERE clause that selects observations from the IN_TBL SAS dataset. Using this argument subsets your data based on the criteria that you supply for the expression. |
 | Input | valid_vars | Boolean [Y/N] parameter to specify wether the result column names should be transformed to a valid SAS variable name containing no special characters. The default value is: N. |
 | Input | idcol | Specifies the name of load identifier column The default value for IDCOL is: LOAD_ID. |
@@ -84,7 +85,7 @@ quit;
 %m_utl_save_hist_data(
    in_tbl   = SASHELP.classfit (drop=Sex rename=(Name=Student))
  , out_tbl  = WORK.classfit
- , where    = %str(Sex = 'F' and Age > 12)
+ , where    = %str(Sex = 'F' and Age > 13)
  , valid_dt = 30.09.2017
  , debug    = Y
    );
@@ -92,13 +93,15 @@ quit;
 %m_utl_save_hist_data(
    intable  = SASHELP.classfit (drop=Sex rename=(Name=Student))
  , outtable = WORK.classfit
- , where    = %str(Sex = 'M' and Age > 12)
+ , where    = %str(Sex = 'M' and Age > 13)
  , valid_dt = 30.09.2017
- , debug    = Y
+ , debug    = N
    );
 
 proc print data=WORK.classfit;
-run;
+   title 'Example 2: SASHELP.CLASSFIT (Filtered)';
+   footnote "Date: 30.09.2017 | Filter: Sex in ('F','M') and Age > 13";
+run; title; footnote;
 ```
 
 ##### Example 3: Load data from SASHELP.class into a historised table (with LOAD_CD):
@@ -111,29 +114,31 @@ quit;
 %m_utl_save_hist_data(
    in_tbl   = SASHELP.class
  , out_tbl  = WORK.class
- , where    = %str(Sex = 'F')
+ , where    = %str(Sex = 'F' and Age > 13)
  , valid_dt = 30.09.2017
  , verscol  = version
  , type_cd  = GIRLS
- , debug    = Y
+ , debug    = N
    );
 
 %m_utl_save_hist_data(
    intable  = SASHELP.class
  , outtable = WORK.class
- , where    = %str(Sex = 'M')
+ , where    = %str(Sex = 'M' and Age > 13)
  , valid_dt = 30.09.2017
  , verscol  = version
  , type_cd  = BOYS
- , debug    = Y
+ , debug    = N
    );
 
 proc print data=WORK.class;
-run;
+   title 'Example 2: SASHELP.CLASS (Filtered)';
+   footnote "Date: 30.09.2017 | Filter: Sex in ('F','M') and Age > 13";
+run; title; footnote;
 ```
 
 ### Copyright
-Copyright 2008-2024 Paul Alexander Canals y Trocha. 
+Copyright 2008-2025 Paul Alexander Canals y Trocha. 
  
 This program is free software: you can redistribute it and/or modify 
 it under the terms of the GNU General Public License as published by 
@@ -150,4 +155,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 ***
-*This document was generated on 2024.06.30 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*
+*This document was generated on 2025.01.28 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*

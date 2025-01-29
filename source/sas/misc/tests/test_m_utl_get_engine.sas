@@ -9,14 +9,14 @@
  * 
  * \author     Paul Alexander Canals y Trocha (paul.canals@gmail.com)
  * \author     Dr. Simone Kossmann (simone.kossmann@web.de)
- * \date       2023-11-18 00:00:00
- * \version    23.1.11
+ * \date       2024-10-28 00:00:00
+ * \version    24.1.10
  * \sa         https://github.com/paul-canals/toolbox
  * 
  * \calls
  *             + m_utl_get_engine.sas
  * 
- * \copyright  Copyright 2008-2024 Paul Alexander Canals y Trocha
+ * \copyright  Copyright 2008-2025 Paul Alexander Canals y Trocha
  * 
  *     This program is free software: you can redistribute it and/or modify
  *     it under the terms of the GNU General Public License as published by
