@@ -6,8 +6,8 @@
  * \details    This script can be run in a SAS editor or batch script.
  * 
  * \author     Paul Alexander Canals y Trocha (paul.canals@gmail.com)
- * \date       2025-01-28 00:00:00
- * \version    25.1.01
+ * \date       2025-02-04 00:00:00
+ * \version    25.1.02
  * \sa         https://github.com/paul-canals/toolbox
  * 
  * \copyright  Copyright 2008-2025 Paul Alexander Canals y Trocha.
@@ -30,7 +30,8 @@
 %macro run_macro_compilation(
    sas_path = _NONE_
  , cat_path = _NONE_
- , exclude  = %str(dbaccess)
+ , prefix   = %str()
+ , contains = %str()
  , print    = Y
  , sendmail = N
  , mailaddr = %str()
@@ -52,7 +53,8 @@
    %m_adm_compile_macros(
       indir    = &sas_path.
     , outdir   = &cat_path.
-    , exclude  = &exclude.
+    , prefix   = &prefix.
+    , contains = &contains.
     , print    = &print.
     , sendmail = &sendmail.
     , mailaddr = &mailaddr.
@@ -73,7 +75,7 @@
 %run_macro_compilation(
    sas_path = &APPL_PRGM.
  , cat_path = &APPL_MCAT. 
- , exclude  = %str(access)
+ , prefix   = %str(m_utl_)
  , sendmail = N
  , mailaddr = %str(pact@hermes.local)
  , debug    = N

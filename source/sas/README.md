@@ -6,44 +6,44 @@ The SAS&reg; macros (sasautos) may not be listed here, but can be obtained by co
 # Modules
 
 * Admin
-   * [m_adm_act_list_report.sas](../../docs/md/m_adm_act_list_report.md)
-   * [m_adm_compile_functs.sas](../../docs/md/m_adm_compile_functs.md)
-   * [m_adm_compile_macros.sas](../../docs/md/m_adm_compile_macros.md)
-   * [m_adm_create_backup.sas](../../docs/md/m_adm_create_backup.md)
-   * [m_adm_ctrl_dbaccess.sas](../../docs/md/m_adm_ctrl_dbaccess.md)
-   * [m_adm_ctrl_mdaccess.sas](../../docs/md/m_adm_ctrl_mdaccess.md)
-   * [m_adm_ctrl_rcaccess.sas](../../docs/md/m_adm_ctrl_rcaccess.md)
-   * [m_adm_dbaccess_report.sas](../../docs/md/m_adm_dbaccess_report.md)
-   * [m_adm_kill_user_session.sas](../../docs/md/m_adm_kill_user_session.md)
-   * [m_adm_libraries_report.sas](../../docs/md/m_adm_libraries_report.md)
-   * [m_adm_meta_package.sas](../../docs/md/m_adm_meta_package.md)
-   * [m_adm_migrate_data.sas](../../docs/md/m_adm_migrate_data.md)
-   * [m_adm_sasautos_report.sas](../../docs/md/m_adm_sasautos_report.md)
-   * [m_adm_sessions_report.sas](../../docs/md/m_adm_sessions_report.md)
-   * [m_adm_statistics_report.sas](../../docs/md/m_adm_statistics_report.md)
-   * [m_adm_usage_report.sas](../../docs/md/m_adm_usage_report.md)
-   * [m_adm_usrgroups_report.sas](../../docs/md/m_adm_usrgroups_report.md)
-   * [m_adm_usrlogins_report.sas](../../docs/md/m_adm_usrlogins_report.md)
+   * m_adm_act_list_report.sas
+   * m_adm_compile_functs.sas
+   * m_adm_compile_macros.sas
+   * m_adm_create_backup.sas
+   * m_adm_ctrl_dbaccess.sas
+   * m_adm_ctrl_mdaccess.sas
+   * m_adm_ctrl_rcaccess.sas
+   * m_adm_dbaccess_report.sas
+   * m_adm_kill_user_session.sas
+   * m_adm_libraries_report.sas
+   * m_adm_meta_package.sas
+   * m_adm_migrate_data.sas
+   * m_adm_sasautos_report.sas
+   * m_adm_sessions_report.sas
+   * m_adm_statistics_report.sas
+   * m_adm_usage_report.sas
+   * m_adm_usrgroups_report.sas
+   * m_adm_usrlogins_report.sas
 
 ***
 
 * Custom
-   * [m_cst_compare_tables.sas](../../docs/md/m_cst_compare_tables.sas.md)
-   * [m_cst_create_ddl.sas](../../docs/md/m_cst_create_ddl.md)
-   * [m_cst_create_zip.sas](../../docs/md/m_cst_create_zip.md)
-   * [m_cst_describe_view.sas](../../docs/md/m_cst_describe_view.md)
-   * [m_cst_get_file_list.sas](../../docs/md/m_cst_get_file_list.md)
-   * [m_cst_set_parameter.sas](../../docs/md/m_cst_set_parameter.md)
-   * [m_cst_unpack_zip.sas](../../docs/md/m_cst_unpack_zip.md)
+   * m_cst_compare_tables.sas
+   * m_cst_create_ddl.sas
+   * m_cst_create_zip.sas
+   * m_cst_describe_view.sas
+   * m_cst_get_file_list.sas
+   * m_cst_set_parameter.sas
+   * m_cst_unpack_zip.sas
 
 ***
 
 * Documentation
-   * [m_hdr_chk_structure.sas](../../docs/md/m_hdr_chk_structure.md)
-   * [m_hdr_crt_md_file.sas](../../docs/md/m_hdr_crt_md_file.md)
-   * [m_hdr_crt_pdf_file.sas](../../docs/md/m_hdr_crt_pdf_file.md)
-   * [m_hdr_crt_rtf_file.sas](../../docs/md/m_hdr_crt_rtf_file.md)
-   * [m_hdr_gen_documents.sas](../../docs/md/m_hdr_gen_documents.md)
+   * m_hdr_chk_structure.sas
+   * m_hdr_crt_md_file.sas
+   * m_hdr_crt_pdf_file.sas
+   * m_hdr_crt_rtf_file.sas
+   * m_hdr_gen_documents.sas
 
 ***
 
@@ -55,30 +55,30 @@ The SAS&reg; macros (sasautos) may not be listed here, but can be obtained by co
 ***
 
 * Logging
-   * [m_log_run_analysis.sas](../../docs/md/m_log_run_analysis.md)
-   * [m_log_set_options.sas](../../docs/md/m_log_set_options.md)
-   * [m_log_set_printto.sas](../../docs/md/m_log_set_printto)
+   * m_log_run_analysis.sas
+   * m_log_set_options.sas
+   * m_log_set_printto.sas
 
 ***
 
 * System
-   * [m_sys_get_dbaccess.sas](../../docs/md/m_sys_get_dbaccess.md)
-   * [m_sys_get_mdaccess.sas](../../docs/md/m_sys_get_mdaccess.md)
-   * [m_sys_get_meta_info.sas](../../docs/md/m_sys_get_meta_info.md)
-   * [m_sys_get_rcaccess.sas](../../docs/md/m_sys_get_rcaccess.md)
-   * [m_sys_job_error.sas](../../docs/md/m_sys_job_error.md)
-   * [m_sys_job_flow.sas](../../docs/md/m_sys_job_flow.md)
-   * [m_sys_job_group.sas](../../docs/md/m_sys_job_group.md)
-   * [m_sys_job_status.sas](../../docs/md/m_sys_job_status.md)
-   * [m_sys_job_wrapper.sas](../../docs/md/m_sys_job_wrapper.md)
-   * [m_sys_set_dbaccess.sas](../../docs/md/m_sys_set_dbaccess.md)
-   * [m_sys_upd_dbaccess.sas](../../docs/md/m_sys_upd_dbaccess.md)
+   * m_sys_get_dbaccess.sas
+   * m_sys_get_mdaccess.sas
+   * m_sys_get_meta_info.sas
+   * m_sys_get_rcaccess.sas
+   * m_sys_job_error.sas
+   * m_sys_job_flow.sas
+   * m_sys_job_group.sas
+   * m_sys_job_status.sas
+   * m_sys_job_wrapper.sas
+   * m_sys_set_dbaccess.sas
+   * m_sys_upd_dbaccess.sas
 
 ***
 
 * Testing
-   * [m_test_execute_scripts.sas](../../docs/md/m_test_execute_scripts.md)
-   * [m_test_generate_scripts.sas](../../docs/md/m_test_generate_scripts.md)
+   * m_test_execute_scripts.sas
+   * m_test_generate_scripts.sas
 
 ***
 
@@ -204,9 +204,9 @@ The SAS&reg; macros (sasautos) may not be listed here, but can be obtained by co
 ***
 
  * Validation
-   * [m_val_chk_custom.sas](../../docs/md/m_val_chk_custom.md)
-   * [m_val_chk_duplicates.sas](../../docs/md/m_val_chk_duplicates.md)
-   * [m_val_chk_invalid.sas](../../docs/md/m_val_chk_invalid.md)
-   * [m_val_chk_missing.sas](../../docs/md/m_val_chk_missing.md)
-   * [m_val_run_profiling.sas](../../docs/md/m_val_run_profiling.md)
-   * [m_val_run_validation.sas](../../docs/md/m_val_run_validation.md)
+   * m_val_chk_custom.sas
+   * m_val_chk_duplicates.sas
+   * m_val_chk_invalid.sas
+   * m_val_chk_missing.sas
+   * m_val_run_profiling.sas
+   * m_val_run_validation.sas

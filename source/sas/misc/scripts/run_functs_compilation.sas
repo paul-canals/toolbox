@@ -6,8 +6,8 @@
  * \details    This script can be run in a SAS editor or batch script.
  * 
  * \author     Paul Alexander Canals y Trocha (paul.canals@gmail.com)
- * \date       2025-01-28 00:00:00
- * \version    25.1.01
+ * \date       2025-02-04 00:00:00
+ * \version    25.1.02
  * \sa         https://github.com/paul-canals/toolbox
  * 
  * \copyright  Copyright 2008-2025 Paul Alexander Canals y Trocha.
@@ -31,6 +31,8 @@
    sas_path = _NONE_
  , cmp_path = _NONE_
  , cmp_lib  = _NONE_
+ , prefix   = %str()
+ , contains = %str()
  , print    = Y
  , sendmail = N
  , mailaddr = %str()
@@ -48,6 +50,8 @@
       indir    = &sas_path.
     , outdir   = &cmp_path.
     , outlib   = &cmp_lib.
+    , prefix   = &prefix.
+    , contains = &contains.
     , print    = &print.
     , sendmail = &sendmail.
     , mailaddr = &mailaddr.
@@ -69,6 +73,7 @@
    sas_path = &APPL_FUNC.
  , cmp_path = &APPL_MCAT. 
  , cmp_lib  = WORK.functs.demo
+ , prefix   = %str(f_)
  , sendmail = N
  , mailaddr = %str(pact@hermes.local)
  , debug    = N

@@ -6,8 +6,8 @@
  * \details    This script can be run in a SAS editor or batch script.
  * 
  * \author     Paul Alexander Canals y Trocha (paul.canals@gmail.com)
- * \date       2025-01-28 00:00:00
- * \version    25.1.01
+ * \date       2025-02-04 00:00:00
+ * \version    25.1.02
  * \sa         https://github.com/paul-canals/toolbox
  * 
  * \copyright  Copyright 2008-2025 Paul Alexander Canals y Trocha.
@@ -38,6 +38,8 @@
  , doc_author  = 
  , doc_subject = 
  , append      = N
+ , prefix      = %str()
+ , contains    = %str()
  , print       = Y
  , sendmail    = N
  , mailaddr    = %str()
@@ -74,6 +76,8 @@
     , doc_author  = &doc_author.
     , doc_subject = &doc_subject.
     , append      = &append.
+    , prefix      = &prefix.
+    , contains    = &contains.
     , print       = &print.
     , sendmail    = &sendmail.
     , mailaddr    = &mailaddr.
@@ -108,57 +112,6 @@
  , doc_title   = %str(Paul%'s SAS Macro Utility Toolbox)
  , doc_author  = Paul Alexander Canals y Trocha
  , doc_subject = Generated SAS Documentation
+ , prefix      = %str(m_utl_)
  , debug       = N
    );
-
-/* Optional PDF & RTF Documentation
-%run_macro_documentation(
-   sas_path    = &APPL_PRGM.
- , doc_path    = &APPL_DOCS.
- , exc_lst     = %str(\note \todo \warning)
- , doc_type    = PDF
- , doc_title   = %str(Paul%'s SAS Macro Utility Toolbox)
- , doc_author  = Paul Alexander Canals y Trocha
- , doc_subject = Generated SAS Documentation
- , debug       = N
-   );
-
-%run_macro_documentation(
-   sas_path    = &APPL_PRGM.
- , doc_path    = &APPL_DOCS.
- , exc_lst     = %str(\note \todo \warning)
- , doc_type    = RTF
- , doc_title   = %str(Paul%'s SAS Macro Utility Toolbox)
- , doc_author  = Paul Alexander Canals y Trocha
- , doc_subject = Generated SAS Documentation
- , debug       = N
-   );
-
-%run_macro_documentation(
-   sas_path    = &APPL_PRGM.
- , doc_path    = &APPL_DOCS.
- , exc_lst     = %str(\note \todo \warning)
- , doc_type    = PDF
- , doc_image   = &APPL_BASE./misc/images/toolbox.jpg
- , doc_name    = %str(Reference Manual)
- , doc_title   = %str(Paul%'s SAS Macro Utility Toolbox)
- , doc_author  = Paul Alexander Canals y Trocha
- , doc_subject = Generated SAS Documentation
- , append      = Y
- , debug       = N
-   );
-
-%run_macro_documentation(
-   sas_path    = &APPL_PRGM.
- , doc_path    = &APPL_DOCS.
- , exc_lst     = %str(\note \todo \warning)
- , doc_type    = RTF
- , doc_image   = &APPL_BASE./misc/images/toolbox.jpg
- , doc_name    = %str(Reference Manual)
- , doc_title   = %str(Paul%'s SAS Macro Utility Toolbox)
- , doc_author  = Paul Alexander Canals y Trocha
- , doc_subject = Generated SAS Documentation
- , append      = Y
- , debug       = N
-   );
-*/

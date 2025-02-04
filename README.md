@@ -1,7 +1,7 @@
 [![misc/images/banner.png](misc/images/banner.png)](#)
 
 #
-[![Release: v25.1.01](https://img.shields.io/badge/release-v25.1.01-orange.svg)](#)
+[![Release: v25.1.02](https://img.shields.io/badge/release-v25.1.02-orange.svg)](#)
 [![SAS Version: 9.4](https://img.shields.io/badge/sas-9.4-blue.svg)](https://www.sas.com)
 [![License: GPL v3](https://img.shields.io/badge/license-GPLv3-green.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
@@ -123,7 +123,7 @@ Now we can continue with the Installation Steps.
     | Check if value for APPL_TEST is set: '/pub/toolbox/source/sas/misc/tests' | OK |
     | Check if value for APPL_TMPL is set: '/pub/toolbox/source/sas/misc/templates' | OK |
     | Check if value for APPL_UCMR is set: '/pub/toolbox/source/sas/ucmacros' | OK |
-    | Check if value for APPL_VERS is set: '25.1.01' | OK |
+    | Check if value for APPL_VERS is set: '25.1.02' | OK |
     | Check if directory '/pub/toolbox' exists | OK |
     | Check if directory '/pub/toolbox/config' exists | OK |
     | Check if directory '/pub/toolbox/docs' exists | OK |    
