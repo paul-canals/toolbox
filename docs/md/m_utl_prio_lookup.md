@@ -20,10 +20,10 @@ The macro reads a given lookup table MAP_TBL, and split the mapping entries by a
 * Paul Alexander Canals y Trocha (paul.canals@gmail.com)
 
 ### Date
-* 2024-01-30 00:00:00
+* 2025-01-28 00:00:00
 
 ### Version
-* 24.1.01
+* 25.1.01
 
 ### Link
 * https://github.com/paul-canals/toolbox
@@ -85,7 +85,6 @@ datalines;
 30003     Financial     300         301
 ;
 run;
-
 ```
 
 ##### Example 2: Step 2 - Create an mapping table (priority: CHAR):
@@ -114,7 +113,6 @@ data WORK.map_asset_class;
 53   #                 #         #     NonFinancial
 ;
 run;
-
 ```
 
 ##### Example 2: Step 3 - Perform priority hash lookup:
@@ -130,7 +128,6 @@ run;
  , print   = Y
  , debug   = Y
    );
-
 ```
 
 ##### Example 3: Perform lookup again different order:
@@ -150,7 +147,6 @@ proc print data=WORK.counterparty_map;
    footnote 'Keys: method_cd version_cd cpy_type';
    footnote2 'Cols: asset_class';
 run; title; footnote; footnote2;
-
 ```
 
 ##### Example 4: Perform lookup again different order:
@@ -170,7 +166,6 @@ proc print data=WORK.counterparty_map;
    footnote 'Keys: method_cd cpy_type version_cd';
    footnote2 'Cols: asset_class';
 run; title; footnote; footnote2;
-
 ```
 
 ##### Example 5: Step 1 - Create an example source table:
@@ -195,7 +190,6 @@ datalines;
 30003     Financial     300     301
 ;
 run;
-
 ```
 
 ##### Example 5: Step 2 - Create an mapping table (priority: NUM):
@@ -224,7 +218,6 @@ data WORK.map_product_type;
 55   #             #       #       NonFinancial
 ;
 run;
-
 ```
 
 ##### Example 5: Step 3 - Perform priority hash lookup:
@@ -239,7 +232,6 @@ run;
  , print   = Y
  , debug   = Y
    );
-
 ```
 
 ##### Example 6: Step 1 - Create an example source table:
@@ -268,7 +260,6 @@ run;
 proc print data=WORK.counterparty;
    title 'Ex.6 WORK.COUNTERPARTY (SRC)';
 run; title; footnote;
-
 ```
 
 ##### Example 6: Step 2 - Create an mapping table (No default):
@@ -300,15 +291,36 @@ run;
 proc print data=WORK.map_product_type;
    title 'Ex.6 WORK.MAP_PRODUCT_TYPE (MAP)';
 run; title; footnote;
-
 ```
 
-##### Example 6: Step 3 - Perform priority lookup (No default):
+##### Example 6: Step 3 - Perform SQL priority lookup (No default):
 ```sas
 %m_utl_prio_lookup(
    src_tbl = WORK.counterparty
  , map_tbl = WORK.map_product_type
  , trg_tbl = WORK.counterparty_def
+ , mode    = SQL
+ , prio    = %str(priority)
+ , keys    = %str(cpy_type method_cd version_cd)
+ , cols    = _ALL_
+ , print   = N
+ , debug   = Y
+   );
+
+proc print data=WORK.counterparty_def;
+   title 'Ex.6 Perform SQL lookup with no default';
+   footnote 'Keys: cpy_type method_cd version_cd';
+   footnote2 'Cols: _ALL_';
+run; title; footnote; footnote2;
+```
+
+##### Example 6: Step 4 - Perform Hash priority lookup (No default):
+```sas
+%m_utl_prio_lookup(
+   src_tbl = WORK.counterparty
+ , map_tbl = WORK.map_product_type
+ , trg_tbl = WORK.counterparty_def
+ , mode    = HASH
  , prio    = %str(priority)
  , keys    = %str(cpy_type method_cd version_cd)
  , cols    = _ALL_
@@ -317,15 +329,14 @@ run; title; footnote;
    );
 
 proc print data=WORK.counterparty_def;
-   title 'Ex.6 Perform lookup with no default';
+   title 'Ex.6 Perform Hash lookup with no default';
    footnote 'Keys: cpy_type method_cd version_cd';
    footnote2 'Cols: _ALL_';
 run; title; footnote; footnote2;
-
 ```
 
 ### Copyright
-Copyright 2008-2024 Paul Alexander Canals y Trocha. 
+Copyright 2008-2025 Paul Alexander Canals y Trocha. 
  
 This program is free software: you can redistribute it and/or modify 
 it under the terms of the GNU General Public License as published by 
@@ -342,4 +353,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 
 ***
-*This document was generated on 2024.01.30 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*
+*This document was generated on 2025.01.28 at 00:00:00 by Paul's SAS&reg; Toolbox macro: m_hdr_crt_md_file.sas*

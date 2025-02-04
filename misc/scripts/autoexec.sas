@@ -7,8 +7,8 @@
  *             library using the m_utl_set_sasauto.sas utility macro program.
  * 
  * \author     Paul Alexander Canals y Trocha (paul.canals@gmail.com)
- * \date       2025-01-28 00:00:00
- * \version    25.1.01
+ * \date       2025-02-04 00:00:00
+ * \version    25.1.02
  * \sa         https://github.com/paul-canals/toolbox
  * 
  * \return     Registered toolbox functions, macros and library references.
@@ -99,7 +99,7 @@
  %*---------------------------------------------------------------------------;
     
  %let APPL_NAME = Toolbox;
- %let APPL_VERS = 25.1.01;
+ %let APPL_VERS = 25.1.02;
  %let APPL_CONF = &APPL_BASE./config;
  %let APPL_DOCS = &APPL_BASE./docs;
  %let APPL_LOGS = &APPL_BASE./misc/logs;
